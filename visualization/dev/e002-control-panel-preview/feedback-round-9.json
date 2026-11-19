@@ -1,0 +1,55 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "4fe1839912b247d89bc018c2e03c9f6e",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.6611418047882136,
+      "y": 0.4960631367554859,
+      "text": "You have a dotted line underneath the names of satellites. Remove that; that's a new motif that is not inspired from E-001's visualization.",
+      "createdAt": "2026-11-16T13:44:17+00:00"
+    },
+    {
+      "id": "9c63017e68034dd4be735a14b6e9f0fe",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.621388697053407,
+      "y": 0.5901376371473355,
+      "text": "Satellites need to have motion trails, just like E-001's.",
+      "createdAt": "2026-11-16T13:44:29+00:00"
+    },
+    {
+      "id": "3cf77dbc3f4f4984a46fcda2f96d5bb0",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.5472274976979742,
+      "y": 0.2643331210815047,
+      "text": "The Earth is not moving in the background in either of your reference schemes, which is non-sensical. If the camera is in LEO and the Earth stays the same size, it needs to be rotating.",
+      "createdAt": "2026-11-16T13:44:57+00:00"
+    },
+    {
+      "id": "7d9c1c4ae3e14ef2be5ecd7567638e46",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.4788645257826888,
+      "y": 0.014020865987460815,
+      "text": "Consider the concept of a reference, circular orbit _near_ USA 245's. That might add easily discernible USA 245 motion in addition to Cosmos motion.",
+      "createdAt": "2026-11-16T13:45:47+00:00"
+    },
+    {
+      "id": "a01c3f15d4d54ef8ac2980fabae3b762",
+      "root": "selector",
+      "key": "selector-C",
+      "label": "Cosmos 2543",
+      "x": 0.4453125,
+      "y": 0.5142857142857142,
+      "text": "I'm noticing that the un-selected Cosmos name is in red. Don't make it so; just make it faded in the same way as it's other features (so, resulting in a gray color, not a yellow color).",
+      "createdAt": "2026-11-16T13:46:17+00:00"
+    }
+  ]
+}

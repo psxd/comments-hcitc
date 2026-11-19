@@ -1,0 +1,85 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "bcfb1a626b25463599b09f4c94b6c15c",
+      "root": "panel",
+      "key": "zoomInBtn",
+      "label": "Zoom in",
+      "x": 0.6717900815217391,
+      "y": 0.5798233695652174,
+      "text": "I notice that this plus sign is not centered in it's circular button.",
+      "createdAt": "2026-11-17T01:44:29+00:00"
+    },
+    {
+      "id": "9924a42f244446d88f0bc07297c0cbfa",
+      "root": "panel",
+      "key": "zoomOutBtn",
+      "label": "Zoom out",
+      "x": 0.48513926630434784,
+      "y": 0.46925951086956524,
+      "text": "This one, too, might not be perfectly centered.",
+      "createdAt": "2026-11-17T01:44:44+00:00"
+    },
+    {
+      "id": "028a5361cd62461893beb5dbf3f47107",
+      "root": "panel",
+      "key": "episodeTitle",
+      "label": "A pair of Russian satellites shadowing a U.S. reconnaissance sate",
+      "x": 0.055944055944055944,
+      "y": 0.5813899253731343,
+      "text": "Can you swap the vertical stripe for maybe just the outline of a rounded corner card? And maybe a shimmer, a-la the lab logo in the bottom righthand corner of the entire display?",
+      "createdAt": "2026-11-17T01:45:34+00:00"
+    },
+    {
+      "id": "06dba2ff761f4eba90042315712f38cf",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.4830585290055249,
+      "y": 0.27898977987421386,
+      "text": "I think it could be worth adding a tooltip on hover on this reference orbit, to just overtly tell the reader what's being rendered here.",
+      "createdAt": "2026-11-17T01:46:06+00:00"
+    },
+    {
+      "id": "aeaecdcedc7a48ea85b3daab34e362e7",
+      "root": "panel",
+      "key": "playbackDock",
+      "label": "Playback dock",
+      "x": 0.2777777777777778,
+      "y": 0.5936498397435898,
+      "text": "On page load, I think you should start at the left-most part of the play bar and be already playing.",
+      "createdAt": "2026-11-17T01:46:26+00:00"
+    },
+    {
+      "id": "0cde329c2a5745c8a06e63810aff82ca",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.4795083736187845,
+      "y": 0.6560780267295597,
+      "text": "On the \"Moving [forward] in time\" motif, the dates are harshly added in; make those more subtle fade ins: first day first, the arrow, then second date. All subtler, please.",
+      "createdAt": "2026-11-17T01:47:28+00:00"
+    },
+    {
+      "id": "f7cb494db62144f9b8981e2cadd2bfef",
+      "root": "panel",
+      "key": "pairSticky",
+      "label": "Current episode:COSMOS 2542‹COSMOS 2542COSMOS 2543+USA 245",
+      "x": 0.8117647058823529,
+      "y": 0.4501378676470588,
+      "text": "might looks like the \"USA 245\" text might be formatted to be smaller than COSMOS 2542. They should be the same size.",
+      "createdAt": "2026-11-17T01:48:18+00:00"
+    },
+    {
+      "id": "3582786e2a294347942191cd5d4554ac",
+      "root": "panel",
+      "key": "sticky-A",
+      "label": "Selected COSMOS 2543. Choose another chaser satellite",
+      "x": 0.6704483695652174,
+      "y": 0.44559400642169106,
+      "text": "The camera view on Cosmos 2453 + USA 245 on December 30 I think should always be full Earth ECI. \n\nI want the playback speed to be one fast-fowrard tick faster on relative motion, but not on the ECI. \n\nIn the future, when you give me camera workshop control, I also want to weigh in on playback speeds in certain veiws.",
+      "createdAt": "2026-11-17T01:50:36+00:00"
+    }
+  ]
+}

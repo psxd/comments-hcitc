@@ -1,0 +1,125 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "27a9fc1169bb4dad80b0e69f49157249",
+      "root": "panel",
+      "key": "control-2",
+      "label": "Choose a different episode",
+      "x": 0.890728476821192,
+      "y": 0.20124113475177305,
+      "text": "The phrase \"Choose a different episode\" should have the same baseline as \"Current episode\". They should have the same (but inverted dynamicism for coming and going).",
+      "createdAt": "2026-11-16T21:02:50+00:00"
+    },
+    {
+      "id": "aa8f5454b51f44e9a4baf2101b4f0eb0",
+      "root": "panel",
+      "key": "pairSticky",
+      "label": "COSMOS 2542‹COSMOS 2542COSMOS 2543+USA 245",
+      "x": 0.9148061257404928,
+      "y": 0.5558313138944055,
+      "text": "I've made this comment before, but I'll make it again: this sticky top banner describing what satellite are in this episode should appear way sooner in the scroll. The moment that the top portion of even one satellite pane scrolls out of view, we should be seeing this sticky header.\n\nThe sticky header should dedicate far less space to the Cosmos dropdown than I'm seeing right now. Please just calculate the width of this dropdown box based on the longer of the two names in the drop down. \n\nI think this banner could read \"Now showing: [Chaser] + [Target]\", where the \"Now showing:\" Part is left aligned and then the other asseets just take up the remainng room.",
+      "createdAt": "2026-11-16T21:06:06+00:00"
+    },
+    {
+      "id": "3ae478b845f34aa39a7b85cb9fd64756",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "COSMOS 2542 to USA 245 separation over time",
+      "x": 0.0364916707231406,
+      "y": 0.004913751010237069,
+      "text": "The right parenthesis on this y-axis label is getting cut off. Also all of the assets on this chart are a little blurry; please sharpen everything up.",
+      "createdAt": "2026-11-16T21:07:02+00:00"
+    },
+    {
+      "id": "02d537fefc214a569fe9c174155b3b65",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "COSMOS 2543 to USA 245 separation over time",
+      "x": 0.0909090853586641,
+      "y": 0.07456896551724138,
+      "text": "On really high y-axis tick labels, the tick label is overlapping the y-axis label. That's no good; think around that somehow.",
+      "createdAt": "2026-11-16T21:08:14+00:00"
+    },
+    {
+      "id": "8a1497fb95fc4d35a02e909a69ede6f8",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "COSMOS 2543 to USA 245 separation over time",
+      "x": 0.5614596707364261,
+      "y": 0.8469827586206896,
+      "text": "Tick labels should be centered underneath their corresponding tick mark, even if that means the label stretches past the left or right edges of the plot pane; that's fine with me.",
+      "createdAt": "2026-11-16T21:08:49+00:00"
+    },
+    {
+      "id": "134bf80c392e41a689c100eb8d665770",
+      "root": "panel",
+      "key": "control-6",
+      "label": "How Close Is Too Close?200 km · 0.50 km/s‹",
+      "x": 0.31241741332096234,
+      "y": 0.8550596691313244,
+      "text": "The language to describe how thresholds work (\"To adjust these values ...\") should be right here, not where they appear down below. The text size should be the same as \"The cumulative time ...\". It should read \"Select threshold values by clicking and dragging the labels on the charts above or typing in values in the boxes below.\"\n\nReinstate the text boxes, just line them up in the decimal place. \n\nPlease use the same treatment for fields and values as the satellite details pane.",
+      "createdAt": "2026-11-16T21:11:27+00:00"
+    },
+    {
+      "id": "81baf4c50a9f45dd9f27b4af578ab470",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.3265117874715854,
+      "y": 0.20643606032225917,
+      "text": "I notice that I can't save the camera view when we're in ECI mode. If I could, you'd see the adjustment I want: zooming in some to see the globe and its orbits fill more of the browser height.",
+      "createdAt": "2026-11-16T21:13:06+00:00"
+    },
+    {
+      "id": "9b6a54043feb493b86b6fbe497719c84",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.4650163670644829,
+      "y": 0.6272349949785342,
+      "text": "Hmmm ... I also can't save a camera view for the relative motion frame I want. That's not good. You need to bring me that feature back.",
+      "createdAt": "2026-11-16T21:14:12+00:00"
+    },
+    {
+      "id": "6d8a319c68a44063acadd840a2f1d773",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.31951547047536744,
+      "y": 0.2598503876479254,
+      "text": "You haven't drawn the center satellite's reference orbit. That should be drawn the way you normally draw in orbit in the ECI frame. IT should be a thin black dotted line.",
+      "createdAt": "2026-11-16T21:14:49+00:00"
+    },
+    {
+      "id": "da864e9c16694d90b1b7e9f920ff71b2",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.5977287045985478,
+      "y": 0.5012258805079745,
+      "text": "Changing which satellite is in the origin of the relative motion frame should be a smooth interpolated camera swing. It should also come with drawing and undrawing the reference orbit.",
+      "createdAt": "2026-11-16T21:15:52+00:00"
+    },
+    {
+      "id": "e6af3cd3979848ab9014bf33e8f13c26",
+      "root": "panel",
+      "key": "dwellStat",
+      "label": "208",
+      "x": 0.40140270540338113,
+      "y": 0.49668515084996584,
+      "text": "The dwell time should be written not in units like \"208 mins\" but rather \"3.5 hours\". I hope you can understand how to extrapolate this preference.",
+      "createdAt": "2026-11-16T21:17:05+00:00"
+    },
+    {
+      "id": "b302bda1283c452db6249d5f76d28848",
+      "root": "panel",
+      "key": "playbackDock",
+      "label": "Playback dock",
+      "x": 0.9596491194607919,
+      "y": 0.3445592488169745,
+      "text": "On both page load and clicking on a new chapter in the chapter toggle, I want to start the play sequence from the left-most edge of the playbar, not the very middle.",
+      "createdAt": "2026-11-16T21:17:43+00:00"
+    }
+  ]
+}

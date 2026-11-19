@@ -1,0 +1,1 @@
+E-003 dwell time now uses two abbreviated units: `d` and `h`, or `h` and `min`. The same formatter is used by active E-001, E-002, and E-005 full episode views because the comment applies to all episodes. E-003 playback already matched the other GEO full views at six simulated hours per real second.

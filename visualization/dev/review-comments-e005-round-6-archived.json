@@ -1,0 +1,17 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "505b59bfdc444b58b15f12191a7a676d",
+      "createdAt": "2026-11-17T23:53:03+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "playbackDock",
+      "label": "playbackDock",
+      "x": 0.2719298245614035,
+      "y": 0.6172839506172839,
+      "text": "On page load, animation should be playing immediately from the earliest moment (not the middle moment of the playbar or time of closest approach).",
+      "appliesToAllEpisodes": true
+    }
+  ]
+}

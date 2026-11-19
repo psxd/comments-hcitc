@@ -1,0 +1,49 @@
+body.e002-shared #scene{position:fixed;inset:0 0 0 300px;z-index:0;background:#fffcf6}
+body.e002-shared #scene canvas{display:block;width:100%;height:100%}
+.e002-player-scaffold{display:none}
+.e002-scene-status{position:fixed;z-index:2;right:18px;bottom:74px;max-width:330px;padding:6px 8px;border:1px solid #e5e1d8;border-radius:5px;background:#fffdf9de;color:#666;font-size:10px;line-height:1.3;pointer-events:none}
+body.e002-shared #dataStatusSection label{display:block;margin:7px 0;color:#5f5f5f;font-size:10px;font-weight:700}
+body.e002-shared #dataStatusSection select{display:block;width:100%;margin-top:4px;padding:5px 7px;border:1px solid #d8d8d8;border-radius:5px;background:#fff;color:#444;font-size:11px}
+body.e002-shared #dataStatusSection .methodNote{margin:5px 0 9px;font-size:10px;line-height:1.4}
+body.e002-shared #identity .sourceDot.slotC{background:#707070}
+body.e002-shared #separationChart,body.e002-shared #speedChart{width:100%;height:145px}
+body.e002-shared .e002-dev-toggle{font-size:20px}
+body.e002-shared .e002-camera-editor{display:flex;flex-direction:column;gap:5px;max-height:calc(100vh - 110px);overflow:auto}
+body.e002-shared .e002-camera-editor[hidden]{display:none}
+body.e002-shared .e002-camera-editor select{width:100%;padding:4px;border:1px solid #d3cbb9;border-radius:4px;background:#fff;color:#444;font-size:10px}
+body.e002-shared .e002-camera-editor button{text-align:left}
+body.e002-shared .e002-camera-editor .methodNote{margin:2px 0;line-height:1.4}
+@media(max-width:760px){body.e002-shared #scene{inset:0}.e002-scene-status{right:8px;bottom:64px;max-width:210px;font-size:9px}}
+body.e002-shared #dataStatusSection{padding-top:3px;padding-bottom:7px}
+.e002-story-note{margin:5px 0 7px;color:#555;font-size:11px;line-height:1.42}
+.e002-coverage{color:#777;font-size:10px}
+.e002-coverage summary{width:max-content;cursor:pointer;text-decoration:underline;text-decoration-color:#bbb;text-underline-offset:2px}
+.e002-coverage .methodNote{margin:6px 0 0!important}
+.e002-chapters{display:flex;align-items:center;gap:8px;min-width:0}
+.e002-segmented{display:inline-flex;align-items:center;flex:1;min-width:0;height:28px;padding:2px;border:1px solid #d0d0d0;border-radius:6px;background:#fafafa;gap:2px}
+.e002-segmented button{appearance:none;flex:1;min-width:0;height:22px;padding:0 5px;border:0;border-radius:4px;background:transparent;color:#777;cursor:pointer;font:400 10px/22px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-align:center;white-space:nowrap}
+.e002-segmented button:hover,.e002-segmented button:focus-visible{background:#f5f5f5;outline:1px solid #bda979}
+.e002-segmented button.active{color:#222;background:#fff;font-weight:700;box-shadow:0 1px 4px #00000014}
+body.e002-shared .playbackDock{gap:5px}
+body.e002-shared #rangeStat,body.e002-shared #speedStat{font-size:26px;line-height:1.2;font-weight:750;white-space:normal}
+body.e002-multi-pair #rangeStat,body.e002-multi-pair #speedStat{font-size:12px;line-height:1.4}
+.e002-minimum-line{display:flex;align-items:baseline;gap:4px;flex-wrap:wrap}
+.e002-minimum-line i,.e002-dwell-pairs i{display:inline-block;flex:0 0 7px;width:7px;height:7px;border-radius:50%}
+.e002-chart-legend{display:flex;flex-wrap:wrap;gap:3px 11px;margin:4px 0 2px;color:#666;font-size:9px}
+.e002-chart-legend span{display:inline-flex;align-items:center;gap:4px}
+.e002-chart-legend i{display:inline-block;width:13px;height:3px}
+.e002-chart-overflow{display:grid;gap:2px;min-height:0;color:#777;font-size:9px;line-height:1.25}
+.e002-dwell-pairs{display:grid;gap:5px;margin:7px 0 2px}
+.e002-dwell-pairs>div{display:grid;grid-template-columns:7px minmax(0,1fr) auto;align-items:center;gap:6px;color:#555;font-size:10px}
+.e002-dwell-pairs strong{color:#9d7500;font-size:11px;white-space:nowrap}
+body.e002-shared #dwellMetric .dwellValue{display:flex}
+body.e002-shared #dwellMetric .dwellAmount{display:inline-flex}
+body.e002-shared .e002-minimum-line{display:block}
+body.e002-shared .chartGroup .thresholdEdge{pointer-events:auto;touch-action:none}
+body.e002-shared .e002-scene-status:empty{display:none}
+body.e002-shared #ui{max-height:calc(100vh - var(--e002-dock-height,100px) - 54px);overflow-y:auto}
+body.e002-shared .playbackDock{gap:5px}
+body.e002-shared #scene.chapter-transition{animation:e002-chapter-arrival .32s ease-out}
+@keyframes e002-chapter-arrival{from{opacity:.38}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){body.e002-shared #scene.chapter-transition{animation:none}}
+@media(max-width:760px){.e002-chapters{gap:5px}.e002-segmented button{font-size:9px;padding-inline:3px}}

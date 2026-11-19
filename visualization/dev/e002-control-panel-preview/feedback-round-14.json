@@ -1,0 +1,125 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "b7e0c29fb203479792cba614761b9b15",
+      "root": "panel",
+      "key": "control-2",
+      "label": "Choose a different episode",
+      "x": 0.7185430463576159,
+      "y": 0.20124113475177305,
+      "text": "The effect of _unhovering_ on this Current Episode card should be made more graceful. That is, when you unhover, I want the \"Current Episode\" title and vertical gold highlight bar to reappear in a more dynamic way.",
+      "createdAt": "2026-11-16T20:22:04+00:00"
+    },
+    {
+      "id": "3dd35503d3734130acf0994092fdb825",
+      "root": "panel",
+      "key": "sticky-A",
+      "label": "Select COSMOS 2542",
+      "x": 0.43192486216124876,
+      "y": 0.5501076089889392,
+      "text": "I want this mini-top bar selection to: 1) appear as _soon_ as the two satellite names scroll out of view (right now you have it such that _all_ elements of the satellite assets to be entirely out of view, including the bottom end of the unfurled satellite details pane); and 2) Use a dropdown chevron to change the satellite role that has more than one possible object in it.",
+      "createdAt": "2026-11-16T20:23:50+00:00"
+    },
+    {
+      "id": "1e117a965a354bcc9cdec772f15b4020",
+      "root": "panel",
+      "key": "speedMetric",
+      "label": "Relative velocity metric",
+      "x": 0.5109408765702945,
+      "y": 0.42508289825828305,
+      "text": "\"Estimated relative velocity\" should read \"Relative velocity\"",
+      "createdAt": "2026-11-16T20:24:06+00:00"
+    },
+    {
+      "id": "99efcfec11ba49f583a39af312ec112e",
+      "root": "panel",
+      "key": "speedMinimum",
+      "label": "Minimum this episode: 0.09 km/s on Dec 9, 2019",
+      "x": 0.5437636314900517,
+      "y": 0.4243819625289352,
+      "text": "Don't show things like \"0.09 km/s\" when you can be smarter about switching to m/s.",
+      "createdAt": "2026-11-16T20:24:30+00:00"
+    },
+    {
+      "id": "2746f74e624c461386235bb7ca4683f6",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.6361924757355178,
+      "y": 0.49909201541036713,
+      "text": "I've decided to change my mind about the whole concept of a reference orbit. I want, by default, the target satellite (or the selected target satellite) to be the center origin of the relative motion frame (and its actual orbit in ECI entirely drawn out). Please make a new button in the right hand circular button list to toggle whether its the target or the chaser who gets this luxury. \n\nThis new button is in addition to the button that toggles between relative motion and full-globe ECI. Full globe ECI view should always be one in which the camera is located along the normal vector to the reference orbital plane, and zoomed out enough to see all assets (globe and all satellites).",
+      "createdAt": "2026-11-16T20:27:25+00:00"
+    },
+    {
+      "id": "6ca34498357748469cea07863f572c34",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.3766728718690445,
+      "y": 0.7642771893160992,
+      "text": "In the \"Moving [forward/backward] in time\" title pane, I notice the vertical centering of that title adjusts when the date details are added in. Please account for where the date details will be when you first render the first title, so that that doesn't happen.",
+      "createdAt": "2026-11-16T20:29:21+00:00"
+    },
+    {
+      "id": "912e96a56d7048bb9d0616383b246241",
+      "root": "panel",
+      "key": "control-6",
+      "label": "How Close Is Too Close?100 km · 1.00 km/s‹",
+      "x": 0.8208790933502836,
+      "y": 0.5530751546223959,
+      "text": "I think this how close is too close pane is a lighter gray than the other dropdown panes? Please make it the same. \n\nI also notice that the chevron is not in the same spot as other panes; please move it to that same spot.\n\nI notice a horizontal line below the title when the pane is unfurled that doesn't appear in other dropdowns; remove that.\n\nInstead of giving users a chance to adjust the thresholds right there with typing, please just state what they are and teach users how to adjust them directly on the dynamic charts. \n\nThe dwell time metric needs more information. I think the readers should be directly told that its the _cumulative amount of time in which thresholds are satisfied within the [N] hour episode_.\n\nOn that note, I think I want to formalize the use of 36 hour chapters (time of closest approach plus or minus 18 hours). I'll be going back soon and editing that for E-001, just not yet.",
+      "createdAt": "2026-11-16T20:32:57+00:00"
+    },
+    {
+      "id": "41110ac675b84e0bb78b68e18c8c3e93",
+      "root": "selector",
+      "key": "selector-usa245-section-0",
+      "label": "USA 245 Satellite Details",
+      "x": 0.047058820717887584,
+      "y": 0.447055420792552,
+      "text": "If this data is being pulled from Space-Track, then the country field should read \"Country / org.\"",
+      "createdAt": "2026-11-16T20:33:32+00:00"
+    },
+    {
+      "id": "6b6505b5cacc4ff39c3c579c9e07e7b0",
+      "root": "selector",
+      "key": "selector-usa245-section-1",
+      "label": "USA 245 Orbital Details",
+      "x": 0.04352940907989828,
+      "y": 0.8170206180367555,
+      "text": "I think it's high time for me to tell you about the glossary function. Do you know how the glossary function already works for the SBI model? We want to replicate it here. In short, if you see a string in the control panel that also has a project-tagged definition in our lab glossary (https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4UkGvjUAItDaS6sdxJDEqu6JoAI95k3EkCKf9QXAIAmnzZXEocTeMwFo1U0CldZNkrIHIelx6288p/pubhtml) then please apply the glossary definition treatment. I tried adding a single definition to see if you can figure this out.",
+      "createdAt": "2026-11-16T20:39:21+00:00"
+    },
+    {
+      "id": "2406556cdb854d62babde746f6c5ebae",
+      "root": "panel",
+      "key": "speedStat",
+      "label": "15.24 km/s",
+      "x": 0.08655330089621492,
+      "y": 0.48914823496728616,
+      "text": "If you're showing a speed in km/s you can round it to the nearest km/s.",
+      "createdAt": "2026-11-16T20:39:54+00:00"
+    },
+    {
+      "id": "82012f341e2847f7a97fd70f4f25f82b",
+      "root": "panel",
+      "key": "sliderNow",
+      "label": "Elapsed time within the current playback interval",
+      "x": 0.9235397598447058,
+      "y": 0.2808880226138782,
+      "text": "The current date and time printed here should be nudged to the left a bit to respect the right-side margin conventions.",
+      "createdAt": "2026-11-16T20:40:19+00:00"
+    },
+    {
+      "id": "4c9f6d38550743e9aac9905212018fbd",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.7831860013630126,
+      "y": 0.5184134243160642,
+      "text": "I can't help but notice that elements on the 3D Globe viz aren't very sharp. Country borders are blurry, satellite dots and trails are blurry.\n\nRemember to always connect satellite dots to their tails; I see gaps right now.",
+      "createdAt": "2026-11-16T20:41:00+00:00"
+    }
+  ]
+}

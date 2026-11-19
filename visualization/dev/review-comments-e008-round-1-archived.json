@@ -1,0 +1,53 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "b8f2cabf76344bd595991f67478e7eb4",
+      "createdAt": "2026-11-18T11:26:38+00:00",
+      "surface": "E-008",
+      "root": "panel",
+      "key": "ui",
+      "label": "ui",
+      "x": 0.9327485380116959,
+      "y": 0.06547619047619048,
+      "text": "On page load, both here in the review pane, but also on the published-to-Github version, I often see a flash of old control panel styling before the new one fully loads. Across the board, I never want to see that. If assets are still loading, you should use the loading motif we've developed before.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "248a7332e00045cdb6f9493d261a40df",
+      "createdAt": "2026-11-18T11:27:47+00:00",
+      "surface": "E-008",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "separationChart",
+      "x": 0.9134615384615384,
+      "y": 0.606703629032258,
+      "text": "On the published-to-Github version of these episodes, the control panel is longer than it should be, and extends to be tucked behind the playback/chapter pane. The small gap I see here on the review pane looks great; it just needs to make it onto the pubslihed-to-Git version.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "3129e59c334f4a65a43ff7e1bae27a5f",
+      "createdAt": "2026-11-18T11:30:19+00:00",
+      "surface": "E-008",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "separationChart",
+      "x": 0.8557692307692307,
+      "y": 0,
+      "text": "All episodes must have the sticky \"Current Episode:\" top banner to ensure readers know what objects they're looking at even when they scroll far down the control panel. As a reminder, it should read: \"Current Episode: [Chaser satellite, in gold] + [Target satellite, in gray\". If one of those roles has a dropdown, please put it in its appropriate spot. As a reminder, chaser-identified satellites (whatever appears in the Object A column of the library backend) is always gold, even when users toggle the which-satellite-is-in-the-center button on the 3D globe when its in a relative motion frame.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "8310a86300bc47a39170a8aa222e180a",
+      "createdAt": "2026-11-18T11:31:16+00:00",
+      "surface": "E-008",
+      "root": "panel",
+      "key": "dwellMetric",
+      "label": "dwellMetric",
+      "x": 0.8165467625899281,
+      "y": 0.6414493330678878,
+      "text": "I've made this comment before, but I'll make it again. Across all episodes, the dwell description can go ahead and just all-caps and italicize all satellite names.",
+      "appliesToAllEpisodes": true
+    }
+  ]
+}

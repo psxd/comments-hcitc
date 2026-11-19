@@ -1,0 +1,11 @@
+/* Keep the episode heading and sticky pair cue consistent across full views. */
+body[class*="-shared"] #ui .episode-focus{border:1px solid #e3d4ab!important;border-left:3px solid #d6a527!important;background:#fff4cf!important}
+body[class*="-shared"] #ui .episode-focus-link{padding:8px 10px 10px!important}
+body[class*="-shared"] #ui .episode-focus .titleEpisode{margin-top:5px!important;padding-left:0!important;color:#3d382b!important;-webkit-text-fill-color:#3d382b!important;font-weight:700!important}
+body[class*="-shared"] #ui .episode-focus-period{display:block;margin:4px 0 0;color:#857454;font-size:10px;line-height:1.25;font-weight:600}
+body[class*="-shared"] #ui :is(.pair-sticky,.e003-pair-sticky,.e005-pair-sticky,.e006-pair-sticky,.e008-pair-sticky,.e016-pair-sticky,.e059-pair-sticky){border-bottom:1px solid #e2d4ad!important;border-left:3px solid #d6a527!important;background:#fff4cf!important}
+.episode-neighbors{display:flex;align-items:center;justify-content:space-between;margin:5px 2px 0;font:600 9px/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.episode-neighbors a{padding:4px 5px;border-radius:4px;color:#8a7b5d;text-decoration:none;transition:background .16s,color .16s}
+.episode-neighbors a:hover,.episode-neighbors a:focus-visible{background:#fff3d2;color:#654a0c}
+.episode-neighbors a:first-child::before{content:"‹";margin-right:4px}
+.episode-neighbors a:last-child::after{content:"›";margin-left:4px}

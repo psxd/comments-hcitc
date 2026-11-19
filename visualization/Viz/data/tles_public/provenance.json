@@ -1,0 +1,31 @@
+{
+  "schema": "espl-tle-provenance-v1",
+  "scope": "E-001 historical element files stored in this repository",
+  "retrievalMethod": "Static GitHub file, fetched by the browser for SGP4 propagation",
+  "datasets": [
+    {
+      "path": "40258.json",
+      "sha256": "3046b6490b9fd75f7b3c990120ed97b7f4f2e739df251d8bf1316b855ac83373",
+      "object": { "name": "Luch (Olymp-K)", "norad": "40258", "cospar": "2014-058A" },
+      "kind": "historical",
+      "elements": 1477,
+      "epochRangeUtc": ["2015-01-02T02:37:37.574688Z", "2022-01-22T21:54:47.283264Z"],
+      "sourceGroups": [
+        { "sourceLabelInFile": "TLEs", "elements": 1476, "originatingProvider": "Space-Track.org", "providerEvidence": "User reports direct confirmation from Willa Madsen, original data supplier, on 2026-11-15", "individualArchiveMatch": false, "immediateRetrievalSource": "Historical project copy of Space-Track elements", "retrievedUtc": null, "restrictionStatus": "Basic SSA redistribution permitted with appropriate citation; original retrieval log unavailable" },
+        { "sourceLabelInFile": "CelesTrak GEO via Internet Archive", "elements": 1, "originatingProvider": null, "immediateRetrievalSource": "CelesTrak GEO snapshot preserved by Internet Archive", "retrievedUtc": null, "archiveCaptureUtc": "2018-01-13T22:14:24Z", "sourceUrl": "https://web.archive.org/web/20180113221424id_/http://celestrak.com/NORAD/elements/geo.txt", "restrictionStatus": "Historical snapshot; upstream catalog origin not independently verified" }
+      ]
+    },
+    {
+      "path": "39509.json",
+      "sha256": "89272445f874ed0efd00d2d0213254bd4edbf201eecf4827ae2dc492697a75e5",
+      "object": { "name": "Athena-Fidus", "norad": "39509", "cospar": "2014-006B" },
+      "kind": "historical",
+      "elements": 672,
+      "epochRangeUtc": ["2017-01-01T14:43:00.025536Z", "2018-01-12T14:00:39.237408Z"],
+      "sourceGroups": [
+        { "sourceLabelInFile": "TLEs", "elements": 671, "originatingProvider": "Space-Track.org", "providerEvidence": "User reports direct confirmation from Willa Madsen, original data supplier, on 2026-11-15", "individualArchiveMatch": false, "immediateRetrievalSource": "Historical project copy of Space-Track elements", "retrievedUtc": null, "restrictionStatus": "Basic SSA redistribution permitted with appropriate citation; original retrieval log unavailable" },
+        { "sourceLabelInFile": "CelesTrak GEO via Internet Archive", "elements": 1, "originatingProvider": null, "immediateRetrievalSource": "CelesTrak GEO snapshot preserved by Internet Archive", "retrievedUtc": null, "archiveCaptureUtc": "2018-01-13T22:14:24Z", "sourceUrl": "https://web.archive.org/web/20180113221424id_/http://celestrak.com/NORAD/elements/geo.txt", "restrictionStatus": "Historical snapshot; upstream catalog origin not independently verified" }
+      ]
+    }
+  ]
+}

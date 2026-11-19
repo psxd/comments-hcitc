@@ -1,0 +1,41 @@
+{
+  "schema": "espl-dynamic-table-comments-v1",
+  "comments": [
+    {
+      "id": "25a6d1dd7d27479aa7a649d386b0a43a",
+      "key": "toolbar",
+      "label": "toolbar",
+      "x": 0.9614065180102916,
+      "y": 0.46875,
+      "text": "If you're telling me here that there are 19 episodes, why am I only seeing eight in the dynamic table?",
+      "createdAt": "2026-11-17T14:44:36+00:00"
+    },
+    {
+      "id": "97000fc859cd48a895bfdaa969486016",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.4746461787302871,
+      "y": 0.5738696808510638,
+      "text": "Why can't I adjust this mini preview? That option is grayed out.",
+      "createdAt": "2026-11-17T14:51:30+00:00"
+    },
+    {
+      "id": "944f5382b6ec445196c4f5add32ae6a5",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.734735139506672,
+      "y": 0.8972739361702128,
+      "text": "Let's move this yellow polyhedron that says \"Explore the interactive model\" to just be always visible and left aligned below the episode description both here and on all other expanded rows on the dynamic table. The message should always be visible, but do have some microinteraction on hover (rightward arrow nudges out, polyhedron spins and redraws orbit).",
+      "createdAt": "2026-11-17T14:52:47+00:00"
+    },
+    {
+      "id": "f6425b033a694abf9e38024d7777759b",
+      "key": "E-002-visual-block",
+      "label": "E-002 · visual block",
+      "x": 0.576870198139911,
+      "y": 0.5392287234042553,
+      "text": "One of my students gave me a good idea: include some sort of visual indication while hovering on this mini scene that implies that it's clickable to see the full model. \n\nIdeas: globe should darken some; satellites pulse and get bigger for a moment; the yellow polyhedron (now off to the left) does its microinteration dance.",
+      "createdAt": "2026-11-17T14:54:11+00:00"
+    }
+  ]
+}

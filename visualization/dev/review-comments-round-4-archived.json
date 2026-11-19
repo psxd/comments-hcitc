@@ -1,0 +1,53 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "56c6f74aba0041639a5ce99972762e30",
+      "createdAt": "2026-11-17T16:35:19+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 mini visualization",
+      "x": 0,
+      "y": 0.7319148936170212,
+      "text": "The \"Explore the interactive model\" text is now too close to the polyhedron.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "9f1a7743da074e19b6bacc79f198e847",
+      "createdAt": "2026-11-17T16:35:51+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 mini visualization",
+      "x": 0.26737018311786725,
+      "y": 0.5659574468085107,
+      "text": "Satellites on the mini preview should not have labels.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "9af783227c3246dfba45406dbee64b4e",
+      "createdAt": "2026-11-17T16:36:17+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 mini visualization",
+      "x": 0.26737018311786725,
+      "y": 0.23404255319148937,
+      "text": "Hover effect too extreme on the globe color change; too small on satellite pulse.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "daab75cb094d4161b87774c3278140ff",
+      "createdAt": "2026-11-17T16:36:38+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 mini visualization",
+      "x": 0.1501023605125943,
+      "y": 0.1574468085106383,
+      "text": "Mini preview adjustment pane should allow me to select which satellite is the origin of the relative motion frame.",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

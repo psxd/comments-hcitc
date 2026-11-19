@@ -1,0 +1,41 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "7b1ae3a9883b4b07be8d45eb43503a69",
+      "createdAt": "2026-11-18T05:39:34+00:00",
+      "surface": "E-006",
+      "root": "panel",
+      "key": "identity",
+      "label": "identity",
+      "x": 0.19736842105263158,
+      "y": 0.7674153645833334,
+      "text": "This should be all caps here",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "2a48117228314195bdaa9886deeb8054",
+      "createdAt": "2026-11-18T05:39:52+00:00",
+      "surface": "E-006",
+      "root": "panel",
+      "key": "pairSticky",
+      "label": "pairSticky",
+      "x": 0.8235294117647058,
+      "y": 0.4411764705882353,
+      "text": "INELSAT 7 should be all caps here, too",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "d653f2d7d2f4437db12780f630dc3cc3",
+      "createdAt": "2026-11-18T05:40:38+00:00",
+      "surface": "E-006",
+      "root": "panel",
+      "key": "dwellStat",
+      "label": "dwellStat",
+      "x": 0.5225279709706683,
+      "y": 0.7682746374667061,
+      "text": "Can you add some kind of spacing to make formatting like \"13 d 21 h\" look more legible?",
+      "appliesToAllEpisodes": true
+    }
+  ]
+}

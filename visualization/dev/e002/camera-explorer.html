@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-002 camera exploration · Provisional research</title>
+  <link rel="icon" type="image/png" href="../../../dynamic-table/assets/polyhedron-icon.png">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">{"imports":{"three":"../../Viz/vendor/three/three.module.js","three/addons/":"../../Viz/vendor/three/addons/"}}</script>
+  <script src="../../Viz/vendor/satellite/satellite.min.js"></script>
+  <script type="module" src="app.js?v=6"></script>
+</head>
+<body>
+  <header class="page-header">
+    <div><span class="eyebrow">ESPL · research workspace · E-002</span><h1>Kosmos 2542 / Kosmos 2543 / USA 245</h1><p>Camera exploration from dated orbital elements. This published research route is provisional, not a validated scientific reconstruction.</p></div>
+    <a class="local-badge" href="./">← RETURN TO PLAYBACK</a>
+  </header>
+  <main>
+    <aside class="controls">
+      <section><h2>Historical moment</h2><label for="moment">Select a candidate</label><select id="moment"></select><p id="momentNote" class="note"></p><p id="momentTime" class="time"></p></section>
+      <section><h2>Playback and view</h2><div class="button-row"><button id="play" type="button" aria-label="Play reconstruction">▶ Play</button><button id="reset" type="button">Auto Frame This Moment</button></div><label for="motionMode">Camera behavior</label><select id="motionMode"><option value="inertial">Inertial camera</option><option value="relative">Co-moving pair camera (RTN)</option></select><label for="reference">Camera reference</label><select id="reference"><option value="A">A · Kosmos 2542</option><option value="B">B · USA 245</option><option value="C">C · Kosmos 2543</option></select><p class="hint">Play advances 45 minutes from the selected moment using one element set per craft. The co-moving camera follows B and the nearer Russian craft. Auto Frame This Moment resets the view around the selected instant. Drag to orbit · scroll to zoom; Capture view saves the current moving frame.</p></section>
+      <section><h2>Spacecraft and coverage</h2><div id="coverage" class="coverage"></div><p class="coverage-note">TLEs are fitted orbital elements, not continuous observations. Each displayed position uses its nearest dated element set within 36 hours. This display cutoff is not an accuracy bound.</p></section>
+      <section><h2>Inspect a pair</h2><label for="pair">Pair for approximate values</label><select id="pair"><option value="AB">A · Kosmos 2542 / B · USA 245</option><option value="CB">C · Kosmos 2543 / B · USA 245</option><option value="AC">A · Kosmos 2542 / C · Kosmos 2543</option></select><div id="pairResult" class="pair-result"></div><p class="coverage-note">Instantaneous TLE-derived estimates require both elements within 12 hours. This cutoff is a screening rule, not a confidence interval. No dwell time or close-approach claim is inferred from one frame.</p></section>
+      <section><h2>Camera examples and saved views</h2><label for="viewName">View name</label><input id="viewName" value="Candidate view"><div class="button-row"><button id="capture" type="button">Capture view</button><button id="download" type="button">Download JSON</button></div><div id="savedViews" class="saved-views"></div></section>
+      <section><h2>Data provenance</h2><p class="coverage-note">The dated orbital elements are fetched from <a href="https://willamadsen.github.io/How-Close-Is-Too-Close/" target="_blank" rel="noopener">Willa Madsen's published project</a> and verified against recorded checksums. Russian spacecraft elements are labeled Space-Track; USA 245 elements are labeled SeeSat-L amateur. <a href="data/provenance.json">Element provenance manifest</a> · <a href="https://www.space-track.org/documentation" target="_blank" rel="noopener">Space-Track attribution and terms</a>.</p></section>
+    </aside>
+    <section class="stage" aria-label="Interactive three spacecraft orbital reconstruction">
+      <div id="scene"></div><div id="labels"></div>
+      <div class="stage-caption"><strong>Reconstructed positions</strong><span id="stageDate"></span></div>
+      <div class="stage-legend"><span><i class="dot a"></i>A · Kosmos 2542</span><span><i class="dot b"></i>B · USA 245</span><span><i class="dot c"></i>C · Kosmos 2543</span></div>
+      <div id="stageStatus" class="stage-status"></div>
+    </section>
+  </main>
+  <script type="module" src="../../../shared/comments/comments.js?v=3"></script>
+</body>
+</html>

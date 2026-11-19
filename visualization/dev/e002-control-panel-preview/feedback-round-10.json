@@ -1,0 +1,65 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "83a98b0307be4007bdacf57b3bd943fd",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "Cosmos 2542 to USA 245 separation over time",
+      "x": 0.22756410256410256,
+      "y": 0.5133620689655173,
+      "text": "Remember my preference for these dynamic charts: the line series should be drawn from the right-hand side of the figure, with an x-axis sliding to the left to accommodate more data (a-la the dynamic charts on the SBI model). The only time this should be different is when users click on the dat of closest approach, which should then merely just added a vertical dotted line (that's otherwise not there), while jumping to a playback period that's sometime _after_ that itme of closest approach to show a little of what happenend afterward, too.",
+      "createdAt": "2026-11-16T15:33:43+00:00"
+    },
+    {
+      "id": "b434ec2fe6514beda9e92e026915ca5c",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "Cosmos 2542 to USA 245 separation over time",
+      "x": 0.08653846153846154,
+      "y": 0.05129310344827586,
+      "text": "Remember my preference for these y-axis ticks to be much rounder number? Please do that here.",
+      "createdAt": "2026-11-16T15:34:01+00:00"
+    },
+    {
+      "id": "de9fa8a669c24b30a329a14c5df9ee5a",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.5925989871086557,
+      "y": 0.7864848648119123,
+      "text": "I used to like to these little lines connecting satellite labels to the dots, but I don't anymore; remove them.",
+      "createdAt": "2026-11-16T15:35:31+00:00"
+    },
+    {
+      "id": "736129779c564096997171ab8bae4933",
+      "root": "selector",
+      "key": "selector-A",
+      "label": "Cosmos 2542",
+      "x": 0.40625,
+      "y": 0.5142857142857142,
+      "text": "Don't you feel like we should be consistent and use Space-Track's all-caps name for the satellites (at least in the legend and on the 3D globe)? Please do that.",
+      "createdAt": "2026-11-16T15:36:01+00:00"
+    },
+    {
+      "id": "873d2e60b9ea4b5ca458f23433d99955",
+      "root": "selector",
+      "key": "selector-area",
+      "label": "Satellite selector",
+      "x": 0.9046052631578947,
+      "y": 0.24742268041237114,
+      "text": "When users scroll to the bottom of the control panel, I do want them to know which two satellites they're looking at (i.e. a reminder of which of the two Cosmos they're currently toggled to, plus USA 245). Could you implement some sort of indicator across the top of the control panel with this info when the satellite dropdowns scroll out of view (it should be sticky, meaning as you scroll more, you still see that indicator across the top).",
+      "createdAt": "2026-11-16T15:40:54+00:00"
+    },
+    {
+      "id": "171974eabe8c49f197c07d0f48ccfe09",
+      "root": "panel",
+      "key": "episodeFocus",
+      "label": "Current episodeA pair of Russian satellites shadowing a U.S. reco",
+      "x": 0.39473684210526316,
+      "y": 0.06887019230769231,
+      "text": "I'm still thinking through some creative ideas in my head for how to put the \"Choose a different episode\" action item _here_ instead of across the top. \n\nPerhaps there could be some visual indicator that this episode title area is clickable. Maybe that glimmer we had earlier? On click, it flips over to the back where there's an opportunity to either advance to the next or previous episode or go back to the library). \n\nAnd maybe every once in a while, the \"Current Episode\" eyebrow tickers out of view and changes for that action item (to remind people that they can click that to go back and also teach them to hover over the epsiode title area and maybe learn that it's flippable).",
+      "createdAt": "2026-11-16T15:42:49+00:00"
+    }
+  ]
+}

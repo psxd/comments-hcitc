@@ -1,0 +1,45 @@
+{
+  "schema": "espl-e001-local-review-v1",
+  "comments": [
+    {
+      "id": "33907cae56f04ce0a34a6a3f7cff2c9c",
+      "createdAt": "2026-11-17T14:17:40+00:00",
+      "key": "globe",
+      "label": "3D globe",
+      "x": 0.035522788203753354,
+      "y": 0.0124282982791587,
+      "text": "When the tool first loads, I think the loading sequence is on an off-white background? It should be on a white background.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "c8f0e2b470b6440dbaebc655b830943a",
+      "createdAt": "2026-11-17T14:18:43+00:00",
+      "key": "dwellMetric",
+      "label": "dwell Metric",
+      "x": 0.4352517985611511,
+      "y": 0.69459232277949,
+      "text": "This is a spot on E-001 where you failed to pull updates I made on E-002. Remember: the organization of this control panel should't be different across episodes.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "782087fbe37d4dddbe0c1a0b302dbbdc",
+      "createdAt": "2026-11-17T14:19:54+00:00",
+      "key": "separationChart",
+      "label": "separation Chart",
+      "x": 0.6378205128205128,
+      "y": 0.9188508064516129,
+      "text": "The distance between x-axis ticks on these dynamic charts should be a function of chapter width. I like the width I'm seeing here on E-001 right now (what, three days?); please make that a function of chapter width and apply that function to all x-axis tick renders on all episode viz control panels.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "12e2af149145412eaa2eb43a99782cea",
+      "createdAt": "2026-11-17T14:21:05+00:00",
+      "key": "satMetaA",
+      "label": "sat Meta A",
+      "x": 0.10283687943262411,
+      "y": 0.910092395167022,
+      "text": "Make sure to always be checking the glossary to pull in terms that need to be defined anywhere on this control panel.\n\nI noticed a jittery-ness on the live version when it comes to the glossary motifs and the data source external action button. Investigate and squash that jittery-ness please.",
+      "appliesToAllEpisodes": true
+    }
+  ]
+}

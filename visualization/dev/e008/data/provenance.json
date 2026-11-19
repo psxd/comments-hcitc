@@ -1,0 +1,41 @@
+{
+  "schema": "espl-e008-dated-elements-v1",
+  "source": "Space-Track GP_HISTORY",
+  "retrievedUtc": "2026-11-18T06:14:06.424664+00:00",
+  "queryEpochRanges": [
+    [
+      "2018-02-20",
+      "2018-03-15"
+    ],
+    [
+      "2019-11-15",
+      "2019-12-25"
+    ],
+    [
+      "2023-02-05",
+      "2023-03-25"
+    ]
+  ],
+  "datasets": [
+    {
+      "object": {
+        "norad": "41838"
+      },
+      "url": "data/41838.json",
+      "sha256": "089921e85283cebb1e3b4b6fc31c9ea63d0ccecd5b0e60d724b1fa03ac631a6f",
+      "count": 250,
+      "firstEpoch": "2018-02-20T22:07:52.673088Z",
+      "lastEpoch": "2023-03-24T22:11:42.562752Z"
+    },
+    {
+      "object": {
+        "norad": "30794"
+      },
+      "url": "data/30794.json",
+      "sha256": "d29e7504f6ac154412c20d90d7d18919f52a8e6ebb92b8b9f38803dcbecfc559",
+      "count": 235,
+      "firstEpoch": "2018-02-20T22:12:00.061344Z",
+      "lastEpoch": "2023-03-24T21:29:06.856800Z"
+    }
+  ]
+}

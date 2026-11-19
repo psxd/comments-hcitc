@@ -1,0 +1,161 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "surface": "E-001",
+      "root": "panel",
+      "id": "4fe79befbe3a4823acfdcad93a60eb3e",
+      "createdAt": "2026-11-17T14:48:03+00:00",
+      "key": "dwellMetric",
+      "label": "dwell Metric",
+      "x": 0.07913669064748201,
+      "y": 0.7224924716238128,
+      "text": "You should use mixed capital letters here for satellite names",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "surface": "E-001",
+      "root": "panel",
+      "id": "9945dc6920254533a2ddd0e134aca54c",
+      "createdAt": "2026-11-17T14:49:27+00:00",
+      "key": "referenceBtn",
+      "label": "reference Btn",
+      "x": 0.5869565217391305,
+      "y": 0.5217391304347826,
+      "text": "This button should be grayed out when we're in full-globe ECI view; we neither satellite is the center of the frame for that view so the button is nonsensical.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "surface": "E-002",
+      "root": "panel",
+      "id": "bcfb1a626b25463599b09f4c94b6c15c",
+      "key": "zoomInBtn",
+      "label": "Zoom in",
+      "x": 0.6717900815217391,
+      "y": 0.5798233695652174,
+      "text": "I notice that this plus sign is not centered in it's circular button.",
+      "createdAt": "2026-11-17T01:44:29+00:00"
+    },
+    {
+      "surface": "E-002",
+      "root": "panel",
+      "id": "9924a42f244446d88f0bc07297c0cbfa",
+      "key": "zoomOutBtn",
+      "label": "Zoom out",
+      "x": 0.48513926630434784,
+      "y": 0.46925951086956524,
+      "text": "This one, too, might not be perfectly centered.",
+      "createdAt": "2026-11-17T01:44:44+00:00"
+    },
+    {
+      "surface": "E-002",
+      "root": "panel",
+      "id": "028a5361cd62461893beb5dbf3f47107",
+      "key": "episodeTitle",
+      "label": "A pair of Russian satellites shadowing a U.S. reconnaissance sate",
+      "x": 0.055944055944055944,
+      "y": 0.5813899253731343,
+      "text": "Can you swap the vertical stripe for maybe just the outline of a rounded corner card? And maybe a shimmer, a-la the lab logo in the bottom righthand corner of the entire display?",
+      "createdAt": "2026-11-17T01:45:34+00:00"
+    },
+    {
+      "surface": "E-002",
+      "root": "panel",
+      "id": "06dba2ff761f4eba90042315712f38cf",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.4830585290055249,
+      "y": 0.27898977987421386,
+      "text": "I think it could be worth adding a tooltip on hover on this reference orbit, to just overtly tell the reader what's being rendered here.",
+      "createdAt": "2026-11-17T01:46:06+00:00"
+    },
+    {
+      "surface": "E-002",
+      "root": "panel",
+      "id": "aeaecdcedc7a48ea85b3daab34e362e7",
+      "key": "playbackDock",
+      "label": "Playback dock",
+      "x": 0.2777777777777778,
+      "y": 0.5936498397435898,
+      "text": "On page load, I think you should start at the left-most part of the play bar and be already playing.",
+      "createdAt": "2026-11-17T01:46:26+00:00"
+    },
+    {
+      "surface": "E-002",
+      "root": "panel",
+      "id": "0cde329c2a5745c8a06e63810aff82ca",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.4795083736187845,
+      "y": 0.6560780267295597,
+      "text": "On the \"Moving [forward] in time\" motif, the dates are harshly added in; make those more subtle fade ins: first day first, the arrow, then second date. All subtler, please.",
+      "createdAt": "2026-11-17T01:47:28+00:00"
+    },
+    {
+      "surface": "E-002",
+      "root": "panel",
+      "id": "f7cb494db62144f9b8981e2cadd2bfef",
+      "key": "pairSticky",
+      "label": "Current episode:COSMOS 2542‹COSMOS 2542COSMOS 2543+USA 245",
+      "x": 0.8117647058823529,
+      "y": 0.4501378676470588,
+      "text": "might looks like the \"USA 245\" text might be formatted to be smaller than COSMOS 2542. They should be the same size.",
+      "createdAt": "2026-11-17T01:48:18+00:00"
+    },
+    {
+      "surface": "E-002",
+      "root": "panel",
+      "id": "3582786e2a294347942191cd5d4554ac",
+      "key": "sticky-A",
+      "label": "Selected COSMOS 2543. Choose another chaser satellite",
+      "x": 0.6704483695652174,
+      "y": 0.44559400642169106,
+      "text": "The camera view on Cosmos 2453 + USA 245 on December 30 I think should always be full Earth ECI. \n\nI want the playback speed to be one fast-fowrard tick faster on relative motion, but not on the ECI. \n\nIn the future, when you give me camera workshop control, I also want to weigh in on playback speeds in certain veiws.",
+      "createdAt": "2026-11-17T01:50:36+00:00"
+    },
+    {
+      "surface": "Library",
+      "root": "table",
+      "id": "25a6d1dd7d27479aa7a649d386b0a43a",
+      "key": "toolbar",
+      "label": "toolbar",
+      "x": 0.9614065180102916,
+      "y": 0.46875,
+      "text": "If you're telling me here that there are 19 episodes, why am I only seeing eight in the dynamic table?",
+      "createdAt": "2026-11-17T14:44:36+00:00"
+    },
+    {
+      "surface": "Library",
+      "root": "table",
+      "id": "97000fc859cd48a895bfdaa969486016",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.4746461787302871,
+      "y": 0.5738696808510638,
+      "text": "Why can't I adjust this mini preview? That option is grayed out.",
+      "createdAt": "2026-11-17T14:51:30+00:00"
+    },
+    {
+      "surface": "Library",
+      "root": "table",
+      "id": "944f5382b6ec445196c4f5add32ae6a5",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.734735139506672,
+      "y": 0.8972739361702128,
+      "text": "Let's move this yellow polyhedron that says \"Explore the interactive model\" to just be always visible and left aligned below the episode description both here and on all other expanded rows on the dynamic table. The message should always be visible, but do have some microinteraction on hover (rightward arrow nudges out, polyhedron spins and redraws orbit).",
+      "createdAt": "2026-11-17T14:52:47+00:00"
+    },
+    {
+      "surface": "Library",
+      "root": "table",
+      "id": "f6425b033a694abf9e38024d7777759b",
+      "key": "E-002-visual-block",
+      "label": "E-002 · visual block",
+      "x": 0.576870198139911,
+      "y": 0.5392287234042553,
+      "text": "One of my students gave me a good idea: include some sort of visual indication while hovering on this mini scene that implies that it's clickable to see the full model. \n\nIdeas: globe should darken some; satellites pulse and get bigger for a moment; the yellow polyhedron (now off to the left) does its microinteration dance.",
+      "createdAt": "2026-11-17T14:54:11+00:00"
+    }
+  ]
+}

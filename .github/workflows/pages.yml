@@ -1,0 +1,46 @@
+name: Deploy GitHub Pages
+
+# Publishes the static site and injects the comment backend URLs from
+# repository secrets. No real Apps Script URLs are committed to the repository.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write Apps Script URLs from repository secrets
+        env:
+          APPSCRIPT1_URL: ${{ secrets.APPSCRIPT1_URL }}
+          APPSCRIPT2_URL: ${{ secrets.APPSCRIPT2_URL }}
+        run: |
+          if [ -z "$APPSCRIPT1_URL" ] || [ -z "$APPSCRIPT2_URL" ]; then
+            echo "::error::Set the APPSCRIPT1_URL and APPSCRIPT2_URL repository secrets before deploying."
+            exit 1
+          fi
+          printf 'export const APPSCRIPT1_URL = "%s";\nexport const APPSCRIPT2_URL = "%s";\n' \
+            "$APPSCRIPT1_URL" "$APPSCRIPT2_URL" \
+            > shared/comments/comment-secrets.js
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4

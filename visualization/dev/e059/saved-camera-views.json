@@ -1,0 +1,135 @@
+{
+  "schema": "espl-shared-review-v1",
+  "views": [
+    {
+      "id": "3381e6c13c8746c5b4eccd3eb72a23d7",
+      "createdAt": "2026-11-18T15:08:02+00:00",
+      "chapterId": "chapter-1",
+      "timeUtc": "2026-10-23T01:10:00.000Z",
+      "selected": "B",
+      "referenceSlot": "B",
+      "position": [
+        0.1624501484028979,
+        0.09679299355522906,
+        0.1073217187095255
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "zoom": 1,
+      "fov": 35,
+      "note": ""
+    },
+    {
+      "id": "a2e31d017bab4c4ebaac1e2ef58f50d6",
+      "createdAt": "2026-11-18T15:08:05+00:00",
+      "chapterId": "chapter-1",
+      "timeUtc": "2026-10-23T01:10:00.000Z",
+      "selected": "B",
+      "referenceSlot": "A",
+      "position": [
+        0.16245014840950558,
+        0.09679299354769931,
+        0.10732171870631456
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "zoom": 1,
+      "fov": 35,
+      "note": ""
+    },
+    {
+      "id": "583f27022548484999e40a958377da9f",
+      "createdAt": "2026-11-18T15:08:07+00:00",
+      "chapterId": "chapter-1",
+      "timeUtc": "2026-10-23T01:10:00.000Z",
+      "selected": "B",
+      "referenceSlot": "A",
+      "position": [
+        0.16245014840950558,
+        0.09679299354769931,
+        0.10732171870631456
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "zoom": 1,
+      "fov": 35,
+      "note": ""
+    },
+    {
+      "id": "2935022dc5554b6db6f22005afa66323",
+      "createdAt": "2026-11-18T15:08:09+00:00",
+      "chapterId": "chapter-1",
+      "timeUtc": "2026-10-23T01:10:00.000Z",
+      "selected": "B",
+      "referenceSlot": "A",
+      "position": [
+        0.16245014840950558,
+        0.09679299354769931,
+        0.10732171870631456
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "zoom": 1,
+      "fov": 35,
+      "note": ""
+    },
+    {
+      "id": "af5bf12a31d7411bbd69f68b70fe60aa",
+      "createdAt": "2026-11-18T15:08:10+00:00",
+      "chapterId": "chapter-1",
+      "timeUtc": "2026-10-23T01:10:00.000Z",
+      "selected": "B",
+      "referenceSlot": "A",
+      "position": [
+        0.16245014840950558,
+        0.09679299354769931,
+        0.10732171870631456
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "zoom": 1,
+      "fov": 35,
+      "note": ""
+    }
+  ]
+}

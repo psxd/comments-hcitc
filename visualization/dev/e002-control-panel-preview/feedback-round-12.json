@@ -1,0 +1,115 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "cca06f68a4c94d58969cc07942696cbf",
+      "root": "panel",
+      "key": "episodeTitle",
+      "label": "A pair of Russian satellites shadowing a U.S. reconnaissance sate",
+      "x": 0.8377483443708609,
+      "y": 0.9188432835820896,
+      "text": "Hovering over this area should not result in any offset anywhere else with any other assets. Right now, when I hover over the box, all contents below shift down a bit; I can't have that.",
+      "createdAt": "2026-11-16T16:36:20+00:00"
+    },
+    {
+      "id": "6e64b7b0b20841f299d6042d72a6bf0b",
+      "root": "panel",
+      "key": "control-2",
+      "label": "Choose a different episode",
+      "x": 0.31761006289308175,
+      "y": 0.22071678321678323,
+      "text": "The \"Choose a different episode\" action item needs that cute library book movement microinteraction",
+      "createdAt": "2026-11-16T16:36:57+00:00"
+    },
+    {
+      "id": "12fd8dc7e28d4414b9c22e24a9231a38",
+      "root": "panel",
+      "key": "control-2",
+      "label": "Choose a different episode",
+      "x": 0.9339622641509434,
+      "y": 0.12281468531468531,
+      "text": "When I hover over the episode name and reveal its rounded corner card, that card should have the same margin treatment as those that come below.",
+      "createdAt": "2026-11-16T16:37:20+00:00"
+    },
+    {
+      "id": "91b101b81bb646d4a9556bacff97402f",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "COSMOS 2542 to USA 245 separation over time",
+      "x": 0.6089743589743589,
+      "y": 0.32925646551724136,
+      "text": "I do not want to see this gray dot here.",
+      "createdAt": "2026-11-16T16:37:53+00:00"
+    },
+    {
+      "id": "9ad3b2e0206a414c8e7ef131ec707729",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "COSMOS 2542 to USA 245 separation over time",
+      "x": 0.10897435897435898,
+      "y": 0.08098060344827586,
+      "text": "I know I've said it differently before, but we can do _some_ auto-adjustments on y-axis as more data is revealed. Just make it smooth, please.",
+      "createdAt": "2026-11-16T16:38:19+00:00"
+    },
+    {
+      "id": "e011867d286a47b19abcac3e597a3d11",
+      "root": "panel",
+      "key": "distanceChartGroup",
+      "label": "Separation chart",
+      "x": 0.483974358974359,
+      "y": 0.9031665253039299,
+      "text": "After some thought, it's fine to remove this year label on x-axis; it's just taking up too much space.",
+      "createdAt": "2026-11-16T16:38:41+00:00"
+    },
+    {
+      "id": "dcd5709571814a60834623a1c89258f7",
+      "root": "panel",
+      "key": "chapter-dec30",
+      "label": "December 30 · Cosmos 2542 near USA 245",
+      "x": 0.49830508474576274,
+      "y": 0.6920572916666666,
+      "text": "I feel like this toggle needs a little more breathing room, specifically with respect to the distance between the toggle bar and the top of the small panel its in. To make that space bigger, you could shift the toggle down a bit.",
+      "createdAt": "2026-11-16T16:39:29+00:00"
+    },
+    {
+      "id": "d9ed3f0edf354c1fb3ebab4e2c2fb6d2",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.6105439974677717,
+      "y": 0.4128563381661442,
+      "text": "The reference orbit should disappear when it goes behind the Earth (just like the GEO one does in E-001). It's label should not be in a golden box (it should be like E-001's exactly; even bending around the orbit shape some). \n\nOn hover, it can reveal to users some of the info you currently have in the card in the bottom righthand corner. I don't want that card in the bottom righthand corner, so I think hover could be a fine spot to show people this info.",
+      "createdAt": "2026-11-16T16:43:18+00:00"
+    },
+    {
+      "id": "ac6ea692151545e4b951d792eb5e6855",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.7883467138581952,
+      "y": 0.2746987656739812,
+      "text": "I have optimized the camera angles I shared with you for Cosmos 2543. In some of those angles, Cosmos 2543 is behind the Earth. Do not show satellite dots or trails when they go behind the Earth. When userse toggle to Cosmos 2543, however, there'll need to be a camera adjustment that results in us seenig those two objects of intersest.",
+      "createdAt": "2026-11-16T16:45:02+00:00"
+    },
+    {
+      "id": "320ee3628361467cb39457d220ddc41d",
+      "root": "panel",
+      "key": "chapter-dec9",
+      "label": "December 9 · both Cosmos objects near USA 245",
+      "x": 0.6711864406779661,
+      "y": 0.525390625,
+      "text": "There's room here to spell out hte full dates: \"December 9, 2019\", so may you my as well do that.",
+      "createdAt": "2026-11-16T16:45:25+00:00"
+    },
+    {
+      "id": "ee59bade222245f8bfaeb47f032fdae7",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.428435773480663,
+      "y": 0.28942373628526646,
+      "text": "The animation sequence that shows while jumping between chapter should be over a faded 3D globe viz (not a blank white screen). And it should be centered in the across the portino of the browser _not_ covered by the control panel. Right now, it's centered over the entire browser width, which I don't want.",
+      "createdAt": "2026-11-16T16:46:22+00:00"
+    }
+  ]
+}

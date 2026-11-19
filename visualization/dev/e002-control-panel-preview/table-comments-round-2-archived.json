@@ -1,0 +1,59 @@
+{
+  "schema": "espl-dynamic-table-comments-v1",
+  "comments": [
+    {
+      "id": "5eec8b9261aa4ebe8bc6ee751f0e545a",
+      "key": "heading-1",
+      "label": "Column heading · Space objects",
+      "x": 0.38739330269205513,
+      "y": 0.6460567823343849,
+      "text": "You can remove the line above that says \"Preview Earth Tone\" and all of its assets to the right of it, since we've picked the tone we want and I'll plan to just stick with it now.",
+      "createdAt": "2026-11-17T03:19:47+00:00"
+    },
+    {
+      "id": "de18999b1123412cbfdba5d3435c2a0f",
+      "key": "heading-3",
+      "label": "Column heading · Estimated minimum separation",
+      "x": 0.8116174951211113,
+      "y": 0.8210304942166141,
+      "text": "You can remove the \"Estimated\" from this column title and the next one. I'll just have to use a journal entry to explain what separation distance and relative velocity mean in this context and why they're just estimates. \n\nI think you can please attempt to widen these two columns too so that the each title fits on two lines (right now \"Minimum Separation Distance\" is sitting on three.",
+      "createdAt": "2026-11-17T03:20:56+00:00"
+    },
+    {
+      "id": "8ed0cd16e6e344329cd59c5f41e74b10",
+      "key": "E-002-cell-1",
+      "label": "E-002 · Space objects",
+      "x": 0.45997731749537396,
+      "y": 0.4895054282267792,
+      "text": "In making Cosmos 2543 faded, you also made it gold-ish. It should be faded _black text (i.e. gray).",
+      "createdAt": "2026-11-17T03:21:28+00:00"
+    },
+    {
+      "id": "13b5e984954840f894d69d9b905a35a8",
+      "key": "E-002-visual-block",
+      "label": "E-002 · visual block",
+      "x": 0.6561252304525352,
+      "y": 0.46748941963360857,
+      "text": "Please ensure that this globe is the same color as it is in the E-001 visualization block.",
+      "createdAt": "2026-11-17T03:23:17+00:00"
+    },
+    {
+      "id": "688823eeb1f4466e8ebc7568ac119949",
+      "key": "E-002-visual-block",
+      "label": "E-002 · visual block",
+      "x": 0.5113501408163957,
+      "y": 0.8235816389949392,
+      "text": "Mini preview should not have object labels.\n\nShift entire mini preview up some please. There should be x- and y-location controls in the adjust mini scene tools in the future.",
+      "createdAt": "2026-11-17T03:26:07+00:00"
+    },
+    {
+      "id": "4650386523c343f9ac8417387c34654f",
+      "key": "E-002-evidence-section",
+      "label": "E-002 · evidence section",
+      "x": 0.9965424186203407,
+      "y": 0.9808840780633464,
+      "text": "I see right now that the mini scene's globe doesn't extend all the way to the bottom of the expanded card. It cuts off at some arbitrary line above the bottom of the card. Please make it extend all of the way.",
+      "createdAt": "2026-11-17T03:26:47+00:00"
+    }
+  ]
+}

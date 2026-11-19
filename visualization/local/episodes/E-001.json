@@ -1,0 +1,16 @@
+{
+  "episodeId": "E-001",
+  "label": "Luch (Olymp-K) and Athena-Fidus",
+  "participants": [
+    { "cospar": "2014-058A", "norad": "40258", "name": "Luch (Olymp-K)" },
+    { "cospar": "2014-006B", "norad": "39509", "name": "Athena-Fidus" }
+  ],
+  "initialTime": "2017-10-30T12:20:57Z",
+  "geoReferenceLongitudeDeg": 38.0,
+  "analysisStepMinutes": 15,
+  "maximumTleAgeDays": 3,
+  "defaultThresholds": { "separationKm": 200, "relativeSpeedMps": 10 },
+  "approachNote": "Approach began earlier in October 2017; exact start to be researched.",
+  "historicalOrbitalData": "Willa's published Viz/data/tles_public files plus two checksum-validated January 12, 2018 CelesTrak GEO elements from the Internet Archive snapshot captured January 13; unsupported gaps remain unfilled",
+  "status": "E-001 presentation configuration; source TLEs remain Willa's published historical files"
+}

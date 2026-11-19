@@ -1,0 +1,89 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "e6475ab439834238ac7ffbcca5962366",
+      "createdAt": "2026-11-17T23:00:36+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "playbackDock",
+      "label": "playbackDock",
+      "x": 0.7631578947368421,
+      "y": 0.2911392405063291,
+      "text": "The hover effect on these chapter toggles don't match E-002. \n\nAlso, after the first chapter, you should advance to the next chapter (via the moving forward in time sequence).",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "3f28c2df950b49049506d83ca78c2f59",
+      "createdAt": "2026-11-17T23:03:13+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "pairSticky",
+      "label": "pairSticky",
+      "x": 0.8823529411764706,
+      "y": 0.47058823529411764,
+      "text": "This sticky header should always go: \"[chaser (in gold)] + [target (in gray)]\". So in this case, you should put the USA 270 satellite first, then the Chinese ones via their dropdown.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "06d60fcf0d444140a33395950d03ff27",
+      "createdAt": "2026-11-17T23:03:36+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "scene",
+      "label": "3D globe",
+      "x": 0.5625,
+      "y": 0.5376175548589341,
+      "text": "On page load, you should be centering the gray satellite (because it's the target) on relative motion view.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "97c5402cc15c40d2be5c2fcdfaca2926",
+      "createdAt": "2026-11-17T23:04:59+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "zoomOutBtn",
+      "label": "zoomOutBtn",
+      "x": 0.6521739130434783,
+      "y": 0.5434782608695652,
+      "text": "Is it just me, or is the minus sign here not quite centered. On all full viz, they these symbols should be centered.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "45239803c7b14bb2a01f5ee4e103237d",
+      "createdAt": "2026-11-17T23:06:25+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "identity",
+      "label": "identity",
+      "x": 0.9243421052631579,
+      "y": 0.88720703125,
+      "text": "The chevron on these two satellite details dropdowns aren't lining up; and they should.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "e001d90e5dfa45efbe3e0557a30da0ba",
+      "createdAt": "2026-11-17T23:10:43+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "thresholdControls",
+      "label": "thresholdControls",
+      "x": 0.805921052631579,
+      "y": 0.2982028632348462,
+      "text": "When you're showing very low km/s values on the y-axis, you should be doing m/s.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "22273c477b414306b6c9267466e0b0b0",
+      "createdAt": "2026-11-17T23:12:41+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "thresholdControls",
+      "label": "thresholdControls",
+      "x": 0.8289473684210527,
+      "y": 0.5828205909229364,
+      "text": "Try 10 m/s as as default relative velocity threshold for this episode.",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

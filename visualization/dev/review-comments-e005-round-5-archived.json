@@ -1,0 +1,17 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "94b7ee8621624db29697e26638b7db7c",
+      "createdAt": "2026-11-17T23:45:15+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "dwellMetric",
+      "label": "dwellMetric",
+      "x": 0.8453237410071942,
+      "y": 0.6406529962173999,
+      "text": "Satellite names here should be mixed caps: \"Shiyan 12 01\"",
+      "appliesToAllEpisodes": true
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+// Approved editorial display copy. The published sheet still supplies dates,
+// publication state, records, and the spacecraft selected for plotting.
+export const E002_TITLE = "Russia's Kosmos 2542 and Kosmos 2543 approaching U.S. reconnaissance satellite";
+export const E002_TITLE_MARKUP = "Russia's <em>Kosmos 2542</em> and <em>Kosmos 2543</em> approaching U.S. reconnaissance satellite";
+export const E002_DESCRIPTION = "After launching <em>Kosmos 2542</em> in November 2019, Russia deployed a smaller satellite, <em>Kosmos 2543</em>, from it. The Russian spacecraft subsequently conducted proximity operations near <em>USA 245</em>, an American reconnaissance satellite, prompting public concern from U.S. officials in February 2020. Russia described the spacecraft as part of an inspection mission. Publicly reconstructed orbital data provide an opportunity to examine these encounters, although sparse observations of <em>USA 245</em> complicate precise assessments of separation and relative motion.";

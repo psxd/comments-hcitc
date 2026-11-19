@@ -1,0 +1,29 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "95c4c820bb22473cb2ee3bc8733c9396",
+      "createdAt": "2026-11-17T20:30:20+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "distanceChartGroup",
+      "label": "distance Chart Group",
+      "x": 0.5464743589743589,
+      "y": 0.5723379629629629,
+      "text": "You should practice data smoothing / connecting here.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "6256517f4bc245f0ab86beeceb617219",
+      "createdAt": "2026-11-17T20:30:45+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "e005-chaser",
+      "label": "e005 chaser",
+      "x": 0.12006578947368421,
+      "y": 0.8813305613305613,
+      "text": "Don't forget to pull terms from the glossary in both of these satellite panes. Double check for any glimmer-y effects during playback.",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

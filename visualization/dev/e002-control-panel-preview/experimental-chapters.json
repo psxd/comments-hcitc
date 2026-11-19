@@ -1,0 +1,46 @@
+{
+  "schema": "espl-e002-local-experimental-chapters-v1",
+  "chapters": [
+    {
+      "id": "dec9",
+      "chapterShort": "Dec 9",
+      "chapterTitle": "December 9 · candidate convergence",
+      "start": "2019-12-09T10:55:00Z",
+      "end": "2019-12-09T12:25:00Z",
+      "anchor": "2019-12-09T11:40:00Z",
+      "visualAgeHours": 36,
+      "qualityNote": "Illustrative convergence. USA 245's selected element is about 26 hours old at the anchor; alternate elements change its position by more than the nominal separation. Numeric proximity and dwell values are withheld."
+    },
+    {
+      "id": "dec16",
+      "chapterShort": "Dec 16",
+      "chapterTitle": "December 16 · extended element propagation",
+      "start": "2019-12-16T16:17:00Z",
+      "end": "2019-12-16T17:47:00Z",
+      "anchor": "2019-12-16T17:02:00Z",
+      "visualAgeHours": 360,
+      "preferredTleEpochs": { "B": "2019-12-31T09:35:10.924800Z" },
+      "qualityNote": "Experimental geometry only. The available USA 245 element is propagated backward by about 15 days; this view does not support a separation claim."
+    },
+    {
+      "id": "jan2",
+      "chapterShort": "Jan 2",
+      "chapterTitle": "January 2 · Russian pair comparison",
+      "start": "2020-01-02T09:31:00Z",
+      "end": "2020-01-02T11:01:00Z",
+      "anchor": "2020-01-02T10:16:00Z",
+      "visualAgeHours": 72,
+      "qualityNote": "Experimental geometry only. USA 245's element is roughly two days old. Both Cosmos objects are drawn, but their apparent positions relative to USA 245 are not validated close approaches."
+    },
+    {
+      "id": "jan25",
+      "chapterShort": "Jan 25",
+      "chapterTitle": "January 25 · long extrapolation",
+      "start": "2020-01-25T17:00:00Z",
+      "end": "2020-01-25T20:00:00Z",
+      "anchor": "2020-01-25T18:35:00Z",
+      "visualAgeHours": 650,
+      "qualityNote": "Very long extrapolation. USA 245's element is about 25 days old; nearby element choices shift its modeled position by thousands of kilometers. This is historical context, not a numeric close-pass reconstruction."
+    }
+  ]
+}

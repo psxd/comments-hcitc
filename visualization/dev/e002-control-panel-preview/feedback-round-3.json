@@ -1,0 +1,105 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "43606075c61a4ab8ae1e5f446544fd9a",
+      "root": "panel",
+      "key": "control-1",
+      "label": "Visualizing Proximity in the Space DomainCurrent episodeAll episo",
+      "x": 0.8519736842105263,
+      "y": 0.18047203362431297,
+      "text": "I like the Quiet episode heading the most, but not the placement of the \"All episodes\" action item.\n\nCan you try placing it below the episode name? And instead having it read \"Choose a different episode\"? I want to see what it would look like with and without the little books microinteraction that we developed earlier. Please have that toggleable on your next round for me to investigate it.",
+      "createdAt": "2026-11-16T04:02:12+00:00"
+    },
+    {
+      "id": "7f3f8f780dd14a57b6138f9433078b71",
+      "root": "panel",
+      "key": "ui",
+      "label": "Visualizing Proximity in the Space DomainCurrent episodeAll episo",
+      "x": 0.029239766081871343,
+      "y": 0.4383630145825268,
+      "text": "This highlighted statistic should be rounded to the nearest 5 km.",
+      "createdAt": "2026-11-16T04:02:29+00:00"
+    },
+    {
+      "id": "9a1204ddd48f4cf18d64c411cdbd153f",
+      "root": "panel",
+      "key": "distanceMinimum",
+      "label": "Minimum this episode: 1,786 km on Dec 8, 2019",
+      "x": 0.4769736842105263,
+      "y": 0.35358796296296297,
+      "text": "The minimum should be bolded and also rounded to the nearest 5 km.",
+      "createdAt": "2026-11-16T04:02:47+00:00"
+    },
+    {
+      "id": "7de7f079a45d4387858d4b29dfda6486",
+      "root": "panel",
+      "key": "distanceMinimum",
+      "label": "Minimum this episode: 1,786 km on Dec 8, 2019",
+      "x": 0.7368421052631579,
+      "y": 0.5017361111111112,
+      "text": "There used to be a little calendar microinteraction icon here; please make that toggleable so I can take another look and decide if I like it.",
+      "createdAt": "2026-11-16T04:03:13+00:00"
+    },
+    {
+      "id": "dad7b44bf4924e5daa9b6468091c3e8d",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "Kosmos 2542 to USA 245 separation over time",
+      "x": 0.8301282051282052,
+      "y": 0.16050646551724138,
+      "text": "This data label is supposed to to be to the right of the chart area.",
+      "createdAt": "2026-11-16T04:03:29+00:00"
+    },
+    {
+      "id": "aaf2459208ba432ab97d191de6d9e7ac",
+      "root": "panel",
+      "key": "distanceChartGroup",
+      "label": "Separation chart",
+      "x": 0.9519230769230769,
+      "y": 0.6289228159457168,
+      "text": "This threshold line should extend further off to the right of the chart area some; the label for that threshold should be even further off to the right.",
+      "createdAt": "2026-11-16T04:04:02+00:00"
+    },
+    {
+      "id": "5e2c9ebc091a412291f50d068aa29cf7",
+      "root": "panel",
+      "key": "distanceChartGroup",
+      "label": "Separation chart",
+      "x": 0.5288461538461539,
+      "y": 0.8882763170294977,
+      "text": "Delete this phrase \"90-minute window\"",
+      "createdAt": "2026-11-16T04:04:10+00:00"
+    },
+    {
+      "id": "f13e6fc3420940c08c1f32735f221d77",
+      "root": "panel",
+      "key": "dwellMetric",
+      "label": "0minDwell timeThe duration during which Kosmos 2542 is within 214",
+      "x": 0.44964028776978415,
+      "y": 0.6959878348344836,
+      "text": "Satellite names here should be italicized. Threshold values should be bolded.",
+      "createdAt": "2026-11-16T04:04:46+00:00"
+    },
+    {
+      "id": "5c1e18e4d74840d496ea8a074cd39d2e",
+      "root": "panel",
+      "key": "control-12",
+      "label": "December 7 observer window",
+      "x": 0.21019631260730015,
+      "y": 0.4406960227272727,
+      "text": "This toggle should look more like the toggle above in terms of its color treatments and hover effects.",
+      "createdAt": "2026-11-16T04:05:22+00:00"
+    },
+    {
+      "id": "d02f4780be4445638913f1dddb29fedd",
+      "root": "panel",
+      "key": "sliderNow",
+      "label": "Elapsed time within the current playback interval",
+      "x": 0.7108433734939759,
+      "y": 0.5785094066570188,
+      "text": "Can you try to fit this date and time on one line?",
+      "createdAt": "2026-11-16T04:05:31+00:00"
+    }
+  ]
+}

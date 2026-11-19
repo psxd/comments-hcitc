@@ -1,0 +1,14 @@
+{
+  "schema": "espl-dynamic-table-comments-v1",
+  "comments": [
+    {
+      "id": "0c2740a8dd6a443e9a567895f8c42396",
+      "key": "E-002-visual-block",
+      "label": "E-002 · visual block",
+      "x": 0.7111397645142683,
+      "y": 0.8423420569038718,
+      "text": "The pop up polyhedron should always go in the bottom left corner of the mini preview area. I think it's not at that bottom corner right now (it's a little high), because the episode description is maybe longer than the code expected. Shorter episode descriptions (like E-001's) might have some negative space below them, because there's some sort of minimum mini preview height. Longer ones (like E-001's) sets the mini preview height.",
+      "createdAt": "2026-11-17T03:39:59+00:00"
+    }
+  ]
+}

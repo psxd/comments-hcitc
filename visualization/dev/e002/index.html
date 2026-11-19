@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-002 · Visualizing Proximity in Space · Development preview</title>
+  <link rel="icon" type="image/png" href="../../../dynamic-table/assets/polyhedron-icon.png">
+  <link rel="stylesheet" href="player.css?v=3">
+  <script type="importmap">{"imports":{"three":"../../Viz/vendor/three/three.module.js","three/addons/":"../../Viz/vendor/three/addons/"}}</script>
+  <script src="../../Viz/vendor/satellite/satellite.min.js"></script>
+  <script type="module" src="player.js?v=16"></script>
+</head>
+<body>
+  <header class="header"><a href="../../../dynamic-table/">← Episodes of Concern</a><span>ESPL · DEVELOPMENT RECONSTRUCTION</span></header>
+  <main>
+    <section class="intro"><div><h1>Visualizing Proximity in Space</h1><h2>Russia's <em>Kosmos 2542</em> and <em>Kosmos 2543</em> approaching U.S. reconnaissance satellite</h2><p>Playback starts automatically. Pause or scrub to inspect reconstructed orbital motion. Dated elements for USA 245 are sparse; the available viewing windows are narrower than the historical episode.</p></div><a class="advanced" href="camera-explorer.html">Advanced camera explorer ↗</a></section>
+    <section class="viewer" aria-label="E-002 orbital animation"><div id="scene"></div><div id="labels"></div><div class="viewer-badge">PROVISIONAL MODEL · E-002</div><div id="sceneStatus" class="scene-status" role="status">Loading dated orbital elements…</div></section>
+    <section class="playback" aria-label="Playback controls"><div class="playback-top"><button id="play" type="button" aria-label="Play animation">▶ <span>Play</span></button><strong id="timestamp">—</strong><button id="frameMode" type="button" aria-pressed="false">Relative camera</button><button id="autoFrame" type="button">Auto frame</button></div><input id="timeline" type="range" min="0" max="1" value="0" step="1000" aria-label="Simulation time"><div class="playback-foot"><span id="startLabel">—</span><span id="endLabel">—</span></div></section>
+    <section class="below"><div><label for="moment">Historical window</label><select id="moment"></select><p id="momentNote"></p></div><div class="coverage"><h3>Spacecraft and data coverage</h3><div id="coverageRows"></div></div></section>
+    <footer><p>Positions and trails are SGP4 reconstructions from dated elements, not continuous observations or measured separations. No close-approach statistic is inferred from these frames. <a href="data/provenance.json">Element provenance</a> · <a href="RESEARCH.md">Research notes</a>.</p></footer>
+  </main>
+  <script type="module" src="../../../shared/comments/comments.js?v=3"></script>
+</body>
+</html>

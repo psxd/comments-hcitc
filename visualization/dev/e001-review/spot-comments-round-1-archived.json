@@ -1,0 +1,23 @@
+{
+  "schema": "espl-e001-local-review-v1",
+  "comments": [
+    {
+      "id": "0afaccb91bb14784a53bf1c8d932e4b0",
+      "createdAt": "2026-11-17T04:14:51+00:00",
+      "key": "ui",
+      "label": "ui",
+      "x": 0.8654970760233918,
+      "y": 0.04201680672268908,
+      "text": "It's very clear that this control panel is not actually taking notes from the E-002 full viz' control panel, as I asked you to do. \n\nCurrent episode motif is not right.\n\nThe satellites' should be presented in as they are in Space-Track: all caps. No data source until you see dropdown.\n\nMany other things; please implement all of those changes to make this match.\n\nI'm also seeing this control panel be a fatter width than it should be and have th wrong color. So many things wrong! Do better."
+    },
+    {
+      "id": "883923f2a5a64b3fbf0f6c654c3eb2b0",
+      "createdAt": "2026-11-17T04:15:39+00:00",
+      "key": "globe",
+      "label": "3D globe",
+      "x": 0.31029810298102983,
+      "y": 0.819672131147541,
+      "text": "Camera workshop interactive used to be small and along the bottom, which was a good spot for it. Where it is not it just totally blocks the globe (which I need to be seeing in order to handle the camera workshopping well!)."
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "f96c96340d7c4ab4a4170ef42819bd2e",
+      "createdAt": "2026-11-18T01:46:42+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-visual-block",
+      "label": "E-002 mini visualization",
+      "x": 0.3509233974116809,
+      "y": 0.5941176470588235,
+      "text": "Once again, this mini viz looks good when I'm in adjustment mode, but then bad when I leave it.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "b0e98e66d1fa49968f0da66a3edc890d",
+      "createdAt": "2026-11-18T01:47:07+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-visual-block",
+      "label": "E-002 mini visualization",
+      "x": 0.08289529072716871,
+      "y": 0.8264705882352941,
+      "text": "I can see that this viz has a background color that's slightly different from the background color of the expanded card; please fix.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "40041d5c159740c38db8321845e6ccc6",
+      "createdAt": "2026-11-18T01:48:06+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-source-3",
+      "label": "E-002 · source 3",
+      "x": 0.5240660438437179,
+      "y": 0.4066406291696172,
+      "text": "When there's a fourth card, you need to add a carousel indicator along the bottom (centered; please borrow it from the lab website; you can find it in the news updates pane on any of the research area webpages) that has the chevrons on either side to change it around.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "5bce2514e32d4096ba3011b608e380cf",
+      "createdAt": "2026-11-18T01:48:50+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-005-source-0",
+      "label": "E-005 · source 0",
+      "x": 0.6517214975948472,
+      "y": 0.33266808645583534,
+      "text": "When I hover over this one, it jumps up (good!), but as part of that jump up, it reveals that it's z-order is such that it's _under_ the other content in the expanded row. It should be _front-most_.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "9e3630378a33486f9efd153cfa2dd9fa",
+      "createdAt": "2026-11-18T01:49:41+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.15309724006173972,
+      "y": 0.3270279255319149,
+      "text": "It takes a long while for this to load after expansion. It should load immediately. And it's the November 24 chapter I want to see. Mini previews should only show one TLE per satellite.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "6d93f002110d4db1a94d0ecce33e691c",
+      "createdAt": "2026-11-18T01:50:35+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-005-visual-block",
+      "label": "E-005 · visual block",
+      "x": 0.2346109426101223,
+      "y": 0.4812569082583294,
+      "text": "I don't want to see the tail of SHIYAN 12 02 through the satellite dot. In this case, just delete the tail.",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "310f411b76c648eaa28ab21a1faa3a0a",
+      "root": "panel",
+      "key": "episodeTitle",
+      "label": "Russia's Kosmos 2542 and Kosmos 2543 approaching U.S. reconnaissa",
+      "x": 0.2993421052631579,
+      "y": 0.4769123134328358,
+      "text": "Both in the episode title and episode description, I see you're not yet pulling in my latest updates from the library Google Sheet (where I updated spellings to follow the Cosmos with a C conventions).",
+      "createdAt": "2026-11-16T05:55:11+00:00"
+    },
+    {
+      "id": "297ecebf80b84fccb356e7728e5c05d7",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.5079707642725598,
+      "y": 0.46889694357366773,
+      "text": "Why is one yellow dot bigger than the other on the 3D globe viz? Make it not so.",
+      "createdAt": "2026-11-16T05:55:31+00:00"
+    },
+    {
+      "id": "ee09587687e345748922d7eddf4fedb6",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.49230979511970535,
+      "y": 0.4832851684952978,
+      "text": "Tails on these relatively moving satellites needs to match those, in pixels at this zoom level, as what we see on the public GitHub version of the E-001 tool. Investigate that if you don't know what I mean.",
+      "createdAt": "2026-11-16T05:56:04+00:00"
+    },
+    {
+      "id": "2b122ed73cc24924b4e2d4d5106c2318",
+      "root": "selector",
+      "key": "selector-cosmos-2542-section-1",
+      "label": "Cosmos 2542 Orbital Details",
+      "x": 0.648936170212766,
+      "y": 0.4494831437327931,
+      "text": "I'm surprised that you're only using one TLE each for both Cosmos 2542 and 2543. Aren't there more available from Space-Track? \n\nWrite a quick script to download these using some publicly available SpaceTrack python library. Prompt me for my login credentials if you need them.",
+      "createdAt": "2026-11-16T05:58:46+00:00"
+    },
+    {
+      "id": "1a10cf12d79448729ad1d1ff4ddcc843",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.5656077348066298,
+      "y": 0.20379849137931033,
+      "text": "The Earth now has no continents or borders on it; that's a mistake, add those back in.",
+      "createdAt": "2026-11-16T05:59:38+00:00"
+    },
+    {
+      "id": "0dde2ae9ccea4330b5a9e9881b0562b6",
+      "root": "panel",
+      "key": "timelineSlider",
+      "label": "Playback time bar",
+      "x": 0.3553388855034193,
+      "y": 0.58154296875,
+      "text": "This playback bar should be shaded in gray or gold if one or both of the how-close-is-too-close thresholds are met.",
+      "createdAt": "2026-11-16T06:00:09+00:00"
+    },
+    {
+      "id": "6fc55592da7743a9b3d4107013923b3b",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.6004438593462247,
+      "y": 0.5302030270376176,
+      "text": "When satellite labels are far from the satellite they're labeling, add a reference line (just to try it!). This could be a toggle to turn on/off feature (where the toggle is somewhere off pane).",
+      "createdAt": "2026-11-16T06:01:07+00:00"
+    },
+    {
+      "id": "4584c101aa3d4e019a07fb367c043a41",
+      "root": "panel",
+      "key": "autoCamera",
+      "label": "Reset view",
+      "x": 0.5735394021739131,
+      "y": 0.5145210597826086,
+      "text": "I removed this home button from the public E-001 viz tool; you would have known that if you went and inspected it.",
+      "createdAt": "2026-11-16T06:01:58+00:00"
+    },
+    {
+      "id": "9136aa575ab74a019207ffbcd93d77bf",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.590728591160221,
+      "y": 0.4901119220219436,
+      "text": "Do try to center the relative motion around some hypothetical satellite in a circular orbit that's at something like the midpoint between USA 245 and whichever of the two Cosmos satellites is selected. That will give me historical motion tails for both USA 245 and the Cosmos satellite selected.\n\nAdd an off-pane toggle to check the difference between using this arbitrary midpoint as a reference, vs using USA 245 as as a reference.",
+      "createdAt": "2026-11-16T06:03:08+00:00"
+    },
+    {
+      "id": "97ac77fd38f74716854952578d99f124",
+      "root": "panel",
+      "key": "speedChartGroup",
+      "label": "Velocity chart",
+      "x": 0.9006410256410257,
+      "y": 0.5728489303552917,
+      "text": "This moveable threshold should be to the nearest 1 m/s; no decimal.",
+      "createdAt": "2026-11-16T06:03:35+00:00"
+    },
+    {
+      "id": "a69ac8291a884942a7730115cac6cc0c",
+      "root": "panel",
+      "key": "distanceThresholdSlider",
+      "label": "Separation threshold",
+      "x": 0.697841726618705,
+      "y": 0.37109375,
+      "text": "Instead of these two thresholds being modifiable via slider bar, just make it a text box where we can change the value (where doing so has the expected visual effect on the two dynamic charts). Nearest 5 km for separation distance here; nearest 1 m/s for rel vel.",
+      "createdAt": "2026-11-16T06:04:35+00:00"
+    }
+  ]
+}

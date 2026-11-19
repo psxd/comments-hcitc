@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-label="ESPL polyhedron">
+  <path fill="#ba7200" d="M32 4 50 12 60 30 51 51 32 60 13 51 4 30 14 12Z"/>
+  <path fill="#f5bb2a" d="M32 4 14 12 22 24 41 22 50 12Z"/>
+  <path fill="#eaa000" d="m14 12-10 18 18-6Z"/>
+  <path fill="#ffcf48" d="m14 12 8 12 10 11 9-13Z"/>
+  <path fill="#f2ac11" d="m50 12-9 10 9 13 10-5Z"/>
+  <path fill="#d98900" d="m4 30 9 21 19-16-10-11Z"/>
+  <path fill="#f3af17" d="m22 24 10 11 18 0-9-13Z"/>
+  <path fill="#d78b05" d="m50 35 10-5-9 21-19 9Z"/>
+  <path fill="#e99b0a" d="m32 35-19 16 19 9 19-9 9-21-10 5Z"/>
+  <path fill="#f8bb28" d="m32 35 18 0 1 16-19 9Z"/>
+</svg>

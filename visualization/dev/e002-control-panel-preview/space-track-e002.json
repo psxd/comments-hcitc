@@ -1,0 +1,41 @@
+{
+  "schema": "espl-e002-space-track-satcat-extract-v1",
+  "source": "User-provided Space-Track SATCAT CSV export",
+  "sourceSha256": "0a5cfed6c17a0669a94dcd9264b81fd913c0ac3f56c98ca5f9d74ce8a559be85",
+  "records": {
+    "2013-043A": {
+      "NORAD_CAT_ID": "39232",
+      "OBJECT_ID": "2013-043A",
+      "SATNAME": "USA 245",
+      "OBJECT_TYPE": "PAYLOAD",
+      "COUNTRY": "US",
+      "LAUNCH": "2013-08-28",
+      "SITE": "AFWTR",
+      "DECAY": ""
+    },
+    "2019-079A": {
+      "NORAD_CAT_ID": "44797",
+      "OBJECT_ID": "2019-079A",
+      "SATNAME": "COSMOS 2542",
+      "OBJECT_TYPE": "PAYLOAD",
+      "COUNTRY": "CIS",
+      "LAUNCH": "2019-11-25",
+      "SITE": "PKMTR",
+      "DECAY": "2023-10-24"
+    },
+    "2019-079D": {
+      "NORAD_CAT_ID": "44835",
+      "OBJECT_ID": "2019-079D",
+      "SATNAME": "COSMOS 2543",
+      "OBJECT_TYPE": "PAYLOAD",
+      "COUNTRY": "CIS",
+      "LAUNCH": "2019-11-25",
+      "SITE": "PKMTR",
+      "DECAY": "2024-08-26"
+    }
+  },
+  "launchSiteNames": {
+    "PKMTR": "Plesetsk Cosmodrome",
+    "AFWTR": "Vandenberg Air Force Base"
+  }
+}

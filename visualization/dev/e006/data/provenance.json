@@ -1,0 +1,41 @@
+{
+  "schema": "espl-e006-dated-elements-v1",
+  "source": "Space-Track GP_HISTORY",
+  "retrievedUtc": "2026-11-18T03:52:15.247819+00:00",
+  "queryEpochRange": [
+    "2015-05-15",
+    "2015-10-15"
+  ],
+  "datasets": [
+    {
+      "object": {
+        "norad": "40258"
+      },
+      "url": "data/40258.json",
+      "sha256": "5ac12a10e292077ecb37cea250ab4706fafdbf8e63a858fdf532ec160757b228",
+      "count": 226,
+      "firstEpoch": "2015-05-15T17:02:11.898816Z",
+      "lastEpoch": "2015-10-14T16:01:41.136672Z"
+    },
+    {
+      "object": {
+        "norad": "25473"
+      },
+      "url": "data/25473.json",
+      "sha256": "2983bd14083496376464dc02160d6dab4d9ac3a46c8fb42a43d6f34dea77200c",
+      "count": 152,
+      "firstEpoch": "2015-05-15T20:53:15.476928Z",
+      "lastEpoch": "2015-10-14T08:31:20.539776Z"
+    },
+    {
+      "object": {
+        "norad": "26824"
+      },
+      "url": "data/26824.json",
+      "sha256": "862a81e994e63b32c1886646c5dc06fc73b23d350b963785f52bc3297a64ccf7",
+      "count": 111,
+      "firstEpoch": "2015-05-17T21:19:56.784288Z",
+      "lastEpoch": "2015-10-14T08:31:20.539776Z"
+    }
+  ]
+}

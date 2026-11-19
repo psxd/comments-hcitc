@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<!-- ESPL E-001 publication, adapted from Willa Madsen’s How Close Is Too Close? visualization. -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    const query = new URLSearchParams(location.search);
+    if (query.get("episode") === "E-002") location.replace(new URL("../e002/", location.href));
+    else if (query.get("mini") === "1") document.documentElement.classList.add("mini-scene", "episode-initializing");
+    else if (!query.has("dev") && !query.has("published") && (!query.has("episode") || query.get("episode") === "E-001") && (!query.has("case") || query.get("case") === "E-001")) location.replace(new URL("../e001/", location.href));
+    else if (["E-003", "E-004", "E-005", "E-006", "E-007", "E-008"].includes(query.get("episode"))) document.documentElement.classList.add("episode-initializing");
+  </script>
+  <title>Visualizing Proximity in Space</title>
+  <link rel="icon" type="image/png" href="../../dynamic-table/assets/polyhedron-icon.png">
+  <!-- Reuse the original page's styling so both pages look the same -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../dev/review-nav.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three/three.module.js","three/addons/":"./vendor/three/addons/","topojson-client":"./vendor/topojson/topojson-client.js"}}</script>
+  <script type="module" src="../dev/review-shell.js?v=2"></script>
+  <link rel="stylesheet" href="../../shared/episode-loading.css">
+  <link rel="stylesheet" href="../../shared/episode-panel.css?v=3">
+  <style>.mini-scene body{background:#fffcf6}.mini-scene #ui,.mini-scene #playbackDock,.mini-scene #cameraControls,.mini-scene #geoBeltLabel,.mini-scene #gtLogo,.mini-scene #cameraDevTools,.mini-scene #satelliteScreenLabels{display:none!important}.mini-scene .sceneCanvas{pointer-events:none}.mini-scene.mini-editing .sceneCanvas{pointer-events:auto}</style>
+  <style>
+    .episode-initializing body>:not(#episodeBoot){visibility:hidden!important}
+    #episodeBoot{display:none;position:fixed;inset:0;z-index:10000;align-items:center;justify-content:center;gap:12px;background:#fff;color:#5e5645;font:700 13px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .episode-initializing #episodeBoot{display:flex}
+    #episodeBoot .episode-boot-dots{display:flex;gap:5px}
+    #episodeBoot .episode-boot-dots i{display:block;width:6px;height:6px;border-radius:50%;background:#d4ac42;animation:episode-boot-pulse 1.1s ease-in-out infinite}
+    #episodeBoot .episode-boot-dots i:nth-child(2){animation-delay:.14s}#episodeBoot .episode-boot-dots i:nth-child(3){animation-delay:.28s}
+    @keyframes episode-boot-pulse{0%,80%,100%{opacity:.35;transform:scale(.8)}40%{opacity:1;transform:scale(1.15)}}
+    #e001PairSticky{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:6px;margin:-18px -18px 12px;padding:8px;border-bottom:1px solid #ddd;background:#fffffff2;box-shadow:0 2px 7px #0000000c;font:700 10px/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    #e001PairSticky[hidden]{display:none}#e001PairSticky span{display:inline-flex;align-items:center;gap:5px;min-width:0;white-space:nowrap}#e001PairSticky b{overflow:hidden;text-overflow:ellipsis;font-size:9px}#e001PairSticky i{display:block;width:9px;height:9px;flex:0 0 9px;border:1.5px solid #333;border-radius:50%}.pair-chaser i{background:#eaaa00}.pair-target i{background:#a9a9a9}#e001PairSticky .pair-intro{color:#8d6b1d;font-size:9px;text-transform:uppercase}
+  </style>
+  <style>#episodeBoot{flex-direction:column;gap:12px;background:#fff}#episodeBoot .episode-boot-dots{gap:9px}#episodeBoot .episode-boot-dots i{width:11px;height:11px;border:1.5px solid #64615a;background:#a9a9a9;animation:espl-loading-dot 1.35s ease-in-out infinite}#episodeBoot .episode-boot-dots i:nth-child(2){animation-delay:.18s}#episodeBoot .episode-boot-dots i:nth-child(3){animation-delay:.36s}</style>
+</head>
+
+<body>
+  <div id="episodeBoot" role="status" aria-live="polite"><span class="episode-boot-dots" aria-hidden="true"><i></i><i></i><i></i></span><span id="episodeBootText">Loading episode</span></div>
+  <!-- The side panel. Everything with an id="..." is something compare.js reads or updates. -->
+  <aside id="ui">
+    <div class="episodeHeader">
+      <a class="backEpisodes" href="../../dynamic-table/"><svg class="libraryBackArrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m0 0 6-6m-6 6 6 6"/></svg><span>Choose a different episode</span><svg class="libraryBooks" viewBox="0 0 20 20" aria-hidden="true"><path class="libraryBookOne" d="M2.5 3.5h4v13h-4z"/><path class="libraryBookTwo" d="M8 3.5h4v13H8z"/><path class="libraryBookThree" d="M13.5 5l3.5-.8 2 11.8-3.5.8z"/></svg></a>
+      <h1>Visualizing Proximity in Space</h1>
+      <div class="titleEpisode" id="episodeTitle">Loading episode…</div>
+      <div id="episodeDescription" class="episodeDescription"></div>
+    </div>
+
+  <!-- Which satellites are being modeled, and which TLE is in use right now.
+       A fold-out card with one tile per satellite, in the style of the lab's sbi-constellation-viz. -->
+  <details id="nowModeling" class="panelSection nowModeling" open>
+    <summary>
+      <span class="nowHeading">Now modeling</span>
+      <span id="nowSummary" class="nowSummary"></span>
+      <span class="nowChevron" aria-hidden="true">‹</span>
+    </summary>
+    <div id="identity" class="satCardGrid"></div>
+  </details>
+
+  <section id="dataStatusSection" class="panelSection" hidden> 
+      <div id="rangeNote" class="methodNote"></div>
+            <!-- Only when a link opened an incident: its ID, and buttons to switch pairs if it has three satellites -->
+      <div id="caseBox" class="caseBox" hidden>
+        <div id="caseTitle" class="sectionTitle"></div>
+        <div id="casePairs" class="casePairs"></div>
+      </div>
+    </section>
+
+    <!-- Find a satellite: opens and closes when its title is clicked ("details" does this by itself). Inside: the lookup box, then the two dropdown menus. -->
+    <details id="findSection" class="panelSection findSection" hidden>
+      <summary class="sectionTitle">Find a satellite</summary>
+      <div class="lookupRow">
+        <input id="lookupInput" type="text" placeholder="NORAD number, designator, or name">
+        <button id="lookupBtn" type="button">Look up</button>
+      </div>
+      <div id="lookupResult" class="methodNote"></div>
+      <!-- Shown only when the satellite found has TLE history on this site -->
+      <div id="lookupActions" class="lookupRow" hidden>
+        <button id="loadAsA" type="button"><span class="sourceDot slotA"></span> Load as A</button>
+        <button id="loadAsB" type="button"><span class="sourceDot slotB"></span> Load as B</button>
+      </div>
+          <!-- The two dropdown menus. compare.js fills in the satellite names. -->
+      <div class="pairPicker satPicker">
+        <div>
+          <label for="satA"><span class="sourceDot slotA"></span> <span id="nameA">Satellite A</span></label>
+          <select id="satA"></select>
+        </div>
+        <div>
+          <label for="satB"><span class="sourceDot slotB"></span> <span id="nameB">Satellite B</span></label>
+          <select id="satB"></select>
+        </div>
+      </div>
+    </details>
+
+    <section class="panelSection">
+      <div id="separationTitle" class="sectionTitle" hidden>Separation between A and B</div>
+      <!-- Camera view: the whole Earth, or zoomed in with satellite A at the centre -->
+      <div class="viewSwitch" aria-label="Camera view" hidden>
+        <button id="earthView" class="viewSwitchOption" type="button">Earth-fixed</button>
+        <button id="relativeView" class="viewSwitchOption activeViewSwitch" type="button">Relative motion</button>
+      </div>
+      <!-- Relative motion only: which satellite sits at the centre -->
+      <div id="centreSwitch" class="viewSwitch centreSwitch" aria-label="Centre the relative view on" hidden>
+        <button id="centreA" class="viewSwitchOption activeViewSwitch" type="button"><span
+            class="sourceDot slotA"></span> <span id="centreNameA">Satellite A</span></button>
+        <button id="centreB" class="viewSwitchOption" type="button"><span class="sourceDot slotB"></span> <span
+            id="centreNameB">Satellite B</span></button>
+      </div>
+      <div id="viewNote" class="methodNote"></div>
+      <div id="geoReference" class="methodNote" hidden></div>
+    <div id="metricArea" class="metricArea">
+        <div class="statBlock metricBlock" id="rangeMetric">
+          <div id="rangeStat" class="statNumber">—</div>
+          <div class="statLabel">Estimated separation distance</div>
+          <div id="distanceMinimum" class="minimumNote">Estimated minimum: calculating…</div>
+        </div>
+        <div class="statBlock metricBlock" id="speedMetric">
+          <div id="speedStat" class="statNumber">—</div>
+          <div class="statLabel">Estimated relative velocity</div>
+          <div id="speedMinimum" class="minimumNote">Estimated minimum: calculating…</div>
+        </div>
+      <div class="chartGroup" id="distanceChartGroup"><canvas id="separationChart" width="300" height="150" aria-label="Separation distance over time; drag the horizontal threshold line to adjust"></canvas><input id="distanceThreshold" type="hidden" value="200"><span class="thresholdEdge" role="slider" tabindex="0" aria-label="Separation distance threshold" aria-valuemin="1" aria-valuenow="200">200</span><span class="currentValue" aria-hidden="true"></span></div>
+      <div class="chartGroup" id="speedChartGroup"><canvas id="speedChart" width="300" height="150" aria-label="Relative velocity over time; drag the horizontal threshold line to adjust"></canvas><input id="speedThreshold" type="hidden" value="10"><span class="thresholdEdge" role="slider" tabindex="0" aria-label="Relative velocity threshold" aria-valuemin="0.1" aria-valuenow="10">10</span><span class="currentValue" aria-hidden="true"></span></div>
+    </div>
+      <span id="timeDisplay" hidden>—</span>
+      <div id="qualifyingIntervals" class="intervalNote" hidden></div>
+      <!-- Closest approach in the chosen time window. compare.js fills this in. -->
+      <div id="closestApproach" class="closestApproach" hidden>
+        <button id="caViewBtn" class="caViewBtn" type="button">View closest approach</button>
+        <div class="statsGrid">
+          <div class="statBlock caHover">
+            <div id="caDistance" class="statNumber">—</div>
+            <div class="statLabel">Closest approach</div>
+          </div>
+          <div class="statBlock caHover">
+            <div id="caTime" class="statNumber small">—</div>
+            <div class="statLabel">When (UTC)</div>
+          </div>
+          <div class="statBlock">
+            <div id="caSpeed" class="statNumber">—</div>
+            <div class="statLabel">Relative speed at closest approach</div>
+          </div>
+        </div>
+        <div id="caDetails" class="caDetails"></div>
+      </div>
+      <details id="thresholdControls" class="thresholdControls">
+        <summary><span>How Close Is Too Close?</span><strong id="thresholdSummary">200 km · 15 m/s</strong><span class="thresholdChevron" aria-hidden="true">‹</span></summary>
+        <div class="thresholdBody">
+          <div class="thresholdControl"><label for="distanceThresholdSlider">Separation distance threshold</label><output id="distanceThresholdOutput" for="distanceThresholdSlider">200 km</output><input id="distanceThresholdSlider" type="range" min="0" max="1000" step="1" value="200"></div>
+          <div class="thresholdControl"><label for="speedThresholdSlider">Relative velocity threshold</label><output id="speedThresholdOutput" for="speedThresholdSlider">10 m/s</output><input id="speedThresholdSlider" type="range" min="0" max="100" step="0.1" value="10"></div>
+          <p id="thresholdRangeNote" class="thresholdRangeNote" aria-live="polite"></p>
+          <div class="statBlock metricBlock dwellMetric" id="dwellMetric"><div class="dwellValue"><span class="dwellAmount"><span id="dwellStat" class="statNumber">—</span><span id="dwellUnit" class="statNumber statUnit"></span></span><span id="dwellLabel" class="statLabel">Dwell Time</span></div><div class="dwellKey">Moments in which one threshold is met are shown in <strong class="single">gray</strong>; those in which both thresholds are met are shown in <strong class="both">gold</strong>.</div></div>
+        </div>
+      </details>
+    </section>
+
+    <!-- Time window: which dates to model -->
+    <section class="panelSection" hidden>
+      <!-- Time window: which dates to model. The Start/End pickers only show for "Custom dates". -->
+      <div class="windowPicker">
+        <label for="windowMode">Time window</label>
+        <select id="windowMode">
+          <option value="case" disabled>Reported period</option>
+          <option value="caseWeek" disabled>Reported period ± 1 week</option>
+          <option value="overlap" selected>Dates both satellites have TLEs</option>
+          <option value="all">All TLE dates</option>
+          <option value="custom">Custom dates…</option>
+        </select>
+      </div>
+      <div id="customDates" class="pairPicker dateRange" hidden>
+        <div>
+          <label for="startTime">Start (UTC)</label>
+          <input id="startTime" type="datetime-local" step="60">
+        </div>
+        <div>
+          <label for="endTime">End (UTC)</label>
+          <input id="endTime" type="datetime-local" step="60">
+        </div>
+      </div>
+          </section>
+  </aside>
+
+  <!-- Playback dock: its own card below the side panel, with the time bar, play button and speed -->
+  <div id="playbackDock" class="playbackDock" aria-label="Visualization playback controls">
+      <div class="playbackRow">
+        <button id="speedDownBtn" class="miniControl speedMini" aria-label="Slow down"><span class="doubleTriangle doubleTriangleLeft"></span></button>
+        <button id="playBtn" class="miniControl playPauseMini" aria-label="Play / pause"><span class="playIcon"></span></button>
+        <button id="speedUpBtn" class="miniControl speedMini" aria-label="Speed up"><span class="doubleTriangle doubleTriangleRight"></span></button>
+        <div class="sliderWrap"><div id="dwellSegments" class="dwellSegments" aria-hidden="true"></div><input id="timelineSlider" type="range" min="0" max="1" value="0" step="60000" aria-label="Playback time"><span id="timelineHoverTick" class="timelineHoverTick" hidden aria-hidden="true"></span><span id="timelineHover" class="timelineHover" hidden aria-hidden="true"></span></div>
+        <span id="sliderNow" class="sliderNow" tabindex="0" aria-label="Elapsed time within the current playback interval">—</span>
+        <span id="sliderStart" hidden>—</span><span id="sliderEnd" hidden>—</span>
+        <!-- The speed menu is hidden: the arrow buttons step through its options, and compare.js reads its value -->
+        <select id="speed" hidden>
+          <option value="60">1 min/s</option>
+          <option value="900">15 min/s</option>
+          <option value="3600">1 hr/s</option>
+          <option value="21600" selected>6 hr/s</option>
+          <option value="86400">1 day/s</option>
+          <option value="259200">3 days/s</option>
+        </select>
+      </div>
+     </div>
+
+  <div id="cameraControls">
+    <!-- Link back to the Google Sheet of incidents -->
+    <a id="projectLink" href="https://espl.ae.gatech.edu/research/projects/proximity/" target="_top" aria-label="About this project" title="About this project">
+      <span class="projectLinkIcon" aria-hidden="true"><canvas id="projectFlourishCanvas" width="116" height="116"></canvas></span>
+      <span class="projectLinkLabel">About this project<svg class="projectLinkArrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-2"/></svg></span>
+    </a>
+    <button id="zoomInBtn" class="cameraBtn" title="Zoom in" aria-label="Zoom in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></button>
+    <button id="zoomOutBtn" class="cameraBtn" title="Zoom out" aria-label="Zoom out"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+    <button id="modeBtn" class="cameraBtn modeBtn" type="button" title="Switch to relative motion" aria-label="Switch to relative motion"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c-3 3-3 13 0 16M12 4c3 3 3 13 0 16"/></svg></button>
+    <button id="resetBtn" class="cameraBtn" title="Reset view" hidden>⌂</button>
+    <!-- Relative motion only: show or hide the radial / along-track / cross-track axes -->
+    <button id="axesBtn" class="cameraBtn axesBtn"
+      title="Show or hide direction axes (radial, along-track, cross-track)" hidden>
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <path d="M6 18 L6 5 M6 18 L19 18 M6 18 L15 9" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="geoBeltLabel" class="geoBeltLabel" hidden>Geostationary orbit</div>
+  <div id="cameraDevTools" class="cameraDevTools" hidden><span>Camera view · development</span><label for="devTime">Playback time (UTC)</label><input id="devTime" type="datetime-local" step="60"><div><button id="holdCameraBtn" type="button" aria-pressed="false">Hold camera</button><button id="captureViewBtn" type="button">Capture view</button></div><div><button id="loadReferenceViewBtn" type="button">Load Oct 30 reference</button></div><textarea id="cameraCaptureOutput" readonly hidden aria-label="Captured camera configuration"></textarea><span id="cameraCaptureStatus" role="status"></span></div>
+  <a id="gtLogo" href="https://espl.ae.gatech.edu/" target="_top" aria-label="Engineering Space Policy Laboratory home"><img src="assets/ESPL.png" alt=""></a>
+    
+  <!-- A few styles only this page needs -->
+  <style>
+    /* Shared colours, from the lab's sbi-constellation-viz. Change a colour here and it changes everywhere on this page. */
+    :root {
+      --sbi-white: #ffffff;
+      --sbi-globe: #f7f7f7;                 /* Earth, and light button backgrounds */
+      --sbi-land: #e3e3e3;                  /* faint dividing lines */
+      --sbi-border: #d2d2d2;                /* borders and the empty part of the time bar */
+      --sbi-line: #a8a8a8;
+      --sbi-muted: #777777;                 /* small grey text */
+      --sbi-subtle: #555555;                /* buttons and secondary text */
+      --sbi-text: #292929;                  /* main text and dark buttons */
+      --sbi-gold: #b88b13;
+      --sbi-gold-light: #d6a516;            /* the played part of the time bar */
+      --sbi-surface: rgba(255, 255, 255, .94);   /* see-through panels */
+
+      /* style.css (shared with the original story page) uses these names: point them at the shared colours */
+      --ink: var(--sbi-text);
+      --muted: var(--sbi-muted);
+      --line: var(--sbi-border);
+      --panel: var(--sbi-surface);
+    }
+
+    .pairPicker {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .pairPicker label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .satPicker {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    /* A and B stacked, so long names fit */
+    .wipNote {
+      margin: 4px 0 8px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: #fff4d6;
+      color: #7a5a00;
+      font-size: 11px;
+      font-weight: 650;
+    }
+
+    .overlapToggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--sbi-text);
+      cursor: pointer;
+    }
+
+    .overlapToggle input {
+      margin: 0;
+    }
+
+    .dateRange {
+      margin-top: 6px;
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+
+    .dateRange>div {
+      display: grid;
+      grid-template-columns: 78px 1fr;
+      align-items: center;
+    }
+
+    .dateRange label {
+      margin: 0;
+    }
+
+    .dateRange input {
+      width: 100%;
+      min-width: 0;
+      height: 32px;
+      padding: 0 6px;
+      border: 1px solid var(--sbi-border);
+      border-radius: 8px;
+      color: var(--sbi-text);
+      font: inherit;
+      font-size: 12px;
+    }
+
+    .sourceDot.slotA {
+      background: var(--marker-A, #eaaa00);
+    }
+
+    .sourceDot.slotB {
+      background: var(--marker-B, #a9a9a9);
+    }
+
+    /* Playback buttons with drawn icons, in the style of the lab's sbi-constellation-viz */
+    .playbackDock .miniControl {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 26px;
+      min-width: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+    }
+    .playbackDock .miniControl:hover { background: var(--sbi-globe); }
+    .playbackDock .miniControl:disabled { opacity: .3; background: transparent; cursor: default; }
+    .playPauseMini { width: 30px; }
+    .speedMini { width: 26px; }
+
+    /* Play: a triangle made from borders. Pause: two bars drawn as backgrounds. */
+    .playIcon {
+      width: 0;
+      height: 0;
+      margin-left: 2px;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 10px solid var(--sbi-text);
+    }
+    .pauseIcon {
+      width: 9px;
+      height: 12px;
+      background:
+        linear-gradient(var(--sbi-text) 0 0) left / 3px 100% no-repeat,
+        linear-gradient(var(--sbi-text) 0 0) right / 3px 100% no-repeat;
+    }
+
+    /* Slower / faster: two small triangles side by side */
+    .doubleTriangle { display: inline-flex; gap: 1px; align-items: center; }
+    .doubleTriangle::before, .doubleTriangle::after {
+      content: "";
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+    }
+    .doubleTriangleLeft::before, .doubleTriangleLeft::after { border-right: 5px solid var(--sbi-subtle); }
+    .doubleTriangleRight::before, .doubleTriangleRight::after { border-left: 5px solid var(--sbi-subtle); }
+
+    .speedLabel {
+      min-width: 52px;
+      font-size: 11px;
+      color: var(--sbi-subtle);
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* "Now modeling": a fold-out card with one tile per satellite (style from the lab's sbi-constellation-viz) */
+    .nowModeling {
+      padding: 11px 11px 12px;
+      border: 1px solid #dedede;
+      border-radius: 12px;
+      background: rgba(249, 249, 249, .74);
+    }
+    .nowModeling > summary {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 22px;
+      cursor: pointer;
+      list-style: none;
+    }
+    .nowModeling > summary::-webkit-details-marker { display: none; }
+    .nowHeading {
+      flex: 0 0 auto;
+      color: var(--sbi-text);
+      font-size: 12px;
+      font-weight: 750;
+    }
+    /* When folded shut, the two names show next to the heading instead */
+    .nowSummary {
+      display: none;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: var(--sbi-muted);
+      font-size: 10.5px;
+    }
+    .nowModeling:not([open]) .nowSummary { display: block; }
+    /* The arrow: points down when shut, up when open */
+    .nowChevron {
+      margin-left: auto;
+      color: #999;
+      font-size: 17px;
+      line-height: 1;
+      transform: rotate(-90deg);
+      transition: transform .3s ease;
+    }
+    .nowModeling[open] .nowChevron { transform: rotate(90deg); }
+
+    .inputHeading {
+      margin-top: 10px;
+      color: #686e70;
+      font-size: 10.5px;
+      font-weight: 700;
+    }
+
+    /* Two satellite tiles side by side; warnings run across the full width underneath */
+    .satCardGrid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .satCard {
+      padding: 8px 9px;
+      border: 1px solid #dedede;
+      border-radius: 11px;
+      background: #f8f8f8;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .025);
+      font-size: 10px;
+      line-height: 1.35;
+      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+    /* In the relative view, the satellite at the centre gets the gold "selected" border, and the
+       other tile can be clicked to put that satellite at the centre instead */
+    .satCard.isCentre {
+      border-color: #ab8e3c;
+      background: var(--sbi-white);
+      box-shadow: 0 0 0 1px rgba(171, 142, 60, .24), 0 4px 12px rgba(47, 57, 54, .08);
+    }
+    .satCard.canCentre:not(.isCentre) { cursor: pointer; }
+    .satCard.canCentre:not(.isCentre):hover {
+      transform: translateY(-2px);
+      border-color: #b9b9b9;
+      box-shadow: 0 5px 12px rgba(47, 47, 47, .08);
+    }
+    .satCardName {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 3px;
+      color: var(--sbi-text);
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .satCardMeta {
+      color: var(--sbi-muted);
+      overflow-wrap: anywhere;
+      font-variant-numeric: tabular-nums;
+    }
+    .satCardAge {
+      margin-top: 3px;
+      color: var(--sbi-subtle);
+    }
+    .satCardGrid .dataWarning {
+      grid-column: 1 / -1;
+      margin-top: 0;
+      font-size: 10px;
+    }
+
+    .tleAge.stale {
+      color: #b00020;
+      font-weight: 700;
+    }
+
+    .tleAge.aging {
+      color: #9b6d00;
+      font-weight: 700;
+    }
+
+    .dataWarning {
+      margin-top: 3px;
+      color: #9b6d00;
+    }
+    
+    /* Find a satellite: a title with a small arrow that turns when the section is open */
+    .findSection summary {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .findSection summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .findSection summary::before {
+      content: "▸";
+      font-size: 13px;
+      transition: transform .15s;
+    }
+
+    .findSection[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .findSection .satPicker {
+      margin-top: 12px;
+    }
+
+
+    .lookupRow {
+      display: flex;
+      gap: 6px;
+    }
+
+    .lookupRow input {
+      flex: 1;
+      min-width: 0;
+      height: 32px;
+      padding: 0 8px;
+      border: 1px solid var(--sbi-border);
+      border-radius: 8px;
+      font: inherit;
+      font-size: 12px;
+    }
+
+    .lookupRow button {
+      height: 32px;
+      padding: 0 12px;
+      border: 1px solid var(--sbi-border);
+      border-radius: 8px;
+      background: var(--sbi-white);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 650;
+      cursor: pointer;
+    }
+
+    .lookupRow button:hover {
+      background: var(--sbi-globe);
+    }
+
+    #lookupResult {
+      white-space: pre-line;
+    }
+
+    /* .lookupRow sets display:flex, which would override "hidden", so say explicitly that hidden means hidden */
+    #lookupActions[hidden] {
+      display: none;
+    }
+
+    .centreSwitch {
+      margin-top: 6px;
+    }
+
+    .centreSwitch[hidden] {
+      display: none;
+    }
+
+    /* .viewSwitch sets display:flex, which would override "hidden" */
+    .cameraBtn.isOn {
+      color: var(--sbi-white);
+      background: var(--sbi-subtle);
+    }
+
+    /* the axes button when the axes are showing */
+    .axesBtn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* centre the icon in the button */
+    .axesBtn[hidden] {
+      display: none;
+    }
+
+    #sheetBtn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    #sheetBtn img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    /* display:flex would otherwise override "hidden" */
+    .centreSwitch .viewSwitchOption {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    #lookupActions {
+      margin-top: 6px;
+    }
+
+    #lookupActions button {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .closestApproach {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--sbi-land);
+    }
+        #speedChart {
+      width: 100%;
+      height: 150px;
+      margin-top: 10px;
+    }
+
+    .flagIcon {
+      height: 0.9em;
+      margin-right: 3px;
+      vertical-align: -0.1em;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, .15);
+    }
+
+
+    .caseBox {
+      margin-top: 10px;
+    }
+
+    .casePairs {
+      display: grid;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .casePairs button {
+      padding: 6px 8px;
+      border: 1px solid var(--sbi-border);
+      border-radius: 8px;
+      background: var(--sbi-white);
+      color: var(--sbi-text);
+      font: inherit;
+      font-size: 12px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .casePairs button.activePair {
+      border-color: var(--sbi-text);
+      background: var(--sbi-text);
+      color: var(--sbi-white);
+    }
+    /* The closest-approach note: a pop-up when the mouse is over the distance or the time */
+    .closestApproach {
+      position: relative;
+    }
+
+    .caDetails {
+      display: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: calc(100% - 44px);   /* opens upward, just above the numbers, so the bottom bar can't hide it */
+      z-index: 5;
+      padding: 7px 9px;
+      border-radius: 6px;
+      background: var(--sbi-text);
+      color: var(--sbi-white);
+      font-size: 11px;
+      line-height: 1.4;
+      pointer-events: none;
+    }
+
+    .closestApproach:has(.caHover:hover) .caDetails {
+      display: block;
+    }
+
+    .caViewBtn {
+      width: 100%;
+      height: 32px;
+      margin-top: 4px;
+      border: 1px solid var(--sbi-border);
+      border-radius: 8px;
+      background: var(--sbi-white);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 650;
+      cursor: pointer;
+    }
+
+    .caViewBtn:hover {
+      background: var(--sbi-globe);
+    }
+
+    .sliderWrap {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+      display: flex;
+    }
+
+    .sliderWrap #timelineSlider {
+      width: 100%;
+    }
+
+    .sliderDate {
+      font-size: 10px;
+      color: var(--sbi-muted);
+      white-space: nowrap;
+    }
+
+    /* Keep the title at the top of the panel while scrolling */
+    #ui h1 {
+      position: sticky;
+      top: -16px;
+      z-index: 2;
+      margin: -16px -16px 8px;
+      padding: 16px 16px 8px;
+      border-bottom: 1px solid var(--sbi-border);
+      background: rgba(255, 255, 255, .97);
+    }
+
+        /* Playback dock: its own card under the side panel (style from the lab's sbi-constellation-viz) */
+    .playbackDock {
+      position: fixed;
+      z-index: 10;
+      left: 18px;
+      bottom: 18px;
+      width: 345px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 10px 16px 9px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--panel);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, .10);
+      backdrop-filter: blur(10px);
+    }
+
+    /* The side panel stops above the dock instead of running behind it */
+    #ui {
+      max-height: calc(100vh - 36px - 92px);
+    }
+
+    @media (max-width: 760px) {
+      .playbackDock { width: calc(100vw - 36px); }
+      #ui { max-height: calc(52vh - 92px); }
+    }
+
+    .timeRow,
+    .controlRow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sliderNow {
+      flex: 1;
+      font-size: 11px;
+      color: var(--sbi-subtle);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .windowPicker {
+      display: grid;
+      grid-template-columns: 78px 1fr;
+      align-items: center;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    #customDates[hidden] {
+      display: none;
+    }
+
+        /* The time bar, drawn by us instead of the browser so part of the track can be shaded.
+       --bandStart and --bandEnd (set by compare.js) mark the reported period: 0% to 0% = no band. */
+    #timelineSlider {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 16px;
+      background: transparent;
+      --bandStart: 0%;
+      --bandEnd: 0%;
+      --progress: 0%;
+    }
+    /* Three layers, top first: the reported period (a dark tint), the gold "played so far" part, the grey track */
+    #timelineSlider::-webkit-slider-runnable-track {
+      height: 3px;
+      border-radius: 999px;
+      background:
+        linear-gradient(to right, transparent var(--bandStart), rgba(0, 0, 0, .45) var(--bandStart) var(--bandEnd), transparent var(--bandEnd)),
+        linear-gradient(to right, var(--sbi-gold-light) var(--progress), var(--sbi-border) var(--progress));
+    }
+    #timelineSlider::-moz-range-track {
+      height: 3px;
+      border-radius: 999px;
+      background:
+        linear-gradient(to right, transparent var(--bandStart), rgba(0, 0, 0, .45) var(--bandStart) var(--bandEnd), transparent var(--bandEnd)),
+        linear-gradient(to right, var(--sbi-gold-light) var(--progress), var(--sbi-border) var(--progress));
+    }
+    /* The handle: a thin dark bar */
+    #timelineSlider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 3px;
+      height: 14px;
+      margin-top: -5.5px;
+      border-radius: 2px;
+      background: var(--sbi-text);
+    }
+    #timelineSlider::-moz-range-thumb {
+      width: 3px;
+      height: 14px;
+      border: 0;
+      border-radius: 2px;
+      background: var(--sbi-text);
+    }
+
+    /* E-001 presentation and provenance */
+    [hidden] { display: none !important; }
+    #centreSwitch { display: none !important; }
+    #ui { width: 375px; }
+    #ui .episodeHeader h1 {
+      position: static; margin: 0 0 4px; padding: 0; border: 0;
+      background: none; font-size: 20px; line-height: 1.2;
+    }
+    .backEpisodes { color: #805e10; font-size: 11px; text-decoration-color: #c4ae73; text-underline-offset: 2px; }
+    .provenanceDisclosure { margin-top: 8px; padding: 0 4px; font-size: 11px; }
+    .provenanceDisclosure summary { cursor: pointer; color: var(--sbi-subtle); }
+    #tleDetails { padding: 4px 0 3px; line-height: 1.45; overflow-wrap: anywhere; }
+    #tleDetails section { border-top: 1px solid #e4e4e4; }
+    #tleDetails h4 { margin: 8px 0 3px; font-size: 11px; }
+    #tleDetails p { margin: 5px 0; }
+    #tleDetails pre { padding: 7px; background: #f4f4f4; font-size: 9px; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .satCardGrid { grid-template-columns: 1fr 1fr; }
+    .satCard { min-width: 0; }
+    .satCardName { align-items: flex-start; }
+    .satName { padding: 0; border: 0; background: none; color: var(--sbi-text); font: inherit; text-align: left; cursor: help; text-decoration: underline dotted #b6a16a; text-underline-offset: 3px; }
+    .satName:hover, .satName:focus-visible { color: #8d6810; }
+    .tleCompact { font-size: 9px; line-height: 1.35; }
+    .featureButton { margin-top: 7px; padding: 5px 6px; border: 1px solid #d7d7d7; border-radius: 6px; background: white; color: #444; font: inherit; font-size: 9px; cursor: pointer; }
+    .featureButton:hover, .featureButton:focus-visible { border-color: #a88934; }
+    .featureButton[aria-pressed="true"] { border-color: #a88934; background: #fff9e9; }
+    .statsGrid { gap: 12px; }
+    .statsGrid .statBlock { text-align: center; }
+    .statsGrid .statNumber { font-size: 23px; }
+    .dwellBlock { grid-column: 1 / -1; padding: 8px 9px; border: 1px solid #e4dfce; border-radius: 8px; background: #fffdf7; }
+    .thresholdControls { display: flex; flex-wrap: wrap; gap: 8px 12px; margin-top: 12px; }
+    .thresholdControls label { display: flex; align-items: center; gap: 4px; margin: 0; font-size: 10px; font-weight: 500; }
+    .thresholdControls input { width: 54px; padding: 3px 4px; border: 1px solid #ccc; border-radius: 4px; font: inherit; font-variant-numeric: tabular-nums; }
+    .thresholdNote { margin: 6px 0 4px; color: #777; font-size: 10px; line-height: 1.35; }
+    #separationChart, #speedChart { display: block; width: 100%; height: 145px; margin-top: 12px; }
+    .minimumNote, .intervalNote { font-size: 10px; line-height: 1.4; color: #555; }
+    .minimumNote { margin-top: 2px; }
+    .intervalNote { margin-top: 8px; }
+    .caViewBtn { width: auto; height: 27px; padding: 0 9px; font-size: 10px; }
+    #closestApproach { margin-top: 10px; padding-top: 8px; }
+    #closestApproach .statsGrid, #closestApproach .caDetails { display: none; }
+    .object-meta { margin: 0 0 6px; }
+    .object-meta div { display: grid; grid-template-columns: 90px 1fr; gap: 5px; padding: 2px 0; }
+    .object-meta dt { color: #777; }
+    .object-meta dd { margin: 0; }
+    .playbackDock { width: 375px; }
+    #cameraControls { gap: 7px; }
+    #projectLink { position: relative; width: 46px; height: 46px; display: flex; align-items: center; justify-content: flex-end; color: #444; text-decoration: none; z-index: 1; }
+    .projectLinkIcon { position: relative; z-index: 2; width: 46px; height: 46px; flex: 0 0 46px; }
+    #projectFlourishCanvas { position: absolute; top: -6px; left: -6px; width: 58px; height: 58px; pointer-events: none; opacity: .9; transition: opacity .24s ease; }
+    #projectLink.is-open #projectFlourishCanvas { opacity: 1; }
+    .projectLinkLabel { position: absolute; top: 0; right: 46px; height: 46px; display: flex; align-items: center; white-space: nowrap; padding-right: 10px; opacity: 0; clip-path: inset(0 0 0 100%); color: #666; font-size: 12px; transition: clip-path .5s cubic-bezier(.2,.8,.2,1), opacity .25s ease; }
+    #projectLink.is-open .projectLinkLabel { opacity: 1; clip-path: inset(0); }
+    .projectLinkArrow { width: 13px; height: 13px; flex: 0 0 13px; margin-left: 6px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform .18s ease; }
+    #projectLink.is-open .projectLinkArrow { transform: translateX(-2px); }
+    #gtLogo { position: fixed; right: 26px; bottom: 24px; width: 320px; opacity: .23; filter: grayscale(1); z-index: 9; display: block; line-height: 0; overflow: hidden; border-radius: 2px; }
+    #gtLogo img { display: block; width: 100%; height: auto; }
+    #gtLogo::after { content: ""; position: absolute; inset: -35% -45%; pointer-events: none; background: linear-gradient(115deg, transparent 36%, #ffffff2e 43%, #fffffff9 49%, #ffffff47 56%, transparent 64%); transform: translateX(-125%); }
+    #gtLogo:hover::after, #gtLogo:focus-visible::after { animation: esplLogoGlint 1.25s ease-out forwards; }
+    @keyframes esplLogoGlint { to { transform: translateX(125%); } }
+    #satelliteScreenLabels { position: fixed; inset: 0; z-index: 4; pointer-events: none; }
+    .satelliteScreenLabel { position: absolute; color: #292929; font-size: 12px; font-weight: 700; line-height: 1; white-space: nowrap; transform: translateY(-50%); text-shadow: 0 0 3px white, 0 0 6px white; }
+    .episodeHeader { display: grid; gap: 4px; }
+    .satName { font-style: normal; }
+    .backEpisodes { display: inline-flex; align-items: center; gap: 7px; width: fit-content; padding: 5px 8px 5px 5px; border: 1px solid #dedbd4; border-radius: 999px; background: #fff; color: #555; font-size: 11px; font-weight: 650; text-decoration: none; transition: border-color .2s ease, background .2s ease; }
+    .backEpisodes:hover, .backEpisodes:focus-visible { border-color: #b8a16d; background: #fcfaf4; }
+    .nowModeling { padding: 9px; }
+    .nowModeling > summary { display: none; }
+    .satCardGrid { margin-top: 0; }
+    .satCard { padding: 9px 10px; background: #fff; }
+    .satCardName { margin: 0 0 6px; font-size: 12px; }
+    .satName { cursor: help; text-decoration: none; }
+    .satName:hover, .satName:focus-visible { text-decoration: underline; text-decoration-color: #aaa; text-underline-offset: 2px; }
+    .tleCompact { display: flex; flex-direction: column; gap: 3px; color: #777; font-size: 9px; }
+    .tleEpoch { font-variant-numeric: tabular-nums; }
+    .espl-news-external { display: inline-flex; align-items: center; gap: 3px; width: fit-content; color: #6b6b6b; text-decoration: none; font-size: 10px; }
+    .espl-news-external:hover, .espl-news-external:focus-visible { color: #454545; }
+    .espl-news-external svg { flex: 0 0 12px; width: 12px; height: 12px; pointer-events: none; fill: none; stroke: currentColor; stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
+    .espl-news-external__box { transition: opacity .22s ease, transform .22s ease; }
+    .espl-news-external__arrow { transition: transform .22s cubic-bezier(.22,1,.36,1); }
+    .espl-news-external:hover .espl-news-external__arrow, .espl-news-external:focus-visible .espl-news-external__arrow { transform: translate(2.4px,-2.4px); }
+    .espl-news-external:hover .espl-news-external__box, .espl-news-external:focus-visible .espl-news-external__box { opacity: .58; transform: scale(.96); }
+    #rangeNote { margin-bottom: 8px; }
+    .metricGrid { margin-top: 12px; gap: 7px; }
+    .metricBlock { display: flex; flex-direction: column; align-items: center; padding: 9px 5px 8px; border: 1px solid #e7e7e7; border-radius: 9px; background: #fff; }
+    .metricBlock .statNumber { font-size: 25px; letter-spacing: -.025em; }
+    .metricBlock .statLabel { font-size: 10px; font-weight: 650; }
+    .metricThreshold { display: inline-flex; align-items: center; gap: 3px; margin: 9px 0 0; color: #888; font-size: 9px; font-weight: 500; }
+    .metricThreshold input { width: 45px; padding: 2px 3px; border: 1px solid #d7d7d7; border-radius: 4px; background: #fafafa; color: #555; font: inherit; font-variant-numeric: tabular-nums; text-align: center; }
+    .metricBlock .minimumNote { margin-top: 9px; color: #666; font-size: 9px; line-height: 1.35; text-align: center; }
+    .metricBlock .minimumNote strong { display: block; color: #555; font-size: 10px; font-weight: 650; }
+    .metricBlock .minimumNote span { display: block; margin-top: 2px; }
+    .dwellRow { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 9px 2px 2px; border-top: 1px solid #e7e7e7; margin-top: 12px; color: #777; font-size: 10px; }
+    .dwellRow strong { color: #444; font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    #closestApproach { display: none !important; }
+    .object-meta div { grid-template-columns: 98px 1fr; border-top: 1px solid #eee; padding: 4px 0; }
+    #separationChart, #speedChart { height: 160px; }
+    .playbackDock { width: min(670px, calc(100vw - 36px)); padding: 10px 13px; }
+    .playbackRow { display: grid; grid-template-columns: 26px 30px 26px 53px minmax(90px, 1fr) 166px; align-items: center; gap: 7px; }
+    .playbackRow .speedLabel { min-width: 0; }
+    .playbackRow .sliderNow { min-width: 0; text-align: right; white-space: nowrap; font-size: 10px; }
+    #timelineSlider::-webkit-slider-runnable-track { background: linear-gradient(to right, transparent var(--bandStart), #aaa var(--bandStart) var(--bandEnd), transparent var(--bandEnd)), #dedede; }
+    #timelineSlider::-moz-range-track { background: linear-gradient(to right, transparent var(--bandStart), #aaa var(--bandStart) var(--bandEnd), transparent var(--bandEnd)), #dedede; }
+    .modeBtn svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .modeBtn:hover svg, .modeBtn:focus-visible svg { stroke: #8c6e20; }
+    @media (max-width: 760px) {
+      .playbackDock { width: calc(100vw - 36px); }
+      .playbackRow { grid-template-columns: 26px 30px 26px 48px minmax(60px, 1fr); }
+      .playbackRow .sliderNow { grid-column: 1 / -1; text-align: center; }
+      #cameraControls { top: calc(52vh - 64px); right: 12px; gap: 5px; }
+      #cameraControls .cameraBtn { width: 36px; height: 36px; font-size: 18px; }
+      #projectLink, .projectLinkIcon { width: 36px; height: 36px; flex-basis: 36px; }
+      #projectFlourishCanvas { width: 46px; height: 46px; top: -5px; left: -5px; }
+    }
+    @media (max-width: 760px) {
+      #ui, .playbackDock { width: calc(100vw - 36px); }
+      #gtLogo { width: 160px; right: 14px; bottom: 115px; }
+      .projectLinkLabel { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #gtLogo:hover::after, #gtLogo:focus-visible::after { animation: none; }
+      .projectLinkLabel, #projectFlourishCanvas, .projectLinkArrow { transition: none; }
+    }
+    .episodeDescription { margin: 2px 0 5px; color: #555; font-size: 11px; line-height: 1.5; }
+    #viewNote, #geoReference { display: none !important; }
+    .backEpisodes { padding: 0; border: 0; border-radius: 0; background: none; color: #777; font-size: 10px; font-weight: 500; text-decoration: underline; text-decoration-color: #bbb; text-underline-offset: 2px; }
+    .backEpisodes svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.2; }
+    .backEpisodes:hover, .backEpisodes:focus-visible { border: 0; background: none; color: #444; }
+    .nowModeling { padding: 0; border: 0; background: none; }
+    .satCardGrid { display: grid; grid-template-columns: 1fr; gap: 0; }
+    .satCard, .satCard.isCentre { padding: 5px 0 6px; border: 0; border-radius: 0; border-bottom: 1px solid #ececec; box-shadow: none; background: none; transform: none; }
+    .satCard:last-child { border-bottom: 0; }
+    .satCardName { margin: 0; align-items: center; gap: 7px; font-size: 12px; }
+    .satCardName .sourceDot { width: 10px; height: 10px; }
+    .satName { font-style: normal; cursor: pointer; text-decoration: none; }
+    .satCard .tleCompact { margin: 2px 0 0 17px; font-size: 10px; }
+    .object-meta div { grid-template-columns: 100px 1fr; }
+    .metricArea { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "range range" "distance distance" "speed speed" "velocity velocity" "dwell dwell"; gap: 2px; }
+    #rangeMetric { grid-area: range; } #speedMetric { grid-area: speed; }
+    #distanceChartGroup { grid-area: distance; } #speedChartGroup { grid-area: velocity; }
+    .metricArea .dwellRow { grid-area: dwell; }
+    .metricBlock { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 0 8px; padding: 8px 0 3px; border: 0; border-bottom: 1px solid #ddd; border-radius: 0; background: transparent; }
+    .metricBlock .statNumber { font-size: 26px; }
+    .metricBlock .statLabel { color: #555; font-size: 10px; }
+    .metricBlock .minimumNote { margin-top: 5px; color: #888; font-size: 9px; text-align: left; }
+    .chartGroup { min-width: 0; }
+    .chartHeading { display: flex; align-items: baseline; justify-content: space-between; gap: 4px; margin: 4px 0 1px; color: #555; font-size: 10px; font-weight: 700; }
+    .chartHeading .metricThreshold { margin: 0; white-space: nowrap; font-size: 9px; font-weight: 500; }
+    .chartHeading .metricThreshold input { width: 45px; }
+    #separationChart, #speedChart { margin-top: 0; height: 155px; }
+    .dwellRow { margin-top: 0; padding: 8px 0 2px; border-top: 1px solid #e5d6ab; color: #90721e; font-size: 11px; font-weight: 650; }
+    .dwellRow strong { color: #a87400; font-size: 17px; }
+    .metricBlock .minimumNote { grid-column: 1 / -1; }
+    .chartGroup { padding: 0 0 10px; }
+    .playbackDock { width: min(470px, calc(100vw - 36px)); }
+    .playbackRow { grid-template-columns: 26px 30px 26px 48px minmax(62px, 1fr) 152px; gap: 5px; }
+    #cameraControls .cameraBtn { display: grid; place-items: center; padding: 0; line-height: 1; }
+    #zoomInBtn svg,#zoomOutBtn svg{display:block;width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round}
+    #cameraControls .cameraBtn[hidden] { display: none; }
+    /* Current editorial presentation */
+    .episodeHeader { gap: 7px; }
+    #ui .episodeHeader h1 { margin: 0; font-size: 20px; line-height: 1.22; }
+    .titleEpisode { display: inline; }
+    .titleEpisode em { font-style: italic; }
+    .backEpisodes { display: inline-flex; align-items: center; width: fit-content; max-width: 100%; gap: 5px; color: #747474; text-decoration: none; line-height: 1.25; }
+    .backEpisodes .libraryBackArrow { display: inline-block; font-size: 14px; line-height: 1; transition: transform .22s ease; }
+    .backEpisodes:hover .libraryBackArrow, .backEpisodes:focus-visible .libraryBackArrow { transform: translateX(-3px); }
+    .backEpisodes .libraryBooks { width: 13px; height: 13px; flex: 0 0 13px; }
+    .libraryBooks path { transition: transform .24s ease; }
+    .libraryBookThree { transform-origin: 15px 15px; }
+    .backEpisodes:hover .libraryBookThree, .backEpisodes:focus-visible .libraryBookThree { transform: rotate(-8deg); }
+    .backEpisodes:hover .libraryBookTwo, .backEpisodes:focus-visible .libraryBookTwo { transform: translateX(1px); }
+    .episodeDescription { margin: 2px 0 0; font-size: 11px; line-height: 1.52; }
+    .episodeDescription p { margin: 0 0 7px; }
+    .episodeDescription p:last-child { margin-bottom: 0; }
+    .satCardName { align-items: center; }
+    .satCardName .satName { cursor: default; font-style: normal; text-decoration: none; }
+    .satCardName .satName:hover { color: inherit; text-decoration: none; }
+    .satMetaToggle { display: inline-grid; place-items: center; width: 25px; height: 25px; margin-left: 2px; padding: 0; border: 0; background: transparent; cursor: pointer; }
+    .satMetaToggle .accordion-icon { position: relative; display: block; width: 18px; height: 18px; border: 1px solid #d6d2c9; border-radius: 50%; transition: background .2s ease, border-color .2s ease; }
+    .satMetaToggle .accordion-icon::before, .satMetaToggle .accordion-icon::after { content: ""; position: absolute; top: 50%; left: 50%; width: 8px; height: 1px; background: #6d624b; transform: translate(-50%, -50%); }
+    .satMetaToggle .accordion-icon::after { transform: translate(-50%, -50%) rotate(90deg); transition: transform .22s ease; }
+    .satMetaToggle.open .accordion-icon, .satMetaToggle:hover .accordion-icon, .satMetaToggle:focus-visible .accordion-icon { border-color: #b7a56a; background: #f8f5eb; }
+    .satMetaToggle.open .accordion-icon::after { transform: translate(-50%, -50%) rotate(0); }
+    .satMetaDetails { margin: 6px 0 3px 17px; color: #555; font-size: 10px; line-height: 1.4; }
+    .satMetaDetails .object-meta { margin: 0 0 5px; }
+    .satMetaDetails .object-meta div { display: grid; grid-template-columns: 98px 1fr; gap: 5px; padding: 2px 0; border: 0; }
+    .satMetaDetails .object-meta dt { color: #777; }
+    .satMetaDetails .object-meta dd { margin: 0; }
+    .satMetaDetails .metadataSource { margin-top: 5px; }
+    .satMetaDetails .espl-news-external { color: #686868; }
+    .satMetaDetails .selectedElement { display: block; margin-top: 3px; color: #858585; font-size: 9px; }
+    .satMetaDetails .selectedElement .espl-news-external { font-size: 9px; }
+    .metricArea .metricBlock .minimumNote { grid-column: 1 / -1; color: #777; font-size: 10px; }
+    .chartHeading { justify-content: flex-end; margin: 1px 0 0; }
+    #separationChart, #speedChart { touch-action: none; }
+    .metricArea .dwellRow { display: grid; grid-template-columns: 6px 1fr auto; align-items: center; gap: 8px; margin-top: 5px; padding: 6px 0; border: 0; color: #777; font-size: 10px; font-weight: 500; }
+    .metricArea .dwellRow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #eaaa00; }
+    .metricArea .dwellRow strong { color: #444; font-size: 13px; }
+    .playbackDock { width: min(375px, calc(100vw - 36px)); padding: 9px 12px 8px; }
+    .playbackRow { display: grid; grid-template-columns: 26px 30px 26px minmax(0, 1fr); gap: 3px 6px; }
+    .playbackRow .speedLabel { grid-column: 2; grid-row: 2; justify-self: center; position: static; width: auto; height: auto; min-width: 0; margin: 0; overflow: visible; clip: auto; white-space: nowrap; font-size: 9px; }
+    .playbackRow .sliderWrap { grid-column: 4; }
+    .playbackRow .sliderNow { grid-column: 1 / -1; justify-self: end; text-align: right; }
+    .geoBeltLabel { position: fixed; z-index: 3; pointer-events: none; color: #938c78; font-size: 11px; font-weight: 500; letter-spacing: .025em; white-space: nowrap; opacity: .73; text-shadow: 0 1px 3px #fff, 0 -1px 3px #fff; }
+    .cameraDevTools { position: fixed; z-index: 12; top: 82px; right: 82px; width: 260px; padding: 9px; border: 1px dashed #c9c3b5; border-radius: 8px; background: #fffcf5f2; box-shadow: 0 4px 16px #0001; color: #6a614f; font-size: 10px; }
+    .cameraDevTools > div { display: flex; gap: 5px; margin-top: 6px; }
+    .cameraDevTools label { display: block; margin: 6px 0 2px; color: #777; font-size: 9px; font-weight: 500; }
+    .cameraDevTools input { width: 100%; padding: 4px 5px; border: 1px solid #d3cbb9; border-radius: 4px; background: #fff; color: #444; font: 10px ui-monospace, monospace; }
+    .cameraDevTools button { padding: 4px 6px; border: 1px solid #d3cbb9; border-radius: 4px; background: #fff; color: #555; font: inherit; cursor: pointer; }
+    .cameraDevTools button[aria-pressed="true"] { border-color: #a98936; background: #fff6df; }
+    .cameraDevTools textarea { display: block; width: 100%; height: 130px; margin-top: 6px; padding: 5px; border: 1px solid #ddd; font: 9px/1.3 ui-monospace, monospace; resize: vertical; }
+    .cameraDevTools #cameraCaptureStatus { display: block; margin-top: 5px; line-height: 1.35; }
+    @media (max-width: 760px) {
+      .playbackDock { width: calc(100vw - 36px); }
+      .playbackRow { grid-template-columns: 26px 30px 26px minmax(0, 1fr); }
+      .playbackRow .sliderNow { grid-column: 1 / -1; }
+      .cameraDevTools { top: calc(52vh + 8px); right: 12px; width: min(260px, calc(100vw - 24px)); }
+    }
+    /* Match the SBI detail panel's measured width, heading, and disclosures. */
+    #ui { width: 342px; padding: 18px 18px 16px; }
+    #ui .episodeHeader h1 { max-width: 275px; color: #282828; font-size: 24px; line-height: 1.08; font-weight: 800; letter-spacing: -.035em; }
+    .episodeHeader { gap: 0; }
+    .backEpisodes { height: 28px; margin-bottom: 14px; padding: 0 2px; gap: 5px; font: 500 11px/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    .backEpisodes .libraryBackArrow { display: block; width: 15px; height: 15px; flex: 0 0 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform .18s ease; }
+    .backEpisodes:hover .libraryBackArrow, .backEpisodes:focus-visible .libraryBackArrow { transform: translateX(-2px); }
+    .backEpisodes .libraryBooks { width: 15px; height: 15px; flex-basis: 15px; margin-left: auto; }
+    .backEpisodes .libraryBooks path { stroke-width: 1.2; }
+    .libraryBookThree { transform-origin: 17px 16px; }
+    .backEpisodes:hover .libraryBookThree, .backEpisodes:focus-visible .libraryBookThree { transform: rotate(10deg); }
+    .backEpisodes:hover .libraryBookTwo, .backEpisodes:focus-visible .libraryBookTwo { transform: none; }
+    .episodeDescription { margin-top: 8px; }
+    .satCardGrid { display: block; }
+    .satCard, .satCard.isCentre { padding: 0; border: 0; border-radius: 0; background: #fff; }
+    .satCard + .satCard { border-top: 1px solid #e7e7e7; }
+    .satCard > summary { display: flex; align-items: center; min-height: 38px; gap: 7px; padding: 5px 0; list-style: none; cursor: pointer; }
+    .satCard > summary::-webkit-details-marker { display: none; }
+    .satCard > summary:focus-visible { outline: 1.5px solid #9a7413; outline-offset: 2px; }
+    .satCard .satName { color: #444; font-size: 12px; font-weight: 700; }
+    .satCard .tleEpoch { margin-left: auto; color: #777; font-size: 9px; font-weight: 500; white-space: nowrap; }
+    .satCard .satChevron { display: flex; align-items: center; justify-content: center; width: 18px; height: 22px; flex: 0 0 18px; }
+    .satCard .disclosureGlyph { display: block; color: #999; font-size: 17px; font-weight: 400; line-height: 1; transform: rotate(-90deg); transition: transform .62s cubic-bezier(.2,.72,.2,1); }
+    .satCard[open] .disclosureGlyph { transform: rotate(90deg); }
+    .satMetaDetails { margin: 0 0 8px 17px; padding: 0 0 3px; color: #555; font-size: 10px; line-height: 1.4; }
+    .satMetaDetails .object-meta div { grid-template-columns: 91px minmax(0,1fr); gap: 7px; padding: 2px 0; }
+    .satMetaDetails .object-meta dd { overflow-wrap: anywhere; }
+    .satMetaDetails .espl-news-external { font-size: 10px; }
+    .metricArea { grid-template-areas: "range range" "distance distance" "speed speed" "velocity velocity" "dwell dwell"; }
+    #dwellMetric { grid-area: dwell; margin-top: 3px; border-bottom: 0; }
+    #dwellMetric .statNumber { font-size: 26px; }
+    #dwellMetric .statLabel { color: #555; }
+    #dwellMetric .statLabel::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 6px; border-radius: 50%; background: #eaaa00; vertical-align: 1px; }
+    .dwellExplanation { grid-column: 1 / -1; margin-top: 5px; color: #777; font-size: 10px; line-height: 1.35; }
+    .chartGroup { position: relative; padding: 0 0 7px; }
+    .thresholdEdge { position: absolute; z-index: 1; top: 30px; right: 0; display: flex; align-items: baseline; gap: 2px; width: 49px; height: 18px; margin: 0; padding: 1px 0 1px 2px; background: #fff; color: #666; font-size: 9px; font-weight: 600; font-variant-numeric: tabular-nums; transform: translateY(-50%); }
+    .thresholdEdge input { width: 30px; min-width: 0; padding: 0; border: 0; border-bottom: 1px dotted #aaa; border-radius: 0; outline-offset: 1px; background: transparent; color: #555; font: inherit; text-align: right; appearance: textfield; -moz-appearance: textfield; }
+    .thresholdEdge input::-webkit-inner-spin-button, .thresholdEdge input::-webkit-outer-spin-button { appearance: none; margin: 0; }
+    .thresholdEdge:focus-within { color: #7b5b0a; }
+    .playbackDock { width: min(342px, calc(100vw - 36px)); }
+    @media (max-width: 760px) { #ui, .playbackDock { width: calc(100vw - 36px); } }
+    @media (prefers-reduced-motion: reduce) { .libraryBooks path, .libraryBackArrow, .satCard .disclosureGlyph { transition: none; } }
+    .satCardGrid { display: grid; gap: 7px; }
+    .satCard, .satCard.isCentre { border: 1px solid #dedede; border-radius: 10px; background: #fafafa; overflow: hidden; }
+    .satCard + .satCard { border-top: 1px solid #dedede; }
+    .satCard > summary { padding: 8px 10px; min-height: 40px; }
+    .satCard .satName { flex: 1; }
+    .satCard .tleEpoch { display: none; }
+    .satCard .sourceSummary { margin-left: auto; color: #6a6a6a; font-size: 10px; text-decoration: underline; text-underline-offset: 2px; }
+    .satCard[open] .sourceSummary { display: none; }
+    .satCard .disclosureGlyph { transition-duration: .3s; }
+    .satMetaDetails { margin: 0 10px 8px; padding: 0; }
+    .satMetaDetails .object-meta div:first-child { border-top: 0; }
+    .satMetaDetails .epochDate, .satMetaDetails .epochTime { display: block; }
+    #dwellMetric .statLabel::before { content: none; }
+    #dwellMetric .statNumber { font-size: 26px; }
+    .dwellValue { display: flex; align-items: baseline; gap: 5px; }
+    .dwellValue .statUnit { font-size: 26px; }
+    .thresholdEdge { width: 42px; justify-content: flex-end; padding-right: 3px; pointer-events: none; }
+    .currentValue { position: absolute; right: 0; z-index: 2; min-width: 45px; padding: 2px 3px; border-radius: 3px; background: #555; color: #fff; font-size: 9px; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; transform: translateY(-50%); pointer-events: none; }
+    .chartLegend { display: flex; flex-wrap: wrap; gap: 4px 11px; margin: 0 0 4px; color: #777; font-size: 9px; }
+    .chartLegend span { display: inline-flex; align-items: center; gap: 4px; }
+    .chartLegend i { width: 13px; height: 3px; display: inline-block; }
+    .legendGray { background: #a9a9a9; }.legendGold { background: #eaaa00; }
+    .thresholdHint { color: #8b6c20; font-size: 9px; opacity: 1; transition: opacity .8s ease 2s; }
+    .thresholdHint.faded { opacity: 0; height: 0; overflow: hidden; }
+    .sliderWrap { position: relative; }
+    .sliderWrap::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 3px; background: #dedede; transform: translateY(-50%); }
+    .dwellSegments { position: absolute; z-index: 3; left: 0; right: 0; top: 50%; height: 3px; transform: translateY(-50%); pointer-events: none; }
+    .dwellSegments span { position: absolute; top: 0; height: 3px; min-width: 1px; background: #eaaa00; }
+    #timelineSlider::-webkit-slider-runnable-track { background: transparent; }
+    #timelineSlider::-moz-range-track { background: transparent; }
+    #timelineSlider { position: relative; z-index: 2; background: transparent; }
+    /* The SBI chart's quiet right gutter: labels sit beside the data. */
+    .thresholdEdge, .currentValue { display: block; min-width: 0; height: 17px; padding: 1px 2px; border: 0; border-radius: 0; color: #4b4b4b; font: 700 10px/15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; text-align: left; font-variant-numeric: tabular-nums; white-space: nowrap; pointer-events: none; transform: translateY(-50%); }
+    .thresholdEdge { z-index: 2; right: 0; width: 54px; background: transparent; color: #606060; }
+    .currentValue { z-index: 3; right: 56px; width: 48px; background: #fff; font-size: 10px; }
+    .chartGroup { margin-right: -8px; }
+    .metricBlock .minimumNote strong { display: inline; color: #484848; font-size: inherit; font-weight: 750; }
+    .satCardGrid { display: grid; gap: 7px; }
+    .satCard, .satCard.isCentre, .satCard[open] { box-sizing: border-box; padding: 0; border: 1px solid #dedede; border-radius: 10px; background: #fafafa; box-shadow: none; overflow: visible; transform: none; }
+    .satCardGrid .satCard:last-child, .satCardGrid .satCard:last-child[open] { border: 1px solid #dedede; }
+    .satCard + .satCard { border-top: 1px solid #dedede; }
+    .satCard::before, .satCard::after { content: none; }
+    .satCard > summary { border: 0; border-radius: 10px; }
+    .satCard .sourceSummary { display: inline-flex; align-items: center; gap: 3px; margin-left: auto; color: #737373; font-size: 10px; font-weight: 400; text-decoration: none; white-space: nowrap; }
+    .satCard .sourceSummary svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
+    .satCard[open] .sourceSummary { display: none; }
+    .satMetaDetails, .satMetaDetails .object-meta, .satMetaDetails .object-meta div { border: 0; }
+    .playbackDock { padding: 3px 8px; }
+    .playbackRow { grid-template-columns: 26px 30px 26px minmax(0,1fr) 39px; grid-template-rows: 24px; gap: 0 5px; }
+    .playbackRow .miniControl { height: 24px; }
+    .playbackRow .sliderWrap { grid-column: 4; grid-row: 1; }
+    .playbackRow .sliderNow { grid-column: 5; grid-row: 1; justify-self: end; min-width: 0; margin: 0; color: #727272; font-size: 10px; font-weight: 600; line-height: 12px; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    #ui { max-height: calc(100vh - 76px); }
+    @media (max-width: 760px) { #ui { max-height: calc(52vh - 54px); } }
+    .dwellKey { margin-top: 5px; color: #777; font-size: 9px; line-height: 1.3; white-space: normal; }
+    .dwellKey strong { font-weight: 750; }
+    .dwellKey .single { color: #777; }
+    .dwellKey .both { color: #a87500; }
+    #ui .episodeHeader h1 { max-width: none; font-size: 18px; line-height: 1.14; letter-spacing: -.04em; white-space: nowrap; }
+    .episodeHeader .titleEpisode { display: block; margin-top: 6px; color: #676767; font-size: 12px; font-weight: 500; line-height: 1.34; }
+    .episodeHeader .backEpisodes { margin: 8px 0 11px; height: auto; }
+    @media(max-width: 400px) { #ui .episodeHeader h1 { white-space: normal; } }
+    #dwellMetric .statLabel { margin-top: -2px; }
+    .thresholdEdge::before,.thresholdEdge::after { content: ""; position: absolute; left: 50%; width: 0; height: 0; border-right: 3px solid transparent; border-left: 3px solid transparent; transform: translateX(-50%); opacity: .7; }
+    .thresholdEdge::before { top: -5px; border-bottom: 4px solid #777; }
+    .thresholdEdge::after { bottom: -5px; border-top: 4px solid #777; }
+    .dwellSegments span.single { background: #a9a9a9; }
+    .dwellSegments span.both { background: #eaaa00; }
+    #timelineSlider { z-index: 4; }
+    .playbackRow { grid-template-columns: 26px 30px 26px minmax(0,1fr) 64px; }
+    .minimumNote a { color: #67531c; text-decoration: underline; text-decoration-color: #b9a66d; text-underline-offset: 2px; cursor: pointer; }
+    .minimumNote a:hover,.minimumNote a:focus-visible { color: #43320c; text-decoration-color: currentColor; }
+    .timelineHoverTick { position: absolute; z-index: 5; top: 1px; bottom: 1px; width: 1px; background: #555; pointer-events: none; }
+    .timelineHover { position: absolute; z-index: 6; bottom: calc(100% + 7px); padding: 3px 5px; border: 1px solid #d7d1c5; border-radius: 3px; background: #fffdfa; box-shadow: 0 2px 7px #0002; color: #4f4b43; font-size: 9px; font-weight: 600; line-height: 1.2; white-space: nowrap; pointer-events: none; }
+    .timelineHover[hidden],.timelineHoverTick[hidden] { display: none; }
+    #ui .episodeHeader h1 { font-size: 22px; }
+    .episodeHeader .titleEpisode { margin-top: 6px; font-size: 13px; line-height: 1.32; transition: transform .22s ease, color .22s ease; }
+    .episodeHeader .backEpisodes { margin: 0 0 9px; }
+    .backEpisodes:hover ~ .titleEpisode,.backEpisodes:focus-visible ~ .titleEpisode { color: #54504a; transform: translateX(3px); }
+    #dwellMetric { display: block; }
+    .dwellValue { display: inline-flex; align-items: baseline; gap: 8px; white-space: nowrap; }
+    .dwellAmount { display: inline-flex; align-items: baseline; gap: 8px; }
+    #dwellMetric .dwellKey { display: block; margin-top: 4px; }
+    #dwellMetric .dwellValue .statLabel { display: inline; margin: 0; color: #555; font-size: 10px; font-weight: 650; line-height: 1.2; }
+    .thresholdEdge { height: 27px; padding: 0 2px; line-height: 27px; cursor: ns-resize; pointer-events: auto; touch-action: none; user-select: none; -webkit-user-select: none; }
+    .thresholdEdge::before { top: 1px; }
+    .thresholdEdge::after { bottom: 1px; }
+    .thresholdEdge:focus-visible { outline: 1px solid #9b7c2e; outline-offset: 2px; }
+    @media(prefers-reduced-motion:reduce){.episodeHeader .titleEpisode{transition:none!important;transform:none!important}}
+    #ui .episodeHeader h1{font-size:23px}
+    .episodeHeader .titleEpisode{margin-left:1px;padding-left:8px;border-left:2px solid var(--marker-A,#eaaa00);transition:none;background:linear-gradient(115deg,#676767 36%,#aaa39a 43%,#fff 49%,#aaa39a 56%,#676767 64%);background-size:300% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .backEpisodes:hover ~ .titleEpisode,.backEpisodes:focus-visible ~ .titleEpisode{transform:none;animation:episodeSubtitleGlint 1.25s ease-out}
+    @keyframes episodeSubtitleGlint{from{background-position:100% 0}to{background-position:0 0}}
+    @media(prefers-reduced-motion:reduce){.backEpisodes:hover ~ .titleEpisode,.backEpisodes:focus-visible ~ .titleEpisode{animation:none}}
+    #rangeMetric,#speedMetric{border-bottom:0;padding-bottom:8px}
+    #distanceChartGroup,#speedChartGroup{margin-top:4px}
+    .minimumNote a{display:inline-flex;align-items:center;gap:3px;color:#777;text-decoration:none;white-space:nowrap}
+    .minimumNote a:hover,.minimumNote a:focus-visible{color:#505050;text-decoration:none}
+    .minimumCalendar{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+    .minimumCalendar .calendarPage{transform-origin:6px 6px;transition:transform .35s ease,opacity .35s ease}
+    .minimumNote a:hover .calendarPage,.minimumNote a:focus-visible .calendarPage{transform:translateY(-2px) rotateX(75deg);opacity:.5}
+    @media(prefers-reduced-motion:reduce){.minimumCalendar .calendarPage{transition:none}}
+    .thresholdControls{margin:8px 0 9px;padding:9px 10px;border:1px solid #e5dfd1;border-radius:7px;background:#fffdf8}
+    .thresholdControls h2{margin:0 0 8px;color:#5e5542;font-size:11px;font-weight:700;line-height:1.2}
+    .thresholdControl{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:3px 8px;margin-top:7px}
+    .thresholdControl label{color:#666;font-size:10px;line-height:1.25}
+    .thresholdControl output{color:#5a4a25;font-size:10px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+    .thresholdControl input[type=range]{grid-column:1/-1;width:100%;height:13px;margin:0;accent-color:#bf9227;cursor:pointer}
+    .satMetaDetails .metadataSection h4{margin:3px 0 4px;color:#67583c;font-size:10px;font-weight:750}
+    .satMetaDetails .metadataSection+.metadataSection{margin-top:9px;padding-top:8px;border-top:1px solid #dedbd3}
+    .satMetaDetails .metadataSection .object-meta div{grid-template-columns:124px minmax(0,1fr);gap:6px;padding:2px 0}
+    .satMetaDetails .metadataSection .object-meta dt{white-space:nowrap}
+    .episodeHeader .titleEpisode{margin-bottom:2px}
+    .episodeHeader .episodeDescription{margin-top:13px}
+    .nowModeling{margin-top:14px}
+    .satMetaDetails .metadataSection h4{color:#555;font-size:11px;font-weight:700;letter-spacing:.055em;text-transform:uppercase}
+    .satCard,.satCard.isCentre,.satCard[open]{overflow:hidden}
+    .satCard > summary{box-sizing:border-box;width:100%;min-width:0;padding-inline:10px}
+    .satCard .satName{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .satCard .sourceSummary{flex:0 0 auto;margin-left:auto}
+    .satCard .satChevron{flex:0 0 18px;margin-left:3px}
+    .thresholdControls{display:block;margin:15px 0 4px;padding:0;border:1px solid #dedede;border-radius:10px;background:#fafafa;overflow:hidden}
+    .thresholdControls>summary{display:flex;align-items:center;gap:7px;min-height:42px;padding:8px 10px;list-style:none;cursor:pointer;color:#444;font-size:11px;font-weight:700}
+    .thresholdControls>summary::-webkit-details-marker{display:none}
+    .thresholdControls>summary:focus-visible{outline:2px solid #777;outline-offset:-2px}
+    .thresholdControls>summary strong{margin-left:auto;color:#777;font-size:10px;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+    .thresholdChevron{color:#999;font-size:17px;font-weight:400;line-height:1;transform:rotate(-90deg);transition:transform .3s ease}
+    .thresholdControls[open] .thresholdChevron{transform:rotate(90deg)}
+    .thresholdBody{padding:0 12px 12px;border-top:1px solid #e5e5e5}
+    .thresholdControl{margin-top:13px}
+    .thresholdControl label{color:#555}
+    .thresholdControl output{color:#555}
+    .thresholdControl input[type=range]{appearance:none;-webkit-appearance:none;width:100%;height:18px;padding:0;border:0;background:transparent;cursor:pointer;--threshold-progress:0%}
+    .thresholdControl input[type=range]::-webkit-slider-runnable-track{height:2px;border-radius:999px;background:linear-gradient(to right,#a9a9a9 0%,#a9a9a9 var(--threshold-progress),#dedede var(--threshold-progress),#dedede 100%)}
+    .thresholdControl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:3px;height:14px;margin-top:-6px;border:0;border-radius:2px;background:var(--sbi-text)}
+    .thresholdControl input[type=range]::-moz-range-track{height:2px;border-radius:999px;background:linear-gradient(to right,#a9a9a9 0%,#a9a9a9 var(--threshold-progress),#dedede var(--threshold-progress),#dedede 100%)}
+    .thresholdControl input[type=range]::-moz-range-thumb{width:3px;height:14px;border:0;border-radius:2px;background:var(--sbi-text)}
+    .thresholdRangeNote{margin:6px 0 0;color:#777;font-size:9px;line-height:1.35}
+    .thresholdRangeNote:empty{display:none}
+    .thresholdBody #dwellMetric{display:block;margin-top:13px;padding:10px 0 0;border-top:1px solid #e5e5e5}
+    .thresholdBody #dwellMetric .dwellValue{display:flex;align-items:baseline;gap:8px;white-space:nowrap}
+    .thresholdBody #dwellMetric .statNumber{font-size:24px}
+    .thresholdBody #dwellMetric .statLabel{font-size:11px}
+    .thresholdBody #dwellMetric .dwellKey{margin-top:6px}
+    .satCard > summary{display:flex;align-items:center;gap:7px;min-height:42px}
+    .satCard .sourceDot{flex:0 0 auto;align-self:center;margin-top:0}
+    .satCard .satName{align-self:center;line-height:1.25}
+    .satCard .satName{flex:1 1 auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2}
+    .minimumNote .estimateCaption{white-space:nowrap}
+    .estimateInfo{position:relative;display:inline-block;vertical-align:middle;margin-left:6px}
+    .estimateInfo summary{display:inline-grid;place-items:center;width:15px;height:15px;border:1px solid #b7ac92;border-radius:50%;background:#fffdf8;color:#7a6b4b;font:700 10px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;list-style:none;cursor:pointer}
+    .estimateInfo summary::-webkit-details-marker{display:none}
+    .estimateInfo summary:hover,.estimateInfo summary:focus-visible{border-color:#9c7826;color:#60460c;outline:1px solid #c3a45b;outline-offset:1px}
+    .estimateInfo p{position:absolute;z-index:30;left:0;bottom:calc(100% + 7px);width:min(295px,calc(100vw - 44px));margin:0;padding:9px 11px;border:1px solid #d7d1c5;border-radius:5px;background:#fffdfa;box-shadow:0 3px 12px #0002;color:#4f4b43;font:400 11px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-align:left;white-space:normal}
+    .estimateInfo:not([open]) p{display:none}
+    .sliderNow{position:relative;cursor:help}
+    .sliderNow:is(:hover,:focus-visible)::after{content:attr(data-full-utc);position:absolute;z-index:20;right:0;bottom:calc(100% + 10px);width:max-content;max-width:min(320px,calc(100vw - 36px));padding:3px 5px;border:1px solid #d7d1c5;border-radius:3px;background:#fffdfa;box-shadow:0 2px 7px #0002;color:#4f4b43;font-size:9px;font-weight:600;line-height:1.2;white-space:normal;text-align:left}
+    .satCard .sourceSummary{flex:0 0 auto;margin-left:auto;font-size:9px}
+    .satCard .satChevron{flex:0 0 18px;align-self:center;margin:0}
+    .thresholdControls>summary{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:12px;font-weight:700}
+    #dwellMetric .statNumber{color:#b8860b}
+    @media(prefers-reduced-motion:reduce){.thresholdChevron{transition:none}}
+  </style>
+
+  <!-- satellite.js does the SGP4 orbit math. It is a classic script that creates a global "satellite" object. -->
+  <script src="vendor/satellite/satellite.min.js"></script>
+  <!-- Tell the browser where to find the 3D and map libraries, then load our code -->
+  <script type="module" src="project-flourish.js"></script>
+  <script type="module" src="satellite-metadata.js?v=11"></script>
+  <script type="module" src="episode-entry.js?v=21"></script>
+  <script type="module" src="episode-ui.js?v=6"></script>
+  <!-- Shared comment system: mounts its own controls, panels and stylesheet. -->
+  <script type="module" src="../../shared/comments/comments.js?v=3"></script>
+</body>
+
+</html>

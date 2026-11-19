@@ -1,0 +1,41 @@
+{
+  "generated": "2026-10-29T18:32:59Z",
+  "publicSubset": true,
+  "keyEvents": [],
+  "satellites": [
+    {
+      "norad": "39509",
+      "name": "Unknown object 39509",
+      "intlDes": null,
+      "country": null,
+      "tleCount": 672,
+      "firstEpoch": "2017-01-01T14:43:00.025536Z",
+      "lastEpoch": "2018-01-12T14:00:39.237408Z",
+      "sources": [
+        "CelesTrak GEO via Internet Archive",
+        "TLEs"
+      ],
+      "warnings": [
+        "NORAD 39509 is not in the local catalog, so its name is unknown.",
+        "7 TLE(s) shared an epoch with a different TLE and were skipped."
+      ]
+    },
+    {
+      "norad": "40258",
+      "name": "Unknown object 40258",
+      "intlDes": null,
+      "country": null,
+      "tleCount": 1477,
+      "firstEpoch": "2015-01-02T02:37:37.574688Z",
+      "lastEpoch": "2022-01-22T21:54:47.283264Z",
+      "sources": [
+        "CelesTrak GEO via Internet Archive",
+        "TLEs"
+      ],
+      "warnings": [
+        "NORAD 40258 is not in the local catalog, so its name is unknown.",
+        "44 TLE(s) shared an epoch with a different TLE and were skipped."
+      ]
+    }
+  ]
+}

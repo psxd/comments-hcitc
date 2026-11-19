@@ -1,0 +1,15 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "0fef97663e104b968ec51501bb689526",
+      "root": "panel",
+      "key": "control-2",
+      "label": "Choose a different episode",
+      "x": 0.044914126987182515,
+      "y": 0.18120558718417554,
+      "text": "This blinking dot looks good, but it needs to be a hair higher to better line up with \"Current Episode\".",
+      "createdAt": "2026-11-16T22:08:41+00:00"
+    }
+  ]
+}

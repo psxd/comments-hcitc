@@ -1,0 +1,31 @@
+{
+  "source": "Space-Track SATCAT export supplied by project author",
+  "records": {
+    "2016-052B": {
+      "NORAD_CAT_ID": "41745",
+      "OBJECT_ID": "2016-052B",
+      "OBJECT_NAME": "USA 271",
+      "SATNAME": "USA 271",
+      "OBJECT_TYPE": "PAYLOAD",
+      "COUNTRY": "US",
+      "LAUNCH": "2016-08-19",
+      "SITE": "AFETR",
+      "DECAY": ""
+    },
+    "2019-097A": {
+      "NORAD_CAT_ID": "44910",
+      "OBJECT_ID": "2019-097A",
+      "OBJECT_NAME": "SJ-20",
+      "SATNAME": "SJ-20",
+      "OBJECT_TYPE": "PAYLOAD",
+      "COUNTRY": "PRC",
+      "LAUNCH": "2019-12-27",
+      "SITE": "WSC",
+      "DECAY": ""
+    }
+  },
+  "launchSiteNames": {
+    "AFETR": "Cape Canaveral / Kennedy Space Center",
+    "WSC": "Wenchang Satellite Launch Center"
+  }
+}

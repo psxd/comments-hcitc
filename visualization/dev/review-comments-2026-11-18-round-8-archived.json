@@ -1,0 +1,173 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "f5e192f155ea4a31878f5b2bb356cf1b",
+      "createdAt": "2026-11-19T03:06:20+00:00",
+      "surface": "E-001",
+      "root": "panel",
+      "key": "episodeTitle",
+      "label": "episode Title",
+      "x": 0.9440559440559441,
+      "y": 0.20592193808882908,
+      "text": "Make this episode title card: 1) more apparent, by using the yellow treatment we applied to an expanded row on the dynamic table (i.e. highlighted yellow background, gold vertical edge on the lefthand side); and 2) in light text add a preposition and then the period information (\"in late 2017\", \"from early to late 2020\", etc.) on its own line.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "70eacc05035c42068bed803caa840eac",
+      "createdAt": "2026-11-19T03:07:50+00:00",
+      "surface": "E-001",
+      "root": "panel",
+      "key": "e001PairSticky",
+      "label": "e001Pair Sticky",
+      "x": 0.6647058823529411,
+      "y": 0,
+      "text": "There should only be one sticky banner. This banner should also get the highlighted yellow row treatment, but in a miniature form. Only use the dropdown treatment for cases in which there's more than one target or more than one chaser.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "f13603da3ca44cb8b0a5c33f7fd81a89",
+      "createdAt": "2026-11-19T03:08:38+00:00",
+      "surface": "E-001",
+      "root": "panel",
+      "key": "satMetaA",
+      "label": "sat Meta A",
+      "x": 0.4148936170212766,
+      "y": 0.12678308543580893,
+      "text": "I think you can reduce the tabbed distance between the field names in Satellite Details and Orbit Detail and the field entries.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "ce15942bab88469982b50b099410cbce",
+      "createdAt": "2026-11-19T03:10:04+00:00",
+      "surface": "E-001",
+      "root": "panel",
+      "key": "speedChart",
+      "label": "speed Chart",
+      "x": 0.5448717948717948,
+      "y": 0.3860383064516129,
+      "text": "Can you please double check the math behind the relative velocity (and tell me about it in the chat)? Consider the tail-end of E-008 when the Russian satellite retreats (and therefore grows the separation distance), but then appears to reenter basically the same orbit, but in a different phase, shouldn't the relative velocity then fall? But it doesn't.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "20ee1f48e3a748a9a35492d7e1ae4bf9",
+      "createdAt": "2026-11-19T03:10:57+00:00",
+      "surface": "E-001",
+      "root": "panel",
+      "key": "globe",
+      "label": "3D globe",
+      "x": 0,
+      "y": 0.33436055469953774,
+      "text": "I'm noticing that when a reference orbit from the 3D globe approaches the control panel, it ends. Instead, the reference orbit should disappear only when it actually goes behind the control panel.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "fbc34f1f085b4dc7ab0a7f23f8fc8f12",
+      "createdAt": "2026-11-19T03:12:49+00:00",
+      "surface": "E-001",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "separation Chart",
+      "x": 0.8141025641025641,
+      "y": 0.7356854838709678,
+      "text": "When the dynamic charts' data labels are referencing a valuable that's very close to the selected threshold, the entirety of the little threshold line that's supposed to extend to the threshold data label disappears. Instead, I want as much of it as possible to stay. To solve this, I think you just need to shrink the white background behind the prinipal data label to the width of the data label string.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "9e6ac59a29764eb3bfa4e799058d7eaf",
+      "createdAt": "2026-11-19T03:13:24+00:00",
+      "surface": "E-001",
+      "root": "panel",
+      "key": "playbackDock",
+      "label": "playback Dock",
+      "x": 0.023391812865497075,
+      "y": 0.30120481927710846,
+      "text": "The chapter toggle should have the same left and right margin as other rounded-corner cards in the control panel; i.e. skinnier than what I see now on E-001.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "dd6056aae0f74885b3d022931d3764c2",
+      "createdAt": "2026-11-19T03:13:48+00:00",
+      "surface": "E-001",
+      "root": "panel",
+      "key": "speedUpBtn",
+      "label": "speed Up Btn",
+      "x": 0.8461538461538461,
+      "y": 0.75,
+      "text": "All episodes should play from the earliest chapter moment upon load.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "646ae94febe94502a16c57520fd2de5a",
+      "createdAt": "2026-11-19T03:14:34+00:00",
+      "surface": "E-001",
+      "root": "panel",
+      "key": "dwellStat",
+      "label": "dwell Stat",
+      "x": 0.4118673647469459,
+      "y": 0.543060076945842,
+      "text": "There's a big distance between \"20h\" and \"21 min\" when such a value is displayed for the dwell time. Decrease that distance; shorten \"min\" to \"m\"",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "428c4da45dac425ab783994e18bb58d1",
+      "createdAt": "2026-11-19T03:15:26+00:00",
+      "surface": "E-002",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.3768823596014493,
+      "y": 0.23325717374213836,
+      "text": "The sequence for \"Loading episode\" should look more like the sequence for changing from chapter to chapter: it should be on a white background, not a warm off-white one.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "62aa93ab47c14a4982c8db6714dadc68",
+      "createdAt": "2026-11-19T03:15:47+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "identity",
+      "label": "identity",
+      "x": 0.27960526315789475,
+      "y": 0.7371419270833334,
+      "text": "These names should be capitalized.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "874f87508766425da09a3dc67a7af06e",
+      "createdAt": "2026-11-19T03:16:45+00:00",
+      "surface": "E-008",
+      "root": "panel",
+      "key": "playbackDock",
+      "label": "playbackDock",
+      "x": 0.19005847953216373,
+      "y": 0.3333333333333333,
+      "text": "When there's not enough real estate to fit a chapter's name on one line, you have to shrink the size of the text.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "3a29aecc31074f499d9a0fde7eb089c2",
+      "createdAt": "2026-11-19T03:24:26+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-059-source-0",
+      "label": "E-059 · source 0",
+      "x": 0.5090019887046475,
+      "y": 0.27625319742044346,
+      "text": "You can do a better job printing the page and showing what that webpage looks like for the freatured image.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "2dbe6edc4d8440f184f5afac856d5732",
+      "createdAt": "2026-11-19T03:26:06+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-059-visual-block",
+      "label": "E-059 mini visualization",
+      "x": 0.7622876972871968,
+      "y": 1,
+      "text": "The loading episode indicator should be in the center _of the mini preview pane_ meaning centered under the right-most six columns width wise and the height of the description + action link + blank space below that height wise.",
+      "appliesToAllEpisodes": true
+    }
+  ]
+}

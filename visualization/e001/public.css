@@ -1,0 +1,6 @@
+@import url("../dev/e001-review/review.css");
+html{--review-top:0px}
+#episodeFrame{height:100vh}
+#chapterTransition{inset:0 0 0 378px;opacity:0;background:#ffffffb5;transition:opacity .45s ease}
+#chapterTransition.is-visible{opacity:1}
+@media(max-width:700px){#chapterTransition{inset:0}}

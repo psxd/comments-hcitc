@@ -1,0 +1,55 @@
+{
+  "schema": "espl-e001-local-review-v1",
+  "comments": [
+    {
+      "id": "0a72f99ece5543c882fe63241f705cb1",
+      "createdAt": "2026-11-17T12:13:19+00:00",
+      "key": "ui",
+      "label": "ui",
+      "x": 0.9005847953216374,
+      "y": 0.07879924953095685,
+      "text": "On page load, I still see some old motifs from E-001's old styles (like the return to library eyebrow action item in gray with the little books icon. Please use the lab-style approved load motif for loading (at the center of the browser; the gray dot to yellow dot to gray dot motif maybe \"Loading Episode\") when needed. I see on the live version of E-002 (so I suppose this does apply to all episodes') that you have other load patterns happening there (like a card in the upper left and right); I don't want those things there either. I want consistency!",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "213da38ddf524da789e2473a82909048",
+      "createdAt": "2026-11-17T12:14:00+00:00",
+      "key": "rangeMetric",
+      "label": "range Metric",
+      "x": 0.743421052631579,
+      "y": 0.571173742418837,
+      "text": "This control panel is missing the sticky \"Current episode:\" satellite legend at the top of the control panel when you scroll down.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "8eca3a11f7af48e683ba5aef46b7b0da",
+      "createdAt": "2026-11-17T12:17:25+00:00",
+      "key": "globe",
+      "label": "3D globe",
+      "x": 0,
+      "y": 0.013412816691505217,
+      "text": "There are changes in the off-canvas design pane between the E-001 and E-002 when I toggle between the two. The whole point is that everything is the same except the satellites (and their chapters, etc). Instead, I see differences in how the top panel is organized.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "2cb98c87a77744b58f45bfdf32887deb",
+      "createdAt": "2026-11-17T12:20:41+00:00",
+      "key": "globe",
+      "label": "3D globe",
+      "x": 0.4878048780487805,
+      "y": 0.9299552906110283,
+      "text": "The camera workshop for E-001 is not what I want. I prefer what I saw before (on E-002 some time ago), so I'll just take a moment to talk about it here.\n\nThe camera workshop is supposed to to prompt me -- all within one pane -- to share my preferred camera angle given whatever I'm seeing on the screen. This should be effectively carousel style: where after I save a camera angle I'm prompted to go to the next one and do it again. The carousel should eventually contain all user-toggled scenarios (the whole length of playback on each chapter, the whole thing for when one satellite is teh reference frame origin vs the other, or when the chaser or target gets toggled, when that's an option (which isn't the case for E-001, but will be for future episodes).\n\nthen you use those keyframes not as gospel, but as an idea for what I want the users to see.\n\nThis is also where I want to weigh in on what the default playback speed is. I think that that should be a function of view. GEO satellites benefit from a fastser playback speed than LEO, probably, but also I might want to see adifferent playback speed when i'm in full-Earth ECI. I don't know; it sohuld be up to me!",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "f9988ac3d8734149966ebc66fb8ced37",
+      "createdAt": "2026-11-17T12:22:10+00:00",
+      "key": "globe",
+      "label": "3D globe",
+      "x": 0.08130081300813008,
+      "y": 0.5126676602086438,
+      "text": "The tails on on the moving satellite (whichever ones' are not the reference frame origins) should have a length that's not based on time, but just length, for aesthetic purposes. I liked the length of what I saw on E-002, but now on E-001 (probably because the satellites' moving slower!), I find the tail too short. Make it look more like E-001's.",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

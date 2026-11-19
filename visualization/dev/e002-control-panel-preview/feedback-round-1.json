@@ -1,0 +1,85 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "4ee5687c34454f159824935320a04022",
+      "root": "panel",
+      "key": "episodeTitle",
+      "label": "Russia's Kosmos 2542 and Kosmos 2543 approaching U.S. reconnaissa",
+      "x": 0.9141914191419142,
+      "y": 0.47768670309653916,
+      "text": "I want this area to be pumped up a bit, as it's the only indicator about what episode we're on. I think it should get a stronger treatment, and maybe even an \"Episode\" titling of some kind (maybe an eyebrow?). _This_ is where the action item to go pick a different episode should live.",
+      "createdAt": "2026-11-15T22:16:02+00:00"
+    },
+    {
+      "id": "433c0453ea6f43dd870b5c3bd971f96f",
+      "root": "panel",
+      "key": "ui",
+      "label": "Choose a different episode Visualizing Proximity in Space Russia'",
+      "x": 0.9532163742690059,
+      "y": 0.05880020486724933,
+      "text": "Let's make the title \"Visualizing Proximity in the Space Domain\" and restore the exact same titling size as the SBI model's control panel. I want to be consistent here across projects.",
+      "createdAt": "2026-11-15T22:16:35+00:00"
+    },
+    {
+      "id": "d74910ea56a7433ca506b4956b0045e1",
+      "root": "selector",
+      "key": "selector-A",
+      "label": "Kosmos 2542",
+      "x": 0.09230769230769231,
+      "y": 0.42857142857142855,
+      "text": "I feel like when the first toggle option is selected, as it is right now as I'm typing this, the margin to the left of the button is too small: it's smaller than the margins above and below the button. Try to make it match the above and below ones. If that's requires shifting the button to the right a hair (and doing the same with the gray USA 245 dot below it), so be it.",
+      "createdAt": "2026-11-15T22:17:31+00:00"
+    },
+    {
+      "id": "755bc84f1b4a428cad8d1cd3eb35ec00",
+      "root": "selector",
+      "key": "selector-chevron",
+      "label": "Chaser disclosure chevron",
+      "x": 0.52,
+      "y": 0.47619047619047616,
+      "text": "This chevron is faded gray, when it should not be. It's also not aligned with the chevron below it in the USA 245 pane, when it should be.",
+      "createdAt": "2026-11-15T22:17:54+00:00"
+    },
+    {
+      "id": "0196e099f3e24a91b310a98f056521c8",
+      "root": "panel",
+      "key": "ui",
+      "label": "Choose a different episode Visualizing Proximity in Space Russia'",
+      "x": 0.029239766081871343,
+      "y": 0.38975994184413565,
+      "text": "Remove this whole intervention about the \"observer window and the reconstruction coverage.\" I'm trying to ensure that this control panel looks as much like E-001's as I can and I don't want to add new elements here.",
+      "createdAt": "2026-11-16T03:23:17+00:00"
+    },
+    {
+      "id": "8051da1104434df1a57a18aaffaa1b14",
+      "root": "panel",
+      "key": "rangeMetric",
+      "label": "Separation metric",
+      "x": 0.10526315789473684,
+      "y": 0.3998097276727316,
+      "text": "We can change this \"Estimated separation distance\" to \"Separation distance\" again; me adding a glossary term later on this topic should clear it up.",
+      "createdAt": "2026-11-16T03:23:46+00:00"
+    },
+    {
+      "id": "60f2fb30b7004afc9c624e057a481797",
+      "root": "panel",
+      "key": "ui",
+      "label": "Choose a different episode Visualizing Proximity in Space Russia'",
+      "x": 0.04678362573099415,
+      "y": 0.4838667041155187,
+      "text": "Again, we can shorten this to \"Minimum this episode: [N] km on [Date]\" just like before.",
+      "createdAt": "2026-11-16T03:24:39+00:00"
+    },
+    {
+      "id": "c978b5267b9048458daf17adfc698dd8",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "Separation distance over time; drag the horizontal threshold line to adjust",
+      "x": 0.04487179487179487,
+      "y": 0.852209051724138,
+      "text": "You can make this \"Estimated separation (km)\" y-axis just \"Separation distance (km)\".",
+      "createdAt": "2026-11-16T03:25:09+00:00"
+    }
+  ]
+}

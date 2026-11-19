@@ -1,0 +1,41 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "c0217badb5744361b588b7614c9d0ccc",
+      "createdAt": "2026-11-17T16:51:09+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 mini visualization",
+      "x": 0.33541447524685286,
+      "y": 0.14042553191489363,
+      "text": "Globe feels distorted and not spherical.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "037728d789b14a779fecbab1df9e3dd2",
+      "createdAt": "2026-11-17T16:51:36+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 mini visualization",
+      "x": 0.18484838202526777,
+      "y": 0.225531914893617,
+      "text": "The idea of the mini preview is that it's just showing one particular TLE propagated perpetually on repeat. You're showing transitions through TLEs that I don't want.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "c6ffceb7738642debdcbe107496c44b3",
+      "createdAt": "2026-11-17T16:52:11+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-visual-block",
+      "label": "E-002 · visual block",
+      "x": 0.30432176263671634,
+      "y": 0.509727220570594,
+      "text": "You didn't apply my hover preferences on here. Those preferences were for all rows on this table. Maybe you should add a button for me to indicate when I mean that.",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

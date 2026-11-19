@@ -1,0 +1,214 @@
+{
+  "schema": "espl-e008-camera-views-v1",
+  "views": [
+    {
+      "id": "2d907c76ac064aa7adca94926f589def",
+      "createdAt": "2026-11-18T11:31:56+00:00",
+      "chapterId": "chapter-1",
+      "timeUtc": "2018-02-24T23:35:00.000Z",
+      "selected": "B",
+      "referenceSlot": "B",
+      "position": [
+        6.74123789747407,
+        2.0576834251987783,
+        6.422160892668574
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "zoom": 1,
+      "fov": 35,
+      "note": ""
+    },
+    {
+      "id": "b101f37987634a92b0d94f490ef0bda3",
+      "createdAt": "2026-11-18T11:32:01+00:00",
+      "chapterId": "chapter-1",
+      "timeUtc": "2018-03-10T23:35:00.000Z",
+      "selected": "B",
+      "referenceSlot": "B",
+      "position": [
+        6.74123789747407,
+        2.0576834251987783,
+        6.422160892668574
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "zoom": 1,
+      "fov": 35,
+      "note": ""
+    },
+    {
+      "id": "37769dfc003a443ab8f1d75fc44682b4",
+      "createdAt": "2026-11-18T11:32:07+00:00",
+      "chapterId": "chapter-1",
+      "timeUtc": "2018-02-24T23:35:00.000Z",
+      "selected": "B",
+      "referenceSlot": "A",
+      "position": [
+        6.74123789747407,
+        2.0576834251987783,
+        6.422160892668574
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "zoom": 1,
+      "fov": 35,
+      "note": ""
+    },
+    {
+      "id": "4b9e073af3b44e73a16e02e370660114",
+      "createdAt": "2026-11-18T11:32:09+00:00",
+      "chapterId": "chapter-1",
+      "timeUtc": "2018-03-10T23:35:00.000Z",
+      "selected": "B",
+      "referenceSlot": "A",
+      "position": [
+        6.74123789747407,
+        2.0576834251987783,
+        6.422160892668574
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "zoom": 1,
+      "fov": 35,
+      "note": ""
+    },
+    {
+      "id": "1216e1eb87cd4635b5ebcca9f2cc0594",
+      "createdAt": "2026-11-18T11:32:29+00:00",
+      "chapterId": "chapter-2",
+      "timeUtc": "2019-12-18T04:37:00.000Z",
+      "selected": "B",
+      "referenceSlot": "B",
+      "position": [
+        3.2753763346326212,
+        1.0928512768546659,
+        4.188002576973526
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "zoom": 1,
+      "fov": 35,
+      "note": ""
+    },
+    {
+      "id": "fe09a4c312524245b739351b7d69b062",
+      "createdAt": "2026-11-18T11:32:38+00:00",
+      "chapterId": "chapter-2",
+      "timeUtc": "2019-12-18T04:37:00.000Z",
+      "selected": "B",
+      "referenceSlot": "A",
+      "position": [
+        4.204130503427307,
+        1.092851276854666,
+        3.254649355669575
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "zoom": 1,
+      "fov": 35,
+      "note": ""
+    },
+    {
+      "id": "9d63e29ac0aa46f4b9cfb586fc6c3684",
+      "createdAt": "2026-11-18T11:32:50+00:00",
+      "chapterId": "chapter-3",
+      "timeUtc": "2023-02-13T00:41:00.000Z",
+      "selected": "B",
+      "referenceSlot": "B",
+      "position": [
+        1.690625513675229,
+        0.43947309670735496,
+        1.308806478361209
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "zoom": 1,
+      "fov": 35,
+      "note": ""
+    },
+    {
+      "id": "2fc36cf936ef4e39b0b14c735ca2d7e2",
+      "createdAt": "2026-11-18T11:32:52+00:00",
+      "chapterId": "chapter-3",
+      "timeUtc": "2023-03-12T23:38:00.000Z",
+      "selected": "B",
+      "referenceSlot": "B",
+      "position": [
+        1.690625513675229,
+        0.43947309670735496,
+        1.308806478361209
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "zoom": 1,
+      "fov": 35,
+      "note": ""
+    }
+  ],
+  "moments": []
+}

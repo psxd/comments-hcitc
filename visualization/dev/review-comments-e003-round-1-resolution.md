@@ -1,0 +1,1 @@
+E-003 now spells out AFETR as Cape Canaveral / Kennedy Space Center and WSC as Wenchang Satellite Launch Center, following the project’s CSIS-style launch-site names. The existing E-001, E-002, and E-005 full-view metadata already uses full launch-site names.

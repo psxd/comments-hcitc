@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Episodes of Concern · ESPL</title>
+  <link rel="icon" type="image/png" href="./assets/polyhedron-icon.png">
+  <link rel="stylesheet" href="./style.css?v=30">
+  <script type="module" src="./app.js?v=40"></script>
+  <script type="module" src="../visualization/dev/review-shell.js?v=2"></script>
+<link rel="stylesheet" href="../shared/episode-loading.css">
+</head>
+<body>
+  <main class="component-wrap">
+    <section class="library" aria-label="Episodes of Concern table">
+      <div class="toolbar">
+        <label class="search-field"><span class="visually-hidden">Search episodes, orbital regimes, or countries</span><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.7"/><path d="m13 13 4.5 4.5"/></svg><input id="search" type="search" placeholder="Search episodes, orbital regimes, or countries…"></label>
+        <span id="count" class="count" aria-live="polite"></span>
+      </div>
+      <div id="preview-controls" class="preview-controls" hidden><label><input id="preview-toggle" type="checkbox"> <span class="preview-label">Preview all episodes</span> <small>(local development only)</small></label></div>
+      <div id="status" class="status" role="status">Loading published records…</div>
+      <div class="table-wrap"><table><thead><tr>
+        <th scope="col"><button class="sort-head" data-sort="title" type="button">Episode <span class="sort-indicator" aria-hidden="true"></span></button></th>
+        <th scope="col">Orbit</th>
+        <th scope="col">Space objects</th>
+        <th scope="col"><button class="sort-head" data-sort="date" type="button">Period <span class="sort-indicator" aria-hidden="true"></span></button></th>
+        <th scope="col"><button class="sort-head metric-heading" data-sort="distance" type="button"><span>Minimum Separation Distance</span><span class="sort-indicator" aria-hidden="true"></span></button></th>
+        <th scope="col"><button class="sort-head metric-heading" data-sort="speed" type="button"><span>Minimum Relative Velocity</span><span class="sort-indicator" aria-hidden="true"></span></button></th>
+        <th scope="col" class="records-head"><button class="sort-head" data-sort="sources" type="button">Records <span class="sort-indicator" aria-hidden="true"></span></button></th>
+      </tr></thead><tbody id="rows"></tbody></table></div>
+      <div id="empty" class="empty" hidden></div>
+    </section>
+  </main>
+  <script type="module" src="../shared/comments/comments.js?v=3"></script>
+</body>
+</html>

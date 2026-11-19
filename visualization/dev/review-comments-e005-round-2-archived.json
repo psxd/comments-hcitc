@@ -1,0 +1,89 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "1bae6e562e664ec68ae884fb5ae0eef9",
+      "createdAt": "2026-11-17T22:30:17+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "separationChart",
+      "x": 0.6442307692307693,
+      "y": 0.5579133064516129,
+      "text": "When you draw out these dynamic charts, the x-axis should be consistently moving to the left. You instead have the line series being drawn out over a static x-axis.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "0774d70ea26c460289453ba623eab1b2",
+      "createdAt": "2026-11-17T22:30:40+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "metricArea",
+      "label": "metricArea",
+      "x": 0.16776315789473684,
+      "y": 0.9667471831291494,
+      "text": "We don't need this message; you can use TLEs that extend past 72 hours; this whole exercise is for illustrative purposes.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "0d854f497aba468f9f1fe7a4717c9573",
+      "createdAt": "2026-11-17T22:33:07+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "ui",
+      "label": "ui",
+      "x": 0.7076023391812866,
+      "y": 0.9702380952380952,
+      "text": "When there are no chapters, there's more room for the control panel to expand downward.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "0f6886c97d3649fa9fde3f893abde397",
+      "createdAt": "2026-11-17T22:34:03+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "separationChart",
+      "x": 0.8910256410256411,
+      "y": 0.38371975806451614,
+      "text": "You're missing the sticky header from E-002. That is, when you scroll down, you should be seeing the names of the satellites being plotted at the top with the title \"CURRENT EPISODE:\". I hope you remember to do that on all episodes.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "1ef2b61e29b74628bdf127c5af617807",
+      "createdAt": "2026-11-17T22:34:41+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "dwellMetric",
+      "label": "dwellMetric",
+      "x": 0.6366906474820144,
+      "y": 0.6949034441568783,
+      "text": "Satellite names here should be italicized. Threshold values (plus their units) shoudl be in bold. \"Gray\" and \"gold\" words bolded in their appropriate colors.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "92acfa2891754df9963eb7661581789d",
+      "createdAt": "2026-11-17T22:35:36+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "identity",
+      "label": "identity",
+      "x": 0.27631578947368424,
+      "y": 0.8954420647995607,
+      "text": "Glossary terms are glitchy and glimmery during playback. Data source links missing their microinteraction, both when playback is paused and playing.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "9592543c3a394241ae9d3e160b5f1e9c",
+      "createdAt": "2026-11-17T22:36:06+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "identity",
+      "label": "identity",
+      "x": 0.5888157894736842,
+      "y": 0.3893465129049973,
+      "text": "This \"PRC\" should be \"China (PRC)\" with Chinese flag emoji. Flag emoji also missing from launch site.",
+      "appliesToAllEpisodes": true
+    }
+  ]
+}

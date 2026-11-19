@@ -1,0 +1,21 @@
+{
+  "schema": "espl-e002-table-metrics-v1",
+  "source": "Full E-002 visualization: one-minute nearest-TLE samples over its December 9 and December 30 chapter windows",
+  "maximumStatisticTleAgeHours": 120,
+  "pair": "COSMOS 2542 / USA 245",
+  "minimumDistance": {
+    "value": 54.460713977827155,
+    "ms": 1575891600000,
+    "windowId": "dec9"
+  },
+  "minimumSpeed": {
+    "value": 38.29053360281802,
+    "ms": 1577735520000,
+    "windowId": "dec30"
+  },
+  "otherPair": {
+    "pair": "COSMOS 2543 / USA 245",
+    "minimumDistance": { "value": 39.99619748319331, "ms": 1575865500000, "windowId": "dec9" },
+    "minimumSpeed": { "value": 88.67838051654155, "ms": 1575885420000, "windowId": "dec9" }
+  }
+}

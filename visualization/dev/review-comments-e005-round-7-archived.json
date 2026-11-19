@@ -1,0 +1,17 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "dae842efd97941c5b92d98173e653fea",
+      "createdAt": "2026-11-18T00:42:39+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "scene",
+      "label": "3D globe",
+      "x": 0.6461336828309305,
+      "y": 0.11755485893416928,
+      "text": "Please do draw the center satellite's reference orbit on full-Earth ECI.",
+      "appliesToAllEpisodes": true
+    }
+  ]
+}

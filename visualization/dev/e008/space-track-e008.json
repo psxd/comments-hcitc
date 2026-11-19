@@ -1,0 +1,45 @@
+{
+  "schema": "espl-e008-satcat-v1",
+  "source": "Space-Track SATCAT",
+  "records": {
+    "2016-065A": {
+      "NORAD_CAT_ID": "41838",
+      "OBJECT_ID": "2016-065A",
+      "OBJECT_NAME": "SJ-17",
+      "SATNAME": "SJ-17",
+      "OBJECT_TYPE": "PAYLOAD",
+      "COUNTRY": "PRC",
+      "LAUNCH": "2016-11-03",
+      "SITE": "WSC",
+      "DECAY": ""
+    },
+    "2007-007B": {
+      "NORAD_CAT_ID": "30794",
+      "OBJECT_ID": "2007-007B",
+      "OBJECT_NAME": "SKYNET 5A",
+      "SATNAME": "SKYNET 5A",
+      "OBJECT_TYPE": "PAYLOAD",
+      "COUNTRY": "UK",
+      "LAUNCH": "2007-03-11",
+      "SITE": "FRGUI",
+      "DECAY": ""
+    }
+  },
+  "launchSiteNames": {
+    "FRGUI": "Guiana Space Centre",
+    "PLMSC": "Plesetsk Cosmodrome",
+    "AFETR": "Cape Canaveral / Kennedy Space Center",
+    "AFWTR": "Vandenberg Air Force Base",
+    "WSC": "Wenchang Satellite Launch Center",
+    "TYMSC": "Baikonur Cosmodrome",
+    "TAISC": "Taiyuan Satellite Launch Center",
+    "JSC": "Jiuquan Satellite Launch Center",
+    "XICLF": "Xichang Satellite Launch Center",
+    "SRILR": "Satish Dhawan Space Centre",
+    "DLS": "Yasny Launch Base",
+    "RLLB": "Rocket Lab Launch Complex",
+    "TANSC": "Tanegashima Space Center",
+    "PKMTR": "Plesetsk Cosmodrome",
+    "TTMTR": "Baikonur Cosmodrome"
+  }
+}

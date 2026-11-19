@@ -1,0 +1,65 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "3e29a7128bf14b83af97da4397991606",
+      "createdAt": "2026-11-19T05:02:51+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-059-source-1",
+      "label": "E-059 · source 1",
+      "x": 0.7400162893128941,
+      "y": 0.4411576043960743,
+      "text": "This feature image should be the same aspect ratio as the others; it's too tall right now.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "60cf64fa45b9425a840ef3abbb09ea83",
+      "createdAt": "2026-11-19T05:03:22+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-059-visual-block",
+      "label": "E-059 mini visualization",
+      "x": 0.8647936200740766,
+      "y": 1,
+      "text": "You've been having a hard time saving this camera angle as I really like it on the Git version. Try harder.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "4a7155ca171b4b8fb2035a0706a36820",
+      "createdAt": "2026-11-19T05:03:50+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.7280968111492987,
+      "y": 1,
+      "text": "You entirely removed the reference orbit. Add it back.\n\nSatellite dots and tails are faded; they shouldn't be.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "eec865f3688242e9a21025c932a07290",
+      "createdAt": "2026-11-19T05:04:41+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-003-visual-block",
+      "label": "E-003 · visual block",
+      "x": 0.03333444559378024,
+      "y": 1,
+      "text": "Background of episode description needs to be faded/feathered at is edge.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "b7d57bb532124194b5ad318a046dea0e",
+      "createdAt": "2026-11-19T05:05:03+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-006-visual-block",
+      "label": "E-006 · visual block",
+      "x": 0.4177316560445794,
+      "y": 1,
+      "text": "Remove Intelsat 7",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

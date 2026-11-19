@@ -1,0 +1,17 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "3eafedaf22e046f880d560e614a283f3",
+      "createdAt": "2026-11-18T02:59:16+00:00",
+      "surface": "E-003",
+      "root": "panel",
+      "key": "dwellUnit",
+      "label": "dwellUnit",
+      "x": 0.4650373387644263,
+      "y": 0.46522639834270496,
+      "text": "Remember, this should be measured in days and hours or hours and minutes.",
+      "appliesToAllEpisodes": true
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "schema": "espl-dynamic-table-comments-v1",
+  "comments": [
+    {
+      "id": "dcd9f0aa27004ad382cfcaa4194e21b5",
+      "key": "E-001-cell-1",
+      "label": "E-001 · Space objects",
+      "x": 0.3168387751447502,
+      "y": 0.4168878166465621,
+      "text": "Remember, these names should be coming from Space-Track.org now please (my local file I gave you earlier).",
+      "createdAt": "2026-11-17T02:50:25+00:00"
+    },
+    {
+      "id": "022a406812b84dcc84dad912f6ece9d2",
+      "key": "E-001-cell-1",
+      "label": "E-001 · Space objects",
+      "x": 0.8020056109353548,
+      "y": 0.40659429030961,
+      "text": "I want the hover card to look more like the satellite details pane inside the latest version of E-002 full viz; please make changes to do that.",
+      "createdAt": "2026-11-17T02:51:06+00:00"
+    },
+    {
+      "id": "183f05e4db6f4c598e34f2c497722982",
+      "key": "heading-5",
+      "label": "Column heading · Records",
+      "x": 0.28349142065437494,
+      "y": 0.24793388429752067,
+      "text": "This records column needs more of a margin on the righthand side; that righthand margin should look equal in size to the lefthand margin to the left of the \"Episode name\" column. Remember: the title \"Records\" should be centered over its column.",
+      "createdAt": "2026-11-17T02:52:07+00:00"
+    },
+    {
+      "id": "11fc415c70064bd58800b65d3d7730d4",
+      "key": "heading-3",
+      "label": "Column heading · Estimated minimum separation",
+      "x": 0.8742968660314545,
+      "y": 0.4297520661157025,
+      "text": "This column should read \"Minimum Separation Distance\" and then \"Estimated\" in some smaller note style below it.",
+      "createdAt": "2026-11-17T02:52:44+00:00"
+    },
+    {
+      "id": "036e3241c75d4a88b2a23f55c050d4fa",
+      "key": "heading-4",
+      "label": "Column heading · Estimated minimum relative velocity",
+      "x": 0.21226036046378144,
+      "y": 0.6942148760330579,
+      "text": "This column should read \"Minimum Relative Velocity\" and then \"Estimated\" in some smaller note style below it.",
+      "createdAt": "2026-11-17T02:52:56+00:00"
+    },
+    {
+      "id": "eee19a2d8b844a1d8452baa48e906d5b",
+      "key": "E-002-visual-block",
+      "label": "E-002 mini visualization",
+      "x": 0.6558311560517118,
+      "y": 0.2529411764705882,
+      "text": "These camera edit tools don't feel like they do on the full E-002 viz. I want you to make a good starting guess for this viz based on the loading sequence of the actual full E-002 viz. Remember, we have a reference orbit now (which should be formatted just like the reference orbit in the E-001 mini viz here in the dynamic table).",
+      "createdAt": "2026-11-17T02:55:01+00:00"
+    },
+    {
+      "id": "839d4b7db7634cf5a254ac655176d6a0",
+      "key": "E-002-cell-0",
+      "label": "E-002 · Episode name",
+      "x": 0.6023780297013022,
+      "y": 0.3988786869261396,
+      "text": "This name should be coming from the Google Sheet (Cell L3 in this case), but it's not.",
+      "createdAt": "2026-11-17T02:55:38+00:00"
+    },
+    {
+      "id": "c9bed5df99f04ddd91ab1047c77e2115",
+      "key": "E-002-cell-1",
+      "label": "E-002 · Space objects",
+      "x": 0.053244195069539785,
+      "y": 0.3052734216299667,
+      "text": "These satellites should be colored and ordered just like the full E-002 viz, so COSMOS 2542 in yellow (as it is; good), then COSMOS 2543 (in faded yellow), then USA 245 (in gray).",
+      "createdAt": "2026-11-17T02:56:31+00:00"
+    },
+    {
+      "id": "f8a5091ec44d436dae78dbc5a4c21856",
+      "key": "E-002-cell-3",
+      "label": "E-002 · Estimated minimum separation",
+      "x": 0.44082194925955687,
+      "y": 0.7420979930121069,
+      "text": "You do have an estimate for this value from the full E-002 viz. Reference that here, please.",
+      "createdAt": "2026-11-17T02:56:48+00:00"
+    }
+  ]
+}

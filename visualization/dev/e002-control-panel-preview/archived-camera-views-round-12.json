@@ -1,0 +1,59 @@
+{
+  "schema": "espl-e002-camera-views-v1",
+  "views": [
+    {
+      "id": "330f67a3c60040fdb4f88a30ba37060c",
+      "createdAt": "2026-11-16T16:00:58+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-10T01:03:44.700Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "nearusa",
+      "auto": false,
+      "position": [
+        7.830370006584813,
+        3.0535096026540525,
+        5.781496763903988
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "1af1543e33a54cc8b4aca040dc6a0a0f",
+      "createdAt": "2026-11-16T16:12:27+00:00",
+      "windowId": "dec30",
+      "timeUtc": "2019-12-30T17:29:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "nearusa",
+      "auto": false,
+      "position": [
+        3.012834089471387,
+        0.9467900197635086,
+        2.7398582488542074
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    }
+  ]
+}

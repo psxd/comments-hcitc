@@ -1,0 +1,77 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "0636441776944cf2bd4d5e290410f6d4",
+      "createdAt": "2026-11-18T05:54:15+00:00",
+      "surface": "E-006",
+      "root": "panel",
+      "key": "dwellMetric",
+      "label": "dwellMetric",
+      "x": 0.3237410071942446,
+      "y": 0.7557236711128807,
+      "text": "Across all episodes names of satellites in this description (below Dwell time) should be cased like \"Luch (Olymp)\" and \"Intelsat 7\"",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "7c20b2d557594161ab101e34afbf9ec7",
+      "createdAt": "2026-11-18T05:55:55+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 \u00b7 visual block",
+      "x": 0.745798568760996,
+      "y": 1,
+      "text": "Globe's viewport is cropping the globe before it should: globe should slip under the top collapsed row and the right edge of the table.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "e2440f1dafa54bae9e771183b3113969",
+      "createdAt": "2026-11-18T05:56:20+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 \u00b7 visual block",
+      "x": 0.2995455870130711,
+      "y": 1,
+      "text": "All elements of mini preview sohuld always stay loaded. Right now some come in at different times. \n\nThey also appear faded? Should not be faded.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "dae43d31dbc64ad49e95bfb7d9c3dd36",
+      "createdAt": "2026-11-18T05:56:40+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-visual-block",
+      "label": "E-002 \u00b7 visual block",
+      "x": 0.3561907023433031,
+      "y": 1,
+      "text": "This viz feels faded; it should not be",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "84103cee46e045eb97c510e6061de8c4",
+      "createdAt": "2026-11-18T05:57:04+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-003-visual-block",
+      "label": "E-003 \u00b7 visual block",
+      "x": 0.8190227422366617,
+      "y": 1,
+      "text": "Orbit getting cropped by the viewport before it should!",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "00d6dbd50f764aeeb75225538d82a2eb",
+      "createdAt": "2026-11-18T05:57:19+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-003-source-1",
+      "label": "E-003 \u00b7 source 1",
+      "x": 0.6679474051318581,
+      "y": 0.46474086042153634,
+      "text": "This is not a successful screenshot from their website or their PDF. Try harder to do that.",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

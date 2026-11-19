@@ -1,0 +1,18 @@
+{
+  "schema": "espl-shared-review-v1",
+  "moments": [
+    {
+      "id": "0b7a0725b4bc4430922aa30d79999e32",
+      "createdAt": "2026-11-17T15:48:25+00:00",
+      "surface": "E-001",
+      "windowId": "chapter-1",
+      "selected": "A",
+      "referenceMode": "chaser",
+      "mode": "relative",
+      "timeUtc": "2017-10-24T04:32:00.000Z",
+      "label": "Initial approach",
+      "note": "During this time, Luch appraoches Athena-Fidus. When they get close, I do think I'd like us to zoom in and see that better, but it has to be clear that that's happening.",
+      "spanMinutes": 60
+    }
+  ]
+}

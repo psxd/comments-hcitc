@@ -1,0 +1,77 @@
+{
+  "schema": "espl-e002-camera-views-v1",
+  "views": [
+    {
+      "name": "This one please",
+      "momentId": "dec8",
+      "timestamp": "2019-12-08T10:05:00Z",
+      "reference": "B",
+      "position": [-0.534417265356863, 1.2624438316874949, 0.6524807901537135],
+      "target": [-0.544675474646269, 0.7493181684354522, 0.6409615304120939],
+      "zoom": 1,
+      "fieldOfViewDeg": 35,
+      "units": "Earth radii",
+      "coordinateFrame": "ECI [x,z,-y]"
+    },
+    {
+      "name": "Candidate view",
+      "momentId": "dec7",
+      "timestamp": "2019-12-07T09:45:00Z",
+      "reference": "B",
+      "position": [
+        -0.653449565258007,
+        3.9895061634845956,
+        0.7099158688106045
+      ],
+      "target": [
+        -0.6545446381834816,
+        0.6206898699822792,
+        0.7086918393927373
+      ],
+      "zoom": 1,
+      "fieldOfViewDeg": 35,
+      "units": "Earth radii",
+      "coordinateFrame": "ECI [x,z,-y]"
+    },
+    {
+      "name": "Candidate view",
+      "momentId": "dec8",
+      "timestamp": "2019-12-08T10:05:00Z",
+      "reference": "B",
+      "position": [
+        -0.560736151823232,
+        2.5149510222977485,
+        0.7861424985633569
+      ],
+      "target": [
+        -0.6382650794714019,
+        0.6343153466879881,
+        0.7137071331167166
+      ],
+      "zoom": 1,
+      "fieldOfViewDeg": 35,
+      "units": "Earth radii",
+      "coordinateFrame": "ECI [x,z,-y]"
+    },
+    {
+      "name": "Candidate view",
+      "momentId": "dec9",
+      "timestamp": "2019-12-09T04:25:00Z",
+      "reference": "B",
+      "position": [
+        -0.3644849317906299,
+        -1.1437509368019403,
+        0.039039207007149135
+      ],
+      "target": [
+        -0.3274289044865387,
+        -1.0006055429850493,
+        0.12078751000387554
+      ],
+      "zoom": 1,
+      "fieldOfViewDeg": 35,
+      "units": "Earth radii",
+      "coordinateFrame": "ECI [x,z,-y]"
+    }
+  ]
+}

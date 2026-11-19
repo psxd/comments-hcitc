@@ -1,0 +1,85 @@
+{
+  "schema": "espl-e001-local-review-v1",
+  "comments": [
+    {
+      "id": "9bea6bb70ae941ed9a5db98378fb9609",
+      "createdAt": "2026-11-17T05:20:02+00:00",
+      "key": "globe",
+      "label": "3D globe",
+      "x": 0,
+      "y": 0.01639344262295082,
+      "text": "Please add a button on the upper left (in the review pane, not the tool itself), to toggle the episode that we are reviewing in local review. Just either E-001 or E-002 for now.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "3a5c3ac9d85e4254b4894ab69b07a142",
+      "createdAt": "2026-11-17T05:20:41+00:00",
+      "key": "distanceMinimum",
+      "label": "distance Minimum",
+      "x": 0.8157894736842105,
+      "y": 0.5094051855617692,
+      "text": "Ditch this information button; it's already been removed from E-002.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "efc42b7eedea44df9aaf3ef2b903547b",
+      "createdAt": "2026-11-17T05:21:20+00:00",
+      "key": "satMetaA",
+      "label": "sat Meta A",
+      "x": 0.6773049645390071,
+      "y": 0.44517488197370425,
+      "text": "These satellite details can and shoudl come from Space-Track (via the local file I gave you earlier); so that's where credit is due.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "2184c27f425d4fc3a734ea0f8ae2428a",
+      "createdAt": "2026-11-17T05:21:56+00:00",
+      "key": "globe",
+      "label": "3D globe",
+      "x": 0.8509485094850948,
+      "y": 0.5603576751117735,
+      "text": "Yellow satellite should always have yellow tail (when it has relative motion to show). Thickness and color treatment of that tail needs to come directly from E-002.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "4c105e07ef4c428cace5d0ac8af928cb",
+      "createdAt": "2026-11-17T05:22:28+00:00",
+      "key": "globe",
+      "label": "3D globe",
+      "x": 0.505420054200542,
+      "y": 0.4977645305514158,
+      "text": "Even when the yellow satellite is the center-of-the-relative-motion-frame satellite, it's orbit should be in black, not yellow.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "418882ff52ca4cebbe7aea0035720d9c",
+      "createdAt": "2026-11-17T05:23:46+00:00",
+      "key": "globe",
+      "label": "3D globe",
+      "x": 0.08130081300813008,
+      "y": 0.8703427719821163,
+      "text": "The moving forward/back in time in time motif should last a little longer, so you can read it (like we had in E-002), should fade in bit by bit (like we had in E-002), and should apply a fade-out layer to just the 3D globe in the background, not the control panel and the playback card. \n\nThe message should be centered over the browser width that is not covered by the control panel.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "53d4f5f36bb049ccbdf1af53af9568ad",
+      "createdAt": "2026-11-17T05:24:19+00:00",
+      "key": "sliderNow",
+      "label": "slider Now",
+      "x": 0.482090740249403,
+      "y": 0.07380607814761216,
+      "text": "This current date shoudl appear to the right of the playbar (effecitvely shortening it), not below.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "206e763aae104bcc832e40414184add1",
+      "createdAt": "2026-11-17T05:25:46+00:00",
+      "key": "globe",
+      "label": "3D globe",
+      "x": 0.5880758807588076,
+      "y": 0.08345752608047691,
+      "text": "On full-globe ECI view, the satellite tails shouldn't be very long",
+      "appliesToAllEpisodes": true
+    }
+  ]
+}

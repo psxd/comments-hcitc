@@ -1,0 +1,14 @@
+{
+  "schema": "espl-dynamic-table-comments-v1",
+  "comments": [
+    {
+      "id": "7dab0e761d754968953acb41718af0fd",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.22035221064775543,
+      "y": 0.44617686170212767,
+      "text": "This mini scene is out of date; it should reflect the latest version of the E-001 viz, but it doesn't.",
+      "createdAt": "2026-11-17T12:51:10+00:00"
+    }
+  ]
+}

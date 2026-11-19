@@ -1,0 +1,65 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "101ad06e737e43dea362e62613dbe989",
+      "createdAt": "2026-11-18T02:06:52+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-context-block",
+      "label": "E-001 \u00b7 context block",
+      "x": 0.0830069913269106,
+      "y": 0.8958133205251361,
+      "text": "Upon expanding any row, I want to see the yellow polyhedron _with its black orbit_. Hovering on it, should perform some micor interaction: undrawing and redrawing the orbit and nudging the rightward arrow. That rightward arrow needs to be moved a hair upward to align its center line with the text to the left.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "887b2affc7a9448087adb3ab0637cb8f",
+      "createdAt": "2026-11-18T02:08:37+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 \u00b7 visual block",
+      "x": 0.39073040681295673,
+      "y": 0.6759640957446809,
+      "text": "The camera loop is not working how I want on E-001's mini preview. Please just show us the starting TLE for November 24 and run it all the way through the chapter's run time (which I know starts before November 24 and ends after it). Just plot continous motion from a single TLE; don't switch it out.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "89c02a6fa76444fbbb8d8a75b58ae7fd",
+      "createdAt": "2026-11-18T02:09:38+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-context-block",
+      "label": "E-001 \u00b7 context block",
+      "x": 0.6426975470292867,
+      "y": 0.9265529939161063,
+      "text": "There shouldn't be space below the \"Explore the interactive model\" action item; just let the records start there.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "75558f9f28aa436a9fdd0b28e1642b6b",
+      "createdAt": "2026-11-18T02:10:01+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-visual-block",
+      "label": "E-002 \u00b7 visual block",
+      "x": 0.4211253467462519,
+      "y": 0.7285386029411764,
+      "text": "This image should extend behind the records; right now it gets cut off before that.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "028adcb8a08246a0950706054e40bab3",
+      "createdAt": "2026-11-18T02:10:45+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-005-visual-block",
+      "label": "E-005 \u00b7 visual block",
+      "x": 0.6781007480004749,
+      "y": 0.5297647244591821,
+      "text": "Just like E-001, please just plot one TLE and run it through the entire duration of the Janury 8 chapter.",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

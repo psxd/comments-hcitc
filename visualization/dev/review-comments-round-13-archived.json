@@ -1,0 +1,125 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "a0d1f1e79fc9408aab9f69529d74c1d8",
+      "createdAt": "2026-11-18T03:42:16+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-source-0",
+      "label": "E-001 · source 0",
+      "x": 0.5726966928917672,
+      "y": 0.5377888240435807,
+      "text": "Please ensure that this card is in front of all other assets, regardless of whether its hovered on or not.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "ca937f1086d54d779029d305fd27fae0",
+      "createdAt": "2026-11-18T03:43:24+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.16414994549202888,
+      "y": 1,
+      "text": "Please ensure that when this row is expanded, all elements of the mini preview is always in view. I never want it drawn in or drawn out. \n\nPlease also increase the size of the satellite dots to match those in other mini previews.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "f55e370ff7da4aaf8084cd4d7ddea972",
+      "createdAt": "2026-11-18T03:44:02+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-context-block",
+      "label": "E-002 · context block",
+      "x": 0.7810825745381159,
+      "y": 0.9345219967330214,
+      "text": "Across all episodes, I want more breathing room below the \"Explore the interactive model\" action item and above the records.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "853868d0584f408aa5f24e792c2530ad",
+      "createdAt": "2026-11-18T03:44:44+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-visual-block",
+      "label": "E-002 · visual block",
+      "x": 0.07849147840728787,
+      "y": 1,
+      "text": "The reference orbit sometimes extends so far to the left that it gets cropped out (presumably by some sort of pane that the episode description is sitting in). Intead, that pane should have a feathered effect.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "3ecd4f2002ad47dfae154fb94d79b47a",
+      "createdAt": "2026-11-18T03:45:08+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-visual-block",
+      "label": "E-002 · visual block",
+      "x": 0.317506233337291,
+      "y": 1,
+      "text": "It's clear that this mini viz is not keeping the target satellite locked into the origin of a reference frame. It moves! We have to fix that.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "5d18f9d2b00345f498db235c980ebe83",
+      "createdAt": "2026-11-18T03:47:08+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-visual-block",
+      "label": "E-002 mini visualization",
+      "x": 0.4904638034690816,
+      "y": 0.3695652173913043,
+      "text": "Again, choose just one TLE per satellite to propagate. Let the gray satellite be the center of the relative motion frame (and make it unmoved). Ensure the background of teh animation is the exact same color as the background of the expanded row. Ensure that all assets extend to the entirety of the expanded row: I see a skinny badn of white above the globe and a big band of white to the right of the globe; these should be replaced with full extension all the way to the edges.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "a5929089d970420e9927c443b4c52287",
+      "createdAt": "2026-11-18T03:47:44+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-005-cell-0",
+      "label": "E-005 · Episode name",
+      "x": 0.9352703833095507,
+      "y": 0.5517997887381165,
+      "text": "When you click to expand a new row, you should be gently scrolled to that spot; not so abrupt please.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "64221a607aac46c4bd0c72a992690fca",
+      "createdAt": "2026-11-18T03:48:59+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-005-visual-block",
+      "label": "E-005 · visual block",
+      "x": 0.23322935443133613,
+      "y": 1,
+      "text": "Make satellite dots a bit bigger please. Ensure mini preview is immediately visible upon row expansion, no lag.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "bdcc37d0da8842b0af8922b18e44cf3b",
+      "createdAt": "2026-11-18T03:49:10+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-003-cell-3",
+      "label": "E-003 · Minimum separation distance",
+      "x": 0.5121057888978737,
+      "y": 0.5116204262163249,
+      "text": "Add in these parameters from the full viz.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "b5fbe32e479b4a2fa5b448e425e92258",
+      "createdAt": "2026-11-18T03:49:13+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-005-cell-3",
+      "label": "E-005 · Minimum separation distance",
+      "x": 0.4938400799124768,
+      "y": 0.4841959860242139,
+      "text": "Add in these parameters from the full viz.",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

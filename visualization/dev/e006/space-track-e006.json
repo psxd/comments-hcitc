@@ -1,0 +1,42 @@
+{
+  "source": "Space-Track SATCAT export supplied by project author",
+  "records": {
+    "2014-058A": {
+      "NORAD_CAT_ID": "40258",
+      "OBJECT_ID": "2014-058A",
+      "OBJECT_NAME": "LUCH (OLYMP)",
+      "SATNAME": "LUCH (OLYMP)",
+      "OBJECT_TYPE": "PAYLOAD",
+      "COUNTRY": "CIS",
+      "LAUNCH": "2014-09-27",
+      "SITE": "TTMTR",
+      "DECAY": ""
+    },
+    "1998-052A": {
+      "NORAD_CAT_ID": "25473",
+      "OBJECT_ID": "1998-052A",
+      "OBJECT_NAME": "INTELSAT 7 (PAS 7)",
+      "SATNAME": "INTELSAT 7 (PAS 7)",
+      "OBJECT_TYPE": "PAYLOAD",
+      "COUNTRY": "US",
+      "LAUNCH": "1998-09-16",
+      "SITE": "FRGUI",
+      "DECAY": ""
+    },
+    "2001-024A": {
+      "NORAD_CAT_ID": "26824",
+      "OBJECT_ID": "2001-024A",
+      "OBJECT_NAME": "INTELSAT 901",
+      "SATNAME": "INTELSAT 901",
+      "OBJECT_TYPE": "PAYLOAD",
+      "COUNTRY": "ITSO",
+      "LAUNCH": "2001-06-09",
+      "SITE": "FRGUI",
+      "DECAY": ""
+    }
+  },
+  "launchSiteNames": {
+    "TTMTR": "Baikonur Cosmodrome",
+    "FRGUI": "Guiana Space Centre"
+  }
+}

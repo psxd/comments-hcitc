@@ -1,0 +1,41 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "b1a508990f94410aac88fb61c088c4c3",
+      "createdAt": "2026-11-17T18:47:56+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-visual-block",
+      "label": "E-002 \u00b7 visual block",
+      "x": 0.16150424585523657,
+      "y": 0.2974025974025974,
+      "text": "This mini preview needs a darker, more apparent reference orbit, and bigger satellite dots and thicker tails.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "fc2c0bcb8fae45f899e88b9b92e38f47",
+      "createdAt": "2026-11-17T18:51:40+00:00",
+      "surface": "E-001",
+      "root": "panel",
+      "key": "globe",
+      "label": "3D globe",
+      "x": 0.47876447876447875,
+      "y": 0.5402298850574713,
+      "text": "I really can't figure out if you've nailed this or not for E-001. On page load, I want the camera in the view we agreed upon in the camera workshop (So please get us there!).",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "c82cad321d8f4665a8381451df2db239",
+      "createdAt": "2026-11-17T18:52:55+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "scene",
+      "label": "3D globe",
+      "x": 0.17401960784313725,
+      "y": 0.2640144665461121,
+      "text": "I am not even going to waste my time listing out all of the comments on this episode. I told you to copy all of the design choices from E-002. That means in the 3D viz and in the control panel. You have failed at that in so many ways. Please be more diligent about copying all of the styles.",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

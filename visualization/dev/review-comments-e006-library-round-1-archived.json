@@ -1,0 +1,53 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "33a47259e5a04707b8f39dbf06f22908",
+      "createdAt": "2026-11-18T04:17:55+00:00",
+      "surface": "E-006",
+      "root": "panel",
+      "key": "identity",
+      "label": "identity",
+      "x": 0.21710526315789475,
+      "y": 0.84033203125,
+      "text": "When you're short on space (as you are here, but also inside the sticky header), just call this satellite \"Intelsat 7\" (i.e. cut the \"(PAS 7)\"). But do disply it when you have room!",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "84e35c94909e4849928a42e1a880c37a",
+      "createdAt": "2026-11-18T04:21:13+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-visual-block",
+      "label": "E-002 · visual block",
+      "x": 0.16691312184960116,
+      "y": 1,
+      "text": "Ugh, this is back to being the wrong zoom. Why can't you remember my preferences after I set them? I'll do it again, but I have low confidence that it'll work. \n\nAlso, the hover on this pane is not looking great on the live github version. Hovering should darken _just_ the globe (in addition to pulse-growing the satellites), but instead the entire pane darkens. Same is true for E-005; I never want that.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "4d2acf485094435e9cfbebc9a39008bb",
+      "createdAt": "2026-11-18T04:21:30+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-003-visual-block",
+      "label": "E-003 · visual block",
+      "x": 0.2967824106554988,
+      "y": 1,
+      "text": "Satellites aren't pulse growing on hover.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "61a2c23c9ec7412f8d4c5391cd5032fb",
+      "createdAt": "2026-11-18T04:22:40+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-visual-block",
+      "label": "E-002 · visual block",
+      "x": 0.39073040681295673,
+      "y": 1,
+      "text": "I've overadjusted the mini scene to compensate for the weird over-zoom that's happening after I save. I guess that's fine, just please lower the seatellite dot size in this view.",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

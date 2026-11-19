@@ -1,0 +1,29 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "0e67a800aff94d87a992f67eac7e3105",
+      "createdAt": "2026-11-17T18:01:09+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.613101496158512,
+      "y": 0.6036569148936171,
+      "text": "I made a bunch of changes to the mini preview here and clicked \"Save preview loop & camera,\" but I don't konw if you're able to see those proeferences! There's no spot I see to save those changes and show you.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "d0ab269ed4e2426aa942ac1ded22142f",
+      "createdAt": "2026-11-17T18:02:04+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-visual-block",
+      "label": "E-002 mini visualization",
+      "x": 0.4684189243833401,
+      "y": 0.5705882352941176,
+      "text": "Why can't I adjust x-y stuff on this one? Why does this scene have a preview view port edge (it shouldn't!).",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

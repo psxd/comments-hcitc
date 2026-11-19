@@ -1,0 +1,41 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "ea254a2d386548cdbc109ad4018d58b7",
+      "createdAt": "2026-11-18T01:30:45+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-visual-block",
+      "label": "E-002 · visual block",
+      "x": 0.5579025764460803,
+      "y": 0.49154184778094634,
+      "text": "For E-002, there's a big difference between the mini scene I adjusted and the one that I see when I exit the \"adjust mini scene\" pane. The one I see outside of edit mode is very zoomed in. Can't you preserve the one I edited in the adjust mini scene pane?",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "ccf16bcf7ae647488c9cdb5a566b4a6a",
+      "createdAt": "2026-11-18T01:31:23+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-005-cell-1",
+      "label": "E-005 · Space objects",
+      "x": 0.017651073334160567,
+      "y": 0.6113389626055489,
+      "text": "These satellites should use their Space-Track names. Both Shiyan 12 01 and Shiyan 12 02 should be the same gray dot color, but one should be faded out (whichever one is faded out in the mini preview).",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "9acb162d7bfc404c987d042d896a4f87",
+      "createdAt": "2026-11-18T01:33:10+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-005-evidence-section",
+      "label": "E-005 · evidence section",
+      "x": 0.44236091789066734,
+      "y": 0.3859545063613986,
+      "text": "D-041's description card should appear here. I suspect it doesn't becuause its tagged episodes are \"E-002, E-005, E-029, E-043\". \n\nAll episodes should display the descriptions that have their episode ID in Column B of the Descriptions tab, even if those episode IDs appear in a comma-separated list.",
+      "appliesToAllEpisodes": true
+    }
+  ]
+}

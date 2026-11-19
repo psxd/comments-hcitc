@@ -1,0 +1,65 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "477731ee1c2d41cdaa8f25370b9562b7",
+      "createdAt": "2026-11-19T05:15:01+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.43766336325313937,
+      "y": 1,
+      "text": "Although I can see the reference orbit rendered here, I cannot see it on Github.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "391950dd60a24f4fa9efdf53d9a28330",
+      "createdAt": "2026-11-19T05:16:26+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.13584036838066002,
+      "y": 1,
+      "text": "If a mini preview needs the loading sequence, that motif should appear in the center of the pane dedicated to the mini preview. This pane is the width of the last six of the seven columns in the table and the height of the space between the bottom of the highlighted row to the top of the records pane.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "ec63f4b9af4d4520b878c3b209fd99a7",
+      "createdAt": "2026-11-19T05:17:20+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-005-visual-block",
+      "label": "E-005 · visual block",
+      "x": 0.604235487781819,
+      "y": 1,
+      "text": "I dont' need Shiyan 12 02 on this mini preview.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "446f08fe6ef343889820ed3263a4fbaf",
+      "createdAt": "2026-11-19T05:17:44+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-006-visual-block",
+      "label": "E-006 · visual block",
+      "x": 0.43054489639293936,
+      "y": 1,
+      "text": "I don't need Intelsat 901 on this mini preview.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "f1a3e2cdeaf9477e8fde112b03d504a2",
+      "createdAt": "2026-11-19T05:19:20+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-059-visual-block",
+      "label": "E-059 mini visualization",
+      "x": 0.7395086033345568,
+      "y": 1,
+      "text": "this never looks the way you think it does on git; ensure it does",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

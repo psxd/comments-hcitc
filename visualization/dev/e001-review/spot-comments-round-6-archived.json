@@ -1,0 +1,15 @@
+{
+  "schema": "espl-e001-local-review-v1",
+  "comments": [
+    {
+      "id": "90409634591a4ba8910847ed65fcf310",
+      "createdAt": "2026-11-17T12:49:06+00:00",
+      "key": "globe",
+      "label": "3D globe",
+      "x": 0.02981029810298103,
+      "y": 0.038748137108792845,
+      "text": "The \"Opening chaper\" load sequence should read \"Loading episode\"",
+      "appliesToAllEpisodes": true
+    }
+  ]
+}

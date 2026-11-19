@@ -1,0 +1,115 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "8521521b727c48188cb66a9342bf5362",
+      "root": "selector",
+      "key": "selector-area",
+      "label": "Satellite selector",
+      "x": 0.8947368421052632,
+      "y": 0.058565600335532084,
+      "text": "If I click in exactly this spot (just to the left of the the chevron when there are two satellites sharing a line), I should see the same result as if I clicked directly on the chevron.",
+      "createdAt": "2026-11-16T03:33:54+00:00"
+    },
+    {
+      "id": "53eb5886b14f49919cf43dbd89364c69",
+      "root": "panel",
+      "key": "episodeFocus",
+      "label": "Episode E-002Choose another episodeRussia's Kosmos 2542 and Kosmo",
+      "x": 0.2598684210526316,
+      "y": 0.19524453895225208,
+      "text": "Remember, these index numbers (\"E-002\") are for developer use only; they won't be in the final version, so they shouldn't be here either.\n\nIn general, I'm not feeling so satisfied with this episode name area. I think it's maybe drawing too _much_ attention? I'm not sure. I think I would like to see you get creative and come up with a few more ideas for how to show what I want to show:\n1. What episode we're currently on; and\n2. That there are other episodes to go look at, if you want to.\n\nOne way to achieve the latter is by having buttons to go to the next or previous episode, in addition to or instead of going back to the episode library. I'd like you to try a few ideas for how to do this and let me investigate them.",
+      "createdAt": "2026-11-16T03:36:27+00:00"
+    },
+    {
+      "id": "64bd36820d424cd1bfc8e5ac4b7f8475",
+      "root": "selector",
+      "key": "selector-kosmos-2543-section-1",
+      "label": "Kosmos 2543 Orbital Details",
+      "x": 0.07092198581560284,
+      "y": 0.24336398109189133,
+      "text": "You can delete the word \"Selected\"; should just say \"TLE epoch\".",
+      "createdAt": "2026-11-16T03:36:51+00:00"
+    },
+    {
+      "id": "59d1e6273f46483c80b3db3460bbbdfb",
+      "root": "panel",
+      "key": "rangeMetric",
+      "label": "Separation metric",
+      "x": 0.039473684210526314,
+      "y": 0.032584136044713996,
+      "text": "Maybe you can add a subtle horizontal line here to separate inputs from results.",
+      "createdAt": "2026-11-16T03:37:10+00:00"
+    },
+    {
+      "id": "aa98c9c98de047c092177562ebff57af",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "Separation distance over time; drag the horizontal threshold line to adjust",
+      "x": 0.5096153846153846,
+      "y": 0.43410560344827587,
+      "text": "I do want to see what this looks like with real data, so I can offer comments on that. On the next round, please actually pull data to fill this chart. Remember, it's a function of the satellite toggle position. If the toggle is on Kosmos 2542, then the separation distance should show the distance between Kosmos 2542 and USA-245. But if the toggle is on Kosmos 2543, then this chart should show the separation distance between Kosmos 2543 and USA 245.",
+      "createdAt": "2026-11-16T03:38:44+00:00"
+    },
+    {
+      "id": "12b82dc780624849a3e9724d4016ae44",
+      "root": "panel",
+      "key": "thresholdRangeNote",
+      "label": "Statistics use one-minute samples within 12 hours of both selecte",
+      "x": 0.046762589928057555,
+      "y": 0.1954983922829582,
+      "text": "Delete this",
+      "createdAt": "2026-11-16T03:39:05+00:00"
+    },
+    {
+      "id": "0187db9fbd404ed4aef315cf8d12e756",
+      "root": "panel",
+      "key": "dwellLabel",
+      "label": "Dwell Time",
+      "x": 0.16224951519069167,
+      "y": 0.22380106571936056,
+      "text": "Don't capitalize the \"T\"; this should read \"Dwell time\"",
+      "createdAt": "2026-11-16T03:39:22+00:00"
+    },
+    {
+      "id": "4add8ee86ba64b5282888f21fd48d91a",
+      "root": "panel",
+      "key": "dwellMetric",
+      "label": "—minDwell TimeApproximate chapter duration between consecutive su",
+      "x": 0.02877697841726619,
+      "y": 0.7254649666627676,
+      "text": "This message below the dwell time highlighted statistic should read: \"The duration during which [Chaser satellite] is within [separation distance threshold] km of [Target satellite] with a relative velocity less than or equal to [relative velocity threshold] m/s.\"",
+      "createdAt": "2026-11-16T03:40:50+00:00"
+    },
+    {
+      "id": "6c3046afef4e4b82af2bc5f0563dc55e",
+      "root": "panel",
+      "key": "timelineSlider",
+      "label": "Playback time bar",
+      "x": 0.9553072625698324,
+      "y": 0.54150390625,
+      "text": "The time on the right currently says some sort of duration in DD:HH:MM format. Instead, it should just have the date and time (the same thing I see on tooltip hover right now). With that change, you can remove tool-tip hover.",
+      "createdAt": "2026-11-16T03:41:53+00:00"
+    },
+    {
+      "id": "9f034aa5d75b4823b606bdb7c95c9bc8",
+      "root": "panel",
+      "key": "control-10",
+      "label": "December 7 observer window",
+      "x": 0.1910875569157274,
+      "y": 0.4392755681818182,
+      "text": "We'll need to work on what three dates we want here and how long to spend on each of them; this will probably have to be hardcoded for each episode, unfortunately.",
+      "createdAt": "2026-11-16T03:42:23+00:00"
+    },
+    {
+      "id": "2051f3bd98934bf1bbccf8760dc2c5e3",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "Separation distance over time; drag the horizontal threshold line to adjust",
+      "x": 0.9198717948717948,
+      "y": 0.9065193965517241,
+      "text": "I don't know how I want to handle these tick marks across the horizontal axis, but I know I do want users to know the year in addition to the day, plus get an idea of how much time is passing.",
+      "createdAt": "2026-11-16T03:43:07+00:00"
+    }
+  ]
+}

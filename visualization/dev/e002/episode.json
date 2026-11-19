@@ -1,0 +1,87 @@
+{
+  "episodeId": "E-002",
+  "title": "Russia's Kosmos 2542 and Kosmos 2543 approaching U.S. reconnaissance satellite",
+  "historicalPeriod": "November 2019–February 2020",
+  "status": "Development reconstruction; supported windows are narrower than the historical episode",
+  "participants": [
+    {
+      "slot": "A",
+      "name": "Kosmos 2542",
+      "cospar": "2019-079A",
+      "norad": "44797",
+      "color": "#eaaa00"
+    },
+    {
+      "slot": "B",
+      "name": "USA 245",
+      "cospar": "2013-043A",
+      "norad": "39232",
+      "color": "#a9a9a9"
+    },
+    {
+      "slot": "C",
+      "name": "Kosmos 2543",
+      "cospar": "2019-079D",
+      "norad": "44835",
+      "color": "#707070"
+    }
+  ],
+  "defaultPair": [
+    "A",
+    "B"
+  ],
+  "pairOptions": [
+    [
+      "A",
+      "B"
+    ],
+    [
+      "C",
+      "B"
+    ],
+    [
+      "A",
+      "C"
+    ]
+  ],
+  "defaultThresholds": {
+    "separationKm": 200,
+    "relativeSpeedMps": 15
+  },
+  "maximumDisplayTleAgeHours": 36,
+  "maximumStatisticTleAgeHours": 12,
+  "cameraPresets": "camera-examples.json",
+  "elementProvenance": "data/provenance.json",
+  "windows": [
+    {
+      "id": "dec7",
+      "label": "December 7 · observer window",
+      "chapterShort": "Dec 7",
+      "chapterTitle": "December 7 observer window",
+      "chapterNarrative": "A dated USA 245 observer element supports a short reconstruction with Kosmos 2542.",
+      "start": "2019-12-07T09:45:00Z",
+      "end": "2019-12-07T11:15:00Z",
+      "note": "USA 245 has a nearby amateur-derived element. Kosmos 2542's element is within the 36-hour display gate but older than the 12-hour statistics gate."
+    },
+    {
+      "id": "dec8",
+      "label": "December 8 · observer window",
+      "chapterShort": "Dec 8",
+      "chapterTitle": "December 8 observer window",
+      "chapterNarrative": "A second USA 245 observer element supports a separate short view with Kosmos 2542.",
+      "start": "2019-12-08T10:05:00Z",
+      "end": "2019-12-08T11:35:00Z",
+      "note": "The December 8 USA 245 element supports this separate reconstruction. No track crosses the gap from December 7."
+    },
+    {
+      "id": "dec31",
+      "label": "December 31 · dated elements",
+      "chapterShort": "Dec 31",
+      "chapterTitle": "December 31 dated elements",
+      "chapterNarrative": "Dated elements support a short reconstruction of Kosmos 2542 and USA 245.",
+      "start": "2019-12-31T18:00:00Z",
+      "end": "2019-12-31T19:30:00Z",
+      "note": "Both plotted spacecraft have nearby dated elements. USA 245's element is roughly 8–10 hours from this window; this geometry does not establish a measured close approach."
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "schema": "espl-e001-local-review-v1",
+  "comments": [
+    {
+      "id": "68873abdf9d64862b89f83b85e295bfe",
+      "createdAt": "2026-11-17T04:57:15+00:00",
+      "key": "rangeMetric",
+      "label": "range Metric",
+      "x": 0.8026315789473685,
+      "y": 0.36471344599559147,
+      "text": "This whole section, from the separation dynamic chart downwards, is not matching the style and functionality of the E-002 full viz, still. This is frustrating. I don't know how to be clearer with you on this."
+    },
+    {
+      "id": "80e084ed473843b38414f9f12b4ecf43",
+      "createdAt": "2026-11-17T04:58:46+00:00",
+      "key": "separationChart",
+      "label": "separation Chart",
+      "x": 0.483974358974359,
+      "y": 0.8061995967741935,
+      "text": "Because GEO timescales are different than LEO ones, you need to show much more than a day on the x-axis of this dynamic chart. Try a week."
+    },
+    {
+      "id": "97df86c8981f41bc98b5d9e7d102d7a4",
+      "createdAt": "2026-11-17T04:59:18+00:00",
+      "key": "globe",
+      "label": "3D globe",
+      "x": 0.1856368563685637,
+      "y": 0.7868852459016393,
+      "text": "Please delete the geostationary reference orbit. To better match E-002, you should be highlighting the orbit of the satellite at the center of the reference frame instead."
+    },
+    {
+      "id": "604bd8c0e9f44c42bc7d878338df5db7",
+      "createdAt": "2026-11-17T04:59:49+00:00",
+      "key": "modeBtn",
+      "label": "mode Btn",
+      "x": 0.5434782608695652,
+      "y": 0.5869565217391305,
+      "text": "Clicking this button is supposed to show an ECI view, in which the camera is on the vector normal to the orbital plane, but zoomed out so you can see everything."
+    },
+    {
+      "id": "ff11b46c798749b2868f70e25a71032b",
+      "createdAt": "2026-11-17T05:00:17+00:00",
+      "key": "playbackDock",
+      "label": "playback Dock",
+      "x": 0.7807017543859649,
+      "y": 0.3132530120481928,
+      "text": "If there are only two chapters, the toggle box here should be formatted such that those two toggle switches fill the entire width."
+    },
+    {
+      "id": "10d1f318ff1b42e6b95d189f6aa9b0f8",
+      "createdAt": "2026-11-17T05:01:53+00:00",
+      "key": "sliderNow",
+      "label": "slider Now",
+      "x": 0.39258988866581496,
+      "y": 0.6852387843704776,
+      "text": "This is supposed to be more complete date and time."
+    },
+    {
+      "id": "4deb0f13052d45ee82bb351914d83df0",
+      "createdAt": "2026-11-17T05:02:06+00:00",
+      "key": "playbackDock",
+      "label": "playback Dock",
+      "x": 0.2309941520467836,
+      "y": 0.30120481927710846,
+      "text": "These toggle labels should say the complete date."
+    },
+    {
+      "id": "81e6949aaa244a60bff9db9d1c220355",
+      "createdAt": "2026-11-17T05:02:36+00:00",
+      "key": "globe",
+      "label": "3D globe",
+      "x": 0.21544715447154472,
+      "y": 0.9284649776453056,
+      "text": "On the changing-chapter sequence, the rightward arrow between the two dates is missing. Also true on E-002."
+    }
+  ]
+}

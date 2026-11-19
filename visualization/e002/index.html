@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-002 · Visualizing Proximity in the Space Domain</title>
+  <base href="../dev/e002-control-panel-preview/">
+  <link rel="stylesheet" href="../../Viz/style.css">
+  <link rel="stylesheet" href="../../Viz/episode-e002.css">
+  <link id="previewCss" rel="stylesheet" href="preview.css?v=2">
+  <script type="importmap">{"imports":{"three":"../../Viz/vendor/three/three.module.js","three/addons/":"../../Viz/vendor/three/addons/"}}</script>
+  <script src="../../Viz/vendor/satellite/satellite.min.js"></script>
+  <link rel="stylesheet" href="../../../shared/episode-loading.css">
+  <link rel="stylesheet" href="../../../shared/episode-panel.css?v=3">
+  <link rel="preconnect" href="https://willamadsen.github.io" crossorigin>
+  <style>#episodeLoading{background:#fff}</style>
+</head>
+<body class="e002-shared e002-published" data-heading-style="quiet" data-books="off" data-calendar-icon="off">
+  <div id="episodeLoading" class="episode-loading" role="status" aria-live="polite"><span class="episode-loading-dots" aria-hidden="true"><i></i><i></i><i></i></span><strong id="episodeLoadingText">Loading episode</strong></div>
+  <header class="review-header">
+    <div><span class="review-kicker">E-002 · LOCAL DESIGN REVIEW</span><h1>Visualizing Proximity in the Space Domain</h1></div>
+    <div class="review-actions"><button id="workshopToggle" type="button" aria-expanded="false" aria-controls="cameraWorkshop" disabled>Camera workshop</button><button id="saveCameraBtn" type="button" title="Save the current 3D camera angle locally">Save camera view <span id="cameraViewCount">0</span></button><button id="feedbackToggle" type="button" aria-expanded="false" aria-controls="feedbackRail">Comments <span id="headerCommentCount">0</span></button><button id="commentMode" type="button" aria-pressed="false">✚ Add spot comment</button></div>
+  </header>
+  <main class="review-workspace">
+    <div id="globeStage" class="globe-stage" data-spot-key="globeStage" aria-label="E-002 3D orbital reconstruction">
+      <div id="scene"></div><div id="satelliteScreenLabels"></div>
+      <div id="chapterTransition" class="chapter-transition" role="status" aria-live="polite" hidden><div class="chapter-transition-dots" aria-hidden="true"><i></i><i></i><i></i></div><strong id="chapterTransitionMessage">Moving through the episode</strong><span id="chapterTransitionDates"><span id="chapterFromDate"></span><span class="chapter-date-arrow" aria-hidden="true">→</span><span id="chapterToDate"></span></span></div>
+      <div id="cameraControls" aria-label="3D view controls" hidden>
+        <a id="projectLink" data-spot-key="projectLink" href="https://espl.ae.gatech.edu/research/projects/proximity/" target="_top" aria-label="About this project" title="About this project"><span class="projectLinkIcon" aria-hidden="true"><canvas id="projectFlourishCanvas" width="116" height="116"></canvas></span><span class="projectLinkLabel">About this project<svg class="projectLinkArrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-2"/></svg></span></a>
+        <button id="zoomInBtn" data-spot-key="zoomInBtn" class="cameraBtn" type="button" title="Zoom in" aria-label="Zoom in">+</button>
+        <button id="zoomOutBtn" data-spot-key="zoomOutBtn" class="cameraBtn" type="button" title="Zoom out" aria-label="Zoom out">−</button>
+        <button id="modeBtn" data-spot-key="modeBtn" class="cameraBtn modeBtn" type="button" title="Switch to ECI view" aria-label="Switch to ECI view"></button>
+        <button id="referenceBtn" data-spot-key="referenceBtn" class="cameraBtn referenceBtn" type="button" title="Reference: USA 245. Switch to selected Cosmos satellite" aria-label="Reference: USA 245. Switch to selected Cosmos satellite" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="reference-target-dot" cx="6" cy="12" r="3"/><circle class="reference-chaser-dot" cx="18" cy="12" r="3"/><path d="M9.5 6.5h7l-2-2M14.5 17.5h-7l2 2"/></svg></button>
+      </div>
+      <p id="sceneStatus" class="scene-status" data-spot-key="sceneStatus" role="status">Loading dated orbital elements…</p>
+      <p id="modelCaveat" class="model-caveat" data-spot-key="modelCaveat">Illustrative SGP4 reconstruction from dated elements. Their epochs and ages are in the satellite disclosures.</p>
+    </div>
+    <div id="panelColumn" class="panel-column" aria-label="E-002 control panel preview">
+      <div id="panelMount"><p class="loading">Loading the E-002 panel…</p></div>
+      <button id="panelToggleBtn" class="panel-toggle" type="button" aria-label="Hide control panel" aria-expanded="true" title="Hide control panel"><span aria-hidden="true">‹</span></button>
+    </div>
+    <div id="pinLayer" class="pin-layer" aria-label="Saved comment markers"></div>
+    <aside id="cameraWorkshop" class="camera-workshop" data-spot-key="cameraWorkshop" aria-label="Guided camera path workshop" hidden>
+      <div class="workshop-head"><div><span class="workshop-kicker">GUIDED CAMERA REVIEW</span><h2>Camera path workshop</h2></div><button id="workshopClose" type="button" aria-label="Close camera workshop">×</button></div>
+      <p class="workshop-intro">Play through every chapter with each chaser and reference origin. At each stop, rotate or zoom the globe, then save the view. Saved angles guide the camera between stops.</p>
+      <div class="workshop-context"><strong id="workshopRoute">Loading chapters…</strong><span id="workshopTime">—</span><span id="workshopProgress">—</span></div>
+      <label class="workshop-interval" for="workshopRouteSelect">Configuration <select id="workshopRouteSelect" aria-label="Review configuration"></select></label>
+      <input id="workshopMinute" type="range" min="0" max="2160" step="1" value="0" aria-label="Review minute in current chapter">
+      <label class="workshop-interval" for="workshopInterval">Review stops <select id="workshopInterval"><option value="key" selected>Key moments</option><option value="60">1 hour</option><option value="120">2 hours</option><option value="360">6 hours</option></select></label>
+      <div class="workshop-speed"><label for="workshopSpeed">Speed in this view</label><select id="workshopSpeed"><option value="5">5 min/s</option><option value="10">10 min/s</option><option value="20">20 min/s</option><option value="40">40 min/s</option><option value="80">80 min/s</option></select><button id="workshopSaveSpeed" type="button">Save speed note</button></div>
+      <div class="workshop-actions"><button id="workshopPrevious" type="button">Previous stop</button><button id="workshopNext" type="button">Skip to next</button><button id="workshopPlay" type="button" class="primary">Play to next stop</button><button id="workshopPlayRun" type="button" class="primary">Play whole run</button><button id="workshopSavePlay" type="button" class="primary">Save view &amp; play next</button></div>
+      <p id="workshopStatus" class="workshop-status" role="status">Choose Start to begin. Your progress is kept in this browser.</p>
+      <div class="workshop-footer"><button id="workshopStart" type="button">Start from beginning</button><button id="workshopResume" type="button">Resume saved position</button></div>
+    </aside>
+    <aside id="feedbackRail" class="feedback-rail" aria-label="Spot comment workspace" hidden>
+      <div class="rail-head"><h2>Spot comments</h2><span id="commentCount">0</span></div>
+      <p class="rail-instruction">Select <strong>Add spot comment</strong>, then click anywhere in the panel. You can expand a disclosure first to comment inside it.</p>
+      <form id="commentForm" hidden>
+        <div class="location-label">Commenting on <strong id="draftLocation">—</strong></div>
+        <label for="commentText">Your feedback</label>
+        <textarea id="commentText" rows="5" maxlength="4000" required placeholder="What should change here?"></textarea>
+        <div class="form-actions"><button type="button" id="cancelComment">Cancel</button><button type="submit" class="primary">Save comment</button></div>
+      </form>
+      <p id="commentStatus" class="comment-status" role="status">Comments save to this local project for the next iteration.</p>
+      <div id="commentList" class="comment-list"></div>
+      <section class="camera-views-rail"><h3>Saved camera views</h3><p>Camera angles save in this local preview, with their chapter, time, and reference.</p><div id="cameraViewList"></div><button id="downloadCameraViews" type="button">Download camera views JSON</button></section>
+      <div class="export-actions"><button id="copyComments" type="button">Copy all feedback</button><button id="downloadComments" type="button">Download JSON</button></div>
+      <p id="previewCaveat" class="preview-caveat">Loading verified historical elements for the charts…</p>
+    </aside>
+  </main>
+  <a id="gtLogo" data-spot-key="gtLogo" href="https://espl.ae.gatech.edu/" target="_top" aria-label="Engineering Space Policy Laboratory home"><img src="../../Viz/assets/ESPL.png" alt=""></a>
+  <script type="module" src="app.js?v=6"></script>
+  <script type="module" src="../../Viz/project-flourish.js"></script>
+  <script type="module" src="../../../shared/comments/comments.js?v=3"></script>
+</body>
+</html>

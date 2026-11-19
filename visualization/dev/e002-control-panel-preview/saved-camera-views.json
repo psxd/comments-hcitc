@@ -1,0 +1,1841 @@
+{
+  "schema": "espl-e002-camera-views-v1",
+  "views": [
+    {
+      "id": "26ebb26152cf4a938949b89c2ba3bcb4",
+      "createdAt": "2026-11-17T01:23:29+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-08T17:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        6.125795055343968,
+        1.256836345687262,
+        5.230148056590219
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "99f9732e2e114f31bbebaf4ca082f3f6",
+      "createdAt": "2026-11-17T01:23:36+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-08T18:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        6.125795055343976,
+        1.2568363456872635,
+        5.230148056590226
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "94513ba169864281adbc10a0e098f940",
+      "createdAt": "2026-11-17T01:23:39+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-08T19:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        6.125795055343976,
+        1.2568363456872635,
+        5.230148056590226
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "4986131a1ff5469e9cbf8706ced15612",
+      "createdAt": "2026-11-17T01:23:53+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-08T17:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        3.562508270614522,
+        2.379045402566106,
+        3.8425372382577634
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "5bc5d48aad17464b95dffba9e746e89e",
+      "createdAt": "2026-11-17T01:23:59+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-08T18:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        5.372078590597328,
+        4.093831704177826,
+        4.565168303967091
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "326714f2a4914239aa5c9b2c8880f65e",
+      "createdAt": "2026-11-17T01:24:05+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-08T19:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        5.291140790346724,
+        4.403899870447065,
+        4.3668004209182785
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "29ed129dbbc74204ba453f7f642d84b0",
+      "createdAt": "2026-11-17T01:24:09+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-08T20:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        5.291140790346732,
+        4.403899870447047,
+        4.366800420918285
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "ac3f014cbb70403b8861c9334a6b5b3d",
+      "createdAt": "2026-11-17T01:24:13+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-08T21:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        5.291140790346732,
+        4.403899870447047,
+        4.366800420918285
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "b9350ffab621485d840617256705c2c3",
+      "createdAt": "2026-11-17T01:24:17+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-08T22:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        5.291140790346732,
+        4.403899870447047,
+        4.366800420918285
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "c04b2befad8748228024c461f7c43c4e",
+      "createdAt": "2026-11-17T01:24:20+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-08T23:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        5.291140790346732,
+        4.403899870447047,
+        4.366800420918285
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "6ae1f36cda114368b240b1df30a53e91",
+      "createdAt": "2026-11-17T01:24:24+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T00:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        5.291140790346732,
+        4.403899870447047,
+        4.366800420918285
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "1e1621300c9647cb900685903d86ad88",
+      "createdAt": "2026-11-17T01:24:28+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T01:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        5.291140790346732,
+        4.403899870447047,
+        4.366800420918285
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "190cacf07e81449b9e394a4fd9c0f3ea",
+      "createdAt": "2026-11-17T01:24:34+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T02:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        5.291140790346732,
+        4.403899870447047,
+        4.366800420918285
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "07353910bf214b0e8c7f5d9e92ba2b85",
+      "createdAt": "2026-11-17T01:24:42+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-08T23:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        2.3293694979990955,
+        1.9387709450440243,
+        1.9224382996752754
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "b0379d33329a46ee9fe0449b41aafc59",
+      "createdAt": "2026-11-17T01:24:49+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T01:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        2.7582847881827424,
+        2.295763900952261,
+        2.276423866101585
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "c7fb8a15e93446c99c515742cb0eecd0",
+      "createdAt": "2026-11-17T01:24:56+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T03:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        2.717558752896203,
+        2.2618669799235422,
+        2.2428125004096997
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "9a5c6b0072ea4e409777722b16b29566",
+      "createdAt": "2026-11-17T01:25:03+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T05:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        0.5755661417760494,
+        0.4790527709687246,
+        0.4750171219710186
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "863de4e657034219a453e264124a9f44",
+      "createdAt": "2026-11-17T01:25:11+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T07:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        1.083232091711984,
+        0.9015911421328631,
+        0.893995934235972
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "3ce76cfb43f042d7ac40c0a74ee36f3c",
+      "createdAt": "2026-11-17T01:25:18+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T09:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        1.345362398855944,
+        1.1197663280545138,
+        1.1103331629976874
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "b6488191a297427688d3a741f0ce4169",
+      "createdAt": "2026-11-17T01:25:25+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T11:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        2.096670089892098,
+        1.7450915602343913,
+        1.7303905138512878
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "5e02bc44b2b84595ae3f73e8d309d209",
+      "createdAt": "2026-11-17T01:25:33+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T13:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        2.645308982819206,
+        2.2017323576011854,
+        2.183184465759954
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "cf7f136f2c5c4c9eaac2fe9868827fda",
+      "createdAt": "2026-11-17T01:25:41+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T15:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        3.4663547504901904,
+        2.885101690066141,
+        2.860796940256947
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "c157add6ca32483f890a84d578dad7d4",
+      "createdAt": "2026-11-17T01:25:48+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T17:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        3.4663547506266084,
+        2.8851016901796838,
+        2.8607969403695335
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "841bdfc406ba4b9f8e53d66371a187ec",
+      "createdAt": "2026-11-17T01:25:55+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T19:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        4.179821425173827,
+        3.478931247945218,
+        3.4496239435005163
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "0df0ae68c0e748f39d664bda961f5f08",
+      "createdAt": "2026-11-17T01:26:01+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T21:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        4.179821425173831,
+        3.4789312479452215,
+        3.449623943500522
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "80b9cbf4ab8c40329ffa96dc9ff3b43e",
+      "createdAt": "2026-11-17T01:26:08+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T23:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        5.50017354599949,
+        4.5778811274224545,
+        4.53931602039648
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "9c27c17980a24e42b84074fa71645eec",
+      "createdAt": "2026-11-17T01:26:14+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-10T01:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        5.9186013390053835,
+        4.9261451741422055,
+        4.884646211941489
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "a4a62611a0f74fdebc3ba924c7affeed",
+      "createdAt": "2026-11-17T01:26:21+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-10T03:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        5.91860133908102,
+        4.926145174205159,
+        4.884646212003913
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "db78f3bc7efc4f248155ebb8a3f88df8",
+      "createdAt": "2026-11-17T01:26:28+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-10T05:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        5.9186013390810315,
+        4.9261451742051685,
+        4.884646212003923
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "9923dfe6d65c48c98dd48fde333f2b49",
+      "createdAt": "2026-11-17T01:26:33+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-08T17:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": false,
+      "position": [
+        5.209043264995225,
+        4.656542181045249,
+        4.200263549238178
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "68652598bbc74f589c13cc4adb38ae2d",
+      "createdAt": "2026-11-17T01:26:40+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-08T19:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        5.209043264995228,
+        4.656542181045253,
+        4.20026354923818
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "31eba39d10df4245b578ea175c1c1bc1",
+      "createdAt": "2026-11-17T01:26:47+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-08T21:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": false,
+      "position": [
+        4.485617877741874,
+        4.009847450513534,
+        3.6169362221082606
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "eb188c078d254d658e61ce6f9d559caf",
+      "createdAt": "2026-11-17T01:26:55+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-08T23:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": false,
+      "position": [
+        3.8537553944807454,
+        3.4450039358325077,
+        3.107439790314798
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "2c58b0841d7247f196cc68fa88314518",
+      "createdAt": "2026-11-17T01:27:02+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T01:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        3.8537553944807454,
+        3.4450039358325077,
+        3.107439790314798
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "a24bc48168844f86a1794ea1ad3faedd",
+      "createdAt": "2026-11-17T01:27:10+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T03:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        3.8537553944807454,
+        3.4450039358325077,
+        3.107439790314798
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "872d5c01cb6b4873a9ba31666b561b67",
+      "createdAt": "2026-11-17T01:27:17+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T05:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": false,
+      "position": [
+        2.587000774606005,
+        2.3126085955749573,
+        2.0860039939481085
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "78e6494a82b04629a43ab00a36542a92",
+      "createdAt": "2026-11-17T01:27:23+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T07:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": false,
+      "position": [
+        2.4976824850811816,
+        2.232763917473299,
+        2.013983022593832
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "0fdbe9247b5a4b8987cfd6502f737452",
+      "createdAt": "2026-11-17T01:27:30+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T09:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        2.4976824850811816,
+        2.232763917473299,
+        2.013983022593832
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "4073525d92134b019dc41307fa1e33e8",
+      "createdAt": "2026-11-17T01:27:37+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T11:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        2.4976824850811816,
+        2.232763917473299,
+        2.013983022593832
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "f0b5ad56d00743f6a9622e135623a7fd",
+      "createdAt": "2026-11-17T01:27:43+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T13:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        2.4976824850811816,
+        2.232763917473299,
+        2.013983022593832
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "9693f2c7ad514d6b99b11427852f34d9",
+      "createdAt": "2026-11-17T01:27:55+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T15:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        3.166106052730616,
+        2.830290637683262,
+        2.552960144461188
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "9846503745f742b4a1b924bf1a221eac",
+      "createdAt": "2026-11-17T01:28:02+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T17:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        3.1661091048166012,
+        2.830293366047456,
+        2.5529626054823122
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "7ab336ace72f4260a389c7e8d5f47c3a",
+      "createdAt": "2026-11-17T01:28:08+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T19:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        3.166109104820807,
+        2.8302933660512166,
+        2.552962605485704
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "2efa674118b34f33904323d5405d9025",
+      "createdAt": "2026-11-17T01:28:15+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T21:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        3.415803095476735,
+        3.053503376161188,
+        2.7543010306171904
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "ca2679d94b9d426ba5a602ba206a8c5b",
+      "createdAt": "2026-11-17T01:28:23+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-09T23:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        5.414836392271079,
+        4.840507705802805,
+        4.3662029218268446
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "7d1a38cc2c1941fbb172e2e7a6ebdfc6",
+      "createdAt": "2026-11-17T01:28:29+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-10T01:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        5.826761244078647,
+        5.208741439001515,
+        4.698354691749661
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "12821cbb218640209b89bf07b53f8de9",
+      "createdAt": "2026-11-17T01:28:36+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-10T03:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        5.826761244174913,
+        5.208741439087571,
+        4.698354691827284
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "11d04d93dfa34e9e95342b42bcfb633e",
+      "createdAt": "2026-11-17T01:28:42+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-10T05:40:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        5.826761244174915,
+        5.208741439087573,
+        4.698354691827285
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "0f932a2c88324e8dad095f54987759cf",
+      "createdAt": "2026-11-17T01:28:48+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-08T17:40:00.000Z",
+      "selected": "C",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        4.928417321747194,
+        2.89758368291865,
+        4.039693371240492
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "631b6c5491094887b5fe139c6b32f98e",
+      "createdAt": "2026-11-17T01:29:00+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-10T04:57:00.000Z",
+      "selected": "C",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        6.609728605204365,
+        3.8860836054709487,
+        5.417819776405774
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "f909ace72c3a4060bcfe66102c1fbd3c",
+      "createdAt": "2026-11-17T01:29:04+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-10T05:40:00.000Z",
+      "selected": "C",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        6.609728605204375,
+        3.8860836054709544,
+        5.417819776405782
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "438f791481ba4206b69881ec1d56342d",
+      "createdAt": "2026-11-17T01:29:07+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-08T17:40:00.000Z",
+      "selected": "C",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        5.209043264995229,
+        4.656542181045246,
+        4.2002635492381835
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "85235876321645d49c0a1c27006a1b0b",
+      "createdAt": "2026-11-17T01:29:17+00:00",
+      "windowId": "dec9",
+      "timeUtc": "2019-12-10T05:40:00.000Z",
+      "selected": "C",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        5.209043265051793,
+        4.656542181095812,
+        4.200263549283794
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "c25c9f8a24b743fb9a8a231e8cf2232a",
+      "createdAt": "2026-11-17T01:29:25+00:00",
+      "windowId": "dec30",
+      "timeUtc": "2019-12-29T23:29:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        10.25153401164494,
+        5.663643736215052,
+        10.707340255985153
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "d9ca947c45174a7faec462c214a7d132",
+      "createdAt": "2026-11-17T01:29:41+00:00",
+      "windowId": "dec30",
+      "timeUtc": "2019-12-30T17:18:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        2.0244072042352617,
+        1.1184200499936618,
+        2.1144168987580114
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "74cecae96036482fa192c394ad70a008",
+      "createdAt": "2026-11-17T01:29:43+00:00",
+      "windowId": "dec30",
+      "timeUtc": "2019-12-30T17:29:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        2.0244072042352617,
+        1.1184200499936618,
+        2.1144168987580114
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "dcb74ce62a404efe8940de1acb1d644e",
+      "createdAt": "2026-11-17T01:29:54+00:00",
+      "windowId": "dec30",
+      "timeUtc": "2019-12-31T01:20:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        5.256650964562493,
+        2.904131057370998,
+        5.490373481723621
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "14f4fbfad13d457d8e5ca894e5489ed2",
+      "createdAt": "2026-11-17T01:29:57+00:00",
+      "windowId": "dec30",
+      "timeUtc": "2019-12-31T11:29:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        10.17073254043777,
+        5.619003514979906,
+        10.622946169752145
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "9d61532eb9024ddf8e1259f1e22a8538",
+      "createdAt": "2026-11-17T01:30:04+00:00",
+      "windowId": "dec30",
+      "timeUtc": "2019-12-29T23:29:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": false,
+      "position": [
+        12.38923470723914,
+        6.464817970309149,
+        7.518705826126557
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "a2604d242eb9454d958e5e7eca7ea03a",
+      "createdAt": "2026-11-17T01:30:18+00:00",
+      "windowId": "dec30",
+      "timeUtc": "2019-12-30T14:14:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": false,
+      "position": [
+        4.062147224250966,
+        2.119666225875481,
+        2.4652119943868334
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "5eb9be124dfc43d5b672f65c8cbe2f0f",
+      "createdAt": "2026-11-17T01:30:27+00:00",
+      "windowId": "dec30",
+      "timeUtc": "2019-12-30T19:27:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": false,
+      "position": [
+        1.3521920395711697,
+        0.7055863903862318,
+        0.8206103448847569
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "5d2f921e02354bd5be162fe0f88d63b9",
+      "createdAt": "2026-11-17T01:30:28+00:00",
+      "windowId": "dec30",
+      "timeUtc": "2019-12-30T19:29:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        1.3521920395711697,
+        0.7055863903862318,
+        0.8206103448847569
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "5e4a81a0603a48f8896ad9ebed8c7588",
+      "createdAt": "2026-11-17T01:30:41+00:00",
+      "windowId": "dec30",
+      "timeUtc": "2019-12-31T11:29:00.000Z",
+      "selected": "A",
+      "mode": "relative",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        12.291584153770328,
+        6.413863002726943,
+        7.459444233087128
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "bbbbba05588548b4a980897055110434",
+      "createdAt": "2026-11-17T01:30:52+00:00",
+      "windowId": "dec30",
+      "timeUtc": "2019-12-29T23:29:00.000Z",
+      "selected": "C",
+      "mode": "relative",
+      "referenceMode": "target",
+      "auto": false,
+      "position": [
+        4.715481772523584,
+        11.479526368591802,
+        10.05663105709591
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "62d22ba0dec94f85a52d1d2c833d2357",
+      "createdAt": "2026-11-17T01:31:07+00:00",
+      "windowId": "dec30",
+      "timeUtc": "2019-12-30T08:28:00.000Z",
+      "selected": "C",
+      "mode": "eci",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        3.7125649062244452,
+        -0.576167867477155,
+        1.8774696816613319
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "ad7efef5d0714e7ba12301ebbf4ed636",
+      "createdAt": "2026-11-17T01:31:14+00:00",
+      "windowId": "dec30",
+      "timeUtc": "2019-12-31T11:29:00.000Z",
+      "selected": "C",
+      "mode": "eci",
+      "referenceMode": "target",
+      "auto": true,
+      "position": [
+        3.74788166593952,
+        -0.5762914168958154,
+        1.8058990062920532
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "c8235f970b4e4f4b922e974568d2b628",
+      "createdAt": "2026-11-17T01:31:18+00:00",
+      "windowId": "dec30",
+      "timeUtc": "2019-12-29T23:29:00.000Z",
+      "selected": "C",
+      "mode": "eci",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        3.695967305929287,
+        -0.5772639541783905,
+        1.9096051949835453
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    },
+    {
+      "id": "5eebe74bd2064c7bb6147689355fe7c0",
+      "createdAt": "2026-11-17T01:31:30+00:00",
+      "windowId": "dec30",
+      "timeUtc": "2019-12-31T11:29:00.000Z",
+      "selected": "C",
+      "mode": "eci",
+      "referenceMode": "chaser",
+      "auto": true,
+      "position": [
+        3.741607472842903,
+        -0.5767286335216126,
+        1.8187241688729043
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fov": 35,
+      "zoom": 1
+    }
+  ]
+}

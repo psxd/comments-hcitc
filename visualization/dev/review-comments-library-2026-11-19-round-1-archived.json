@@ -1,0 +1,41 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "bc5d7fc4641e4e3fb706a8e604cec495",
+      "createdAt": "2026-11-19T05:25:43+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-059-visual-block",
+      "label": "E-059 mini visualization",
+      "x": 0.5487336914811972,
+      "y": 1,
+      "text": "I adjust this and save it and then it still looks bad on git. Please fix.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "62d0f8a07ad1493282226bf49f92d3f7",
+      "createdAt": "2026-11-19T05:26:14+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-059-source-0",
+      "label": "E-059 · source 0",
+      "x": 0.4588358040322173,
+      "y": 0.4485606935423417,
+      "text": "This is not a screengrab from NYT or its feature photo; please re-cache and try to do it better.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "bedff8fba31a43a08686d43c617f0460",
+      "createdAt": "2026-11-19T05:26:31+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.6640306094074988,
+      "y": 1,
+      "text": "Reference orbit still missing.",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

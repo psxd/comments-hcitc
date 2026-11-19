@@ -1,0 +1,9 @@
+.review-switcher{display:inline-flex;align-items:center;gap:3px;flex:none;padding:3px;border:1px solid #d4cab8;border-radius:8px;background:#f2f1ee}
+.review-switcher a{display:inline-flex;align-items:center;justify-content:center;min-height:26px;padding:4px 10px;border:1px solid transparent;border-radius:5px;color:#686154;font:700 11px/1.1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-decoration:none;white-space:nowrap}
+.review-switcher a:hover,.review-switcher a:focus-visible{background:#fffaf0;color:#4e432c}
+.review-switcher a[aria-current=page]{border-color:#cec5b4;background:#fff;color:#3e392e;box-shadow:0 1px 3px #0001}
+.review-unified-bar{border-bottom:1px solid #d9d2c2;background:#fffdf8f5;box-shadow:0 3px 14px #00000012}
+.review-unified-bar .review-switcher{gap:3px;padding:3px;border:1px solid #d4cab8;border-radius:8px;background:#f2f1ee}
+.review-unified-bar .review-switcher a{display:inline-flex;align-items:center;justify-content:center;min-height:26px;padding:4px 10px;border:1px solid transparent;border-radius:5px;background:transparent;color:#686154;font:700 11px/1.1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-decoration:none;white-space:nowrap}
+.review-unified-bar .review-switcher a:hover,.review-unified-bar .review-switcher a:focus-visible{background:#fffaf0;color:#4e432c}
+.review-unified-bar .review-switcher a[aria-current=page]{border-color:#cec5b4;background:#fff;color:#3e392e;box-shadow:0 1px 3px #0001}

@@ -1,0 +1,50 @@
+{
+  "schema": "espl-e001-local-review-v1",
+  "comments": [
+    {
+      "id": "f362916eff0e4f5285236a76a5971d06",
+      "createdAt": "2026-11-17T04:31:41+00:00",
+      "key": "ui",
+      "label": "ui",
+      "x": 0.8830409356725146,
+      "y": 0.04790419161676647,
+      "text": "A comment for this full viz, but also all others (including E-002, so please make these changes there, too): This control panel and the play bar below aren't formatted the same way as the SBI tool. The SBI tool's appears lower on the page by a little bit; the control panel and the playback pane have slightly more space between them; they both have some shadowing behind them; the control panel has a minimize to left feature. Please implement all of these."
+    },
+    {
+      "id": "873a1afb73f0483ca5113708ad10efcd",
+      "createdAt": "2026-11-17T04:32:07+00:00",
+      "key": "globe",
+      "label": "3D globe",
+      "x": 0,
+      "y": 0.8226527570789866,
+      "text": "There's a gap between the control panel and the playback area."
+    },
+    {
+      "id": "cf725c2a2faa44eda663c1f3bc1eefaf",
+      "createdAt": "2026-11-17T04:32:51+00:00",
+      "key": "ui",
+      "label": "ui",
+      "x": 0.9619883040935673,
+      "y": 0.6586826347305389,
+      "text": "I told you to borrow styles from E-002 here. In the satellite detail dropdown panes, I see you have not: the two dropdowns, when furled, are too tall, too close to each other, and the wrong color."
+    },
+    {
+      "id": "7a8f07485bb544ae9fe12a619ad03f3a",
+      "createdAt": "2026-11-17T04:33:27+00:00",
+      "key": "rangeMetric",
+      "label": "range Metric",
+      "x": 0.9769736842105263,
+      "y": 0.3034580767408811,
+      "text": "Again, please take a moment to actually look at the full E-002 viz and update all kinds of assets from here on down. You must not be understanding me when I am telling you that these need to be matching."
+    },
+    {
+      "id": "3a2b7f06c7b74f29a680b4806e35b4ed",
+      "createdAt": "2026-11-17T04:34:31+00:00",
+      "key": "modeBtn",
+      "label": "mode Btn",
+      "x": 0.4782608695652174,
+      "y": 0.43478260869565216,
+      "text": "I can't do the camera workshop if you don't implement the one-satellite-is-the-origin-of-the-relative-motion-frame part. Please do that. Add the needed button in the righthand side controls (to swap which satellite is in the center)."
+    }
+  ]
+}

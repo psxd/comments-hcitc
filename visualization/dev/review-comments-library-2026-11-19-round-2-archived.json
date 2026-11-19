@@ -1,0 +1,53 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "c9cdbe66332146ca955ab3a36ebd4f0e",
+      "createdAt": "2026-11-19T05:49:44+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-visual-block",
+      "label": "E-002 mini visualization",
+      "x": 0.2733491274316794,
+      "y": 0.56,
+      "text": "These satellite dots and trails look a little faded on the live-on-Git version; please make sure they're opaque.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "d179ff248b454ba8b0c8194d3faca983",
+      "createdAt": "2026-11-19T05:51:17+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-005-visual-block",
+      "label": "E-004 mini visualization",
+      "x": 0.6170820959435861,
+      "y": 1,
+      "text": "Widen the viewport here so we don't lose sight of USA 270. Remove Shiyan 12 02. Ensure globe has circular silhouette and is not distorted.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "87926a2a6dca4119b2144ed77cb525cd",
+      "createdAt": "2026-11-19T05:51:38+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-006-visual-block",
+      "label": "E-005 · visual block",
+      "x": 0.8106710267276186,
+      "y": 1,
+      "text": "Remove Intelsat 901 from this mini preview.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "7ea16ee5159443808defdb27f8e6397b",
+      "createdAt": "2026-11-19T05:53:07+00:00",
+      "surface": "E-001",
+      "root": "panel",
+      "key": "pairSticky",
+      "label": "pair Sticky",
+      "x": 0.5441176470588235,
+      "y": 0.38235294117647056,
+      "text": "When there's only one chaser or target, it shouldn't get the white-background dropdown menu treatment in this sticky header.",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "espl-e001-local-review-v1",
+  "comments": [
+    {
+      "id": "4fe79befbe3a4823acfdcad93a60eb3e",
+      "createdAt": "2026-11-17T14:48:03+00:00",
+      "key": "dwellMetric",
+      "label": "dwell Metric",
+      "x": 0.07913669064748201,
+      "y": 0.7224924716238128,
+      "text": "You should use mixed capital letters here for satellite names",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "9945dc6920254533a2ddd0e134aca54c",
+      "createdAt": "2026-11-17T14:49:27+00:00",
+      "key": "referenceBtn",
+      "label": "reference Btn",
+      "x": 0.5869565217391305,
+      "y": 0.5217391304347826,
+      "text": "This button should be grayed out when we're in full-globe ECI view; we neither satellite is the center of the frame for that view so the button is nonsensical.",
+      "appliesToAllEpisodes": true
+    }
+  ]
+}

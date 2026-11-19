@@ -1,0 +1,41 @@
+{
+  "schema": "espl-dynamic-table-comments-v1",
+  "comments": [
+    {
+      "id": "13058c1e22e9481090ad349bb7f0d866",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.048069853980749436,
+      "y": 0.9312832446808511,
+      "text": "I said I wanted the polyhedron to appear on the bottom-left of the mini preview when revealed, but that was a miscommunication. I still want bottom-_right_, I just wanted your help to ensure it really was the _bottom_ of the mini preview pane; please ensure that.",
+      "createdAt": "2026-11-17T04:10:09+00:00"
+    },
+    {
+      "id": "4525d26d281642a88e7c084031bbfdb4",
+      "key": "E-001-cell-2",
+      "label": "E-001 · Period",
+      "x": 0.49723921802716015,
+      "y": 0.37442106118469165,
+      "text": "I still want you to use your smart intelligence to write \"Late 2017\" here and that kind of thing elsewhere, too.",
+      "createdAt": "2026-11-17T04:10:32+00:00"
+    },
+    {
+      "id": "0c3a9614391d4c1cabc9bd904692dc2c",
+      "key": "E-002-visual-block",
+      "label": "E-002 · visual block",
+      "x": 0.7820795584359767,
+      "y": 0.20562701983397758,
+      "text": "In both this mini preview and the one for E-001, I think the country borders need to be made more apparent; they're a bit hard to see.",
+      "createdAt": "2026-11-17T04:11:05+00:00"
+    },
+    {
+      "id": "2f3f22f0987f4d768d15928f9b2d32da",
+      "key": "E-001-cell-1",
+      "label": "E-001 · Space objects",
+      "x": 0.07425790754257908,
+      "y": 0.3911540008041817,
+      "text": "On the tooltip for the satellite details, we don't need to see the phrase \"Satellite details\"; please nix that. Please match all field names exactly with the full viz for E-002. \n\nPlease consider the challenges of tooltip interaction when links are perfectly stacked. That is, it's a little hard to hover over Luch on the E-001 line and then alos easily see the Athena-Fidus tooltip below it (because moving down just puts the cursor _on_ Luch's tooltip). I know why that's the case, but if there are any tricks you have to improve this, please give them a shot.",
+      "createdAt": "2026-11-17T04:12:42+00:00"
+    }
+  ]
+}

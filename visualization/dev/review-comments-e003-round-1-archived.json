@@ -1,0 +1,17 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "ace2dd2036574817a5b9e70edf072bd7",
+      "createdAt": "2026-11-18T02:51:00+00:00",
+      "surface": "E-003",
+      "root": "panel",
+      "key": "identity",
+      "label": "identity",
+      "x": 0.6381578947368421,
+      "y": 0.41647641527686413,
+      "text": "Spell out spaceports' names using CSIS conventions",
+      "appliesToAllEpisodes": true
+    }
+  ]
+}

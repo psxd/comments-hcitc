@@ -1,0 +1,77 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "81495ff223764d2b9e88413dfb01d8bd",
+      "createdAt": "2026-11-19T04:36:51+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.3963762554639794,
+      "y": 1,
+      "text": "In this mini preview, you entirely removed the reference orbit. That's not what I wanted. Please bring it back.\n\nAlso, the satellite dots are faded, please make them opaque. \n\nAnd the Earth has distortion, please make it's silhouette circular.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "435c35ea49d14c438a07660e1e65ae69",
+      "createdAt": "2026-11-19T04:37:28+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-visual-block",
+      "label": "E-002 · visual block",
+      "x": 0.6825386232440188,
+      "y": 1,
+      "text": "Please ensure you're just propagating one TLE per satellite here. I sense a discontinuity; remove that.\n\nAnd also remove both the dot and tail of the unhilighted chaser.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "2b63378ee8924d82ab6a5a9982d42e23",
+      "createdAt": "2026-11-19T04:38:13+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-003-visual-block",
+      "label": "E-003 · visual block",
+      "x": 0.22410935744713983,
+      "y": 1,
+      "text": "On this mini preview, the Earth is distorted; please make it's silohoutte circular. And please make the satellites opaque.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "0b036c41b6094189819f9ae3b08e2f19",
+      "createdAt": "2026-11-19T04:39:23+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-006-visual-block",
+      "label": "E-006 · visual block",
+      "x": 0.4177316560445794,
+      "y": 1,
+      "text": "Please don't show Intelsat 901 here on the mini preview.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "bd9e9bf242c346e5a14f9dfbaeb95e24",
+      "createdAt": "2026-11-19T04:39:39+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-008-visual-block",
+      "label": "E-008 · visual block",
+      "x": 0.9316849633510182,
+      "y": 1,
+      "text": "Earth is distorted; ensure its silhouette is circular.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "24287aacf50848ab89571b6b97e27419",
+      "createdAt": "2026-11-19T04:40:32+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-059-visual-block",
+      "label": "E-059 mini visualization",
+      "x": 0.6441211474078771,
+      "y": 1,
+      "text": "Put the chaser in the foreground. Please use my saved view; you haven't been.",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "espl-e005-dated-elements-v1",
+  "source": "Space-Track GP_HISTORY",
+  "retrievedUtc": "2026-11-17T18:08:39.441070+00:00",
+  "queryEpochRange": [
+    "2021-12-01",
+    "2022-05-01"
+  ],
+  "datasets": [
+    {
+      "object": {
+        "norad": "41744"
+      },
+      "url": "data/41744.json",
+      "sha256": "a4e85534c6675f6566c75ea028a9b7f544991f8ed51dcc3b0aeba99efdcf5e25",
+      "count": 11,
+      "firstEpoch": "2022-01-11T10:17:56.584032Z",
+      "lastEpoch": "2022-04-18T04:06:04.508064Z"
+    },
+    {
+      "object": {
+        "norad": "50321"
+      },
+      "url": "data/50321.json",
+      "sha256": "406438f021211394f5e6542f9ccd706a54af91f1bab9fe1eb3de1c62b0b77928",
+      "count": 400,
+      "firstEpoch": "2021-12-23T14:48:08.763840Z",
+      "lastEpoch": "2022-04-30T20:40:51.331008Z"
+    },
+    {
+      "object": {
+        "norad": "50322"
+      },
+      "url": "data/50322.json",
+      "sha256": "7d53d13a4804ef6b31087126d15ec73900e86edc52f2c0b9588396c14e8c4867",
+      "count": 390,
+      "firstEpoch": "2021-12-23T13:12:41.817600Z",
+      "lastEpoch": "2022-04-30T21:47:35.329056Z"
+    }
+  ]
+}

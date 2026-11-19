@@ -1,0 +1,77 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "84720510d43d4ae8ad12c2a6fe0dd587",
+      "createdAt": "2026-11-17T17:31:09+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.4474727052163364,
+      "y": 0.2504654255319149,
+      "text": "The globe is still wonky (not circular).",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "d1d2b795d6b443619bd0028c200c93f1",
+      "createdAt": "2026-11-17T17:31:49+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.6143954710877477,
+      "y": 0.1908909574468085,
+      "text": "When I asked for up-down left-right controls, I meant the postion of the entire asset within the view port. You gave me something else that's useful (that I'd like to keep!), but not what I wanted.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "e94f36bf0b8c45f991e03166c3da0d4c",
+      "createdAt": "2026-11-17T17:32:18+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.2274969672462596,
+      "y": 0.5015292553191489,
+      "text": "I want to be able to make the playback speed way faster; you're maxing me out at 10 min/s; need way faster.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "570f6fc77a9c42fc84a821655724e867",
+      "createdAt": "2026-11-17T17:32:28+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.5095835018196523,
+      "y": 0.5015292553191489,
+      "text": "Remember, satellite tails need to be _under_ satellite dots.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "af734312c0834fd9acf4d89dd92882d2",
+      "createdAt": "2026-11-17T17:33:03+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.3775980590376061,
+      "y": 0.2504654255319149,
+      "text": "There's still a glimmer effect going onthe Earth that I'm seeing mostly on the country borders. Please address and eliminate that.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "eabf0d551ad14e1eb4a9df81727e3062",
+      "createdAt": "2026-11-17T17:33:23+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-context-block",
+      "label": "E-001 · context block",
+      "x": 0.6163816381638164,
+      "y": 0.8656703296703296,
+      "text": "The rightward arrow after \"Explore the interactive model\" is too high and too close to the text; please make that look better.",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

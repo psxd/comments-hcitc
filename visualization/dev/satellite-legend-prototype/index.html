@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Satellite selector · isolated prototype</title>
+  <style>
+    :root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#444;background:#fff}
+    *{box-sizing:border-box}
+    body{margin:0;padding:24px 16px}
+    body.embed{padding:0}
+    body.spot-mode,body.spot-mode *{cursor:crosshair!important}
+    button{font:inherit}
+    .preview{width:min(344px,100%);margin:0 auto}
+    .embed .preview{width:100%}
+    .card{overflow:hidden;border:1px solid #d2d2d2;border-radius:9px;background:#f1f1f1}
+    .card+.card{margin-top:7px}
+    .card-row{position:relative;display:flex;align-items:center;min-height:43px}
+    .identity{display:flex;align-items:center;gap:8px;min-width:0;min-height:42px;flex:1;padding:8px 10px}
+    .single-header{width:100%;padding-left:12px;border:0;background:transparent;text-align:left;cursor:pointer}
+    .single-header .chevron{margin-left:auto;color:#444}
+    .name{min-width:0;overflow:hidden;color:#444;font-size:12px;font-weight:700;line-height:1.2;text-overflow:ellipsis;white-space:nowrap}
+    .source-dot{width:12px;height:12px;flex:0 0 12px;border:2px solid #191919;border-radius:50%}
+    .upper .source-dot{background:#eaaa00}
+    .lower .source-dot{background:#a9a9a9}
+    .segment-wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:center;flex:0 1 267px;min-width:0;height:43px;margin-right:31px;padding:3px 4px;gap:3px}
+    .segment{display:flex;align-items:center;justify-content:flex-start;gap:8px;min-width:0;height:35px;padding:0 7px;border:1px solid transparent;border-radius:6px;background:transparent;text-align:left;cursor:pointer;transition:color .15s ease,background .15s ease,box-shadow .15s ease}
+    .segment .name{color:#777;opacity:.62}
+    .upper .segment .source-dot{background:#eaaa00;opacity:.3}
+    .lower .segment .source-dot{border-color:#aaa;background:#d1d1d1}
+    .segment.is-active{border-color:#a8a8a8;background:#fff;box-shadow:0 1px 3px #00000012}
+    .segment.is-active .name{color:#444;opacity:1}
+    .upper .segment.is-active .source-dot{background:#eaaa00;opacity:1}
+    .lower .segment.is-active .source-dot{border-color:#191919;background:#a9a9a9;opacity:1}
+    .segment:not(.is-active):hover{background:#ffffffb3}
+    .segment:focus-visible,.disclose:focus-visible,.single-header:focus-visible{position:relative;z-index:1;outline:2px solid #9a7413;outline-offset:-2px}
+    .disclose{position:absolute;z-index:2;top:0;right:1px;display:grid;place-items:center;width:25px;height:42px;padding:0;border:0;background:transparent;color:#444;cursor:pointer}
+    .disclose:hover{color:#292929}
+    .chevron{display:block;font-size:17px;font-weight:400;line-height:1;transform:rotate(-90deg);transition:transform .3s cubic-bezier(.2,.72,.2,1)}
+    .disclose[aria-expanded="true"] .chevron,.single-header[aria-expanded="true"] .chevron{transform:rotate(90deg)}
+    .metadata{margin:0 10px 8px;padding:0;color:#555;font-size:10px;line-height:1.4}
+    .metadata[hidden]{display:none}
+    .metadata-section+.metadata-section{margin-top:9px;padding-top:8px;border-top:1px solid #dedbd3}
+    .metadata-section h4{margin:0 0 4px;color:#555;font-size:11px;font-weight:700;letter-spacing:.055em;text-transform:uppercase}
+    .metadata-section dl{margin:0}
+    .metadata-section dl>div{display:grid;grid-template-columns:124px minmax(0,1fr);gap:6px;padding:2px 0}
+    .metadata-section dt{color:#777;white-space:nowrap}
+    .metadata-section dd{min-width:0;margin:0;overflow-wrap:anywhere}
+    .epochDate,.epochTime{display:block}
+    .espl-news-external{display:inline-flex;align-items:center;gap:3px;width:fit-content;color:#686868;text-decoration:none;font-size:10px}
+    .espl-news-external:hover,.espl-news-external:focus-visible{color:#454545}
+    .espl-news-external svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
+    .espl-news-external__box{transition:opacity .22s ease,transform .22s ease}
+    .espl-news-external__arrow{transition:transform .22s cubic-bezier(.22,1,.36,1)}
+    .espl-news-external:hover .espl-news-external__arrow,.espl-news-external:focus-visible .espl-news-external__arrow{transform:translate(2.4px,-2.4px)}
+    .espl-news-external:hover .espl-news-external__box,.espl-news-external:focus-visible .espl-news-external__box{opacity:.58;transform:scale(.96)}
+    .status{margin:0;color:#777;font-size:11px;line-height:1.4}
+    .status.error{color:#8b3d30}
+    @media (prefers-reduced-motion:reduce){.chevron,.segment,.espl-news-external__box,.espl-news-external__arrow{transition:none}}
+  </style>
+</head>
+<body>
+  <main id="preview" class="preview" aria-label="Satellite selector prototype"><p class="status">Loading published E-002 spacecraft…</p></main>
+  <script type="module">
+    import { loadCurrentEpisodes, cleanCospar } from "../../../shared/episode-feed.js";
+    import { spaceTrackHistoryUrl } from "../../../shared/tle-provenance.js";
+
+    const preview = document.getElementById("preview");
+    if (new URLSearchParams(location.search).has("embed")) document.body.classList.add("embed");
+    let anchor = Date.parse("2019-12-08T10:05:00Z");
+    let selectionStart = anchor, selectionEnd = anchor;
+    let preferredTleEpochs = {};
+    let maximumDisplayAge = 36 * 3600000;
+    const dateText = value => new Intl.DateTimeFormat("en-US", { year:"numeric", month:"long", day:"numeric", timeZone:"UTC" }).format(new Date(value.includes("T") ? value : `${value}T00:00:00Z`));
+    const epochTime = value => new Intl.DateTimeFormat("en-US", { hour:"2-digit", minute:"2-digit", second:"2-digit", hour12:false, timeZone:"UTC" }).format(new Date(value));
+    const fetchedJson = async file => { const response = await fetch(file); if (!response.ok) throw new Error(`${file} returned HTTP ${response.status}`); return response.json(); };
+    const ownerName = (code, fallback) => code === "CIS" ? "Russia (CIS) 🇷🇺" : code === "US" ? "United States 🇺🇸" : code === "PRC" ? "China (PRC) 🇨🇳" : fallback || code;
+    const ageText = epoch => {
+      const difference = anchor - Date.parse(epoch), hours = Math.floor(Math.abs(difference) / 3600000);
+      return `${hours === 0 ? "" : difference < 0 ? "−" : "+"}${hours} ${hours === 1 ? "hour" : "hours"}`;
+    };
+    const externalIcon = '<svg viewBox="0 0 18 18" aria-hidden="true"><path class="espl-news-external__box" d="M7.25 4.25H4.5A1.75 1.75 0 0 0 2.75 6v7.5a1.75 1.75 0 0 0 1.75 1.75H12a1.75 1.75 0 0 0 1.75-1.75v-2.75"></path><g class="espl-news-external__arrow"><path d="M9.25 2.75h6v6"></path><path d="m8 10 7.25-7.25"></path></g></svg>';
+    const siteFlags = code => code === "PKMTR" ? " 🇷🇺" : code === "AFWTR" ? " 🇺🇸" : code === "WSC" ? " 🇨🇳" : "";
+    const catalogName = name => name;
+    const spaceTrackSatcatUrl = number => `https://www.space-track.org/basicspacedata/query/class/satcat/NORAD_CAT_ID/${encodeURIComponent(number)}/format/html`;
+    function epochValue(epoch) {
+      const fragment = document.createDocumentFragment(), date = document.createElement("span"), time = document.createElement("span");
+      date.className = "epochDate"; time.className = "epochTime";
+      date.textContent = dateText(epoch); time.textContent = `at ${epochTime(epoch)} UTC`;
+      fragment.append(date, time); return fragment;
+    }
+
+    function makeRow(label, value, href) {
+      if (!value) return null;
+      const row = document.createElement("div"), dt = document.createElement("dt"), dd = document.createElement("dd");
+      dt.textContent = label;
+      if (href) { const link = document.createElement("a"); link.className = "espl-news-external"; link.href = href; link.target = "_blank"; link.rel = "noopener noreferrer"; link.textContent = value; link.insertAdjacentHTML("beforeend", externalIcon); dd.append(link); }
+      else if (value instanceof Node) dd.append(value);
+      else dd.textContent = value;
+      row.append(dt, dd); return row;
+    }
+    function section(title) {
+      const node = document.createElement("section"), heading = document.createElement("h4"), list = document.createElement("dl");
+      node.className = "metadata-section"; heading.textContent = title; node.append(heading, list); return { node, list };
+    }
+    function detailsFor(item, satcat, launchSites, dataset, tle) {
+      const fragment = document.createDocumentFragment();
+      if (!satcat) { const message = document.createElement("p"); message.className = "status error"; message.textContent = "Catalog metadata unavailable for this sheet object."; return message; }
+      const satellite = section("Satellite Details");
+      for (const row of [
+        makeRow("COSPAR ID", satcat.OBJECT_ID), makeRow("NORAD ID", satcat.NORAD_CAT_ID),
+        makeRow("Country / org.", ownerName(satcat.COUNTRY)),
+        makeRow("Object type", satcat.OBJECT_TYPE === "PAYLOAD" ? "Payload" : satcat.OBJECT_TYPE),
+        makeRow("Launch date", dateText(satcat.LAUNCH)),
+        makeRow("Launch site", `${launchSites?.[satcat.SITE] || satcat.SITE}${siteFlags(satcat.SITE)}`),
+        makeRow("Data source", "Space-Track", spaceTrackSatcatUrl(satcat.NORAD_CAT_ID))
+      ]) if (row) satellite.list.append(row);
+      fragment.append(satellite.node);
+
+      const orbital = section("Orbital Details");
+      const sourceLink = tle?.source === "seesat" ? dataset?.url : tle && dataset ? spaceTrackHistoryUrl(item.norad, tle.epoch) : dataset?.url;
+      const sourceLabel = tle?.source === "seesat" ? "SeeSat-L" : "Space-Track";
+      const line = tle?.line2 || "";
+      const inclination = line ? Number(line.slice(8, 16)) : NaN;
+      const eccentricity = line ? Number(`0.${line.slice(26, 33).trim()}`) : NaN;
+      const meanMotion = line ? Number(line.slice(52, 63)) : NaN;
+      for (const row of [
+        makeRow("TLE epoch", tle ? epochValue(tle.epoch) : "Element unavailable"),
+        makeRow("TLE age", tle ? ageText(tle.epoch) : "Unavailable"),
+        Number.isFinite(inclination) ? makeRow("Inclination", `${inclination.toFixed(4)}°`) : null,
+        Number.isFinite(eccentricity) ? makeRow("Eccentricity", eccentricity.toFixed(7)) : null,
+        Number.isFinite(meanMotion) ? makeRow("Mean motion", `${meanMotion.toFixed(5)} rev/day`) : null,
+        makeRow("Data source", sourceLabel, sourceLink)
+      ]) if (row) orbital.list.append(row);
+      fragment.append(orbital.node); return fragment;
+    }
+    function elementNearest(library, preferredEpoch) {
+      const chosen = preferredEpoch
+        ? library?.tles?.find(candidate => Date.parse(candidate.epoch) === Date.parse(preferredEpoch)) || null
+        : library?.tles?.reduce((best, candidate) =>
+          !best || Math.abs(Date.parse(candidate.epoch) - anchor) < Math.abs(Date.parse(best.epoch) - anchor) ? candidate : best, null) || null;
+      return chosen && Math.abs(anchor - Date.parse(chosen.epoch)) <= maximumDisplayAge ? chosen : null;
+    }
+    function makeCard(position, options, context) {
+      const card = document.createElement("section"), row = document.createElement("div"), details = document.createElement("div"), chevron = document.createElement("span");
+      card.className = `card ${position}`; card.setAttribute("aria-label", `${position === "upper" ? "Upper" : "Lower"} spacecraft card`);
+      row.className = "card-row";
+      details.className = "metadata"; details.id = `${position}-details`; details.hidden = true;
+      chevron.className = "chevron"; chevron.setAttribute("aria-hidden", "true"); chevron.textContent = "‹";
+      let main, toggle;
+      let selected = options[0];
+      let lastDetailsKey = "";
+      if (options.length === 1) {
+        toggle = document.createElement("button"); toggle.className = "identity single-header"; toggle.type = "button"; main = toggle;
+        const dot = document.createElement("span"), name = document.createElement("span");
+        dot.className = "source-dot"; dot.setAttribute("aria-hidden", "true"); name.className = "name"; name.textContent = selected.name;
+        main.append(dot, name, chevron);
+      } else {
+        main = document.createElement("div");
+        main.className = "segment-wrap"; main.setAttribute("role", "group"); main.setAttribute("aria-label", `Choose spacecraft for ${position} card`);
+        toggle = document.createElement("button"); toggle.className = "disclose"; toggle.type = "button"; toggle.append(chevron);
+        for (const item of options) {
+          const button = document.createElement("button"), dot = document.createElement("span"), name = document.createElement("span");
+          button.className = "segment"; button.type = "button"; button.dataset.slot = item.slot;
+          button.setAttribute("aria-label", `Compare ${item.name} with ${position === "upper" ? context.B.name : context.A.name}`);
+          dot.className = "source-dot"; dot.setAttribute("aria-hidden", "true"); name.className = "name"; name.textContent = item.name;
+          button.append(dot, name); main.append(button);
+          button.addEventListener("click", () => {
+            if (selected.slot === item.slot) toggleDetails();
+            else { selected = item; sync(); }
+          });
+        }
+      }
+      toggle.setAttribute("aria-expanded", "false"); toggle.setAttribute("aria-controls", details.id);
+      row.append(main); if (toggle !== main) row.append(toggle); card.append(row, details);
+      function toggleDetails() {
+        details.hidden = !details.hidden;
+        toggle.setAttribute("aria-expanded", String(!details.hidden));
+        sync();
+      }
+      function sync() {
+        for (const button of main.querySelectorAll(".segment")) {
+          const active = button.dataset.slot === selected.slot;
+          button.classList.toggle("is-active", active); button.setAttribute("aria-pressed", String(active));
+        }
+        toggle.setAttribute("aria-label", `${details.hidden ? "Show" : "Hide"} details for ${selected.name}`);
+        if (!details.hidden) {
+          const tle = context.tles[selected.cospar];
+          const key = `${selected.slot}:${tle?.epoch || "unavailable"}`;
+          if (key !== lastDetailsKey) {
+            const fresh = detailsFor(selected, context.catalog.records[selected.cospar], context.catalog.launchSiteNames, context.manifest.datasets.find(entry => entry.object.cospar === selected.cospar), tle);
+            const oldRows = [...details.querySelectorAll(".metadata-section dl>div")];
+            const newRows = [...fresh.querySelectorAll(".metadata-section dl>div")];
+            if (selected.slot === lastDetailsKey.split(":")[0] && oldRows.length === newRows.length && oldRows.every((row, index) => row.querySelector("dt")?.textContent === newRows[index].querySelector("dt")?.textContent)) {
+              oldRows.forEach((row, index) => {
+                const oldValue = row.querySelector("dd"), newValue = newRows[index].querySelector("dd");
+                if (oldValue.textContent !== newValue.textContent || oldValue.querySelector("a")?.href !== newValue.querySelector("a")?.href) oldValue.replaceChildren(...[...newValue.childNodes].map(node => node.cloneNode(true)));
+              });
+            } else details.replaceChildren(fresh);
+            lastDetailsKey = key;
+          }
+          const ageRow = [...details.querySelectorAll(".metadata-section dl>div")].find(row => row.querySelector("dt")?.textContent === "TLE age");
+          const ageValue = ageRow?.querySelector("dd"), nextAge = tle ? ageText(tle.epoch) : "Unavailable";
+          if (ageValue && ageValue.textContent !== nextAge) ageValue.textContent = nextAge;
+        }
+      }
+      toggle.addEventListener("click", toggleDetails);
+      if (options.length > 1) row.addEventListener("click", event => {
+        if (!event.target.closest("button")) toggleDetails();
+      });
+      sync();
+      return { card, refresh: sync };
+    }
+    try {
+      const [sheet, episode, catalog, manifest] = await Promise.all([
+        loadCurrentEpisodes(), fetchedJson("../e002/episode.json"), fetchedJson("../e002-control-panel-preview/space-track-e002.json"), fetchedJson("../e002/data/provenance.json")
+      ]);
+      maximumDisplayAge = episode.maximumDisplayTleAgeHours * 3600000;
+      const row = sheet.episodes.find(item => item.ID === "E-002");
+      if (!row) throw new Error("E-002 is absent from the published Episodes sheet");
+      const roleHeader = Object.keys(row).find(key => key.toLowerCase() === "object c's role");
+      if (!roleHeader) throw new Error("Published sheet lacks the Object C's Role heading");
+      const role = row[roleHeader].trim().toLowerCase();
+      if (!["", "another chaser", "another target"].includes(role)) throw new Error(`Unrecognized Object C role: ${row[roleHeader]}`);
+      const objects = {};
+      for (const slot of ["A", "B", "C"]) {
+        const cospar = cleanCospar(row[`Object ${slot}`]);
+        if (slot !== "C" && !cospar) throw new Error(`Object ${slot} is missing a valid COSPAR ID`);
+        if (slot === "C" && !role) continue;
+        if (slot === "C" && !cospar) throw new Error("Object C's role is set but Object C has no valid COSPAR ID");
+        const participant = episode.participants.find(item => item.slot === slot && item.cospar === cospar);
+        const satcat = catalog.records[cospar];
+        if (!participant || !satcat || satcat.NORAD_CAT_ID !== participant.norad) throw new Error(`No matching Space-Track SATCAT record for Object ${slot}: ${cospar}`);
+        objects[slot] = { ...participant, name: catalogName(satcat.SATNAME) };
+      }
+      const context = { A:objects.A, B:objects.B, catalog, manifest, libraries:{}, tles:{} };
+      const upper = makeCard("upper", role === "another chaser" ? [objects.A, objects.C] : [objects.A], context);
+      const lower = makeCard("lower", role === "another target" ? [objects.B, objects.C] : [objects.B], context);
+      preview.replaceChildren(upper.card, lower.card);
+      const refreshElements = () => {
+        for (const [cospar, library] of Object.entries(context.libraries)) {
+          const slot = Object.values(objects).find(item => item.cospar === cospar)?.slot;
+          context.tles[cospar] = elementNearest(library, preferredTleEpochs[slot]);
+        }
+        upper.refresh(); lower.refresh();
+      };
+      if (document.body.classList.contains("embed")) window.addEventListener("message", event => {
+        if (event.origin !== location.origin || event.source !== parent || event.data?.type !== "espl-e002-preview-time") return;
+        const start = Date.parse(event.data.start), end = Date.parse(event.data.end), current = Number(event.data.currentMs);
+        if (!Number.isFinite(start) || !Number.isFinite(end) || !Number.isFinite(current) || start > end || current < start || current > end) return;
+        const visualAge = Number(event.data.maximumDisplayAgeHours);
+        if (Number.isFinite(visualAge) && visualAge >= episode.maximumDisplayTleAgeHours && visualAge <= 720) maximumDisplayAge = visualAge * 3600000;
+        preferredTleEpochs = event.data.preferredTleEpochs || {};
+        selectionStart = start; selectionEnd = end; anchor = current; refreshElements();
+      });
+      await Promise.all(manifest.datasets.filter(entry => Object.values(objects).some(item => item.cospar === entry.object.cospar)).map(async entry => {
+        try { context.libraries[entry.object.cospar] = await fetchedJson(entry.url); }
+        catch (error) { console.warn(`Historical elements unavailable for ${entry.object.cospar}`, error); }
+      }));
+      refreshElements();
+    } catch (error) {
+      console.error(error); const message = document.createElement("p"); message.className = "status error";
+      message.textContent = `E-002 selector unavailable: ${error.message}`; preview.replaceChildren(message);
+    }
+  </script>
+</body>
+</html>

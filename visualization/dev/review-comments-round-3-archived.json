@@ -1,0 +1,65 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "a7fe19ef83734270ab83dc53d6f07b4a",
+      "createdAt": "2026-11-17T16:13:57+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 mini visualization",
+      "x": 0.6249646545191319,
+      "y": 0.34893617021276596,
+      "text": "Mini preview adjustment should have x- and y-location change opportunity.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "f4ea1b4fa93f440b9a932fc8d454bdbb",
+      "createdAt": "2026-11-17T16:15:30+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 mini visualization",
+      "x": 0.7856650040152466,
+      "y": 0.5617021276595745,
+      "text": "The hover effect here on the mini preview is not what I had in mind. I wanted _just_ the globe to change color on hover; it should get a little darker (more brown, since it should already be a neutral warm gray color). I also thought you could make the satellites pulse some. \n\nSatellites in this preview should bigger; closer to the size the dots appear in the satellite objects section of the collapsed table.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "ad0b83200fe34078b4c8c6f93ee9f804",
+      "createdAt": "2026-11-17T16:16:15+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 mini visualization",
+      "x": 0,
+      "y": 0.723404255319149,
+      "text": "This arrow (to the right of \"Explore the interactive model\") does not match the size and shape and location of the one I see on the SBI Project page (which I like).",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "c853d1c2db304d9fa64a1216b8072b71",
+      "createdAt": "2026-11-17T16:16:46+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 mini visualization",
+      "x": 0.11825184079264361,
+      "y": 0.6170212765957447,
+      "text": "Earth has lost its warm brown color! Bring it back.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "778252549301466aa070166b7ffdaec7",
+      "createdAt": "2026-11-17T16:17:10+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 mini visualization",
+      "x": 0.3513397351068282,
+      "y": 0.9872340425531915,
+      "text": "I spy a needless outline around the mini preview; remove that.",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

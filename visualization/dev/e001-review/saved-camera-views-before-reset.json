@@ -1,0 +1,292 @@
+{
+  "schema": "espl-e001-local-review-v1",
+  "views": [
+    {
+      "id": "17f392fd431a4984bd6200e1929b6e65",
+      "createdAt": "2026-11-17T12:15:16+00:00",
+      "schema": "espl-proximity-camera-view-v1",
+      "simulationTimeUtc": "2017-10-17T04:32:00.000Z",
+      "cameraMode": "relative",
+      "referenceSatellite": "B",
+      "referenceFrame": "Three.js scene coordinates in Earth-radius units; ECI [x,y,z] maps to [x,z,-y]",
+      "geoReferenceLongitudeDeg": 38,
+      "position": [
+        1.2662055,
+        1.5462199,
+        14.0626031
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        -0.0544555,
+        0.0448174,
+        0.0024467,
+        0.9975069
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fieldOfViewDeg": 35,
+      "zoom": 1,
+      "near": 0.7101952,
+      "far": 1000,
+      "aspect": 1.099851,
+      "viewport": {
+        "width": 738,
+        "height": 671
+      },
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "4f35a9ad60f0483995a7af9dc2e2f04d",
+      "createdAt": "2026-11-17T12:49:56+00:00",
+      "schema": "espl-proximity-camera-view-v1",
+      "simulationTimeUtc": "2017-10-17T04:32:00.000Z",
+      "cameraMode": "relative",
+      "referenceSatellite": "A",
+      "referenceFrame": "Three.js scene coordinates in Earth-radius units; ECI [x,y,z] maps to [x,z,-y]",
+      "geoReferenceLongitudeDeg": 38,
+      "position": [
+        3.5223324,
+        1.3603368,
+        15.7206224
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        -0.0418514,
+        0.1098884,
+        0.0046312,
+        0.9930516
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fieldOfViewDeg": 35,
+      "zoom": 1,
+      "near": 0.8005462,
+      "far": 1000,
+      "aspect": 1.099851,
+      "viewport": {
+        "width": 738,
+        "height": 671
+      },
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "d6f1c61a0a4e455f86fb73c180c9c2e1",
+      "createdAt": "2026-11-17T12:50:07+00:00",
+      "schema": "espl-proximity-camera-view-v1",
+      "simulationTimeUtc": "2017-10-20T16:32:00.000Z",
+      "cameraMode": "relative",
+      "referenceSatellite": "A",
+      "referenceFrame": "Three.js scene coordinates in Earth-radius units; ECI [x,y,z] maps to [x,z,-y]",
+      "geoReferenceLongitudeDeg": 38,
+      "position": [
+        0.058999,
+        0.0227856,
+        0.2633202
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        -0.0418514,
+        0.1098884,
+        0.0046312,
+        0.9930516
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fieldOfViewDeg": 35,
+      "zoom": 1,
+      "near": 0.0134195,
+      "far": 1000,
+      "aspect": 1.099851,
+      "viewport": {
+        "width": 738,
+        "height": 671
+      },
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "c885430dc61c48b083d668a10e51a6fd",
+      "createdAt": "2026-11-17T12:50:16+00:00",
+      "schema": "espl-proximity-camera-view-v1",
+      "simulationTimeUtc": "2017-10-24T04:32:00.000Z",
+      "cameraMode": "relative",
+      "referenceSatellite": "A",
+      "referenceFrame": "Three.js scene coordinates in Earth-radius units; ECI [x,y,z] maps to [x,z,-y]",
+      "geoReferenceLongitudeDeg": 38,
+      "position": [
+        0.1607818,
+        0.0620945,
+        0.7175899
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        -0.0418514,
+        0.1098884,
+        0.0046312,
+        0.9930516
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fieldOfViewDeg": 35,
+      "zoom": 1,
+      "near": 0.0368148,
+      "far": 1000,
+      "aspect": 1.099851,
+      "viewport": {
+        "width": 738,
+        "height": 671
+      },
+      "chapterId": "chapter-1"
+    },
+    {
+      "id": "914dd1c76b7541a5b79a92112eccfffc",
+      "createdAt": "2026-11-17T12:50:29+00:00",
+      "schema": "espl-proximity-camera-view-v1",
+      "simulationTimeUtc": "2017-11-24T03:29:00.000Z",
+      "cameraMode": "relative",
+      "referenceSatellite": "A",
+      "referenceFrame": "Three.js scene coordinates in Earth-radius units; ECI [x,y,z] maps to [x,z,-y]",
+      "geoReferenceLongitudeDeg": 38,
+      "position": [
+        0.1607818,
+        0.0620945,
+        0.7175899
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        -0.0418514,
+        0.1098884,
+        0.0046312,
+        0.9930516
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fieldOfViewDeg": 35,
+      "zoom": 1,
+      "near": 0.0368148,
+      "far": 1000,
+      "aspect": 1.099851,
+      "viewport": {
+        "width": 738,
+        "height": 671
+      },
+      "chapterId": "chapter-2"
+    },
+    {
+      "id": "fd29054578e84b37bd28e3a6fb2a0475",
+      "createdAt": "2026-11-17T12:50:32+00:00",
+      "schema": "espl-proximity-camera-view-v1",
+      "simulationTimeUtc": "2017-11-27T15:29:00.000Z",
+      "cameraMode": "relative",
+      "referenceSatellite": "A",
+      "referenceFrame": "Three.js scene coordinates in Earth-radius units; ECI [x,y,z] maps to [x,z,-y]",
+      "geoReferenceLongitudeDeg": 38,
+      "position": [
+        0.1607818,
+        0.0620945,
+        0.7175899
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        -0.0418514,
+        0.1098884,
+        0.0046312,
+        0.9930516
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fieldOfViewDeg": 35,
+      "zoom": 1,
+      "near": 0.0368148,
+      "far": 1000,
+      "aspect": 1.099851,
+      "viewport": {
+        "width": 738,
+        "height": 671
+      },
+      "chapterId": "chapter-2"
+    },
+    {
+      "id": "6a066b362a5c484b9393e714b3edcaab",
+      "createdAt": "2026-11-17T14:21:42+00:00",
+      "schema": "espl-proximity-camera-view-v1",
+      "simulationTimeUtc": "2017-10-17T04:32:00.000Z",
+      "cameraMode": "relative",
+      "referenceSatellite": "A",
+      "referenceFrame": "Three.js scene coordinates in Earth-radius units; ECI [x,y,z] maps to [x,z,-y]",
+      "geoReferenceLongitudeDeg": 38,
+      "position": [
+        4.1155561,
+        1.338782,
+        10.9560793
+      ],
+      "target": [
+        0,
+        0,
+        0
+      ],
+      "quaternion": [
+        -0.056001,
+        0.1784117,
+        0.0101712,
+        0.9823084
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "fieldOfViewDeg": 35,
+      "zoom": 1,
+      "near": 0.5917198,
+      "far": 1000,
+      "aspect": 1.4263862,
+      "viewport": {
+        "width": 1492,
+        "height": 1046
+      },
+      "chapterId": "chapter-1"
+    }
+  ]
+}

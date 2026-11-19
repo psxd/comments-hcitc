@@ -1,0 +1,135 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "f2a8171a1faf45a2a3519845258884af",
+      "root": "panel",
+      "key": "episodeTitle",
+      "label": "A pair of Russian satellites shadowing a U.S. reconnaissance sate",
+      "x": 0.02097902097902098,
+      "y": 0.23227611940298507,
+      "text": "To make the Current Episode pane area make more sense when we're _not_ hovering over it, please introduce a highlighting vertical line to its left, that can be aligned with the descriptive text below it. \n\nOn hover, I want the \"Choose a different episode\" text to be more dynamically rendered than it is now. Maybe like some sort of ticker micointeraction? To make this more seamless, you can change the treatment of the choose a different epiosde action item to be all caps and gold (and ditch the library books). I still do want the leftward arrow, though!.",
+      "createdAt": "2026-11-16T17:05:15+00:00"
+    },
+    {
+      "id": "284b300da92d4a98b3d528fc4efa7225",
+      "root": "panel",
+      "key": "pairSticky",
+      "label": "COSMOS 2543+USA 245",
+      "x": 0.21764705882352942,
+      "y": 0.5035282258064516,
+      "text": "When we scroll down and see this header, I still want a way to toggle between Cosmos 2542 and 2543 (in this case; in other cases there's no toggling; in other cases the toggling happens on the target satellite side).",
+      "createdAt": "2026-11-16T17:05:54+00:00"
+    },
+    {
+      "id": "ddb9a23921fd4478aebd0abe1b3fac59",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.4508697341160221,
+      "y": 0.2670944357366771,
+      "text": "There's something going wrong with how the reference orbit is being rendered. The idea of the reference orbit is that it's always in view and fixed in the reference frame we've chosen. That's not the case now. Please be careful to ensure that hte portion of the reference orbit that is in front of the Earth is visible and that the portion behind the Earth is not.",
+      "createdAt": "2026-11-16T17:07:15+00:00"
+    },
+    {
+      "id": "6c1953079e644389a2423d38fe02ea36",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.7293788846685083,
+      "y": 0.5826190242946708,
+      "text": "The label that says \"Reference orbit\" is off-kilter from the reference orbit at the spot it's in right now. Get smarter to make sure it's angularly aligned.",
+      "createdAt": "2026-11-16T17:07:54+00:00"
+    },
+    {
+      "id": "097b0fb227b84f0c850f1fb609d5ada3",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.5408285854051565,
+      "y": 0.4278262147335423,
+      "text": "While watching the animation play, there are times in which the USA 245 satellite dot and trail go missing. They should always be in view (since we're being careful to select a camera angle where that's physically the case).",
+      "createdAt": "2026-11-16T17:09:01+00:00"
+    },
+    {
+      "id": "3e4d0ea050b44c70ac6816571959c7fe",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.6417688190607734,
+      "y": 0.4947651351880878,
+      "text": "Right now, the satellite dot labels are dynamically changing their position relative to the satellite they refer to via violent hops. Make that more smooth, so the reader can clearly track which satellite is which.",
+      "createdAt": "2026-11-16T17:10:05+00:00"
+    },
+    {
+      "id": "130418586b8d473cb32dc76f7e26cf2b",
+      "root": "panel",
+      "key": "speedChartGroup",
+      "label": "Velocity chart",
+      "x": 0.8942307692307693,
+      "y": 0.6483347039473685,
+      "text": "I think the default relative velocity should be different for this scneario. Can you try 500 m/s? Actually, this whole pane should be in km/s, when that's a more meaningful unit.",
+      "createdAt": "2026-11-16T17:10:43+00:00"
+    },
+    {
+      "id": "2b7272cf916f44c291ce91df33b93560",
+      "root": "panel",
+      "key": "control-7",
+      "label": "Separation distance thresholdkm",
+      "x": 0.6654676258992805,
+      "y": 0.6364182692307693,
+      "text": "These two type-what-you-want threshold boxes should be aligned with one another.",
+      "createdAt": "2026-11-16T17:11:04+00:00"
+    },
+    {
+      "id": "7ecfe940cfd24934bd6a9f4f85bfaf4b",
+      "root": "panel",
+      "key": "thresholdSummary",
+      "label": "200 km · 130 m/s",
+      "x": 0.26400709219858154,
+      "y": 0.5475543478260869,
+      "text": "We don't need this info posted here when the pane is unfurled.",
+      "createdAt": "2026-11-16T17:11:22+00:00"
+    },
+    {
+      "id": "47db4be152194f8b9c1ae5dda6dcbab5",
+      "root": "panel",
+      "key": "dwellMetric",
+      "label": "0minDwell timeThe duration during which COSMOS 2543 is within 200",
+      "x": 0.5107913669064749,
+      "y": 0.6520060825827582,
+      "text": "Here's a rare spot where I do want you to render COSMOS as Cosmos. \n\nthe units of the thresholds should also be bolded here.",
+      "createdAt": "2026-11-16T17:11:48+00:00"
+    },
+    {
+      "id": "6e940dba072f44fdab2976171237132d",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.449035307320442,
+      "y": 0.4690132739028213,
+      "text": "The sequence where we're changing from one chapter to another should have a more intense fade: I can still see the background content more than I'd like right now.\n\nAlso text on that screen should be graycale, not brown.",
+      "createdAt": "2026-11-16T17:12:51+00:00"
+    },
+    {
+      "id": "1e962f24c4984e0880ecf36c3d5d4624",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.6577499136740331,
+      "y": 0.5978215615203761,
+      "text": "When I toggle the chaser satellite to be Cosmos 2542, the reference orbit becomes nonsensical; it should be encircling the Earth (like all orbits), but it's not. That's troubling; I need to feel a greater confidence that you understand the physics here.",
+      "createdAt": "2026-11-16T17:14:25+00:00"
+    },
+    {
+      "id": "da727e7d03a441cb915af3eace6af879",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.5233044141344383,
+      "y": 0.6712443671630094,
+      "text": "On the transition from one chapter to another, use full dates on the on-screen language \"December 9, 2019\" etc. Also you can laod that text after the title text above it.",
+      "createdAt": "2026-11-16T17:15:07+00:00"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "7680a5cca2a946a484812036a0f69c47",
+      "createdAt": "2026-11-17T19:25:44+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-visual-block",
+      "label": "E-002 · visual block",
+      "x": 0.28443186413263244,
+      "y": 0.6298701298701299,
+      "text": "This E-002 mini preview has a darkened background compared to the background color of the whole expanded row, and the globe is cropped to a small viewport instead of the whole globe.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "f4d91e10197c41389879bdf0d4ac7c29",
+      "createdAt": "2026-11-17T19:30:39+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.7942579862515163,
+      "y": 0.28876329787234045,
+      "text": "This mini preview does not immediately appear on page row expansion, like I'd like.",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

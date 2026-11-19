@@ -1,0 +1,17 @@
+{
+  "project": "How Close is Too Close",
+  "sourceUrl": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4UkGvjUAItDaS6sdxJDEqu6JoAI95k3EkCKf9QXAIAmnzZXEocTeMwFo1U0CldZNkrIHIelx6288p/pub?output=csv",
+  "entries": [
+    {
+      "term": "Mean Motion",
+      "acronym": "",
+      "definition": "Averaged speed of a satellite in a non-circular orbit. Satellites in circular orbits travel at a constant speed. Satellites in non-circular orbits move faster when closer to the Earth, and slower when farther away. Common practice is to compute the mean motion (average the speed), which is measured in revolutions per day.",
+      "sources": [
+        {
+          "label": "NASA",
+          "url": "https://www.grc.nasa.gov/www/k-12/TRC/laefs/laefs_m.html#mean_motion"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "30c451e0e18642e3a9c9fd6035a47eca",
+      "root": "panel",
+      "key": "control-2",
+      "label": "Current episode; choose another episode",
+      "x": 0.6118421052631579,
+      "y": 0.1701086956521739,
+      "text": "The hover effect over the current episode should reveal something of a hidden card: a rounded corner card that reveals that something will happen when you click on it.\n\nOn that hover, please change the phrase \"Current episode\" to the old \"Choose a different episode\" action item with the gray text, leftward arrow, and little book motif. \n\nAbandon the whole flipping the card thing.",
+      "createdAt": "2026-11-16T16:05:16+00:00"
+    },
+    {
+      "id": "95cfd20434ee411f8f8387d34620674d",
+      "root": "panel",
+      "key": "playbackDock",
+      "label": "Playback dock",
+      "x": 0.97953216374269,
+      "y": 0.2590460526315789,
+      "text": "The chapter toggle area should be teh same width as other rounded corner assets in the control panel above it (like the satellite dropdowns and the how-close-is-too-close dropdown).",
+      "createdAt": "2026-11-16T16:05:58+00:00"
+    },
+    {
+      "id": "c6e005f722c0406fbb429d34b283aab6",
+      "root": "panel",
+      "key": "playbackDock",
+      "label": "Playback dock",
+      "x": 0.9532163742690059,
+      "y": 0.8800986842105263,
+      "text": "In general, this little card down here with the chapter toggle and the playback controls should be shorter: I see some vertical space you could shrink down. Please do that.",
+      "createdAt": "2026-11-16T16:06:19+00:00"
+    },
+    {
+      "id": "35f47ec18a144e6c91bc4011e097903a",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "COSMOS 2542 to USA 245 separation over time",
+      "x": 0.11858974358974358,
+      "y": 0.0671875,
+      "text": "I asked for these y-axis ticks to be round numbers. To me that means rounded to the nearest 5, 10, or 25 km or something. Please do that.",
+      "createdAt": "2026-11-16T16:06:54+00:00"
+    },
+    {
+      "id": "59c21c082f92460f86285cd33e173cb7",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.4415681111878453,
+      "y": 0.447094190830721,
+      "text": "You have no perfectly replicated that gray-satellite-to-yellow-to-gray loading sequence from the SBI model. On your local version, the dots don't use the right colors or have outlines. They should; it's a motif borrowed from the satellite dots on the 3D globe. \n\nTake a bit more time on these transitions. They're a bit fast right now.",
+      "createdAt": "2026-11-16T16:09:18+00:00"
+    },
+    {
+      "id": "eb612b04efb649799ee25bf074b9583f",
+      "root": "panel",
+      "key": "speedChart",
+      "label": "COSMOS 2542 to USA 245 relative velocity over time",
+      "x": 0.6217948717948718,
+      "y": 0.5396551724137931,
+      "text": "I need you to show more time before and after the time of closest approach in the December 30 chapter. \n\nI want both the December 9 chapter and the December 30 chapter to be about the same amount of time: maybe center the chapter on time of closest approach and then show a 18 hours before to 18 hour after?",
+      "createdAt": "2026-11-16T16:09:49+00:00"
+    },
+    {
+      "id": "ff0ea7e78e104390b42ace42a63b8f04",
+      "root": "panel",
+      "key": "distanceChartGroup",
+      "label": "Separation chart",
+      "x": 0.6057692307692307,
+      "y": 0.9152294788427104,
+      "text": "You're putting too much info in this x-axis label. All I need here is to show the reader what year we're in. They know the date from the x-axis ticks. They know that we're in UTC from other context; you don't need those things here.",
+      "createdAt": "2026-11-16T16:10:37+00:00"
+    },
+    {
+      "id": "547851a1c31d4f1cbc1dbe8125e3982f",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.4875978360957643,
+      "y": 0.24444675744514108,
+      "text": "I find the default playback speed on the 3D globe for this episode to be too fast. Can you reduce it, please?",
+      "createdAt": "2026-11-16T16:11:03+00:00"
+    },
+    {
+      "id": "5449bc2fa692471c8806d9ed4db7173e",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.4873532458563536,
+      "y": 0.6991330329153606,
+      "text": "If you're showing a nominal orbit as part of the relative motion scheme, can you please draw and label that orbit (\"Reference orbit\") in the same way you drew and labeled the geostationary orbit in E-001?",
+      "createdAt": "2026-11-16T16:11:37+00:00"
+    },
+    {
+      "id": "377faa066d1f484f904d3e5841b7f0a9",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.6270538386279927,
+      "y": 0.4645621081504702,
+      "text": "I'm still not thrilled with how you're choosing to label satellites. Please consider exploring the area to the _left_ of each satellite dot, too, which I think could help with decongestion.",
+      "createdAt": "2026-11-16T16:12:14+00:00"
+    }
+  ]
+}

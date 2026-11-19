@@ -1,0 +1,29 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "c87c09ce5fe3456abbe264aa2a5da861",
+      "createdAt": "2026-11-17T23:30:29+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "speedChart",
+      "label": "speedChart",
+      "x": 0.6057692307692307,
+      "y": 0.17923387096774193,
+      "text": "Do all episodes/chapters practice this vertical dotted line and lowest value thing? I feel like that line should only appear when you click the date on the \"minimum this episode\" line; not by default.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "e51ba6cb5ad54a1cbcf1ef0a77cff403",
+      "createdAt": "2026-11-17T23:32:22+00:00",
+      "surface": "E-005",
+      "root": "panel",
+      "key": "scene",
+      "label": "3D globe",
+      "x": 0.49080882352941174,
+      "y": 0.3683385579937304,
+      "text": "The tail here (in E-005) should be thicker and longer.\n\nIn general, across all episodes, tails should be the same thickenss and length (regardless of zoom and playback speed).",
+      "appliesToAllEpisodes": true
+    }
+  ]
+}

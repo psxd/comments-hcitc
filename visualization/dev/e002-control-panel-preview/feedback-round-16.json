@@ -1,0 +1,75 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "e482b13dd9fa43ed8fdd5ffecc4afb45",
+      "root": "panel",
+      "key": "episodeTitle",
+      "label": "A pair of Russian satellites shadowing a U.S. reconnaissance sate",
+      "x": 0.7831240729940413,
+      "y": 0.3694029850746269,
+      "text": "\"Current Episode\" and \"Choose a different episode\" are not on the same baseline: the latter is too low. Also the latter is not the same color; please ensure they're on the same baseline and are the same color. \n\nI think you should also be tabbing in the two bits of text a bit more on the unhovered pane (\"Current Episode\" and \"A pair of Russian ...\", in this case), because when you do the hover and these assets go inside a rounded-corner card, the left margin seems too small.\n\nConsider adding some sort of icon indicator for an episode to take the place occupied by the left arrow in the hovered version. Maybe a softly pulsing gold dot (almost to symbolize live television?); i'm mot sure.",
+      "createdAt": "2026-11-16T21:38:05+00:00"
+    },
+    {
+      "id": "c36624a03adb4a448f64c36870ca5d7c",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.5608463057404679,
+      "y": 0.46193084119272615,
+      "text": "Do space coffee event at ISA as morning coffee break, not a first-thing in the morning thing (between Panel A and B or between Panel B and C). This means something like: 10 to 10:30 am. May have to go through Rachel.\n\nSpace happy hour event somewhere in town.\n\nI like this camera view (dec9 · Dec 9, 04:46 UTC · target · COSMOS 2542) when I have USA 245 as the origin of the rerference frame. I do want the reference orbit to be drawn with a solid line, though (the dashed line has a blink-y effect I don't like).\n\nWhen I swap the origin of the reference frame so that the yellow satellite is in the center, I want the camera frame to be very similar to what it was before (dec9 · Dec 9, 04:46 UTC · target · COSMOS 2542). The selection you made resulted in a big change that I didn’t like. Same thing for when you swap Cosmos 2542 for 2543; you’re making a big change the camera angle that I really don’t like. Please just learn from my preferred angle. \n\nI am going to keep leaving camera angles I like, so you can learn better. \n\nCamera angle dec30 · Dec 30, 10:29 UTC · chaser · COSMOS 2543 is an adjustment just to make sure everything stays in view. When you’re having a hard time getting everything to stay in view, just jump to full globe ECI mode (which doesn’t need to have a reference orbit drawn, btw). Motion between views should be much smoother than I’m seeing now. \n\nPlease use machine learning to learn my favorite angles and develop a certain animation scheme to always hit them.\n\nYou know, another strategy here might be for you to just create a checklist for me: showing every permutation of all the toggles (which satellite in the drop down we’re looking at, which satellite is centered in the relative motion frame, what chapter we’re in, what minute mark we’re in on that chapter), and I’ll just keep adjusting and saving camera views until you get it and can make better guesses.",
+      "createdAt": "2026-11-16T21:47:27+00:00"
+    },
+    {
+      "id": "b0e3142765444a3281d39d1a572571e5",
+      "root": "panel",
+      "key": "pairSticky",
+      "label": "Now showing:COSMOS 2543‹COSMOS 2542COSMOS 2543+USA 245",
+      "x": 0.1509988264986897,
+      "y": 0.5411765154670266,
+      "text": "Maybe instead of \"Now Showing:\" this should say \"CURRENT EPISODE:\" In the same treatment as the current episode card, for consistency.",
+      "createdAt": "2026-11-16T21:48:19+00:00"
+    },
+    {
+      "id": "f4d5632bed1044c5914dfd7b9e7a54ea",
+      "root": "panel",
+      "key": "timelineSlider",
+      "label": "Playback time bar",
+      "x": 0.43052649723547276,
+      "y": 0.5750007629394531,
+      "text": "I take back what I said before. On page load, we _should_ start nearer to time of closest approach on the principal chapter.",
+      "createdAt": "2026-11-16T21:49:14+00:00"
+    },
+    {
+      "id": "312298e1a027453c8dd5aed5a05775b3",
+      "root": "panel",
+      "key": "control-6",
+      "label": "How Close Is Too Close?200 km · 0.50 km/s‹",
+      "x": 0.23315718033317573,
+      "y": 0.8526785714285714,
+      "text": "Please reduce the space between the \"How Close is Too Close?\" heading (which should be capitalized as \"How close is too close?\" by the way) and the text below it \"Select threshold vales ...\"",
+      "createdAt": "2026-11-16T21:50:30+00:00"
+    },
+    {
+      "id": "1327f2e7940d409b9de2351e580de886",
+      "root": "panel",
+      "key": "control-7",
+      "label": "Separation distance thresholdkm",
+      "x": 0.09899568386461974,
+      "y": 0.3389423076923077,
+      "text": "These field names shoudl get the same treatment as the field names in the satellite details pane above",
+      "createdAt": "2026-11-16T21:50:48+00:00"
+    },
+    {
+      "id": "a7e88c1f733d4f758a2dbe4b3b4dace3",
+      "root": "panel",
+      "key": "dwellMetric",
+      "label": "3.5hoursDwell timeThe cumulative time within this 36-hour chapter",
+      "x": 0.22453369570583334,
+      "y": 0.010376755661975158,
+      "text": "You can remove htis horizontal line separator.",
+      "createdAt": "2026-11-16T21:50:56+00:00"
+    }
+  ]
+}

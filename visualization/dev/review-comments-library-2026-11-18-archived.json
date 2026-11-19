@@ -1,0 +1,173 @@
+{
+  "schema": "espl-shared-review-v1",
+  "comments": [
+    {
+      "id": "8352b54bba1d453bb6425e70f63d1a15",
+      "createdAt": "2026-11-18T05:01:59+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-context-block",
+      "label": "E-001 · context block",
+      "x": 0.2613699156716239,
+      "y": 0.9312867544105292,
+      "text": "On the live version of the tool, there's really no buffer at all underneath the \"Explore the interactive model\" action item. Please add some there.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "07942e6e2376475cb088540e44265691",
+      "createdAt": "2026-11-18T05:03:12+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.42941487581896876,
+      "y": 1,
+      "text": "On the live version of the tool, this animation's assets are not always present: that is, sometimes the Earth or the reference orbit dissappear. I do not want this: those assets should always appear here.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "de8a367b0981407ab911781457d1d349",
+      "createdAt": "2026-11-18T05:03:53+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.33684846784029704,
+      "y": 1,
+      "text": "I'd like all satellite dots in mini previews across all episodes to be the same size in pixels, regardless of the zoom. I want that size to be the same size as the satellite dots in the \"Space Objects\" column. \n\nI'd also like all satellite tails to be the same thickness across all episodes.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "d54c2282ab8c439f9417ee9107dec02f",
+      "createdAt": "2026-11-18T05:05:28+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.9792869709758546,
+      "y": 1,
+      "text": "I notice that the color-retreated background behind the mini preview does not go edge to edge. For all mini previews, the background color should extend all the way to top (i.e. so that it touches the bottom of the highlighted row above that describes this episode's key details), all the way to the right (i.e. so that it leaves no margin before the right edge of the table), and all the way down (all the way to the bottom edge of the expanded row).",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "22a8397a6a2643de85f043c440965aa0",
+      "createdAt": "2026-11-18T05:07:06+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-context-block",
+      "label": "E-001 · context block",
+      "x": 0.6826754438651707,
+      "y": 0.7655068608232988,
+      "text": "On the live version of this table, across all episodes, the rightward arrow after \"Explore the interactive model\" is too high. It's center line should be aligned with the text in that phrase.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "f494cb490ca24f6695d15427d0f30153",
+      "createdAt": "2026-11-18T05:08:26+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-visual-block",
+      "label": "E-001 · visual block",
+      "x": 0.3396116441978693,
+      "y": 1,
+      "text": "For all episodes in the table, when you hover over the mini preview, you should see a number of indicators that suggest that something happens when you click on the mini preview: \n1) The globe's coloring fades to a darker warmer color;\n2) The satellites pulse and get a little bigger; and\n3) The \"Explore the interactive model\" does its microinteraction dance (orbit undraws and redraws; rightward arrow nudge bounces to the right).",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "8b8dc41ed06541919c19fd45ee1651a0",
+      "createdAt": "2026-11-18T05:09:10+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-001-evidence-section",
+      "label": "E-001 · evidence section",
+      "x": 0.3280199745193082,
+      "y": 0.7387973002876743,
+      "text": "For all table episodes, leave a little bit of room below the record cards. For episode rows that have more than three records, that little bit of extra room will be filled with carousel indicators/controls. Otherwise empty.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "e2c7f850322640788fd9d9835405c45d",
+      "createdAt": "2026-11-18T05:10:22+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-evidence-section",
+      "label": "E-002 · evidence section",
+      "x": 0.5520157570254953,
+      "y": 0.9689904779302628,
+      "text": "Clicking through this carousel indicator should have a more dynamic swipe effect on the visible cards. The leftmost card swipes away, the ones in positions 2 and 3 enter positions 1 and 2 respectively and the new card swipes in from the right.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "8ed0eb9d5a2c4f509a94d00969bc9183",
+      "createdAt": "2026-11-18T05:11:26+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-002-source-2",
+      "label": "E-002 · source 2",
+      "x": 0.8239748898090022,
+      "y": 0.9328135163874363,
+      "text": "I think the real address here is \"VPK.name\", so use that.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "5e70140aca84406aaccd132a9de8bc27",
+      "createdAt": "2026-11-18T05:12:19+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-003-visual-block",
+      "label": "E-003 · visual block",
+      "x": 0.7913909786609389,
+      "y": 1,
+      "text": "This graphic's reference orbit gets cut off on the right; it should not. Let it go all the way under the edge of the table if it has to.",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "04816780f09947fea44dd4fca861dea9",
+      "createdAt": "2026-11-18T05:13:10+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-003-visual-block",
+      "label": "E-003 · visual block",
+      "x": 0.22217664900104697,
+      "y": 1,
+      "text": "If any elements from a mini preview extend downwards towards the cards, they shoudln't get cut off by some viewport edge, they should just dip under the record cards.",
+      "appliesToAllEpisodes": true
+    },
+    {
+      "id": "196adfa2e6e74a9c965cc30ba8b48f4e",
+      "createdAt": "2026-11-18T05:14:41+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-003-source-1",
+      "label": "E-003 · source 1",
+      "x": 0.6892228010032204,
+      "y": 0.46488464254084344,
+      "text": "I'm not sure why you're struggling to find this source. It's title is \"US Military and Intelligence Rendezvous and Proximity Operations Fact Sheet\". It was last updated June 12, 2026. Can you not see that in the link's metadata anywhere? Would you prefer I link directly to the PDF ? Here's that: https://uc777d9bc334d9bf9e6731c5645a.dl.dropboxusercontent.com/cd/0/inline2/DML2etSGjgdMHZ5wR0h6lZpGENCaaGvSclmXLBMmBqY8NCu1EwwZKOfb6aecgNSnNi9haRbvtDRP0K1TATgWbRLRLzm8R6c5nTltPvUh0eb8CnNEd4cY6m56KB58YN8zzye0PZx3qj4nARFgmtTe3MrxTeoMoAohwT8M98GAa370JDCJOwN4y7gc4a6Q1hyR1HUTjY-xAaY9_vfMYQ4C0jnlCdh2eHg48JKlmOnREtB96MBykB4IOj7X7my4sBbQrgvOiUhaklmATlo91wgg1erl95i2kyNQNEcHqE9nvvzjvYDzr8DLWr8SUUiJonwWedfniSMdPOW4nBaXyhgePn1PlJMuS4n2mlRdQrP8sc7vyCsULiXovEDQg_ITlwAuddo/file#page=1.00&gsr=0",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "248fd61c7020410dbcb158bf35b657d1",
+      "createdAt": "2026-11-18T05:15:33+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-005-source-1",
+      "label": "E-005 · source 1",
+      "x": 0.5494130567056973,
+      "y": 0.8092131354835741,
+      "text": "The date for this paper is \"September 2024\"",
+      "appliesToAllEpisodes": false
+    },
+    {
+      "id": "c94590e16dcb4bd59d22dcac34cb526b",
+      "createdAt": "2026-11-18T05:15:43+00:00",
+      "surface": "Library",
+      "root": "table",
+      "key": "E-005-source-0",
+      "label": "E-005 · source 0",
+      "x": 0.5331842905402272,
+      "y": 0.7853859614780014,
+      "text": "Date for this one is \"June 30, 2022\"",
+      "appliesToAllEpisodes": false
+    }
+  ]
+}

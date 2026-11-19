@@ -1,0 +1,15 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "9c8c3c988c744f098886d73cd0f199dd",
+      "root": "panel",
+      "key": "dwellUnit",
+      "label": "minutes",
+      "x": 0.5129310344827587,
+      "y": 0.5963302752293578,
+      "text": "Use \"min\" or other time abbrevaition here.",
+      "createdAt": "2026-11-17T01:31:56+00:00"
+    }
+  ]
+}

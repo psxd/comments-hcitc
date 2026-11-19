@@ -1,0 +1,55 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "f022665787c341829d6701213d6007f1",
+      "root": "selector",
+      "key": "selector-C",
+      "label": "Cosmos 2543",
+      "x": 0.5703125,
+      "y": 0.34285714285714286,
+      "text": "Toggling between the two Cosmos satellites here should not be turning the un-selected satellite gray. The un-selected satellite is still gold (in this case, since the toggle is on the chaser); it's just faded some.",
+      "createdAt": "2026-11-16T05:02:28+00:00"
+    },
+    {
+      "id": "417b53ff7c644ef696c6ac37b2bb6bbc",
+      "root": "panel",
+      "key": "chapter-dec9",
+      "label": "December 9 · candidate convergence",
+      "x": 0.5065278757939309,
+      "y": 0.4541015625,
+      "text": "December 9 is the chapter I want to focus on, since this is where the good stuff happens, and USA 245's TLEs is just about a day or so old (which is fine! I'm only worried about this when it's multiple days old). \n\nMaybe the right episode here is just may 3 or four days before this moment of closest approach to three or so days after. \n\nIf that's the case, we don't need this chapter selector after all. You can remove it.\n\nI've updated Columns H and I of the episode library to say: 2019-12-06\t2019-12-12.",
+      "createdAt": "2026-11-16T05:06:38+00:00"
+    },
+    {
+      "id": "19a7d3ff20ad426bac05e3e8eee7ef59",
+      "root": "panel",
+      "key": "playbackDock",
+      "label": "Playback dock",
+      "x": 0.4327485380116959,
+      "y": 0.4346700207161882,
+      "text": "Since we aren't jumping between chapters anymore, we don't need to come up with a time jump motif after all.",
+      "createdAt": "2026-11-16T05:06:57+00:00"
+    },
+    {
+      "id": "98d4b71f710f44b59ef371c2774a95e3",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.3882726174033149,
+      "y": 0.12117334443573667,
+      "text": "The background color here should be white. Please take a look at the published-to-Github version of the E-001 viz (https://thomasgroberts.github.io/proximity-viz/visualization/Viz/compare.html) to capture the right treatments for the globe viz: the background, the globe, the satellites themselves, and their labels.",
+      "createdAt": "2026-11-16T05:07:55+00:00"
+    },
+    {
+      "id": "bbf853148b9a47f49763e9ea467c7363",
+      "root": "panel",
+      "key": "distanceMinimum",
+      "label": "Experimental propagation · numerical minimum withheld",
+      "x": 0.9078947368421053,
+      "y": 0.4722222222222222,
+      "text": "I will never be showing any episodes where the TLEs are being propagated more than a few days from their epochs. You don't need this fallback language and data plotting safeguards. I do know what I'm doing here.",
+      "createdAt": "2026-11-16T05:08:58+00:00"
+    }
+  ]
+}

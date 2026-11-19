@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+<title id="title">The New York Times report preview</title><desc id="desc">Designed source preview. The article's original photograph could not be retrieved.</desc>
+<rect width="900" height="440" fill="#edeae3"/><rect x="28" y="20" width="844" height="400" fill="#fffdf8" stroke="#d2ccc0"/>
+<text x="450" y="91" text-anchor="middle" fill="#1c1c1c" font-family="Georgia,serif" font-size="39" font-weight="bold">The New York Times</text>
+<line x1="58" x2="842" y1="112" y2="112" stroke="#1f1f1f" stroke-width="3"/>
+<text x="60" y="153" fill="#626262" font-family="Arial,sans-serif" font-size="16" letter-spacing="2">SCIENCE · OCTOBER 19, 2026</text>
+<text x="60" y="214" fill="#232323" font-family="Georgia,serif" font-size="31" font-weight="bold">Russian Satellite Makes a Menacing</text>
+<text x="60" y="254" fill="#232323" font-family="Georgia,serif" font-size="31" font-weight="bold">Approach to Another Craft in Orbit</text>
+<circle cx="737" cy="345" r="17" fill="#c8a750" stroke="#333" stroke-width="3"/><circle cx="783" cy="330" r="15" fill="#aaa" stroke="#333" stroke-width="3"/><path d="M60 358Q400 300 824 355" fill="none" stroke="#b5aa96" stroke-width="2"/>
+<text x="60" y="394" fill="#777" font-family="Arial,sans-serif" font-size="14">Designed preview · Open source for the article</text>
+</svg>

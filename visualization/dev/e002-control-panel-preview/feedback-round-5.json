@@ -1,0 +1,45 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "f0aa5920c4794ec5ab33202fbb73c2d5",
+      "root": "panel",
+      "key": "episodeFocus",
+      "label": "Current episodeRussia's Kosmos 2542 and Kosmos 2543 approaching U",
+      "x": 0.48355263157894735,
+      "y": 0.061987704918032786,
+      "text": "Could you add some more breathing room here between the elements? Feels crowded.",
+      "createdAt": "2026-11-16T04:30:29+00:00"
+    },
+    {
+      "id": "58a93626d7d145738d23eb5039e7e46f",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "Cosmos 2542 to USA 245 separation over time",
+      "x": 0.8205128205128205,
+      "y": 0.3363685344827586,
+      "text": "Now this line is _too_ long; it only needs to be just long enough to ensure the other data label can pass over it without that data label overlapping the threshold data label.",
+      "createdAt": "2026-11-16T04:31:04+00:00"
+    },
+    {
+      "id": "8d3bc5fa9f3c4b7191e4e4ed9dfab0c4",
+      "root": "panel",
+      "key": "distanceChartGroup",
+      "label": "Separation chart",
+      "x": 0.9391025641025641,
+      "y": 0.2881443784751673,
+      "text": "I'm noticing that when I grab and drag this threshold, it changes to gold; don't do that.",
+      "createdAt": "2026-11-16T04:31:30+00:00"
+    },
+    {
+      "id": "33ce4c66ef1d4c4c8b11109dc301eb5c",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "Cosmos 2542 to USA 245 separation over time",
+      "x": 0.6089743589743589,
+      "y": 0.6742995689655172,
+      "text": "Don't have this dotted line please; it should only be used for the min value.",
+      "createdAt": "2026-11-16T04:31:50+00:00"
+    }
+  ]
+}

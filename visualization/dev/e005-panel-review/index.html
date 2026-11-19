@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-005 control panel · local review</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./review.js"></script>
+</head>
+<body>
+  <header class="review-bar">
+    <div><strong>E-005 control panel</strong><span>Local design review</span></div>
+    <div class="review-actions"><button id="spotMode" type="button" aria-pressed="false">✚ Spot comment</button><button id="showComments" type="button" aria-expanded="false">Comments <span id="commentCount">0</span></button></div>
+  </header>
+  <main class="comparison">
+    <section class="panel-review" aria-labelledby="e005Heading">
+      <h1 id="e005Heading">E-005 <span>Panel under review</span></h1>
+      <div class="frame-wrap" id="e005Wrap"><iframe id="e005Frame" title="Interactive E-005 control panel" src="../../Viz/compare.html?episode=E-005&amp;panelPreview=1"></iframe><div id="pinLayer" class="pin-layer"></div></div>
+    </section>
+    <section class="panel-review reference" aria-labelledby="e002Heading">
+      <h2 id="e002Heading">E-002 <span>Design reference</span></h2>
+      <div class="frame-wrap"><iframe id="e002Frame" title="E-002 reference control panel" src="../e002-control-panel-preview/"></iframe></div>
+    </section>
+  </main>
+  <aside id="commentDrawer" class="comment-drawer" hidden aria-label="E-005 spot comments">
+    <div class="drawer-heading"><h2>Spot comments</h2><button id="closeComments" type="button" aria-label="Close comments">×</button></div>
+    <form id="commentForm" hidden><p>Commenting on <strong id="commentLocation"></strong></p><textarea id="commentText" maxlength="4000" rows="5" placeholder="What should change here?" required></textarea><label><input id="commentAllEpisodes" type="checkbox"> Applies to all full episode views</label><div class="form-actions"><button id="cancelComment" type="button">Cancel</button><button type="submit">Save comment</button></div></form>
+    <p id="commentStatus" role="status">Click “Spot comment,” then click a place in the E-005 panel.</p>
+    <div id="commentList"></div>
+    <button id="exportComments" type="button">Export comments JSON</button>
+  </aside>
+</body>
+</html>

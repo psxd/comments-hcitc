@@ -1,0 +1,38 @@
+{
+  "schema": "espl-tle-provenance-v1",
+  "scope": "E-002 external historical element files; no raw E-002 TLE file is committed in this repository",
+  "retrievalMethod": "Browser fetches checksum-pinned public files from Willa Madsen's published project",
+  "verificationUtc": "2026-11-15",
+  "datasets": [
+    {
+      "object": { "name": "Kosmos 2542", "norad": "44797", "cospar": "2019-079A" },
+      "url": "https://willamadsen.github.io/How-Close-Is-Too-Close/Viz/data/tles_public/44797.json",
+      "sha256": "19b0796d09a780329bfbfbcd186355a65fcb013be6f46a710924b7ef4678cc6b",
+      "kind": "historical", "elements": 55,
+      "epochRangeUtc": ["2019-12-06T17:03:17.167104Z", "2020-01-30T11:18:59.325408Z"],
+      "originatingProvider": "USSPACECOM basic SSA catalog", "immediateRetrievalSource": "Space-Track historical subset in Willa Madsen's project", "retrievedUtc": null,
+      "restrictionStatus": "Space-Track documentation states blanket approval for redistribution of basic SSA data conditional on citation; this site retrieves the already published file directly and cites Space-Track",
+      "termsUrl": "https://www.space-track.org/documentation"
+    },
+    {
+      "object": { "name": "USA 245", "norad": "39232", "cospar": "2013-043A" },
+      "url": "https://willamadsen.github.io/How-Close-Is-Too-Close/Viz/data/tles_public/39232.json",
+      "sha256": "5831e6121715f5a9bcf2c4fb29417e82801d5a3b1e76e79b3f41fc71140aafe7",
+      "kind": "historical", "elements": 6,
+      "epochRangeUtc": ["2018-02-20T19:48:04.000320Z", "2021-08-30T20:03:37.680192Z"],
+      "episodeEpochsUtc": ["2019-12-07T09:43:40.684800Z", "2019-12-08T10:03:52.617600Z", "2019-12-31T09:35:10.924800Z"],
+      "originatingProvider": "Independent amateur observers; per-element author not identified in the preserved file", "immediateRetrievalSource": "SeeSat-L collection in Willa Madsen's project", "retrievedUtc": null,
+      "restrictionStatus": "Individual observer reuse terms not verified; no copy of the raw elements is committed here"
+    },
+    {
+      "object": { "name": "Kosmos 2543", "norad": "44835", "cospar": "2019-079D" },
+      "url": "https://willamadsen.github.io/How-Close-Is-Too-Close/Viz/data/tles_public/44835.json",
+      "sha256": "f4bc7bafe502a30e7cce4781cf42e2b2152f0adf94faaeb61cf7c366a2220e14",
+      "kind": "historical", "elements": 55,
+      "epochRangeUtc": ["2019-12-06T13:49:16.059648Z", "2020-01-30T11:38:32.043840Z"],
+      "originatingProvider": "USSPACECOM basic SSA catalog", "immediateRetrievalSource": "Space-Track historical subset in Willa Madsen's project", "retrievedUtc": null,
+      "restrictionStatus": "Space-Track documentation states blanket approval for redistribution of basic SSA data conditional on citation; this site retrieves the already published file directly and cites Space-Track",
+      "termsUrl": "https://www.space-track.org/documentation"
+    }
+  ]
+}

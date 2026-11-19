@@ -1,0 +1,65 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "a37c2c68084c45a1a4bfe9ab85d46c45",
+      "root": "panel",
+      "key": "episodeFocus",
+      "label": "Current episodeRussia's Kosmos 2542 and Kosmos 2543 approaching U",
+      "x": 0.5,
+      "y": 0.7403571428571428,
+      "text": "I still don't like the placement of this action link. Try to instead take a lesson from the back side of the SBI control panel (where it says \"Configure a different threat\") and place this action link in the same spot with the same treatment.",
+      "createdAt": "2026-11-16T04:19:39+00:00"
+    },
+    {
+      "id": "6ca2b4b93a024d00a74476207108179c",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "Cosmos 2542 to USA 245 separation over time",
+      "x": 0.8333333333333334,
+      "y": 0.7329202586206897,
+      "text": "The threshold line needs to extend much more to the right (which I understand has the consequence of effectively narrowing the chart area to the left; and that's okay), so that the line extends with enough extra width to extend pas the data label for the separation distance itself (so that the threshold data label is always entirely to the right of the of the separation distance data label). I want the same thing to be true for the relative velocity chart. The two charts should share a chart width.",
+      "createdAt": "2026-11-16T04:21:54+00:00"
+    },
+    {
+      "id": "58e66038679f43c49eba6d3159a78956",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "Cosmos 2542 to USA 245 separation over time",
+      "x": 0.34294871794871795,
+      "y": 0.2570581896551724,
+      "text": "You seem to have added an effect in which the already drawn data is shown in gold. I don't want that; remove it.",
+      "createdAt": "2026-11-16T04:22:37+00:00"
+    },
+    {
+      "id": "e64fed24ac314891bce29cdc68db7d1e",
+      "root": "panel",
+      "key": "separationChart",
+      "label": "Cosmos 2542 to USA 245 separation over time",
+      "x": 0.967948717948718,
+      "y": 0.13292025862068965,
+      "text": "Right here is the one place where I _don't_ want separation distance rounded to the nearest 5 km.",
+      "createdAt": "2026-11-16T04:22:53+00:00"
+    },
+    {
+      "id": "f110c05c222a41ff838c2f5fad76a8cd",
+      "root": "panel",
+      "key": "ui",
+      "label": "Visualizing Proximity in the Space DomainCurrent episodeRussia's ",
+      "x": 0.038011695906432746,
+      "y": 0.6941167192429022,
+      "text": "This relative velocity needs to be rounded; to the nearest 5 m/s when we're in the thousands; but just to the nearest 1 m/s when the numbers are much lower.\n\nUse a comma for thousands separator just to be consistent here.",
+      "createdAt": "2026-11-16T04:23:46+00:00"
+    },
+    {
+      "id": "b58c3f3a7685481485165cee5787b75d",
+      "root": "panel",
+      "key": "speedChart",
+      "label": "Cosmos 2542 to USA 245 relative velocity over time",
+      "x": 0.9807692307692307,
+      "y": 0.12952586206896552,
+      "text": "Comma for thousands separator, please.",
+      "createdAt": "2026-11-16T04:23:55+00:00"
+    }
+  ]
+}

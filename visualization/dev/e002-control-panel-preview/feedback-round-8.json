@@ -1,0 +1,35 @@
+{
+  "schema": "espl-e002-spot-comments-v1",
+  "comments": [
+    {
+      "id": "77524a4327d547bca5f8964e291914c5",
+      "root": "panel",
+      "key": "ui",
+      "label": "Choose a different episode Visualizing Proximity in the Space Dom",
+      "x": 0.9649122807017544,
+      "y": 0.9586705077577091,
+      "text": "When I scroll on the control panel, the scroll bar reveals itself as extending from the top of the control panel, down its right side, _and extending all the way down to the playback back at the bottom). Scrolling while inside of the control panel should only scroll the control panel.",
+      "createdAt": "2026-11-16T12:54:34+00:00"
+    },
+    {
+      "id": "cc7d7e43af0d403fa38a1b590523a747",
+      "root": "panel",
+      "key": "ui",
+      "label": "Choose a different episode Visualizing Proximity in the Space Dom",
+      "x": 0.9766081871345029,
+      "y": 1.0,
+      "text": "There is a strange shadow effect between the control panel and the playback control panel. Remove that.",
+      "createdAt": "2026-11-16T12:54:52+00:00"
+    },
+    {
+      "id": "4213213995e64e33887869ae7182dff1",
+      "root": "panel",
+      "key": "globeStage",
+      "label": "3D globe",
+      "x": 0.539245942679558,
+      "y": 0.4866158894984326,
+      "text": "When creating camera references for me, please choose those that do not make the Earth constantly change size; I find that disorienting.",
+      "createdAt": "2026-11-16T12:56:01+00:00"
+    }
+  ]
+}

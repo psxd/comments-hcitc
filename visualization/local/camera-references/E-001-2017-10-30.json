@@ -1,0 +1,17 @@
+{
+  "schema": "espl-proximity-camera-view-v1",
+  "simulationTimeUtc": "2017-10-30T12:20:57.120Z",
+  "cameraMode": "relative",
+  "referenceFrame": "Three.js scene coordinates in Earth-radius units; ECI [x,y,z] maps to [x,z,-y]",
+  "geoReferenceLongitudeDeg": 38,
+  "position": [-0.8908841, 0.0287273, 6.6970101],
+  "target": [-0.8916177, 0, 6.5503035],
+  "quaternion": [-0.0965318, 0.0024888, 0.0002414, 0.9953268],
+  "up": [0, 1, 0],
+  "fieldOfViewDeg": 35,
+  "zoom": 1,
+  "near": 0.007427,
+  "far": 1000,
+  "aspect": 0.9330601,
+  "viewport": { "width": 683, "height": 732 }
+}
