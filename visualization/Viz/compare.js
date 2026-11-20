@@ -2411,6 +2411,59 @@ if (localChapterReview) {
     },
     get state() { return { time: currentMs, start: startMs, end: endMs, playing, held: cameraEditMode, mode: view, referenceSatellite: centre }; },
   };
+
+  // What a comment stores so it can bring the page back to this exact moment,
+  // camera and filter set. The shared comment module calls this hook.
+  window.__commentView = {
+    capture() {
+      const state = window.__proximityWorkshop.state;
+      return {
+        time: Number.isFinite(state.time) ? new Date(state.time).toISOString() : "",
+        chapter: publishedCameraChapter || "",
+        chapterLabel: publishedCameraChapter || "",
+        camera: cameraViewConfig(),
+        speed: $("speed").value,
+        windowMode: $("windowMode").value,
+        start: $("windowMode").value === "custom" ? $("startTime").value : "",
+        end: $("windowMode").value === "custom" ? $("endTime").value : "",
+        thresholds: { distance: $("distanceThreshold").value, speed: $("speedThreshold").value },
+        axes: $("axesBtn").classList.contains("isOn"),
+      };
+    },
+    apply(saved) {
+      if (!saved || !saved.camera) return false;
+      try {
+        if (saved.windowMode && $("windowMode").value !== saved.windowMode) {
+          $("windowMode").value = saved.windowMode;
+          $("windowMode").dispatchEvent(new Event("change", { bubbles: true }));
+        }
+        if (saved.windowMode === "custom") {
+          if (saved.start) { $("startTime").value = saved.start; $("startTime").dispatchEvent(new Event("change", { bubbles: true })); }
+          if (saved.end) { $("endTime").value = saved.end; $("endTime").dispatchEvent(new Event("change", { bubbles: true })); }
+        }
+        if (saved.speed && [...$("speed").options].some(option => option.value === saved.speed)) $("speed").value = saved.speed;
+        if (saved.thresholds) {
+          for (const [id, value] of [["distanceThreshold", saved.thresholds.distance], ["speedThreshold", saved.thresholds.speed]]) {
+            if (value === undefined || value === null || value === "") continue;
+            $(id).value = value;
+            const slider = $(`${id}Slider`);
+            if (slider && Number(value) >= Number(slider.min) && Number(value) <= Number(slider.max)) slider.value = value;
+          }
+          updateThresholds();
+        }
+        if (saved.axes !== undefined && $("axesBtn").classList.contains("isOn") !== Boolean(saved.axes)) $("axesBtn").click();
+        if (saved.time) {
+          try { window.__proximityWorkshop.setTime(saved.time); } catch { /* outside the restored window */ }
+        }
+        window.__proximityWorkshop.applyCamera(saved.camera);
+        return true;
+      } catch (err) {
+        console.warn("Comment view restore failed:", err);
+        return false;
+      }
+    },
+  };
+
 }
 $("devTime").addEventListener("change", event => {
   const requested = Date.parse(`${event.target.value}Z`);
@@ -2456,11 +2509,13 @@ $("loadReferenceViewBtn").addEventListener("click", () => {
   $("devTime").value = new Date(currentMs).toISOString().slice(0, 16);
   $("cameraCaptureStatus").textContent = `Captured position and direction loaded at ${new Date(currentMs).toISOString()}; viewport aspect ${camera.aspect.toFixed(3)}.`;
 });
-$("captureViewBtn").addEventListener("click", async () => {
-  playing = false; $("playBtn").innerHTML = '<span class="playIcon"></span>';
+// The serialisable description of the camera right now. Shared by the dev
+// "Capture view" button and by comments, which store it without touching the
+// clipboard or pausing playback.
+function cameraViewConfig() {
   camera.updateMatrixWorld(true);
   const rounded = value => Number(value.toFixed(7));
-  const config = {
+  return {
     schema: "espl-proximity-camera-view-v1",
     simulationTimeUtc: new Date(currentMs).toISOString(),
     cameraMode: view,
@@ -2475,6 +2530,10 @@ $("captureViewBtn").addEventListener("click", async () => {
     near: rounded(camera.near), far: rounded(camera.far), aspect: rounded(camera.aspect),
     viewport: { width: renderer.domElement.clientWidth, height: renderer.domElement.clientHeight },
   };
+}
+$("captureViewBtn").addEventListener("click", async () => {
+  playing = false; $("playBtn").innerHTML = '<span class="playIcon"></span>';
+  const config = cameraViewConfig();
   const value = JSON.stringify(config, null, 2), output = $("cameraCaptureOutput");
   output.value = value; output.hidden = false;
   try { await navigator.clipboard.writeText(value); $("cameraCaptureStatus").textContent = "View copied. Paste it into our discussion."; }

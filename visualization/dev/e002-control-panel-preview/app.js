@@ -41,6 +41,65 @@ let playbackFrame = null;
 let speedIndex = 1;
 const speeds = [5, 10, 20, 40, 80];
 const currentPlaybackSpeed = () => speeds[Math.min(speeds.length - 1, speedIndex + (globe?.getMode() === "eci" ? 0 : 1))];
+// Comments store the exact chapter, timeline moment, camera and filters, then
+// restore them through this hook when the comment is opened.
+window.__commentView = {
+  capture() {
+    if (!globe) return null;
+    const view = globe.captureCameraView();
+    if (!view) return null;
+    const chapter = episodeConfig?.windows.find(item => item.id === view.windowId);
+    return {
+      ...view,
+      time: view.timeUtc,
+      chapter: view.windowId,
+      chapterLabel: chapter?.chapterShort || chapter?.chapterLabel || chapter?.label || view.windowId,
+      speedIndex,
+      thresholds: { ...lastThresholds },
+    };
+  },
+  async apply(view) {
+    if (!view || !view.windowId || !globe || !episodeConfig || !playbackControl) return false;
+    const win = episodeConfig.windows.find(item => item.id === view.windowId);
+    const ms = Date.parse(view.timeUtc || view.time);
+    if (!win || !Number.isFinite(ms)) return false;
+    try {
+      // A chapter transition in progress makes the viewer ignore a new switch.
+      // Let it finish first, otherwise the saved chapter would not be restored.
+      const stage = $("globeStage");
+      const waitingSince = Date.now();
+      while (stage?.dataset.chapterTransition && stage.dataset.chapterTransition !== "idle" && Date.now() - waitingSince < 7000) {
+        await new Promise(resolve => setTimeout(resolve, 120));
+      }
+      await playbackControl.reviewWindow(win, ms);
+      const slot = ["A", "C"].includes(view.selected) ? view.selected : selectedChaser();
+      if (selectedChaser() !== slot) selectorFrame?.contentDocument?.querySelector(`.segment[data-slot="${slot}"]`)?.click();
+      globe.update(currentWindow, ms, slot);
+      if (view.mode && globe.getMode() !== view.mode) $("modeBtn").click();
+      if (view.referenceMode && stage.dataset.referenceMode !== view.referenceMode) $("referenceBtn").click();
+      // Reassert the exact moment after the mode/reference changes and make sure
+      // playback is paused, so a running tick cannot drift the restored time.
+      playbackControl.reviewPause();
+      playbackControl.reviewMinute((ms - Date.parse(currentWindow.start)) / 60000, true);
+      globe.update(currentWindow, ms, slot);
+      playbackControl.reviewPause();
+      if (Number.isFinite(view.speedIndex)) speedIndex = Math.max(0, Math.min(speeds.length - 1, view.speedIndex));
+      if (view.thresholds) {
+        for (const [id, value] of [["distanceThresholdSlider", view.thresholds.distance], ["speedThresholdSlider", view.thresholds.speed]]) {
+          const slider = $(id);
+          if (slider && Number.isFinite(Number(value))) { slider.value = value; slider.dispatchEvent(new Event("input", { bubbles: true })); }
+        }
+      }
+      globe.applyCameraView(view);
+      const applied = globe.captureCameraView();
+      return Boolean(applied && applied.windowId === view.windowId);
+    } catch (error) {
+      console.warn("Comment view restore failed:", error);
+      return false;
+    }
+  },
+};
+
 const chartScales = new Map();
 const lastThresholds = { distance: 200, speed: 500 };
 let lastTimeBands = "";

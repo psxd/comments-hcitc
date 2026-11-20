@@ -1319,5 +1319,76 @@ async function init() {
   if (e001) state.seriesPromise = calculateE001(episodeUtcInterval(e001)).then(series => { state.series = series; render(); return series; })
     .catch(error => { $("#status").dataset.kind = "error"; $("#status").textContent += ` E-001 reconstruction unavailable: ${error.message}.`; });
 }
+let commentViewRestoreToken = 0;
+window.__commentView = {
+  capture(anchor) {
+    const selectedId = state.selected ? field(state.selected, "ID") : "";
+    let clickedId = selectedId;
+    if (anchor && Number.isFinite(anchor.clientX) && Number.isFinite(anchor.clientY)) {
+      const hit = document.elementFromPoint(anchor.clientX, anchor.clientY);
+      const hitRow = hit?.closest?.(".episode-row, .expanded-row");
+      if (hitRow?.dataset.episodeId) clickedId = hitRow.dataset.episodeId;
+    }
+    const clickedRow = clickedId ? document.querySelector(`.episode-row[data-episode-id="${clickedId}"]`) : null;
+    const rect = clickedRow?.getBoundingClientRect();
+    return {
+      episode: selectedId,
+      chapter: selectedId,
+      chapterLabel: selectedId ? `Episode ${selectedId}` : "",
+      search: $("#search")?.value || "",
+      sort: { ...state.sort },
+      scrollY: window.scrollY,
+      anchor: anchor && rect ? {
+        episodeId: clickedId,
+        x: anchor.clientX - rect.left,
+        y: anchor.clientY - rect.top,
+        viewportX: anchor.x,
+        viewportY: anchor.y,
+      } : null,
+    };
+  },
+  apply(view) {
+    if (!view || !state.live) return false;
+    const search = $("#search");
+    if (search && typeof view.search === "string") {
+      search.value = view.search;
+      state.query = view.search.trim();
+    }
+    if (view.sort?.key) {
+      state.sort = { key: view.sort.key, direction: view.sort.direction === "asc" ? "asc" : "desc" };
+    }
+    if ("episode" in view) {
+      state.selected = view.episode
+        ? (currentData()?.episodes || []).find(item => field(item, "ID") === view.episode) || null
+        : null;
+    }
+    render();
+
+    const token = ++commentViewRestoreToken;
+    const rowId = view.anchor?.episodeId || view.episode;
+    const align = (attempt = 0) => {
+      if (token !== commentViewRestoreToken) return;
+      const row = rowId ? document.querySelector(`.episode-row[data-episode-id="${rowId}"]`) : null;
+      if (!row) {
+        if (rowId && attempt < 20) setTimeout(() => align(attempt + 1), 150);
+        else if (!rowId && Number.isFinite(view.scrollY)) scrollTo(0, view.scrollY);
+        return;
+      }
+      if (view.anchor && Number.isFinite(view.anchor.viewportY)) {
+        const targetY = (view.anchor.viewportY / 100) * innerHeight;
+        const delta = row.getBoundingClientRect().top + view.anchor.y - targetY;
+        if (Math.abs(delta) > 2) scrollBy(0, delta);
+      } else if (Number.isFinite(view.scrollY)) {
+        scrollTo(0, view.scrollY);
+      }
+      // The expanded detail grows as its description and images arrive; keep the
+      // clicked spot under the restored card for a moment while that settles.
+      if (attempt < 6) setTimeout(() => align(attempt + 1), 250);
+    };
+    align(0);
+    return true;
+  },
+};
+
 init().catch(error => { $("#status").textContent = `The table could not start: ${error.message}`; $("#status").dataset.kind = "error"; });
 

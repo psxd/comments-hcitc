@@ -16,7 +16,7 @@ if (!episodeId) {
   }
 }
 const episodeModule = {
-  "E-001": "./compare.js?v=24", "E-002": "./episode-e002.js?v=9",
+  "E-001": "./compare.js?v=25", "E-002": "./episode-e002.js?v=9",
   "E-005": "./episode-e005.js?v=13", "E-003": "./episode-e003.js?v=8",
   "E-006": "./episode-e006.js?v=15", "E-008": "./episode-e008.js?v=7",
   "E-016": "./episode-e016.js?v=5", "E-059": "./episode-e059.js?v=6",

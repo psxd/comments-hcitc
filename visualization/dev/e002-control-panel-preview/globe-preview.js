@@ -726,19 +726,5 @@ export function createGlobePreview(model, episode, names, initialCameraViews = [
         fov: camera.fov, zoom: camera.zoom,
       };
     },
-    // Restore an exact saved pose. auto=false keeps the animated loop from
-    // reframing away from the restored view.
-    applyCameraView(view) {
-      if (!view || !Array.isArray(view.position) || !Array.isArray(view.target) || !Array.isArray(view.up)) return false;
-      camera.position.fromArray(view.position);
-      controls.target.fromArray(view.target);
-      camera.up.fromArray(view.up);
-      if (Number.isFinite(view.fov)) camera.fov = view.fov;
-      if (Number.isFinite(view.zoom)) camera.zoom = view.zoom;
-      camera.updateProjectionMatrix();
-      controls.update();
-      auto = false;
-      return true;
-    },
   };
 }

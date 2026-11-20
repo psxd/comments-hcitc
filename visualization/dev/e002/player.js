@@ -562,3 +562,32 @@ export const episodeModel = {
     requestAnimationFrame(step);
   }
 };
+
+// Comments store this player's exact chapter, moment and camera, then restore
+// them when the comment is opened. Shape matches the shared comment hook.
+window.__commentView = {
+  capture() {
+    if (!episodeModel.ready) return null;
+    const chapter = episodeModel.window;
+    return {
+      time: new Date(episodeModel.current).toISOString(),
+      windowId: chapter.id,
+      chapter: chapter.id,
+      chapterLabel: chapter.chapterShort || chapter.chapterLabel || chapter.label || chapter.id,
+      camera: episodeModel.captureCamera("Comment view"),
+    };
+  },
+  apply(view) {
+    if (!view || !episodeModel.ready) return false;
+    try {
+      if (view.windowId && episodeModel.window.id !== view.windowId) episodeModel.selectWindow(view.windowId);
+      const ms = Date.parse(view.time);
+      if (Number.isFinite(ms)) episodeModel.setTime(ms);
+      if (view.camera) episodeModel.applyCamera(view.camera);
+      return true;
+    } catch (error) {
+      console.warn("Comment view restore failed:", error);
+      return false;
+    }
+  },
+};
