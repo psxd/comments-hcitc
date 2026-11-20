@@ -27,25 +27,46 @@ export function dotTexture(fillColor) {
   return texture;
 }
 
+// Rebuilt on every playback frame and on every slider step, so this fills typed
+// arrays directly instead of building JS arrays with spread pushes and toArray().
 export function fadingTrailGeometry(points) {
   const geometry = new THREE.BufferGeometry();
-  if (points.length < 2) return geometry;
-  const positions = [], previous = [], next = [], sides = [], ages = [], indices = [];
-  for (let i = 0; i < points.length; i++) {
-    for (const side of [-1, 1]) {
-      positions.push(...points[i].toArray());
-      previous.push(...points[Math.max(0, i - 1)].toArray());
-      next.push(...points[Math.min(points.length - 1, i + 1)].toArray());
-      sides.push(side); ages.push(i / (points.length - 1));
+  const count = points.length;
+  if (count < 2) return geometry;
+  const vertices = count * 2;
+  const positions = new Float32Array(vertices * 3);
+  const previous = new Float32Array(vertices * 3);
+  const next = new Float32Array(vertices * 3);
+  const sides = new Float32Array(vertices);
+  const ages = new Float32Array(vertices);
+  const indices = vertices > 65535 ? new Uint32Array((count - 1) * 6) : new Uint16Array((count - 1) * 6);
+  for (let i = 0; i < count; i++) {
+    const point = points[i], before = points[Math.max(0, i - 1)], after = points[Math.min(count - 1, i + 1)];
+    const base = i * 6, use = i * 2;
+    positions[base] = positions[base + 3] = point.x;
+    positions[base + 1] = positions[base + 4] = point.y;
+    positions[base + 2] = positions[base + 5] = point.z;
+    previous[base] = previous[base + 3] = before.x;
+    previous[base + 1] = previous[base + 4] = before.y;
+    previous[base + 2] = previous[base + 5] = before.z;
+    next[base] = next[base + 3] = after.x;
+    next[base + 1] = next[base + 4] = after.y;
+    next[base + 2] = next[base + 5] = after.z;
+    sides[use] = -1; sides[use + 1] = 1;
+    const age = i / (count - 1);
+    ages[use] = ages[use + 1] = age;
+    if (i) {
+      const n = use, at = (i - 1) * 6;
+      indices[at] = n - 2; indices[at + 1] = n - 1; indices[at + 2] = n;
+      indices[at + 3] = n - 1; indices[at + 4] = n + 1; indices[at + 5] = n;
     }
-    if (i) { const n = i * 2; indices.push(n - 2, n - 1, n, n - 1, n + 1, n); }
   }
-  geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
-  geometry.setAttribute("previous", new THREE.Float32BufferAttribute(previous, 3));
-  geometry.setAttribute("next", new THREE.Float32BufferAttribute(next, 3));
-  geometry.setAttribute("side", new THREE.Float32BufferAttribute(sides, 1));
-  geometry.setAttribute("age", new THREE.Float32BufferAttribute(ages, 1));
-  geometry.setIndex(indices);
+  geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+  geometry.setAttribute("previous", new THREE.BufferAttribute(previous, 3));
+  geometry.setAttribute("next", new THREE.BufferAttribute(next, 3));
+  geometry.setAttribute("side", new THREE.BufferAttribute(sides, 1));
+  geometry.setAttribute("age", new THREE.BufferAttribute(ages, 1));
+  geometry.setIndex(new THREE.BufferAttribute(indices, 1));
   return geometry;
 }
 

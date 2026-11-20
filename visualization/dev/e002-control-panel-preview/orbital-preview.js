@@ -137,7 +137,14 @@ export function chapterTickHours(widthHours) {
 export function drawOrbitalChart(canvas, samples, metric, { window, currentMs, threshold, title, maximum, qualifications, markedMs = null, speedUnit = "km/s", connectSwitches = false, maxConnectionGapMs = Infinity, minimumTickHours = 0, contextSamples = null, fixedWindow = false }) {
   const width = Math.max(260, Math.round(canvas.clientWidth || 306)), height = 155;
   const ratio = Math.min(Math.max(globalThis.devicePixelRatio || 1, 2), 3), context = canvas.getContext("2d");
-  canvas.width = Math.round(width * ratio); canvas.height = Math.round(height * ratio); context.setTransform(ratio, 0, 0, ratio, 0, 0);
+  // Assigning width/height throws away the canvas backing store and reallocates it,
+  // which is expensive and flickers when a slider redraws many times a second.
+  // Only resize when the size or pixel ratio actually changed.
+  const pixelWidth = Math.round(width * ratio), pixelHeight = Math.round(height * ratio);
+  if (canvas.width !== pixelWidth || canvas.height !== pixelHeight) {
+    canvas.width = pixelWidth; canvas.height = pixelHeight;
+  }
+  context.setTransform(ratio, 0, 0, ratio, 0, 0);
   context.clearRect(0, 0, width, height);
   let left = 52;
   const right = width - 122, top = 11, bottom = height - 38;

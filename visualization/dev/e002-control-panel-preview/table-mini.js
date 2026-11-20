@@ -1,4 +1,4 @@
-import { loadCurrentEpisodes, episodeChapters, cleanCospar } from "../../../shared/episode-feed.js?v=4";
+import { loadCurrentEpisodes, episodeChapters, cleanCospar } from "../../../shared/episode-feed.js?v=6";
 import { loadOrbitalPreview, preloadOrbitalElements } from "./orbital-preview.js";
 import { createGlobePreview } from "./globe-preview.js?tablemini=10";
 

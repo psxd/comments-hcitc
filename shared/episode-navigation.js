@@ -1,4 +1,4 @@
-import { episodeChapters } from "./episode-feed.js?v=5";
+import { episodeChapters } from "./episode-feed.js?v=6";
 
 const root = new URL("../", import.meta.url);
 const reviewPath = asset => asset === "E-001" ? "visualization/dev/e001-review/"

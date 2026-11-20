@@ -5,12 +5,12 @@ import { renderSharedCommentList } from "../dev/review-shell.js?v=2";
 import * as THREE from "./vendor/three/three.module.js";
 import { OrbitControls } from "./vendor/three/addons/controls/OrbitControls.js";
 import { feature } from "./vendor/topojson/topojson-client.js";
-import { loadCurrentEpisodes, episodeChapters, plottedObjects } from "../../shared/episode-feed.js?v=5";
+import { loadCurrentEpisodes, episodeChapters, plottedObjects } from "../../shared/episode-feed.js?v=6";
 import { spaceTrackHistoryUrl } from "../../shared/tle-provenance.js";
-import { DOT_SCREEN_SIZE, dotTexture, fadingTrailGeometry, fadingTrailMaterial, miniMarkerScale } from "./relative-rendering.js?v=4";
+import { DOT_SCREEN_SIZE, dotTexture, fadingTrailGeometry, fadingTrailMaterial, miniMarkerScale } from "./relative-rendering.js?v=5";
 import { wireTimelineHover } from "./playback-shared.js";
 import { analyzeEpisode, exclusiveQualificationIntervals } from "./e001-analysis.js";
-import { drawOrbitalChart } from "../dev/e002-control-panel-preview/orbital-preview.js";
+import { drawOrbitalChart } from "../dev/e002-control-panel-preview/orbital-preview.js?v=2";
 import { installGlossary } from "../dev/e002-control-panel-preview/glossary.js";
 import { formatDwellDuration } from "../../shared/format-duration.js";
 import { dwellSatelliteName } from "../../shared/dwell-name.js";
@@ -20,8 +20,11 @@ const $ = id => document.getElementById(id);
 const panelPreview = new URLSearchParams(location.search).get("panelPreview") === "1";
 const miniScene = new URLSearchParams(location.search).get("mini") === "1";
 const EARTH_KM = 6378.137, HOUR = 3600000;
-const utc = ms => new Intl.DateTimeFormat("en-US", { timeZone: "UTC", month: "short", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date(ms)) + " UTC";
-const shortUtc = ms => new Intl.DateTimeFormat("en-US", { timeZone: "UTC", month: "short", day: "numeric", year: "numeric" }).format(new Date(ms));
+// Building an Intl.DateTimeFormat is expensive and these run on every slider frame.
+const UTC_FORMAT = new Intl.DateTimeFormat("en-US", { timeZone: "UTC", month: "short", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: false });
+const SHORT_UTC_FORMAT = new Intl.DateTimeFormat("en-US", { timeZone: "UTC", month: "short", day: "numeric", year: "numeric" });
+const utc = ms => UTC_FORMAT.format(new Date(ms)) + " UTC";
+const shortUtc = ms => SHORT_UTC_FORMAT.format(new Date(ms));
 const displayName = name => name;
 const toScene = p => new THREE.Vector3(p.x / EARTH_KM, p.z / EARTH_KM, -p.y / EARTH_KM);
 const svgLink = '<svg viewBox="0 0 18 18" width="12" height="12" aria-hidden="true"><path class="espl-news-external__box" d="M7.25 4.25H4.5A1.75 1.75 0 0 0 2.75 6v7.5a1.75 1.75 0 0 0 1.75 1.75H12a1.75 1.75 0 0 0 1.75-1.75v-2.75"></path><g class="espl-news-external__arrow"><path d="M9.25 2.75h6v6"></path><path d="m8 10 7.25-7.25"></path></g></svg>';
@@ -496,7 +499,7 @@ async function start() {
     $("rangeStat").textContent = pair ? `${Math.round(pair.distanceKm).toLocaleString()} km` : "—";
     $("speedStat").textContent = pair ? pair.speedMs < 1000 ? `${Math.round(pair.speedMs)} m/s` : `${(pair.speedMs / 1000).toFixed(2)} km/s` : "—";
     status.textContent = current < participants.find(item => item.slot === selected).launchMs ? `${displayName(participants.find(item => item.slot === selected).name)} had not launched at this playback time.` : "";
-    $("timelineSlider").value = String(current);
+    if ($("timelineSlider").value !== String(current)) $("timelineSlider").value = String(current);
     $("sliderNow").textContent = utc(current);
     $("sliderNow").title = utc(current);
     updateCards(states); drawCharts(!playing); syncReferenceButton();
@@ -543,7 +546,14 @@ async function start() {
   function resize() { const width = Math.max(1, sceneHost.clientWidth), height = Math.max(1, sceneHost.clientHeight); camera.aspect = width / height; const nextScale = miniScene ? (Number(window.frameElement?.dataset.miniBaseHeight) || height) / height : 1; camera.zoom *= nextScale / miniProjectionScale; miniProjectionScale = nextScale; camera.updateProjectionMatrix(); renderer.setSize(width, height, false); renderer.domElement.style.width = `${width}px`; renderer.domElement.style.height = `${height}px`; for (const trail of Object.values(trails)) trail.material.uniforms.uResolution.value.set(width, height); drawCharts(); }
   new ResizeObserver(resize).observe(sceneHost); new ResizeObserver(drawCharts).observe($("distanceChartGroup"));
   chapterNav.addEventListener("click", event => { const button = event.target.closest("button[data-chapter]"); if (button) void switchChapter(button.dataset.chapter); });
-  $("timelineSlider").addEventListener("input", event => setTime(Number(event.target.value)));
+  // A drag fires several input events per frame, so repaint once per frame from the
+  // latest value instead of doing the whole scene and chart redraw per event.
+  let sliderFrame = null, sliderTarget = null;
+  $("timelineSlider").addEventListener("input", event => {
+    sliderTarget = Number(event.target.value);
+    if (sliderFrame !== null) return;
+    sliderFrame = requestAnimationFrame(() => { sliderFrame = null; setTime(sliderTarget); });
+  });
   $("playBtn").addEventListener("click", () => {
     if (transitioning) return;
     if (!playing && current >= chapter.endMs) {

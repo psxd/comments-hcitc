@@ -5,12 +5,12 @@ import { renderSharedCommentList } from "../dev/review-shell.js?v=2";
 import * as THREE from "./vendor/three/three.module.js";
 import { OrbitControls } from "./vendor/three/addons/controls/OrbitControls.js";
 import { feature } from "./vendor/topojson/topojson-client.js";
-import { loadCurrentEpisodes, episodeChapters, plottedObjects } from "../../shared/episode-feed.js?v=4";
+import { loadCurrentEpisodes, episodeChapters, plottedObjects } from "../../shared/episode-feed.js?v=6";
 import { spaceTrackHistoryUrl } from "../../shared/tle-provenance.js";
 import { DOT_SCREEN_SIZE, dotTexture, fadingTrailGeometry, fadingTrailMaterial, miniMarkerScale } from "./relative-rendering.js";
 import { wireTimelineHover } from "./playback-shared.js";
 import { analyzeEpisode, exclusiveQualificationIntervals } from "./e001-analysis.js";
-import { drawOrbitalChart } from "../dev/e002-control-panel-preview/orbital-preview.js";
+import { drawOrbitalChart } from "../dev/e002-control-panel-preview/orbital-preview.js?v=2";
 import { installGlossary } from "../dev/e002-control-panel-preview/glossary.js";
 import { formatDwellDuration } from "../../shared/format-duration.js";
 import { dwellSatelliteName } from "../../shared/dwell-name.js";
@@ -20,8 +20,11 @@ const $ = id => document.getElementById(id);
 const panelPreview = new URLSearchParams(location.search).get("panelPreview") === "1";
 const miniScene = new URLSearchParams(location.search).get("mini") === "1";
 const EARTH_KM = 6378.137, HOUR = 3600000;
-const utc = ms => new Intl.DateTimeFormat("en-US", { timeZone: "UTC", month: "short", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date(ms)) + " UTC";
-const shortUtc = ms => new Intl.DateTimeFormat("en-US", { timeZone: "UTC", month: "short", day: "numeric", year: "numeric" }).format(new Date(ms));
+// Building an Intl.DateTimeFormat is expensive and these run on every slider frame.
+const UTC_FORMAT = new Intl.DateTimeFormat("en-US", { timeZone: "UTC", month: "short", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: false });
+const SHORT_UTC_FORMAT = new Intl.DateTimeFormat("en-US", { timeZone: "UTC", month: "short", day: "numeric", year: "numeric" });
+const utc = ms => UTC_FORMAT.format(new Date(ms)) + " UTC";
+const shortUtc = ms => SHORT_UTC_FORMAT.format(new Date(ms));
 const displayName = (name, concise = false) => /^INTELSAT 7 \(PAS 7\)$/i.test(name)
   ? (concise ? "INTELSAT 7" : "INTELSAT 7 (PAS 7)") : name;
 const toScene = p => new THREE.Vector3(p.x / EARTH_KM, p.z / EARTH_KM, -p.y / EARTH_KM);
@@ -545,7 +548,7 @@ async function start() {
     $("rangeStat").textContent = pair ? `${Math.round(pair.distanceKm).toLocaleString()} km` : "—";
     $("speedStat").textContent = pair ? pair.speedMs < 1000 ? `${Math.round(pair.speedMs)} m/s` : `${(pair.speedMs / 1000).toFixed(2)} km/s` : "—";
     status.textContent = current < participants.find(item => item.slot === selected).launchMs ? `${displayName(participants.find(item => item.slot === selected).name)} had not launched at this playback time.` : "";
-    $("timelineSlider").value = String(current);
+    if ($("timelineSlider").value !== String(current)) $("timelineSlider").value = String(current);
     $("sliderNow").textContent = utc(current);
     $("sliderNow").title = utc(current);
     updateCards(states); drawCharts(!playing); syncReferenceButton();
@@ -593,7 +596,14 @@ async function start() {
   new ResizeObserver(resize).observe(sceneHost); new ResizeObserver(drawCharts).observe($("distanceChartGroup"));
   selector.addEventListener("click", event => { const button = event.target.closest("button[data-slot]"); if (button) { if (button.dataset.slot === selected) sharedChevron.click(); else chooseChaser(button.dataset.slot); } });
   chapterNav.addEventListener("click", event => { const button = event.target.closest("button[data-chapter]"); if (button) void switchChapter(button.dataset.chapter); });
-  $("timelineSlider").addEventListener("input", event => setTime(Number(event.target.value)));
+  // A drag fires several input events per frame, so repaint once per frame from the
+  // latest value instead of doing the whole scene and chart redraw per event.
+  let sliderFrame = null, sliderTarget = null;
+  $("timelineSlider").addEventListener("input", event => {
+    sliderTarget = Number(event.target.value);
+    if (sliderFrame !== null) return;
+    sliderFrame = requestAnimationFrame(() => { sliderFrame = null; setTime(sliderTarget); });
+  });
   $("playBtn").addEventListener("click", () => {
     if (transitioning) return;
     if (!playing && current >= chapter.endMs) {

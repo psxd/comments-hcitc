@@ -34,10 +34,10 @@ import * as topojson from "topojson-client";
 import { sampleEpisode, analyzeEpisode, exclusiveQualificationIntervals } from "./e001-analysis.js";
 import { safeEpisodeName, episodeNameText } from "../../shared/episode-name.js";
 import { relativeCameraFrame, relativeFitDistance } from "./relative-camera.js";
-import { DOT_SCREEN_SIZE, SATELLITE_STYLES, dotTexture, fadingTrailGeometry, fadingTrailMaterial, miniMarkerScale } from "./relative-rendering.js?v=4";
+import { DOT_SCREEN_SIZE, SATELLITE_STYLES, dotTexture, fadingTrailGeometry, fadingTrailMaterial, miniMarkerScale } from "./relative-rendering.js?v=5";
 import { applyMarkerCssVariables } from "../../shared/marker-spec.js?v=3";
 applyMarkerCssVariables();
-import { loadCurrentEpisodes, episodeUtcInterval, episodeChapters } from "../../shared/episode-feed.js?v=5";
+import { loadCurrentEpisodes, episodeUtcInterval, episodeChapters } from "../../shared/episode-feed.js?v=6";
 import { tleProvenance, spaceTrackHistoryUrl } from "../../shared/tle-provenance.js?v=3";
 import { renderEstimatedMinimum } from "./estimate-ui.js";
 import { updatePlaybackCounter, wireSpeedButtons, wireTimelineHover } from "./playback-shared.js";
@@ -309,6 +309,11 @@ renderer.domElement.className = "sceneCanvas";
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 document.body.prepend(renderer.domElement);
 
+// Reading the canvas box forces the browser to lay the page out again, and this page
+// reads it several times per frame. Measure it once and re-measure after a resize.
+let canvasBox = null;
+const canvasRect = () => (canvasBox ||= renderer.domElement.getBoundingClientRect());
+
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;      // Makes spinning feel smooth instead of jerky
 controls.dampingFactor = 0.08;
@@ -455,37 +460,50 @@ async function loadBorders() {
   try {
     borderLayers.standard = await buildBorders("vendor/countries-110m.json");
     borderGroup.add(borderLayers.standard);
-    borderLayers.detailed = await buildBorders("vendor/countries-50m.json");
-    borderLayers.detailed.visible = false;
-    borderGroup.add(borderLayers.detailed);
   } catch (error) {
     console.warn("Political boundaries unavailable", error);
   }
 }
+// The 50 m outline file is three quarters of a megabyte and only shows when zoomed
+// right in, so it is fetched the first time the camera gets that close, not at startup.
+let detailedBordersLoading = false;
+function loadDetailedBorders() {
+  if (detailedBordersLoading || borderLayers.detailed) return;
+  detailedBordersLoading = true;
+  buildBorders("vendor/countries-50m.json").then(borders => {
+    borders.visible = false;
+    borderGroup.add(borders);
+    borderLayers.detailed = borders;
+  }).catch(error => console.warn("Detailed political boundaries unavailable", error));
+}
 loadBorders();
 function updateBorderDetail() {
-  if (!borderLayers.standard || !borderLayers.detailed) return;
+  if (!borderLayers.standard) return;
   if (miniScene) {
     borderLayers.standard.visible = !miniBorderMap;
-    borderLayers.detailed.visible = false;
+    if (borderLayers.detailed) borderLayers.detailed.visible = false;
     borderLayers.standard.material.opacity = .62;
     return;
   }
   const distance = Math.max(.01, camera.position.length());
-  const diameter = renderer.domElement.getBoundingClientRect().height /
+  const diameter = canvasRect().height /
     (Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * distance);
   // SBI's 110 m outline is crisper at ordinary globe sizes. Its 50 m outline
   // appears only when zoomed far enough for the added vertices to be resolved.
-  const detailed = borderLayers.detailed.visible ? diameter > 620 : diameter > 760;
+  const wantsDetailed = borderLayers.detailed
+    ? (borderLayers.detailed.visible ? diameter > 620 : diameter > 760)
+    : diameter > 760;
+  if (wantsDetailed && !borderLayers.detailed) loadDetailedBorders();
+  const detailed = wantsDetailed && !!borderLayers.detailed;
   borderLayers.standard.visible = !detailed;
-  borderLayers.detailed.visible = detailed;
+  if (borderLayers.detailed) borderLayers.detailed.visible = detailed;
   // Subpixel political lines cannot stay continuous on a tiny globe. Fade them
   // in smoothly as the projected Earth becomes large enough to resolve them.
   const opacity = view === "earth"
     ? .85 * THREE.MathUtils.smoothstep(diameter, 65, 115)
     : .85 * THREE.MathUtils.smoothstep(diameter, 95, 190);
   borderLayers.standard.material.opacity = opacity;
-  borderLayers.detailed.material.opacity = opacity;
+  if (borderLayers.detailed) borderLayers.detailed.material.opacity = opacity;
 }
 
 const GEO_RADIUS_KM = 42164;
@@ -505,7 +523,7 @@ const geoBeltLabel = document.getElementById("geoBeltLabel");
 function updateGeoBeltLabel() {
   if (view !== "relative" || !geoBelt.visible || cameraTween) { geoBeltLabel.hidden = true; return; }
   earthGroup.updateMatrixWorld(true);
-  const rect = renderer.domElement.getBoundingClientRect();
+  const rect = canvasRect();
   const project = lon => {
     const p = earthGroup.localToWorld(latLonToPoint(0, lon, GEO_RADIUS_KM / EARTH_RADIUS_KM + .01)).project(camera);
     return { x: rect.left + (p.x + 1) * rect.width / 2, y: rect.top + (1 - p.y) * rect.height / 2, z: p.z };
@@ -610,8 +628,20 @@ for (const slot of ["A", "B"]) {
   satelliteScreenLabels.append(node); screenLabelNodes[slot] = node;
 }
 document.body.append(satelliteScreenLabels);
+// A label's box only changes when its text does, so measure it then and remember it.
+// Reading offsetWidth on every frame would lay the page out again on every frame.
+const labelSizes = { A: { text: null, width: 0, height: 0 }, B: { text: null, width: 0, height: 0 } };
+function labelSize(slot, node) {
+  const cached = labelSizes[slot];
+  if (cached.text !== node.textContent) {
+    cached.text = node.textContent;
+    cached.width = node.offsetWidth;
+    cached.height = node.offsetHeight;
+  }
+  return cached;
+}
 function updateScreenLabels() {
-  const rect = renderer.domElement.getBoundingClientRect();
+  const rect = canvasRect();
   const positions = {}, radius = DOT_SCREEN_SIZE * rect.height / 2;
   for (const slot of ["A", "B"]) {
     const node = screenLabelNodes[slot], dot = dots[slot];
@@ -621,7 +651,8 @@ function updateScreenLabels() {
     const y = rect.top + (1 - point.y) * rect.height / 2;
     node.hidden = point.z < -1 || point.z > 1 || x < rect.left || x > rect.right || y < 0 || y > innerHeight;
     if (node.hidden) { labelMotion[slot].x = null; continue; }
-    positions[slot] = { markerX: x, markerY: y, left: x + radius + 10, y, width: node.offsetWidth, height: node.offsetHeight };
+    const size = labelSize(slot, node);
+    positions[slot] = { markerX: x, markerY: y, left: x + radius + 10, y, width: size.width, height: size.height };
   }
   const a = positions.A, b = positions.B;
   if (a && b) {
@@ -706,8 +737,14 @@ const version = ++labelVersion[slot];
 // ---------------------------------------------------------------------------
 // 7. Formatting helpers
 // ---------------------------------------------------------------------------
-const formatTime = ms => new Intl.DateTimeFormat("en-US", { year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "UTC" }).format(new Date(ms)) + " UTC";
-const formatDate = ms => new Intl.DateTimeFormat("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }).format(new Date(ms));
+// Building an Intl.DateTimeFormat is expensive and these format the current time on
+// every frame, so each pattern is built once here and reused.
+const utcFormat = options => new Intl.DateTimeFormat("en-US", { ...options, timeZone: "UTC" });
+const TIME_FORMAT = utcFormat({ year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false });
+const DATE_FORMAT = utcFormat({ year: "numeric", month: "long", day: "numeric" });
+const SLIDER_FORMAT = utcFormat({ month: "short", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: false });
+const formatTime = ms => TIME_FORMAT.format(new Date(ms)) + " UTC";
+const formatDate = ms => DATE_FORMAT.format(new Date(ms));
 
 // <input type="datetime-local"> uses text like "2020-01-02T10:16". We always treat it as UTC.
 const toInputValue = ms => new Date(ms).toISOString().slice(0, 16);
@@ -816,11 +853,13 @@ function updateScene() {
   $("timeDisplay").textContent = formatTime(currentMs).replace(" UTC", "");
   updatePlaybackCounter($("sliderNow"), currentMs - startMs, currentMs);
   if (localChapterReview) {
-    $("sliderNow").textContent = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "UTC" }).format(new Date(currentMs)) + " UTC";
+    $("sliderNow").textContent = SLIDER_FORMAT.format(new Date(currentMs)) + " UTC";
     $("sliderNow").setAttribute("aria-label", `Playback time: ${formatTime(currentMs)}`);
     $("sliderNow").removeAttribute("data-full-utc");
   }
-  $("timelineSlider").value = currentMs;
+  // Write the slider only when it really moved: assigning .value during a drag is
+  // needless work, and the bare minimum of DOM writes keeps the thumb steady.
+  if ($("timelineSlider").value !== String(currentMs)) $("timelineSlider").value = String(currentMs);
   $("timelineSlider").style.setProperty("--progress", `${(currentMs - startMs) / (endMs - startMs) * 100}%`);   // gold "played so far" part of the time bar
 
   // Spin Earth to the right angle for this moment (Greenwich sidereal time).
@@ -2080,10 +2119,11 @@ $("startTime").addEventListener("change", () => setWindow(fromInputValue($("star
 $("endTime").addEventListener("change", () => setWindow(startMs, fromInputValue($("endTime").value)));
 
 // Satellite lookup: run when "Look up" is clicked or Enter is pressed in the box.
-function runLookup() {
+async function runLookup() {
   $("lookupActions").hidden = true;            // tells the html file to hide the Load buttons until we know there's something to load
    lookupFound = null;                          // forget the previous result
 
+  if (!satcat.length && !satcatError) await satcatReady();   // first lookup fetches the catalog
   if (satcatError) {                           // the catalog FAILED to load: keep saying why
     $("lookupResult").textContent = satcatError;
     return;
@@ -2179,20 +2219,27 @@ $("playBtn").addEventListener("click", () => {
   playing = !playing;   // "!" means "not", so this flips true <-> false
   $("playBtn").innerHTML = playing ? '<span class="pauseIcon"></span>' : '<span class="playIcon"></span>';
 });
-// Dragging or clicking the slider: jump to that moment.
+// Dragging or clicking the slider: jump to that moment. A drag fires several input
+// events per animation frame, so the redraw is coalesced into one per frame (the last
+// event still wins, because the frame reads currentMs when it runs).
+let sliderFrame = null;
 $("timelineSlider").addEventListener("input", event => {
   focusedMinimumMs = null;
   playing = false;
   $("playBtn").innerHTML = '<span class="playIcon"></span>';
   currentMs = Number(event.target.value);
   chartDirty = true;
-  updateScene();
-  if (view === "relative" && !cameraEditMode && !cameraTween) {
-    followGeoReference();
-    keepBothInFrame(true);
-    controls.update(); camera.updateMatrixWorld(true);
-    updateGeoBeltLabel(); updateScreenLabels(); renderer.render(scene, camera);
-  }
+  if (sliderFrame !== null) return;
+  sliderFrame = requestAnimationFrame(() => {
+    sliderFrame = null;
+    updateScene();
+    if (view === "relative" && !cameraEditMode && !cameraTween) {
+      followGeoReference();
+      keepBothInFrame(true);
+      controls.update(); camera.updateMatrixWorld(true);
+      updateGeoBeltLabel(); updateScreenLabels(); renderer.render(scene, camera);
+    }
+  });
 });
 wireTimelineHover($("timelineSlider"), $("timelineHover"), $("timelineHoverTick"), () => [startMs, endMs]);
 for (const id of ["distanceThreshold", "speedThreshold"]) $(id).addEventListener("input", updateThresholds);
@@ -2301,7 +2348,7 @@ if (localChapterReview) {
     },
     play() { if (!playing) $("playBtn").click(); },
     pause() { if (playing) $("playBtn").click(); },
-    capture() { return cameraViewConfig(); },
+    capture() { $("captureViewBtn").click(); return JSON.parse($("cameraCaptureOutput").value); },
     motionPreview(timeUtc, spanMinutes) {
       const middle = Date.parse(timeUtc), half = spanMinutes * MINUTE_MS / 2;
       const frameRect = window.frameElement?.getBoundingClientRect() || { left: 0, top: 0 };
@@ -2364,58 +2411,6 @@ if (localChapterReview) {
     },
     get state() { return { time: currentMs, start: startMs, end: endMs, playing, held: cameraEditMode, mode: view, referenceSatellite: centre }; },
   };
-
-  // What a comment stores so it can bring the page back to this exact moment,
-  // camera and filter set. The shared comment module calls this hook.
-  window.__commentView = {
-    capture() {
-      const state = window.__proximityWorkshop.state;
-      return {
-        time: Number.isFinite(state.time) ? new Date(state.time).toISOString() : "",
-        chapter: publishedCameraChapter || "",
-        chapterLabel: publishedCameraChapter || "",
-        camera: cameraViewConfig(),
-        speed: $("speed").value,
-        windowMode: $("windowMode").value,
-        start: $("windowMode").value === "custom" ? $("startTime").value : "",
-        end: $("windowMode").value === "custom" ? $("endTime").value : "",
-        thresholds: { distance: $("distanceThreshold").value, speed: $("speedThreshold").value },
-        axes: $("axesBtn").classList.contains("isOn"),
-      };
-    },
-    apply(saved) {
-      if (!saved || !saved.camera) return false;
-      try {
-        if (saved.windowMode && $("windowMode").value !== saved.windowMode) {
-          $("windowMode").value = saved.windowMode;
-          $("windowMode").dispatchEvent(new Event("change", { bubbles: true }));
-        }
-        if (saved.windowMode === "custom") {
-          if (saved.start) { $("startTime").value = saved.start; $("startTime").dispatchEvent(new Event("change", { bubbles: true })); }
-          if (saved.end) { $("endTime").value = saved.end; $("endTime").dispatchEvent(new Event("change", { bubbles: true })); }
-        }
-        if (saved.speed && [...$("speed").options].some(option => option.value === saved.speed)) $("speed").value = saved.speed;
-        if (saved.thresholds) {
-          for (const [id, value] of [["distanceThreshold", saved.thresholds.distance], ["speedThreshold", saved.thresholds.speed]]) {
-            if (value === undefined || value === null || value === "") continue;
-            $(id).value = value;
-            const slider = $(`${id}Slider`);
-            if (slider && Number(value) >= Number(slider.min) && Number(value) <= Number(slider.max)) slider.value = value;
-          }
-          updateThresholds();
-        }
-        if (saved.axes !== undefined && $("axesBtn").classList.contains("isOn") !== Boolean(saved.axes)) $("axesBtn").click();
-        if (saved.time) {
-          try { window.__proximityWorkshop.setTime(saved.time); } catch { /* outside the restored window */ }
-        }
-        window.__proximityWorkshop.applyCamera(saved.camera);
-        return true;
-      } catch (err) {
-        console.warn("Comment view restore failed:", err);
-        return false;
-      }
-    },
-  };
 }
 $("devTime").addEventListener("change", event => {
   const requested = Date.parse(`${event.target.value}Z`);
@@ -2461,13 +2456,11 @@ $("loadReferenceViewBtn").addEventListener("click", () => {
   $("devTime").value = new Date(currentMs).toISOString().slice(0, 16);
   $("cameraCaptureStatus").textContent = `Captured position and direction loaded at ${new Date(currentMs).toISOString()}; viewport aspect ${camera.aspect.toFixed(3)}.`;
 });
-// The serialisable description of the camera right now. Shared by the dev
-// "Capture view" button and by comments, which store it without touching the
-// clipboard or pausing playback.
-function cameraViewConfig() {
+$("captureViewBtn").addEventListener("click", async () => {
+  playing = false; $("playBtn").innerHTML = '<span class="playIcon"></span>';
   camera.updateMatrixWorld(true);
   const rounded = value => Number(value.toFixed(7));
-  return {
+  const config = {
     schema: "espl-proximity-camera-view-v1",
     simulationTimeUtc: new Date(currentMs).toISOString(),
     cameraMode: view,
@@ -2482,10 +2475,6 @@ function cameraViewConfig() {
     near: rounded(camera.near), far: rounded(camera.far), aspect: rounded(camera.aspect),
     viewport: { width: renderer.domElement.clientWidth, height: renderer.domElement.clientHeight },
   };
-}
-$("captureViewBtn").addEventListener("click", async () => {
-  playing = false; $("playBtn").innerHTML = '<span class="playIcon"></span>';
-  const config = cameraViewConfig();
   const value = JSON.stringify(config, null, 2), output = $("cameraCaptureOutput");
   output.value = value; output.hidden = false;
   try { await navigator.clipboard.writeText(value); $("cameraCaptureStatus").textContent = "View copied. Paste it into our discussion."; }
@@ -2504,6 +2493,8 @@ function updateRendererLayout() {
   else camera.clearViewOffset();
   camera.updateProjectionMatrix();
   renderer.setSize(innerWidth, innerHeight);
+  canvasBox = null;                          // the canvas box just changed: measure it again
+  labelSizes.A.text = labelSizes.B.text = null;   // and re-measure the screen labels
   if (pair.A || pair.B) updateNames();       // redraw the labels at the new screen size
   chartDirty = true; drawEpisodeCharts();
 }
@@ -2608,6 +2599,12 @@ async function loadSatcat() {
     $("lookupResult").textContent = satcatError;
   }
 }
+// The catalog is several megabytes and only the lookup box needs it, so it is fetched
+// the first time that box is used. Every caller shares the one download.
+let satcatRequest = null;
+function satcatReady() {
+  return satcatRequest ||= loadSatcat();
+}
 
 
 
@@ -2627,7 +2624,10 @@ try {
 } catch (error) {
   console.warn("No owner list (data/owners.json), so no flags", error);
 }
-loadSatcat();   // no "await": load the catalog in the background so the 3D view doesn't wait for it
+// The catalog is loaded on the first real interaction with the finder (see satcatReady),
+// never during page load. A "toggle" listener would also fire here while the panel was
+// being set up, which started the download anyway.
+for (const event of ["focusin", "pointerdown"]) $("findSection").addEventListener(event, () => satcatReady());
 try {
   let indexResponse = await fetch(`${tleFolder}/index.json`);
   if (!indexResponse.ok) {                     // no full library (as on the live site): use the published subset

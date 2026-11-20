@@ -1,7 +1,7 @@
 /* E-002 uses the established episode shell. Each chapter fixes one dated
    element per spacecraft; charts use the stricter statistical age gate. */
 import { spaceTrackHistoryUrl } from "../../shared/tle-provenance.js?v=2";
-import { loadCurrentEpisodes, plottedObjects } from "../../shared/episode-feed.js?v=4";
+import { loadCurrentEpisodes, plottedObjects } from "../../shared/episode-feed.js?v=6";
 import { safeEpisodeName } from "../../shared/episode-name.js";
 import { renderEstimatedMinimum } from "./estimate-ui.js";
 import { updatePlaybackCounter, wireSpeedButtons, wireTimelineHover } from "./playback-shared.js";

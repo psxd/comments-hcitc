@@ -6,7 +6,7 @@ export async function mountE001Preview(host) {
   frame.title = "Animated E-001 satellite-centered orbital reconstruction";
   frame.tabIndex = -1;
   frame.setAttribute("aria-hidden", "true");
-  frame.src = new URL("../visualization/Viz/compare.html?mini=1&episode=E-001", import.meta.url).href;
+  frame.src = new URL("../visualization/Viz/compare.html?mini=1&episode=E-001&v=2", import.meta.url).href;
   host.dataset.previewFrame = "satellite-centered-relative";
   host.replaceChildren(frame);
   return {

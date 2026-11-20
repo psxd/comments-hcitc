@@ -1,5 +1,5 @@
 /* Shared navigation and comment presentation for the local design review. */
-import { loadCurrentEpisodes } from "../../shared/episode-feed.js?v=4";
+import { loadCurrentEpisodes } from "../../shared/episode-feed.js?v=6";
 const root = new URL("../../", import.meta.url);
 const surfaces = ["E-001", "E-002", "E-003", "E-005", "E-006", "E-008", "E-016", "E-059", "Library"];
 const publicLabels = new Map([["E-001", "E-001"], ["E-002", "E-002"], ["E-003", "E-003"], ["E-005", "E-004"], ["E-006", "E-005"], ["E-008", "E-006"], ["E-016", "E-007"], ["E-059", "E-008"]]);

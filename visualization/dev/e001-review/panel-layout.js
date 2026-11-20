@@ -1,4 +1,4 @@
-import { installEpisodeNavigation } from "../../../shared/episode-navigation.js?v=2";
+import { installEpisodeNavigation } from "../../../shared/episode-navigation.js?v=3";
 
 // Shared E-001 episode panel treatment for the local workshop and public view.
 export function installChapterButtons({ doc, api, syncClock, selectChapter, chapters, dateLabel, placePins, frame, episodes, review = false }) {

@@ -1,10 +1,10 @@
 import * as THREE from "../../Viz/vendor/three/three.module.js";
 import { OrbitControls } from "../../Viz/vendor/three/addons/controls/OrbitControls.js";
 import { feature } from "../../Viz/vendor/topojson/topojson-client.js";
-import { DOT_SCREEN_SIZE, dotTexture } from "../../Viz/relative-rendering.js?v=3";
+import { DOT_SCREEN_SIZE, dotTexture } from "../../Viz/relative-rendering.js?v=5";
 import { MARKER } from "../../../shared/marker-spec.js?v=3";
 import { spaceTrackHistoryUrl } from "../../../shared/tle-provenance.js?v=2";
-import { loadCurrentEpisodes, episodeChapters, plottedObjects } from "../../../shared/episode-feed.js?v=4";
+import { loadCurrentEpisodes, episodeChapters, plottedObjects } from "../../../shared/episode-feed.js?v=6";
 
 const $ = id => document.getElementById(id);
 const mini = document.body.classList.contains("mini");
@@ -561,33 +561,4 @@ export const episodeModel = {
       else if (view.frameMode === 'relative') { data.frameMode = 'relative'; seedRelativeCamera(orbitFrameAt(data.current)); data.auto = !!data.relativeSeed; $("scene").dataset.cameraMode = data.auto ? "auto" : "manual"; updateFrameButton(); } };
     requestAnimationFrame(step);
   }
-};
-
-// Comments store this player's exact chapter, moment and camera, then restore
-// them when the comment is opened. Shape matches the shared comment hook.
-window.__commentView = {
-  capture() {
-    if (!episodeModel.ready) return null;
-    const chapter = episodeModel.window;
-    return {
-      time: new Date(episodeModel.current).toISOString(),
-      windowId: chapter.id,
-      chapter: chapter.id,
-      chapterLabel: chapter.chapterShort || chapter.chapterLabel || chapter.label || chapter.id,
-      camera: episodeModel.captureCamera("Comment view"),
-    };
-  },
-  apply(view) {
-    if (!view || !episodeModel.ready) return false;
-    try {
-      if (view.windowId && episodeModel.window.id !== view.windowId) episodeModel.selectWindow(view.windowId);
-      const ms = Date.parse(view.time);
-      if (Number.isFinite(ms)) episodeModel.setTime(ms);
-      if (view.camera) episodeModel.applyCamera(view.camera);
-      return true;
-    } catch (error) {
-      console.warn("Comment view restore failed:", error);
-      return false;
-    }
-  },
 };

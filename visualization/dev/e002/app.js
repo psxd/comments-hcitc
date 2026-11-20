@@ -1,7 +1,7 @@
 import * as THREE from "../../Viz/vendor/three/three.module.js";
 import { OrbitControls } from "../../Viz/vendor/three/addons/controls/OrbitControls.js";
 import { feature } from "../../Viz/vendor/topojson/topojson-client.js";
-import { dotTexture, fadingTrailGeometry, fadingTrailMaterial } from "../../Viz/relative-rendering.js?v=3";
+import { dotTexture, fadingTrailGeometry, fadingTrailMaterial } from "../../Viz/relative-rendering.js?v=5";
 import { MARKER } from "../../../shared/marker-spec.js?v=3";
 
 const $ = id => document.getElementById(id);

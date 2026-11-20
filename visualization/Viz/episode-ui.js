@@ -1,5 +1,5 @@
 // Only the editorial markup used in the published Episodes sheet is displayed.
-import { loadCurrentEpisodes, episodeUtcInterval } from "../../shared/episode-feed.js?v=4";
+import { loadCurrentEpisodes, episodeUtcInterval } from "../../shared/episode-feed.js?v=6";
 // Parse in an inert document, then create fresh, explicitly allowed DOM nodes.
 const allowed = new Set(["P", "BR", "I", "EM", "B", "STRONG"]);
 const discarded = new Set(["SCRIPT", "STYLE", "IFRAME", "OBJECT", "EMBED", "SVG", "MATH", "IMG", "VIDEO", "AUDIO", "FORM", "INPUT", "BUTTON"]);

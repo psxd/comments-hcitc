@@ -48,7 +48,10 @@ export function parseCsv(text, requiredHeaders = ["ID"]) {
   return rows.map(values => Object.fromEntries(headers.map((key, index) => [key, (values[index] || "").trim()]))).filter(record => record[requiredHeaders[0]]);
 }
 
-let request;
+// Several pages import this file with different ?v= query strings, and each URL is a
+// separate module instance with its own top-level state. Keeping the in-flight
+// requests on the page global makes them all share a single network request.
+const sharedRequests = globalThis.__esplEpisodeFeed ||= { episodes: null, records: null };
 const ORBITAL_ASSET_BY_OBJECTS = new Map([
   ["2014-058A|2014-006B", "E-001"],
   ["2019-079A|2013-043A", "E-002"],
@@ -60,7 +63,7 @@ const ORBITAL_ASSET_BY_OBJECTS = new Map([
   ["2026-083H|2024-043F", "E-059"],
 ]);
 export function loadCurrentEpisodes() {
-  return request ||= fetchCsv(EPISODES_CSV)
+  return sharedRequests.episodes ||= fetchCsv(EPISODES_CSV)
     .then(text => {
       const rows = csvRows(text);
       const top = rows[0]?.map(value => value.replace(/^\uFEFF/, "").trim()) || [];
@@ -104,9 +107,8 @@ export function loadCurrentEpisodes() {
     });
 }
 
-let recordRequest;
 export function loadCurrentRecords() {
-  return recordRequest ||= Promise.all([fetchCsv(RECORDS_CSV), loadCurrentEpisodes()])
+  return sharedRequests.records ||= Promise.all([fetchCsv(RECORDS_CSV), loadCurrentEpisodes()])
     .then(([text, feed]) => {
       const records = parseCsv(text, ["Record ID", "Related episodes", "URL", "Category"]);
       const publicToAsset = new Map(feed.episodes.map(row => [row["Episode ID"], row.ID]));
